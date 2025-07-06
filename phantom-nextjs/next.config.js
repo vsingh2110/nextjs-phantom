@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Disable Next.js development overlay
+  devIndicators: {
+    position: 'bottom-right',
+  },
   turbopack: {
     rules: {
       '*.svg': {
