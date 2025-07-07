@@ -12,7 +12,7 @@ export default function Footer() {
           {/* USA & Western Region */}
           <div className="footer-box-country footer-box2-country">
             <h3>USA & Western Region</h3>
-            <Image src="/images/images/usa-map.jpg" alt="USA Map" width={200} height={150} unoptimized />
+            <Image src="/images/usa-map.jpg" alt="USA Map" width={200} height={150} unoptimized />
             <p>
               <strong>Phantom Healthcare US LLC</strong><br />
               424, Fort Hill Drive, STE 105,<br />
@@ -28,7 +28,7 @@ export default function Footer() {
           {/* Gulf-Arab & African Region */}
           <div className="footer-box-country footer-box2-country">
             <h3>Gulf-Arab & African Region</h3>
-            <Image src="/images/images/uae-flag.jpg" alt="UAE Flag" width={200} height={150} unoptimized />
+            <Image src="/images/uae-flag.jpg" alt="UAE Flag" width={200} height={150} unoptimized />
             <p>
               <strong>Phantom Healthcare AE FZC</strong> <br />
               LV 63-C, Al Hamriyah Freezone, Sharjah<br />
@@ -45,7 +45,7 @@ export default function Footer() {
           {/* India & Sub-Continent Region */}
           <div className="footer-box-country footer-box1-country">
             <h3>India & Sub-Continent Region</h3>
-            <Image src="/images/images/india-flag.jpg" alt="India Flag" width={200} height={150} unoptimized />
+            <Image src="/images/india-flag.jpg" alt="India Flag" width={200} height={150} unoptimized />
             <p>
               <strong>Phantom Healthcare IND Private Limited</strong> <br />
               Plot No. 51, Sector 27C, Near NHPC Chowk,<br />
@@ -67,7 +67,7 @@ export default function Footer() {
           <div className="footer-box footer-box1">
             <div className="footer-logo">
               <Link href="/">
-                <Image src="/images/images/white-logo.png" alt="Phantom Healthcare" width={200} height={60} unoptimized />
+                <Image src="/images/white-logo.png" alt="Phantom Healthcare" width={200} height={60} unoptimized />
               </Link>
             </div>
             <div className="footer-company-name">

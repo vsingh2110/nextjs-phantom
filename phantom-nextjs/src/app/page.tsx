@@ -17,25 +17,25 @@ export default function Home() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-white rounded-xl p-8 shadow-lg card-hover text-center">
-              <Image src="/images/images/hand.png" alt="Sales & Supply" width={64} height={64} className="mx-auto mb-6" unoptimized />
+              <Image src="/images/hand.png" alt="Sales & Supply" width={64} height={64} className="mx-auto mb-6" unoptimized />
               <h3 className="text-xl font-bold text-gray-900 mb-4">Sales & Supply with transparent deals​</h3>
               <p className="text-gray-600">Buy New as well as refurbished equipment from a wide range of models</p>
             </div>
 
             <div className="bg-white rounded-xl p-8 shadow-lg card-hover text-center">
-              <Image src="/images/images/up.png" alt="Upgrade" width={64} height={64} className="mx-auto mb-6" unoptimized />
+              <Image src="/images/up.png" alt="Upgrade" width={64} height={64} className="mx-auto mb-6" unoptimized />
               <h3 className="text-xl font-bold text-gray-900 mb-4">Upgrade your existing MRI and CT Machine​</h3>
               <p className="text-gray-600">We have one of the largest inventory of spare parts for upgrades and repairs</p>
             </div>
 
             <div className="bg-white rounded-xl p-8 shadow-lg card-hover text-center">
-              <Image src="/images/images/service.jpg" alt="Service Maintenance" width={64} height={64} className="mx-auto mb-6 object-cover rounded-lg" unoptimized />
+              <Image src="/images/service.jpg" alt="Service Maintenance" width={64} height={64} className="mx-auto mb-6 object-cover rounded-lg" unoptimized />
               <h3 className="text-xl font-bold text-gray-900 mb-4">Service Maintenance Plans All over India​​</h3>
               <p className="text-gray-600">Our field engineers are present all over India for instant troubleshooting.</p>
             </div>
 
             <div className="bg-white rounded-xl p-8 shadow-lg card-hover text-center">
-              <Image src="/images/images/site.png" alt="Site Planning" width={64} height={64} className="mx-auto mb-6" unoptimized />
+              <Image src="/images/site.png" alt="Site Planning" width={64} height={64} className="mx-auto mb-6" unoptimized />
               <h3 className="text-xl font-bold text-gray-900 mb-4">Site Planning with full financial assistance​</h3>
               <p className="text-gray-600">We provide full support and guidance from site planning with financial assistance.</p>
             </div>
@@ -52,43 +52,43 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {[
               {
-                image: "/images/images/machines/3.0t-mri/GE-3.0T-Architect-png.png",
+                image: "/images/machines/3.0t-mri/GE-3.0T-Architect-png.png",
                 title: "GE Refurbished 3.0T & 1.5T MRI Scanner Machine",
                 description: "8/16 Channel- Magnet FOV:48x48x48cm Gradient:Amp-50mt/m, 120T/m/s",
                 link: "/product-pages/refurbished-mri-scanner-machines"
               },
               {
-                image: "/images/images/machines/3.0t-mri/Verio.png",
+                image: "/images/machines/3.0t-mri/Verio.png",
                 title: "Siemens Refurbished 3.0T & 1.5T MRI Scanner Machine",
                 description: "8/16 Channel Configuration Zero Helium Boil off Gradient Specification: Amplitude 33mt/m, 120T/m/s",
                 link: "/product-pages/refurbished-siemens-mri-scanner-machines"
               },
               {
-                image: "/images/images/machines/ct-scan/brightspeed.png",
+                image: "/images/machines/ct-scan/brightspeed.png",
                 title: "GE Refurbished CT Scanner Machines (8/16/32/64/128 Slices)",
                 description: "Advanced CT scanning technology for accurate diagnostic imaging",
                 link: "/product-pages/refurbished-ct-scan-machines"
               },
               {
-                image: "/images/images/machines/pet-ct/pet-ct-2.png",
+                image: "/images/machines/pet-ct/pet-ct-2.png",
                 title: "GE Refurbished PET-CT Scanner Machines (8/16) Slices",
                 description: "State-of-the-art PET-CT scanners for comprehensive imaging solutions",
                 link: "/product-pages/refurbished-pet-ct-scanner-machines"
               },
               {
-                image: "/images/images/machines/cathlabs.png",
+                image: "/images/machines/cathlabs.png",
                 title: "Philips Refurbished Philips Allura Xper FD10/FD20 Cath-Lab System",
                 description: "Advanced cardiovascular imaging system for interventional procedures",
                 link: "/product-pages/refurbished-cath-lab-machines"
               },
               {
-                image: "/images/images/machines/gamma camera spect/gamma camera ge discovery nm 630.png",
+                image: "/images/machines/gamma camera spect/gamma camera ge discovery nm 630.png",
                 title: "GE Refurbished Gamma Camera SPECT",
                 description: "Advanced SPECT imaging system for nuclear medicine",
                 link: "/product-pages/refurbished-gamma-camera-spect-system-machine"
               },
               {
-                image: "/images/images/machines/Dexa Luner.png",
+                image: "/images/machines/Dexa Luner.png",
                 title: "GE Refurbished DEXA LUNAR Bone Densitometer Machine",
                 description: "Precise bone density measurement for osteoporosis diagnosis",
                 link: "/product-pages/refurbished-bone-densitometer-dexa"

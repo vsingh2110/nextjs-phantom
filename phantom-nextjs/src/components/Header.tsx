@@ -115,7 +115,7 @@ export default function Header() {
             {/* Logo for Mobile */}
             <div className="flex-shrink-0">
               <Link href="/">
-                <Image src="/images/images/logo.jpg" alt="Phantom Healthcare Logo" width={180} height={55} className="w-auto h-14" unoptimized />
+                <Image src="/images/logo.jpg" alt="Phantom Healthcare Logo" width={180} height={55} className="w-auto h-14" unoptimized />
               </Link>
             </div>
           </div>
@@ -125,7 +125,7 @@ export default function Header() {
             {/* Logo for Desktop */}
             <div className="flex-shrink-0">
               <Link href="/">
-                <Image src="/images/images/logo.jpg" alt="Phantom Healthcare Logo" width={180} height={55} className="w-auto h-14" unoptimized />
+                <Image src="/images/logo.jpg" alt="Phantom Healthcare Logo" width={180} height={55} className="w-auto h-14" unoptimized />
               </Link>
             </div>
 
