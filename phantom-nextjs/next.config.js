@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  allowedDevOrigins: ['http://192.168.1.111:3000'],
   // Disable Next.js development overlay
   devIndicators: {
     position: 'bottom-right',
