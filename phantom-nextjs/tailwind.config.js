@@ -80,6 +80,18 @@ module.exports = {
         '100': '100',
       },
     },
+    screens: {
+      'xs': '480px',      // Extra small devices
+      'sm': '640px',     // Tailwind default
+      'sm2': '600px',    // Custom: small tablets
+      'md': '768px',     // Tailwind default
+      'md2': '900px',    // Custom: large tablets
+      'lg': '1024px',    // Tailwind default
+      'xl': '1280px',    // Tailwind default
+      'xl2': '1400px',   // Custom: large desktops
+      '2xl': '1536px',   // Tailwind default
+      '3xl': '1920px',   // Custom: very large screens
+    },
   },
   plugins: [],
 } 

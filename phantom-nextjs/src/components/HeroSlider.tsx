@@ -101,194 +101,155 @@ export default function HeroSlider() {
   };
 
   return (
-    <section className="relative min-h-[60vh] max-h-[100vh] flex items-center justify-center bg-white hero-slider-container mt-6 md:mt-8 lg:mt-0">
-      {/* Mobile-only top border for hero section */}
-      <div className="block lg:hidden absolute top-0 left-0 w-full border-t-2 border-gray-200 z-20"></div>
-      {isMobile ? (
-        // Mobile Layout: Full Hero Slider + Side Section Below
-        <div className="flex flex-col w-full">
-          <div className="relative h-[70vh] min-h-[350px] max-h-[90vh] w-full overflow-hidden">
-            {/* Slides */}
-            {slides.map((slide, index) => (
-              <div
-                key={slide.id}
-                className={`myslide absolute inset-0 ${
-                  index === currentSlide ? 'active fade' : ''
-                }`}
-              >
-                {/* Background Image/Video */}
-                <div className="absolute inset-0">
-                  {slide.video ? (
-                    <video
-                      className="video-bg"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                    >
-                      <source src={slide.video} type="video/mp4" />
-                    </video>
-                  ) : (
-                    <>
-                      <Image
-                        src={slide.image}
-                        alt={slide.title}
-                        fill
-                        className="hidden md:block img-slider"
-                        priority={index === 0}
-                        unoptimized
-                      />
-                      <Image
-                        src={slide.mobileImage}
-                        alt={slide.title}
-                        fill
-                        className="md:hidden img-slider"
-                        priority={index === 0}
-                        unoptimized
-                      />
-                    </>
-                  )}
-                </div>
-
-                {/* Content */}
-                <div className={slide.textClass}>
-                  <h1>{slide.title}</h1>
-                  <p>{slide.description}</p>
-                </div>
+    <section className="relative min-h-[60vh] max-h-[100vh] bg-white hero-slider-container">
+      {/* Mobile Hero (only visible on mobile) */}
+      <div className="block md:hidden">
+        <div className="relative h-[70vh] min-h-[350px] max-h-[90vh] w-full overflow-hidden">
+          {slides.map((slide, index) => (
+            <div
+              key={slide.id}
+              className={`myslide absolute inset-0 ${
+                index === currentSlide ? 'active fade' : ''
+              }`}
+            >
+              <div className="absolute inset-0">
+                {slide.video ? (
+                  <video
+                    className="video-bg"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  >
+                    <source src={slide.video} type="video/mp4" />
+                  </video>
+                ) : (
+                  <Image
+                    src={slide.mobileImage}
+                    alt={slide.title}
+                    fill
+                    className="img-slider"
+                    priority={index === 0}
+                    unoptimized
+                  />
+                )}
               </div>
-            ))}
-
-            {/* Navigation Arrows */}
-            <button
-              onClick={prevSlide}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all duration-300 z-10"
-            >
-              <i className="fas fa-chevron-left text-xl"></i>
-            </button>
-            
-            <button
-              onClick={nextSlide}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all duration-300 z-10"
-            >
-              <i className="fas fa-chevron-right text-xl"></i>
-            </button>
-
-            {/* Dots */}
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
-              {slides.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentSlide
-                      ? 'bg-white scale-125'
-                      : 'bg-white bg-opacity-50 hover:bg-opacity-75'
-                  }`}
-                ></button>
-              ))}
-            </div>
-
-            {/* Play/Pause Button */}
-            <button
-              onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-              className="absolute top-8 right-8 z-20 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm"
-            >
-              <i className={`fas ${isAutoPlaying ? 'fa-pause' : 'fa-play'} text-xl`}></i>
-            </button>
-          </div>
-          <div className="bg-white py-6 px-2 w-full mt-4">
-            <HeroSideSection />
-          </div>
-        </div>
-      ) : (
-        // Desktop Layout: Hero Slider (80%) + Side Section (20%)
-        <div className="w-full max-w-screen-2xl mx-auto flex flex-col lg:flex-row h-full">
-          {/* Hero Slider - Responsive width */}
-          <div className="relative flex-1 min-w-0 min-h-[40vh] max-h-[100vh] lg:basis-4/5 xl:basis-3/4 2xl:basis-2/3">
-            {/* Slides */}
-            {slides.map((slide, index) => (
-              <div
-                key={slide.id}
-                className={`myslide absolute inset-0 ${
-                  index === currentSlide ? 'active fade' : ''
-                }`}
-              >
-                {/* Background Image/Video */}
-                <div className="absolute inset-0">
-                  {slide.video ? (
-                    <video
-                      className="video-bg"
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                    >
-                      <source src={slide.video} type="video/mp4" />
-                    </video>
-                  ) : (
-                    <Image
-                      src={slide.image}
-                      alt={slide.title}
-                      fill
-                      className="img-slider"
-                      priority={index === 0}
-                      unoptimized
-                    />
-                  )}
-                </div>
-
-                {/* Content */}
-                <div className={slide.textClass}>
-                  <h1>{slide.title}</h1>
-                  <p>{slide.description}</p>
-                </div>
+              <div className={slide.textClass}>
+                <h1>{slide.title}</h1>
+                <p>{slide.description}</p>
               </div>
-            ))}
-
-            {/* Navigation Arrows */}
-            <button
-              onClick={prevSlide}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all duration-300 z-10"
-            >
-              <i className="fas fa-chevron-left text-xl"></i>
-            </button>
-            
-            <button
-              onClick={nextSlide}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all duration-300 z-10"
-            >
-              <i className="fas fa-chevron-right text-xl"></i>
-            </button>
-
-            {/* Dots */}
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
-              {slides.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentSlide
-                      ? 'bg-white scale-125'
-                      : 'bg-white bg-opacity-50 hover:bg-opacity-75'
-                  }`}
-                ></button>
-              ))}
             </div>
-
-            {/* Play/Pause Button */}
-            <button
-              onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-              className="absolute top-8 right-8 z-20 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm"
-            >
-              <i className={`fas ${isAutoPlaying ? 'fa-pause' : 'fa-play'} text-xl`}></i>
-            </button>
+          ))}
+          <button
+            onClick={prevSlide}
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all duration-300 z-10"
+          >
+            <i className="fas fa-chevron-left text-xl"></i>
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all duration-300 z-10"
+          >
+            <i className="fas fa-chevron-right text-xl"></i>
+          </button>
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentSlide
+                    ? 'bg-white scale-125'
+                    : 'bg-white bg-opacity-50 hover:bg-opacity-75'
+                }`}
+              ></button>
+            ))}
           </div>
-          {/* Side Section - Responsive width */}
-          <div className="w-full lg:w-auto lg:basis-1/5 xl:basis-1/4 2xl:basis-1/3 flex-shrink-0 flex-grow-0">
-            <HeroSideSection />
-          </div>
+          <button
+            onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+            className="absolute top-8 right-8 z-10 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm"
+          >
+            <i className={`fas ${isAutoPlaying ? 'fa-pause' : 'fa-play'} text-xl`}></i>
+          </button>
         </div>
-      )}
+        <div className="bg-white py-6 px-2 w-full mt-4">
+          <HeroSideSection />
+        </div>
+      </div>
+      {/* Desktop/Tablet Hero (only visible on md and up) */}
+      <div className="hidden md:flex w-full max-w-screen-2xl mx-auto flex-row h-full md:pt-8 lg:pt-0">
+        <div className="relative flex-1 min-w-0 min-h-[40vh] max-h-[100vh] md:basis-4/5 xl:basis-3/4 2xl:basis-2/3">
+          {slides.map((slide, index) => (
+            <div
+              key={slide.id}
+              className={`myslide absolute inset-0 ${
+                index === currentSlide ? 'active fade' : ''
+              }`}
+            >
+              <div className="absolute inset-0">
+                {slide.video ? (
+                  <video
+                    className="video-bg"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  >
+                    <source src={slide.video} type="video/mp4" />
+                  </video>
+                ) : (
+                  <Image
+                    src={slide.image}
+                    alt={slide.title}
+                    fill
+                    className="img-slider"
+                    priority={index === 0}
+                    unoptimized
+                  />
+                )}
+              </div>
+              <div className={slide.textClass}>
+                <h1>{slide.title}</h1>
+                <p>{slide.description}</p>
+              </div>
+            </div>
+          ))}
+          <button
+            onClick={prevSlide}
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all duration-300 z-10"
+          >
+            <i className="fas fa-chevron-left text-xl"></i>
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all duration-300 z-10"
+          >
+            <i className="fas fa-chevron-right text-xl"></i>
+          </button>
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentSlide
+                    ? 'bg-white scale-125'
+                    : 'bg-white bg-opacity-50 hover:bg-opacity-75'
+                }`}
+              ></button>
+            ))}
+          </div>
+          <button
+            onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+            className="absolute top-8 right-8 z-10 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm"
+          >
+            <i className={`fas ${isAutoPlaying ? 'fa-pause' : 'fa-play'} text-xl`}></i>
+          </button>
+        </div>
+        <div className="w-full md:w-auto md:basis-1/5 xl:basis-1/4 2xl:basis-1/3 flex-shrink-0 flex-grow-0">
+          <HeroSideSection />
+        </div>
+      </div>
     </section>
   );
 } 
