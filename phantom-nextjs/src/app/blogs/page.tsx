@@ -1,5 +1,6 @@
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import Image from 'next/image'
 
 export default function Blogs() {
   return (
@@ -19,7 +20,7 @@ export default function Blogs() {
         <div className="container">
           <div className="featured-blog-content">
             <div className="featured-blog-image">
-              <img src="/images/iria-2024.jpg" alt="IRIA 2024 Conference" />
+              <Image src="/images/iria-2024.jpg" alt="IRIA 2024 Conference" width={400} height={300} />
             </div>
             <div className="featured-blog-text">
               <h2>IRIA 2024 Conference Highlights</h2>
@@ -38,7 +39,7 @@ export default function Blogs() {
           <div className="blogs-grid">
             <article className="blog-card">
               <div className="blog-image">
-                <img src="/images/mri3.jpg" alt="MRI Technology" />
+                <Image src="/images/mri3.jpg" alt="MRI Technology" width={400} height={300} />
               </div>
               <div className="blog-content">
                 <h3>Advancements in MRI Technology</h3>
@@ -50,7 +51,7 @@ export default function Blogs() {
 
             <article className="blog-card">
               <div className="blog-image">
-                <img src="/images/machines/ct-scan/GE revolution EVO.jpg" alt="CT Scanner" />
+                <Image src="/images/machines/ct-scan/GE revolution EVO.jpg" alt="CT Scanner" width={400} height={300} />
               </div>
               <div className="blog-content">
                 <h3>CT Scanner Maintenance Best Practices</h3>
@@ -62,7 +63,7 @@ export default function Blogs() {
 
             <article className="blog-card">
               <div className="blog-image">
-                <img src="/images/machines/pet-ct/pet-ct.png" alt="PET-CT Scanner" />
+                <Image src="/images/machines/pet-ct/pet-ct.png" alt="PET-CT Scanner" width={400} height={300} />
               </div>
               <div className="blog-content">
                 <h3>PET-CT Imaging: A Comprehensive Guide</h3>
@@ -74,7 +75,7 @@ export default function Blogs() {
 
             <article className="blog-card">
               <div className="blog-image">
-                <img src="/images/services/amc-annual.jpg" alt="AMC Services" />
+                <Image src="/images/services/amc-annual.jpg" alt="AMC Services" width={400} height={300} />
               </div>
               <div className="blog-content">
                 <h3>Why AMC Contracts Are Essential for Medical Equipment</h3>
@@ -86,7 +87,7 @@ export default function Blogs() {
 
             <article className="blog-card">
               <div className="blog-image">
-                <img src="/images/machines/allura.png" alt="Cath-Lab" />
+                <Image src="/images/machines/allura.png" alt="Cath-Lab" width={400} height={300} />
               </div>
               <div className="blog-content">
                 <h3>Cath-Lab Technology: Revolutionizing Cardiac Care</h3>
@@ -98,7 +99,7 @@ export default function Blogs() {
 
             <article className="blog-card">
               <div className="blog-image">
-                <img src="/images/machines/gamma camera spect/GE infinia gamma camera SPECT.jpg" alt="Gamma Camera" />
+                <Image src="/images/machines/gamma camera spect/GE infinia gamma camera SPECT.jpg" alt="Gamma Camera" width={400} height={300} />
               </div>
               <div className="blog-content">
                 <h3>Nuclear Medicine: The Role of Gamma Cameras</h3>

@@ -1,5 +1,6 @@
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import Image from 'next/image'
 
 export default function About() {
   return (
@@ -30,7 +31,7 @@ export default function About() {
             </div>
             
             <div className="about-image">
-              <img src="/images/phantom-building.jpg" alt="Phantom Healthcare Building" />
+              <Image src="/images/phantom-building.jpg" alt="Phantom Healthcare Building" width={400} height={300} />
             </div>
           </div>
         </div>
@@ -42,12 +43,12 @@ export default function About() {
           <h2>Our Leadership Team</h2>
           <div className="team-grid">
             <div className="team-member">
-              <img src="/images/brijesh-suneja.jpg" alt="Brijesh Suneja" />
+              <Image src="/images/brijesh-suneja.jpg" alt="Brijesh Suneja" width={400} height={300} />
               <h3>Brijesh Suneja</h3>
               <p>Founder & CEO</p>
             </div>
             <div className="team-member">
-              <img src="/images/rochi-nargotra.jpg" alt="Rochi Nargotra" />
+              <Image src="/images/rochi-nargotra.jpg" alt="Rochi Nargotra" width={400} height={300} />
               <h3>Rochi Nargotra</h3>
               <p>Director</p>
             </div>

@@ -1,5 +1,6 @@
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import Image from 'next/image'
 
 export default function Services() {
   return (
@@ -20,7 +21,7 @@ export default function Services() {
           <h2>Service Packages</h2>
           <div className="services-grid">
             <div className="service-card">
-              <img src="/images/services/amc-annual.jpg" alt="AMC Services" />
+              <Image src="/images/services/amc-annual.jpg" alt="AMC Services" width={400} height={300} />
               <h3>Annual Maintenance Contract (AMC)</h3>
               <p>Comprehensive annual maintenance contracts to ensure your equipment runs smoothly throughout the year.</p>
               <ul>
@@ -33,7 +34,7 @@ export default function Services() {
             </div>
             
             <div className="service-card">
-              <img src="/images/services/cmc-services.jpg" alt="CMC Services" />
+              <Image src="/images/services/cmc-services.jpg" alt="CMC Services" width={400} height={300} />
               <h3>Comprehensive Maintenance Contract (CMC)</h3>
               <p>All-inclusive maintenance contracts covering all aspects of equipment care and support.</p>
               <ul>
@@ -54,7 +55,7 @@ export default function Services() {
           <h2>Repairs and Upgrades</h2>
           <div className="services-grid">
             <div className="service-card">
-              <img src="/images/services/repair-your-mri-ct.jpg" alt="Equipment Repair" />
+              <Image src="/images/services/repair-your-mri-ct.jpg" alt="Equipment Repair" width={400} height={300} />
               <h3>Equipment Repair</h3>
               <p>Expert repair services for all major medical imaging equipment brands and models.</p>
               <ul>
@@ -66,7 +67,7 @@ export default function Services() {
             </div>
             
             <div className="service-card">
-              <img src="/images/services/upgrade-your-ct-mri.jpg" alt="Equipment Upgrades" />
+              <Image src="/images/services/upgrade-your-ct-mri.jpg" alt="Equipment Upgrades" width={400} height={300} />
               <h3>Equipment Upgrades</h3>
               <p>Upgrade your existing equipment with the latest technology and features.</p>
               <ul>
@@ -86,7 +87,7 @@ export default function Services() {
           <h2>Installation and Site Planning</h2>
           <div className="services-grid">
             <div className="service-card">
-              <img src="/images/services/de-installation-relocation.jpg" alt="Installation Services" />
+              <Image src="/images/services/de-installation-relocation.jpg" alt="Installation Services" width={400} height={300} />
               <h3>Equipment Installation</h3>
               <p>Professional installation services for all medical imaging equipment.</p>
               <ul>
@@ -99,7 +100,7 @@ export default function Services() {
             </div>
             
             <div className="service-card">
-              <img src="/images/services/site-planning.jpg" alt="Site Planning" />
+              <Image src="/images/services/site-planning.jpg" alt="Site Planning" width={400} height={300} />
               <h3>Site Planning and Construction</h3>
               <p>Comprehensive site planning and construction services for medical imaging facilities.</p>
               <ul>
@@ -120,7 +121,7 @@ export default function Services() {
           <h2>Specialized Services</h2>
           <div className="services-grid">
             <div className="service-card">
-              <img src="/images/services/cold-head-helium.jpg" alt="Helium Services" />
+              <Image src="/images/services/cold-head-helium.jpg" alt="Helium Services" width={400} height={300} />
               <h3>Helium Filling Services</h3>
               <p>Professional helium filling and maintenance services for MRI systems.</p>
               <ul>
@@ -133,7 +134,7 @@ export default function Services() {
             </div>
             
             <div className="service-card">
-              <img src="/images/services/de-installation-relocation.jpg" alt="Relocation Services" />
+              <Image src="/images/services/de-installation-relocation.jpg" alt="Relocation Services" width={400} height={300} />
               <h3>De-installation and Relocation</h3>
               <p>Safe and efficient equipment relocation services for medical facilities.</p>
               <ul>
