@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
         <link rel="icon" href="/images/Fav-Icon.png" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css" />
@@ -104,7 +104,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="Poppins">
+      <body className="Poppins w-full min-h-screen">
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe 
@@ -117,7 +117,7 @@ export default function RootLayout({
         {/* End Google Tag Manager (noscript) */}
         
         <Header />
-        <main>
+        <main className="w-full min-h-screen">
           {children}
         </main>
         <Footer />

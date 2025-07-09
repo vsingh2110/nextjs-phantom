@@ -55,6 +55,14 @@
 }
 
 /* Hero Slider Animations - Scoped to hero container only */
+/* --- HERO SECTION RESPONSIVE STRATEGY ---
+   Two separate hero blocks are used in the JSX:
+   - .block.md\:hidden for mobile/tablet
+   - .hidden.md\:flex for desktop/large screens
+   DO NOT merge or remove these blocks.
+   All hero slider, text, and image classes are scoped to .hero-slider-container.
+   --- END STRATEGY --- */
+
 .hero-slider-container .myslide {
   display: none;
   transition: opacity 0.5s ease;
@@ -410,16 +418,22 @@ button {
 .fa-close::before { content: "✕"; }
 
 html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-  font-family: 'Poppins', sans-serif;
+  border: 3px solid red !important;
+}
+body {
+  border: 3px solid blue !important;
+}
+main {
+  border: 3px solid green !important;
 }
 
-body {
-  overflow-x: hidden;
-  width: 100%;
+html, body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
+  text-rendering: optimizeLegibility;
   max-width: 100vw;
-  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
 }
 
 /* Focus styles */
@@ -812,6 +826,19 @@ iframe {
   }
 }
 
+/* --- Fix hero-slider zoom overflow on mobile --- */
+@media (max-width: 800px) {
+  .hero-slider-container .myslide.active .img-slider {
+    transform: scale(1.05, 1.05) !important;
+    animation-name: zoomin-mobile !important;
+    animation-duration: 8s !important;
+  }
+  @keyframes zoomin-mobile {
+    from {transform: scale(1, 1);}
+    to {transform: scale(1.05, 1.05);}
+  }
+}
+
 /* Custom breakpoints for tablets and large screens */
 @media (max-width: 900px) {
   .container, .footer-country-address, .footer-box-wrap, .footer-menu-wrap {
@@ -867,4 +894,8 @@ iframe {
   h2 {
     font-size: 2.2rem;
   }
+}
+
+@media (min-width: 768px) {
+  /* .topbar-social-center class removed as per revert request */
 }

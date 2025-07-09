@@ -16,7 +16,7 @@ export default function FloatingElements() {
   return (
     <>
       {/* Floating Download Brochure Button */}
-      <div className="fixed top-[77%] right-[5.9%] z-50 w-0 h-0 ml-6 rounded-[5rem] text-center text-[2.5rem] text-white">
+      <div className="fixed top-[77%] right-1/2 translate-x-1/2 md:right-6 md:translate-x-0 z-50 w-auto h-auto rounded-[5rem] text-center text-[2.5rem] text-white">
         <button 
           onClick={openModal}
           className="flex flex-col w-auto h-auto mx-auto text-center text-[1.5rem] p-4 bg-[#59913d] rounded-[10%] text-white border-none cursor-pointer hover:bg-[#255a0a] transition-colors"
@@ -52,7 +52,7 @@ export default function FloatingElements() {
       )}
 
       {/* Floating WhatsApp Call Button */}
-      <div className="fixed top-[80%] z-50 bg-[#59913d] w-28 h-28 ml-1 rounded-[5rem] text-center text-[4rem] text-white hover:bg-[#1e4909] transition-colors">
+      <div className="fixed top-[80%] left-2 md:left-6 z-50 bg-[#59913d] w-20 h-20 md:w-28 md:h-28 rounded-[5rem] text-center text-[2.5rem] md:text-[4rem] text-white hover:bg-[#1e4909] transition-colors">
         <a href="https://wa.me/919899963601" className="block w-full h-full flex items-center justify-center">
           <i className="fa fa-whatsapp text-white mt-6"></i>
         </a>

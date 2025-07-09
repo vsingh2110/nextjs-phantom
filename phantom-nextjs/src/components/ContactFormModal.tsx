@@ -188,40 +188,21 @@ export default function ContactFormModal({
   if (!isOpen) return null;
 
   return (
-    <>
-      {/* Success Message Overlay - Outside modal container */}
-      {submitStatus === 'success' && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[60] p-4">
-          <div className="bg-white rounded-lg shadow-xl p-6 max-w-sm w-full text-center">
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <i className="fa fa-check text-3xl text-green-600"></i>
-            </div>
-            <h3 className="text-xl font-bold text-green-800 mb-2">{successMessage}</h3>
-            <p className="text-green-600">Thank you for contacting us!</p>
-          </div>
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[60] p-2 md:p-8 overflow-x-hidden">
+      <div className="bg-white rounded-lg w-full max-w-xs md:max-w-2xl md:w-[700px] h-auto overflow-y-auto relative flex flex-col break-words">
+        {/* Header */}
+        <div className="bg-primary-500 text-white p-2 md:p-4 rounded-t-lg flex-shrink-0">
+          <h2 className="text-lg md:text-xl font-bold text-center break-words">{title}</h2>
+          <p className="text-center text-primary-100 mt-1 break-words">{subtitle}</p>
+          <button 
+            onClick={onClose} 
+            className="absolute top-2 right-2 md:top-3 md:right-3 text-white hover:text-gray-200 text-xl font-bold border-none cursor-pointer bg-transparent hover:bg-white hover:bg-opacity-20 rounded-full w-8 h-8 flex items-center justify-center transition-all duration-200"
+          >
+            <i className="fa fa-close"></i>
+          </button>
         </div>
-      )}
-      
-      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 sm:p-4 animate-fade-in">
-        <div className="bg-white rounded-2xl w-full max-w-md max-h-[95vh] sm:max-h-[90vh] overflow-y-auto relative shadow-2xl transform transition-all duration-300 scale-100">
-          {/* Header */}
-          <div className="bg-gradient-to-r from-primary-600 to-primary-700 text-white p-4 sm:p-6 rounded-t-2xl relative">
-            <div className="text-center">
-              <h2 className="text-xl sm:text-2xl font-bold mb-2">{title}</h2>
-              <p className="text-primary-100 text-xs sm:text-sm">{subtitle}</p>
-            </div>
-            
-            {/* Close Button */}
-            <button 
-              onClick={onClose}
-              className="absolute top-2 sm:top-4 right-2 sm:right-4 text-white hover:text-gray-200 text-lg sm:text-xl font-bold border-none cursor-pointer bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center transition-all duration-200 backdrop-blur-sm"
-            >
-              <i className="fa fa-close"></i>
-            </button>
-          </div>
-        
-        {/* Form */}
-        <form onSubmit={handleSubmit} className="p-6 space-y-6">
+        {/* Form Container */}
+        <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto p-2 md:p-6 flex flex-col">
           {/* Spinner */}
           <div 
             className="text-center py-4"
@@ -401,6 +382,5 @@ export default function ContactFormModal({
         </form>
       </div>
     </div>
-    </>
   );
 } 

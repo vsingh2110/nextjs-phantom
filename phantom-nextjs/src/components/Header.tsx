@@ -5,16 +5,19 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Header() {
+  // State for mobile menu and dropdowns (Next.js version of static site JS menu logic)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMRIOpen, setIsMRIOpen] = useState(false);
 
+  // Toggle mobile menu (ported from static site hamburger logic)
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  // Modal open/close logic (used for contact form modal)
   const openModal = () => {
     setIsModalOpen(true);
     document.body.classList.add('modal-open');
@@ -27,53 +30,72 @@ export default function Header() {
 
   return (
     <>
-      {/* Top Bar */}
+      {/* --- TOP BAR (from static site: .top-bar-wrapper, .social-set) --- */}
       <div className="bg-[#259ae1] relative z-10 h-auto">
-        <div className="max-w-[1200px] w-[90%] mx-auto flex justify-between">
-          {/* Social Media Icons */}
-          <ul className="flex flex-row flex-wrap justify-left list-none m-0 p-0 h-auto w-auto">
+        {/*
+          max-w-[1200px] and w-[90%] mimic the static site's .container width logic.
+          flex justify-between for left (social) and right (contact info) split, as in static HTML.
+          items-center ensures vertical centering (matches .top-bar-wrapper vertical-align from static CSS).
+        */}
+        <div className="max-w-[1200px] w-[90%] mx-auto flex justify-between items-center">
+          {/* --- SOCIAL MEDIA ICONS (from static: ul.social-set) --- */}
+          {/*
+            The icon list and order are directly ported from the static HTML's ul.social-set.
+            Each <li> and <a> uses similar classes for spacing and hover, adapted to Tailwind.
+            Font Awesome icons are used as in the static site.
+            Responsive: No horizontal centering on desktop, only vertical (per user request).
+          */}
+          <ul className="flex flex-row flex-wrap justify-left items-center list-none m-0 p-0 h-auto w-auto">
+            {/* Twitter */}
             <li className="flex justify-around items-center pt-2">
               <a className="text-sm p-1 text-white mr-2 hover:bg-white hover:text-[#259ae1] rounded" 
                  href="https://twitter.com/Phantomhealthc" target="_blank" aria-label="Twitter">
                 <i className="fa fa-twitter fa-fw" title="Twitter"></i>
               </a>
             </li>
+            {/* Whatsapp */}
             <li className="flex justify-around items-center pt-2">
               <a className="text-sm p-1 text-white mr-2 hover:bg-white hover:text-[#259ae1] rounded" 
                  href="https://wa.me/+919899963601" target="_blank" aria-label="Whatsapp">
                 <i className="fa fa-whatsapp fa-fw" title="Whatsapp"></i>
               </a>
             </li>
+            {/* YouTube */}
             <li className="flex justify-around items-center pt-2">
               <a className="text-sm p-1 text-white mr-2 hover:bg-white hover:text-[#259ae1] rounded" 
                  href="https://www.youtube.com/@phantomhealthcare" target="_blank" aria-label="YouTube">
                 <i className="fa fa-youtube fa-fw" title="YouTube"></i>
               </a>
             </li>
+            {/* Google Maps */}
             <li className="flex justify-around items-center pt-2">
               <a className="text-sm p-1 text-white mr-2 hover:bg-white hover:text-[#259ae1] rounded" 
                  href="https://goo.gl/maps/2fdRZT8hEBVK4cni9" target="_blank" aria-label="Google Maps">
                 <i className="fa fa-street-view fa-fw" title="Google Maps"></i>
               </a>
             </li>
+            {/* Instagram */}
             <li className="flex justify-around items-center pt-2">
               <a className="text-sm p-1 text-white mr-2 hover:bg-white hover:text-[#259ae1] rounded" 
                  href="https://www.instagram.com/phantomhealthcare/" target="_blank" aria-label="Instagram">
                 <i className="fa fa-instagram fa-fw" title="Instagram"></i>
               </a>
             </li>
+            {/* Facebook */}
             <li className="flex justify-around items-center pt-2">
               <a className="text-sm p-1 text-white mr-2 hover:bg-white hover:text-[#259ae1] rounded" 
                  href="https://www.facebook.com/phantom.healthcare.ind" target="_blank" aria-label="Facebook">
                 <i className="fa fa-facebook-square fa-fw" title="Facebook"></i>
               </a>
             </li>
+            {/* Pinterest */}
             <li className="flex justify-around items-center pt-2">
               <a className="text-sm p-1 text-white mr-2 hover:bg-white hover:text-[#259ae1] rounded" 
                  href="https://www.pinterest.com/phantomhealthcare/" target="_blank" aria-label="Pinterest">
                 <i className="fa fa-pinterest fa-fw" title="Pinterest"></i>
               </a>
             </li>
+            {/* LinkedIn */}
             <li className="flex justify-around items-center pt-2">
               <a className="text-sm p-1 text-white mr-2 hover:bg-white hover:text-[#259ae1] rounded" 
                  href="https://in.linkedin.com/company/phantom-healthcare-ind-private-limited-company" target="_blank" aria-label="LinkedIn">
@@ -82,7 +104,11 @@ export default function Header() {
             </li>
           </ul>
 
-          {/* Contact Info */}
+          {/* --- CONTACT INFO (from static: .top-bar-wrapper right side) --- */}
+          {/*
+            Email and Employee Login links, ported from static HTML.
+            Layout and spacing adapted to Tailwind, but structure matches static site.
+          */}
           <span className="text-white font-medium text-sm ml-0">
             <a href="mailto:info@phantomhealthcare.com" className="text-white font-medium text-sm ml-0 no-underline pl-4 hover:cursor-pointer">
               info@phantomhealthcare.com
@@ -97,12 +123,17 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Navigation Bar */}
+      {/* --- NAVIGATION BAR (from static: nav, .container, menu structure) --- */}
+      {/*
+        Responsive nav bar structure is ported from static HTML, but uses Next.js Link and state for menu toggling.
+        max-w-[1200px] and w-[90%] match static .container.
+        Hamburger menu and dropdowns are implemented in React, but mimic static JS/CSS behavior.
+      */}
       <nav className="shadow-[0px_5px_10px_0px_#aaa] w-full bg-white text-black opacity-90 z-20 relative">
         <div className="flex h-16 items-center max-w-[1200px] w-[90%] mx-auto px-4">
-          {/* Mobile Layout */}
+          {/* Mobile Layout (from static: .mobile-nav) */}
           <div className="flex justify-between items-center w-full md:hidden">
-            {/* Hamburger Menu for Mobile */}
+            {/* Hamburger Menu for Mobile (ported from static) */}
             <button 
               onClick={toggleMenu}
               className="flex flex-col justify-center items-center w-10 h-10 space-y-1.5 border-none bg-transparent"
@@ -112,7 +143,7 @@ export default function Header() {
               <span className={`block w-7 h-0.5 bg-black transition-all ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
             </button>
 
-            {/* Logo for Mobile */}
+            {/* Logo for Mobile (from static: .logo) */}
             <div className="flex-shrink-0">
               <Link href="/">
                 <Image src="/images/logo.jpg" alt="Phantom Healthcare Logo" width={180} height={55} className="w-auto h-14" unoptimized />
@@ -120,16 +151,16 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Desktop Layout */}
+          {/* Desktop Layout (from static: .container, .menu) */}
           <div className="hidden md:flex md:justify-between md:items-center md:w-full">
-            {/* Logo for Desktop */}
+            {/* Logo for Desktop (from static: .logo) */}
             <div className="flex-shrink-0">
               <Link href="/">
                 <Image src="/images/logo.jpg" alt="Phantom Healthcare Logo" width={180} height={55} className="w-auto h-14" unoptimized />
               </Link>
             </div>
 
-            {/* Desktop Menu Items */}
+            {/* Desktop Menu Items (from static: .menu, .nav) */}
             <div className="flex flex-row items-center">
             <Link href="/" className="text-black no-underline font-semibold text-sm transition-colors duration-300 ease-in-out hover:text-white hover:bg-[#259ae1] px-3 py-2">
               Home
@@ -138,14 +169,14 @@ export default function Header() {
               About Us
             </Link>
             
-            {/* Products Dropdown */}
+            {/* Products Dropdown (from static: .dropdown, .submenu) */}
             <div className="relative group">
               <a href="#" className="text-black no-underline font-semibold text-sm transition-colors duration-300 ease-in-out hover:text-white hover:bg-[#259ae1] px-3 py-2">
                 Products
                 <i className="nav-arrow fa fa-angle-down ml-1" aria-hidden="true" role="img"></i>
               </a>
               <div className="hidden group-hover:block absolute bg-white text-black min-w-[200px] p-4 text-sm leading-6 font-light left-0 top-full z-10 rounded-b-lg shadow-lg border">
-                {/* MRI Scanner with submenu */}
+                {/* MRI Scanner with submenu (from static: .submenu) */}
                 <div className="relative group/mri">
                   <a href="#" className="text-black no-underline hover:text-[#259ae1] block py-1 flex items-center group-hover/mri:bg-gray-100">
                     MRI Scanner
@@ -183,7 +214,7 @@ export default function Header() {
               </div>
             </div>
 
-            {/* Services Dropdown */}
+            {/* Services Dropdown (from static: .dropdown, .submenu) */}
             <div className="relative group">
               <a href="#" className="text-black no-underline font-semibold text-sm transition-colors duration-300 ease-in-out hover:text-white hover:bg-[#259ae1] px-3 py-2">
                 Services
@@ -342,7 +373,6 @@ export default function Header() {
                   <i className="fa fa-close"></i>
                 </button>
               </div>
-              
               {/* Form Container */}
               <div className="flex-1 overflow-y-auto p-0">
                 <iframe 
@@ -367,11 +397,6 @@ export default function Header() {
           <i className="fa fa-whatsapp" aria-hidden="true"></i>
         </a>
       </div>
-
-      {/* Floating Call Timing - COMMENTED OUT */}
-      {/* <div className="fixed top-[82.5%] z-30 bg-[#59913d] w-32 h-12 ml-20 text-center text-xs text-white hover:bg-[#1e4909] shadow-lg flex items-center justify-center">
-        <p>Mon-Sat <br /> 10:30am to 6:30pm</p>
-      </div> */}
 
     </>
   );

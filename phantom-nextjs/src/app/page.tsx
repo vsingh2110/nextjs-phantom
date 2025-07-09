@@ -1,13 +1,30 @@
+"use client";
+import { useState, useEffect } from 'react';
 import HeroSlider from '@/components/HeroSlider'
 import Image from 'next/image'
 import Link from 'next/link'
+import TopBlock from '@/components/TopBlock'
+import ContactFormModal from '@/components/ContactFormModal';
 
 export default function Home() {
+  // Global modal state for ContactFormModal
+  const [isContactModalOpen, setContactModalOpen] = useState(false);
+
+  useEffect(() => {
+    // Listen for the custom event to open the modal
+    const handler = () => setContactModalOpen(true);
+    window.addEventListener('openContactModal', handler);
+    return () => window.removeEventListener('openContactModal', handler);
+  }, []);
 
   return (
     <main className="min-h-screen">
+      {/* Global Contact Modal (can be triggered from anywhere) */}
+      <ContactFormModal isOpen={isContactModalOpen} onClose={() => setContactModalOpen(false)} />
       {/* Hero Slider */}
       <HeroSlider />
+      <TopBlock />
+      {/* <FloatingElements /> */}
 
       {/* What We Do Section */}
       <section className="py-20 bg-gray-50">

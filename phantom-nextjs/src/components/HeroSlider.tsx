@@ -67,6 +67,15 @@ function useIsMobile() {
   return isMobile;
 }
 
+// --- RESPONSIVE HERO SECTION STRATEGY ---
+// This hero section uses TWO SEPARATE BLOCKS for mobile/tablet and desktop/large screens.
+// - <div className="block md:hidden"> ... </div> is ONLY for mobile and iPad (below md breakpoint).
+// - <div className="hidden md:flex ..."> ... </div> is ONLY for desktop and above (md and up).
+// This is a classic HTML/CSS approach: duplicate markup, use CSS to show/hide at breakpoints.
+// DO NOT try to merge these blocks or use a single layout for all screens—
+// each is carefully crafted for its device type for pixel-perfect control.
+// If you need to change layout, edit each block separately and test on all breakpoints.
+// --- END STRATEGY ---
 export default function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -101,9 +110,11 @@ export default function HeroSlider() {
   };
 
   return (
-    <section className="relative min-h-[60vh] max-h-[100vh] bg-white hero-slider-container">
+    <section className="relative w-full bg-white hero-slider-container z-0">
+      {/* Desktop-only bottom smooth shadow separator for hero section */}
+      <div className="hidden md:block absolute bottom-0 left-0 w-full h-6 shadow-[0_12px_32px_-8px_rgba(0,0,0,0.18)] z-20 pointer-events-none"></div>
       {/* Mobile Hero (only visible on mobile) */}
-      <div className="block md:hidden">
+      <div className="block md:hidden w-full overflow-x-hidden bg-blue-100">
         <div className="relative h-[70vh] min-h-[350px] max-h-[90vh] w-full overflow-hidden">
           {slides.map((slide, index) => (
             <div
@@ -177,19 +188,17 @@ export default function HeroSlider() {
         </div>
       </div>
       {/* Desktop/Tablet Hero (only visible on md and up) */}
-      <div className="hidden md:flex w-full max-w-screen-2xl mx-auto flex-row h-full md:pt-8 lg:pt-0">
-        <div className="relative flex-1 min-w-0 min-h-[40vh] max-h-[100vh] md:basis-4/5 xl:basis-3/4 2xl:basis-2/3">
+      <div className="hidden md:flex w-full h-[70vh] flex-row md:pt-0 md:pb-0 md:pl-0 md:pr-0 md:m-0 lg:pt-0 lg:pb-0 lg:pl-0 lg:pr-0 lg:m-0">
+        <div className="relative flex-1 min-w-0 h-full md:basis-3/4 xl:basis-2/3 2xl:basis-1/2 md:p-0 md:m-0">
           {slides.map((slide, index) => (
             <div
               key={slide.id}
-              className={`myslide absolute inset-0 ${
-                index === currentSlide ? 'active fade' : ''
-              }`}
+              className={`myslide absolute inset-0 h-full w-full ${index === currentSlide ? 'active fade' : 'hidden'}`}
             >
-              <div className="absolute inset-0">
+              <div className="absolute inset-0 h-full w-full">
                 {slide.video ? (
                   <video
-                    className="video-bg"
+                    className="video-bg h-full w-full"
                     autoPlay
                     muted
                     loop
@@ -202,7 +211,7 @@ export default function HeroSlider() {
                     src={slide.image}
                     alt={slide.title}
                     fill
-                    className="img-slider"
+                    className="img-slider h-full w-full"
                     priority={index === 0}
                     unoptimized
                   />
@@ -214,6 +223,21 @@ export default function HeroSlider() {
               </div>
             </div>
           ))}
+          {/* Navigation Dots (desktop only) */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-0 border-0 shadow-none p-0 m-0 ${
+                  index === currentSlide
+                    ? 'bg-white scale-125'
+                    : 'bg-white bg-opacity-50 hover:bg-opacity-75'
+                }`}
+              ></button>
+            ))}
+          </div>
+          {/* Navigation Arrows (desktop only) */}
           <button
             onClick={prevSlide}
             className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all duration-300 z-10"
@@ -226,27 +250,8 @@ export default function HeroSlider() {
           >
             <i className="fas fa-chevron-right text-xl"></i>
           </button>
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentSlide
-                    ? 'bg-white scale-125'
-                    : 'bg-white bg-opacity-50 hover:bg-opacity-75'
-                }`}
-              ></button>
-            ))}
-          </div>
-          <button
-            onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-            className="absolute top-8 right-8 z-10 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm"
-          >
-            <i className={`fas ${isAutoPlaying ? 'fa-pause' : 'fa-play'} text-xl`}></i>
-          </button>
         </div>
-        <div className="w-full md:w-auto md:basis-1/5 xl:basis-1/4 2xl:basis-1/3 flex-shrink-0 flex-grow-0">
+        <div className="flex-1 min-w-0 hidden xl:block">
           <HeroSideSection />
         </div>
       </div>
