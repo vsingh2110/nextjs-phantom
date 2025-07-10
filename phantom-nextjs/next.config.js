@@ -25,4 +25,20 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig 
+/**
+ * CORS headers for Next.js dev server to allow LAN/devices to access hot reload and assets.
+ * Only needed for local development.
+ */
+module.exports = {
+  ...nextConfig,
+  async headers() {
+    return [
+      {
+        source: '/_next/:path*',
+        headers: [
+          { key: 'Access-Control-Allow-Origin', value: '*' },
+        ],
+      },
+    ];
+  },
+}; 

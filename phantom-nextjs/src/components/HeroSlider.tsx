@@ -139,7 +139,7 @@ export default function HeroSlider() {
                     src={slide.mobileImage}
                     alt={slide.title}
                     fill
-                    className="img-slider"
+                    className="img-slider object-contain"
                     priority={index === 0}
                     unoptimized
                   />
@@ -188,8 +188,8 @@ export default function HeroSlider() {
         </div>
       </div>
       {/* Desktop/Tablet Hero (only visible on md and up) */}
-      <div className="hidden md:flex w-full h-[70vh] flex-row md:pt-0 md:pb-0 md:pl-0 md:pr-0 md:m-0 lg:pt-0 lg:pb-0 lg:pl-0 lg:pr-0 lg:m-0">
-        <div className="relative flex-1 min-w-0 h-full md:basis-3/4 xl:basis-2/3 2xl:basis-1/2 md:p-0 md:m-0">
+      <div className="hidden md:flex w-full h-[70vh] flex-row">
+        <div className="relative flex-grow basis-0 min-w-0 h-full">
           {slides.map((slide, index) => (
             <div
               key={slide.id}
@@ -198,7 +198,7 @@ export default function HeroSlider() {
               <div className="absolute inset-0 h-full w-full">
                 {slide.video ? (
                   <video
-                    className="video-bg h-full w-full"
+                    className="video-bg object-cover h-full w-full"
                     autoPlay
                     muted
                     loop
@@ -211,15 +211,15 @@ export default function HeroSlider() {
                     src={slide.image}
                     alt={slide.title}
                     fill
-                    className="img-slider h-full w-full"
+                    className="img-slider object-cover"
                     priority={index === 0}
                     unoptimized
                   />
                 )}
               </div>
-              <div className={slide.textClass}>
+              <div className={slide.textClass + ' text-white drop-shadow-lg text-2xl md:text-4xl font-bold'}>
                 <h1>{slide.title}</h1>
-                <p>{slide.description}</p>
+                <p className="text-lg md:text-xl font-medium mt-2">{slide.description}</p>
               </div>
             </div>
           ))}
@@ -251,7 +251,7 @@ export default function HeroSlider() {
             <i className="fas fa-chevron-right text-xl"></i>
           </button>
         </div>
-        <div className="flex-1 min-w-0 hidden xl:block">
+        <div className="relative h-full w-[320px] min-w-[320px] max-w-[320px] flex items-center justify-center overflow-hidden">
           <HeroSideSection />
         </div>
       </div>

@@ -188,17 +188,18 @@ export default function ContactFormModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[60] p-2 md:p-8 overflow-x-hidden">
-      <div className="bg-white rounded-lg w-full max-w-xs md:max-w-2xl md:w-[700px] h-auto overflow-y-auto relative flex flex-col break-words">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999] p-2 md:p-8 overflow-x-hidden">
+      <div className="bg-white rounded-lg w-full max-w-xs md:max-w-3xl md:w-[900px] h-auto max-h-[90vh] overflow-y-auto relative flex flex-col break-words">
         {/* Header */}
-        <div className="bg-primary-500 text-white p-2 md:p-4 rounded-t-lg flex-shrink-0">
-          <h2 className="text-lg md:text-xl font-bold text-center break-words">{title}</h2>
+        <div className="bg-primary-500 text-white p-2 md:p-4 rounded-t-lg flex-shrink-0 sticky top-0 z-10">
+          <h2 className="text-lg md:text-2xl font-bold text-center break-words">{title}</h2>
           <p className="text-center text-primary-100 mt-1 break-words">{subtitle}</p>
           <button 
             onClick={onClose} 
-            className="absolute top-2 right-2 md:top-3 md:right-3 text-white hover:text-gray-200 text-xl font-bold border-none cursor-pointer bg-transparent hover:bg-white hover:bg-opacity-20 rounded-full w-8 h-8 flex items-center justify-center transition-all duration-200"
+            className="absolute top-2 right-2 md:top-4 md:right-4 text-[#e3342f] hover:text-red-700 text-2xl md:text-3xl font-bold border-none cursor-pointer bg-transparent hover:bg-white hover:bg-opacity-20 rounded-full w-10 h-10 flex items-center justify-center transition-all duration-200 z-[10000]"
+            aria-label="Close"
           >
-            <i className="fa fa-close"></i>
+            &times;
           </button>
         </div>
         {/* Form Container */}

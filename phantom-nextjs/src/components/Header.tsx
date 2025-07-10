@@ -32,23 +32,80 @@ export default function Header() {
     <>
       {/* --- TOP BAR (from static site: .top-bar-wrapper, .social-set) --- */}
       <div className="bg-[#259ae1] relative z-10 h-auto">
-        {/*
-          max-w-[1200px] and w-[90%] mimic the static site's .container width logic.
-          flex justify-between for left (social) and right (contact info) split, as in static HTML.
-          items-center ensures vertical centering (matches .top-bar-wrapper vertical-align from static CSS).
-        */}
-        <div className="max-w-[1200px] w-[90%] mx-auto flex justify-between items-center">
-          {/* --- SOCIAL MEDIA ICONS (from static: ul.social-set) --- */}
-          {/*
-            The icon list and order are directly ported from the static HTML's ul.social-set.
-            Each <li> and <a> uses similar classes for spacing and hover, adapted to Tailwind.
-            Font Awesome icons are used as in the static site.
-            Responsive: No horizontal centering on desktop, only vertical (per user request).
-          */}
-          <ul className="flex flex-row flex-wrap justify-left items-center list-none m-0 p-0 h-auto w-auto">
+        {/* Mobile: two rows, icons on top, email/login below */}
+        <div className="block md:hidden w-full">
+          <div className="flex flex-row w-full justify-center items-center gap-1 py-1">
+            {/* Social Icons Row */}
+            <ul className="flex flex-row w-full justify-center items-center gap-1 px-2">
+              {/* Twitter */}
+              <li className="flex justify-around items-center pt-2">
+                <a className="text-lg p-1 text-white mr-1 hover:bg-white hover:text-[#259ae1] rounded" 
+                   href="https://twitter.com/Phantomhealthc" target="_blank" aria-label="Twitter">
+                  <i className="fa fa-twitter fa-fw" title="Twitter"></i>
+                </a>
+              </li>
+              {/* Whatsapp */}
+              <li className="flex justify-around items-center pt-2">
+                <a className="text-lg p-1 text-white mr-1 hover:bg-white hover:text-[#259ae1] rounded" 
+                   href="https://wa.me/+919899963601" target="_blank" aria-label="Whatsapp">
+                  <i className="fa fa-whatsapp fa-fw" title="Whatsapp"></i>
+                </a>
+              </li>
+              {/* YouTube */}
+              <li className="flex justify-around items-center pt-2">
+                <a className="text-lg p-1 text-white mr-1 hover:bg-white hover:text-[#259ae1] rounded" 
+                   href="https://www.youtube.com/@phantomhealthcare" target="_blank" aria-label="YouTube">
+                  <i className="fa fa-youtube fa-fw" title="YouTube"></i>
+                </a>
+              </li>
+              {/* Google Maps */}
+              <li className="flex justify-around items-center pt-2">
+                <a className="text-lg p-1 text-white mr-1 hover:bg-white hover:text-[#259ae1] rounded" 
+                   href="https://goo.gl/maps/2fdRZT8hEBVK4cni9" target="_blank" aria-label="Google Maps">
+                  <i className="fa fa-street-view fa-fw" title="Google Maps"></i>
+                </a>
+              </li>
+              {/* Instagram */}
+              <li className="flex justify-around items-center pt-2">
+                <a className="text-lg p-1 text-white mr-1 hover:bg-white hover:text-[#259ae1] rounded" 
+                   href="https://www.instagram.com/phantomhealthcare/" target="_blank" aria-label="Instagram">
+                  <i className="fa fa-instagram fa-fw" title="Instagram"></i>
+                </a>
+              </li>
+              {/* Facebook */}
+              <li className="flex justify-around items-center pt-2">
+                <a className="text-lg p-1 text-white mr-1 hover:bg-white hover:text-[#259ae1] rounded" 
+                   href="https://www.facebook.com/phantom.healthcare.ind" target="_blank" aria-label="Facebook">
+                  <i className="fa fa-facebook-square fa-fw" title="Facebook"></i>
+                </a>
+              </li>
+              {/* Pinterest */}
+              <li className="flex justify-around items-center pt-2">
+                <a className="text-lg p-1 text-white mr-1 hover:bg-white hover:text-[#259ae1] rounded" 
+                   href="https://www.pinterest.com/phantomhealthcare/" target="_blank" aria-label="Pinterest">
+                  <i className="fa fa-pinterest fa-fw" title="Pinterest"></i>
+                </a>
+              </li>
+              {/* LinkedIn */}
+              <li className="flex justify-around items-center pt-2">
+                <a className="text-lg p-1 text-white mr-1 hover:bg-white hover:text-[#259ae1] rounded" 
+                   href="https://in.linkedin.com/company/phantom-healthcare-ind-private-limited-company" target="_blank" aria-label="LinkedIn">
+                  <i className="fa fa-linkedin fa-fw" title="LinkedIn"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="flex flex-row w-full justify-center items-center gap-2 pb-1 text-xs">
+            <a href="mailto:info@phantomhealthcare.com" className="text-white font-medium no-underline hover:cursor-pointer">info@phantomhealthcare.com</a>
+            <a href="https://www.phantomis.co.in/" className="text-white font-medium no-underline hover:cursor-pointer flex items-center"><i className="fa fa-user mr-1" aria-hidden="true"></i>Employee Login</a>
+          </div>
+        </div>
+        {/* Desktop: side-by-side as before */}
+        <div className="hidden md:flex max-w-screen-xl w-[90%] mx-auto justify-between items-center py-1 md:py-2">
+          <ul className="flex flex-row flex-wrap justify-left items-center list-none m-0 p-0 h-auto w-auto gap-2 md:gap-2">
             {/* Twitter */}
             <li className="flex justify-around items-center pt-2">
-              <a className="text-sm p-1 text-white mr-2 hover:bg-white hover:text-[#259ae1] rounded" 
+              <a className="text-sm p-1 text-white mr-2 hover:bg-white hover:text-[#259ae1] rounded md:text-base md:p-1 md:mr-2 md:hover:bg-white md:hover:text-[#259ae1]" 
                  href="https://twitter.com/Phantomhealthc" target="_blank" aria-label="Twitter">
                 <i className="fa fa-twitter fa-fw" title="Twitter"></i>
               </a>
@@ -103,21 +160,10 @@ export default function Header() {
               </a>
             </li>
           </ul>
-
-          {/* --- CONTACT INFO (from static: .top-bar-wrapper right side) --- */}
-          {/*
-            Email and Employee Login links, ported from static HTML.
-            Layout and spacing adapted to Tailwind, but structure matches static site.
-          */}
-          <span className="text-white font-medium text-sm ml-0">
-            <a href="mailto:info@phantomhealthcare.com" className="text-white font-medium text-sm ml-0 no-underline pl-4 hover:cursor-pointer">
-              info@phantomhealthcare.com
-            </a>
-            <span className="text-white font-medium text-sm ml-0">
-              <a href="https://www.phantomis.co.in/" className="text-white font-medium text-sm ml-0 no-underline pl-4 hover:cursor-pointer">
-                <i className="fa fa-user" aria-hidden="true"></i>
-                Employee Login
-              </a>
+          <span className="text-white font-medium text-xs ml-0 md:text-base">
+            <a href="mailto:info@phantomhealthcare.com" className="text-white font-medium text-xs ml-0 no-underline pl-2 hover:cursor-pointer md:text-base md:pl-4">info@phantomhealthcare.com</a>
+            <span className="text-white font-medium text-xs ml-0 md:text-base">
+              <a href="https://www.phantomis.co.in/" className="text-white font-medium text-xs ml-0 no-underline pl-2 hover:cursor-pointer md:text-base md:pl-4"><i className="fa fa-user mr-1" aria-hidden="true"></i>Employee Login</a>
             </span>
           </span>
         </div>
@@ -130,7 +176,7 @@ export default function Header() {
         Hamburger menu and dropdowns are implemented in React, but mimic static JS/CSS behavior.
       */}
       <nav className="shadow-[0px_5px_10px_0px_#aaa] w-full bg-white text-black opacity-90 z-20 relative">
-        <div className="flex h-16 items-center max-w-[1200px] w-[90%] mx-auto px-4">
+        <div className="flex h-16 items-center max-w-screen-xl w-[90%] mx-auto px-4">
           {/* Mobile Layout (from static: .mobile-nav) */}
           <div className="flex justify-between items-center w-full md:hidden">
             {/* Hamburger Menu for Mobile (ported from static) */}
@@ -146,7 +192,7 @@ export default function Header() {
             {/* Logo for Mobile (from static: .logo) */}
             <div className="flex-shrink-0">
               <Link href="/">
-                <Image src="/images/logo.jpg" alt="Phantom Healthcare Logo" width={180} height={55} className="w-auto h-14" unoptimized />
+                <Image src="/images/logo.jpg" alt="Phantom Healthcare Logo" width={220} height={70} className="w-auto h-16 md:h-20" unoptimized />
               </Link>
             </div>
           </div>
@@ -161,19 +207,19 @@ export default function Header() {
             </div>
 
             {/* Desktop Menu Items (from static: .menu, .nav) */}
-            <div className="flex flex-row items-center">
-            <Link href="/" className="text-black no-underline font-semibold text-sm transition-colors duration-300 ease-in-out hover:text-white hover:bg-[#259ae1] px-3 py-2">
+            <div className="flex flex-row items-center gap-2 md:gap-3 lg:gap-4 xl:gap-5">
+            <Link href="/" className="text-black no-underline font-semibold text-sm md:text-base transition-colors duration-300 ease-in-out hover:text-white hover:bg-[#259ae1] px-3 py-2 rounded-lg">
               Home
             </Link>
-            <Link href="/about" className="text-black no-underline font-semibold text-sm transition-colors duration-300 ease-in-out hover:text-white hover:bg-[#259ae1] px-3 py-2">
+            <Link href="/about" className="text-black no-underline font-semibold text-sm md:text-base transition-colors duration-300 ease-in-out hover:text-white hover:bg-[#259ae1] px-3 py-2 rounded-lg">
               About Us
             </Link>
             
             {/* Products Dropdown (from static: .dropdown, .submenu) */}
             <div className="relative group">
-              <a href="#" className="text-black no-underline font-semibold text-sm transition-colors duration-300 ease-in-out hover:text-white hover:bg-[#259ae1] px-3 py-2">
+              <a href="#" className="text-black no-underline font-semibold text-sm md:text-base transition-colors duration-300 ease-in-out hover:text-white hover:bg-[#259ae1] px-3 py-2 rounded-lg flex items-center">
                 Products
-                <i className="nav-arrow fa fa-angle-down ml-1" aria-hidden="true" role="img"></i>
+                <i className="nav-arrow fa fa-angle-down ml-1 text-base" aria-hidden="true" role="img"></i>
               </a>
               <div className="hidden group-hover:block absolute bg-white text-black min-w-[200px] p-4 text-sm leading-6 font-light left-0 top-full z-10 rounded-b-lg shadow-lg border">
                 {/* MRI Scanner with submenu (from static: .submenu) */}
@@ -216,9 +262,9 @@ export default function Header() {
 
             {/* Services Dropdown (from static: .dropdown, .submenu) */}
             <div className="relative group">
-              <a href="#" className="text-black no-underline font-semibold text-sm transition-colors duration-300 ease-in-out hover:text-white hover:bg-[#259ae1] px-3 py-2">
+              <a href="#" className="text-black no-underline font-semibold text-sm md:text-base transition-colors duration-300 ease-in-out hover:text-white hover:bg-[#259ae1] px-3 py-2 rounded-lg flex items-center">
                 Services
-                <i className="nav-arrow fa fa-angle-down ml-1" aria-hidden="true" role="img"></i>
+                <i className="nav-arrow fa fa-angle-down ml-1 text-base" aria-hidden="true" role="img"></i>
               </a>
               <div className="hidden group-hover:block absolute bg-white text-black min-w-[200px] p-4 text-sm leading-6 font-light left-0 top-full z-10 rounded-b-lg shadow-lg border">
                 <p className="mb-2 mt-2 pl-3 pr-3 font-light">
@@ -235,10 +281,10 @@ export default function Header() {
               </div>
             </div>
 
-            <Link href="/blogs" className="text-black no-underline font-semibold text-sm transition-colors duration-300 ease-in-out hover:text-white hover:bg-[#259ae1] px-3 py-2">
+            <Link href="/blogs" className="text-black no-underline font-semibold text-sm md:text-base transition-colors duration-300 ease-in-out hover:text-white hover:bg-[#259ae1] px-3 py-2 rounded-lg">
               Blogs
             </Link>
-            <Link href="/contact" className="text-black no-underline font-semibold text-sm transition-colors duration-300 ease-in-out hover:text-white hover:bg-[#259ae1] px-3 py-2">
+            <Link href="/contact" className="text-black no-underline font-semibold text-sm md:text-base transition-colors duration-300 ease-in-out hover:text-white hover:bg-[#259ae1] px-3 py-2 rounded-lg">
               Contact
             </Link>
           </div>
@@ -248,12 +294,12 @@ export default function Header() {
                         {/* Mobile Menu Items */}
         <ul className={`absolute top-full left-0 w-full bg-white shadow-lg md:hidden ${isMenuOpen ? 'block' : 'hidden'} z-50`}>
           <li className="block">
-            <Link href="/" className="block text-black no-underline font-semibold text-sm transition-colors duration-300 ease-in-out hover:text-white hover:bg-[#259ae1] px-4 py-3">
+            <Link href="/" className="block text-black no-underline font-semibold text-base md:text-lg transition-colors duration-300 ease-in-out hover:text-white hover:bg-[#259ae1] px-4 py-3 rounded-lg">
               Home
             </Link>
           </li>
           <li className="block">
-            <Link href="/about" className="block text-black no-underline font-semibold text-sm transition-colors duration-300 ease-in-out hover:text-white hover:bg-[#259ae1] px-4 py-3">
+            <Link href="/about" className="block text-black no-underline font-semibold text-base md:text-lg transition-colors duration-300 ease-in-out hover:text-white hover:bg-[#259ae1] px-4 py-3 rounded-lg">
               About Us
             </Link>
           </li>
@@ -262,7 +308,7 @@ export default function Header() {
           <li className="relative block">
             <button 
               onClick={() => setIsProductsOpen(!isProductsOpen)}
-              className="w-full text-left text-black no-underline font-semibold text-sm transition-colors duration-300 ease-in-out hover:text-white hover:bg-[#259ae1] px-4 py-3 flex justify-between items-center"
+              className="w-full text-left text-black no-underline font-semibold text-base md:text-lg transition-colors duration-300 ease-in-out hover:text-white hover:bg-[#259ae1] px-4 py-3 rounded-lg flex justify-between items-center"
             >
               Products
               <i className={`nav-arrow fa fa-angle-down ml-1 transition-transform ${isProductsOpen ? 'rotate-180' : ''}`} aria-hidden="true" role="img"></i>
@@ -317,7 +363,7 @@ export default function Header() {
           <li className="relative block">
             <button 
               onClick={() => setIsServicesOpen(!isServicesOpen)}
-              className="w-full text-left text-black no-underline font-semibold text-sm transition-colors duration-300 ease-in-out hover:text-white hover:bg-[#259ae1] px-4 py-3 flex justify-between items-center"
+              className="w-full text-left text-black no-underline font-semibold text-base md:text-lg transition-colors duration-300 ease-in-out hover:text-white hover:bg-[#259ae1] px-4 py-3 rounded-lg flex justify-between items-center"
             >
               Services
               <i className={`nav-arrow fa fa-angle-down ml-1 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} aria-hidden="true" role="img"></i>
@@ -340,12 +386,12 @@ export default function Header() {
           </li>
 
           <li className="block">
-            <Link href="/blogs" className="block text-black no-underline font-semibold text-sm transition-colors duration-300 ease-in-out hover:text-white hover:bg-[#259ae1] px-4 py-3">
+            <Link href="/blogs" className="block text-black no-underline font-semibold text-base md:text-lg transition-colors duration-300 ease-in-out hover:text-white hover:bg-[#259ae1] px-4 py-3 rounded-lg">
               Blogs
             </Link>
           </li>
           <li className="block">
-            <Link href="/contact" className="block text-black no-underline font-semibold text-sm transition-colors duration-300 ease-in-out hover:text-white hover:bg-[#259ae1] px-4 py-3">
+            <Link href="/contact" className="block text-black no-underline font-semibold text-base md:text-lg transition-colors duration-300 ease-in-out hover:text-white hover:bg-[#259ae1] px-4 py-3 rounded-lg">
               Contact
             </Link>
           </li>
