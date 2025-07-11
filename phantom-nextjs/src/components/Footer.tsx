@@ -1,216 +1,114 @@
 'use client'
 
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Footer() {
   return (
-    <footer>
-      {/* World Map Section */}
-      <section className="background-world-map">
-        <div className="footer-country-address container">
-          {/* USA & Western Region */}
-          <div className="footer-box-country footer-box2-country">
-            <h3>USA & Western Region</h3>
-            <Image src="/images/usa-map.jpg" alt="USA Map" width={200} height={150} unoptimized />
-            <p>
-              <strong>Phantom Healthcare US LLC</strong><br />
-              424, Fort Hill Drive, STE 105,<br />
-              Naperville, Illinois(60540) ,United States of America (USA)
-            </p>
-            <div className="a-link-country">
-              <a href="tel:+16307206801">+16307206801</a> <a href="tel:+919899963601">+919899963601</a>
-              <a href="mailto:info@phantomhealthcare.com">info@phantomhealthcare.com</a>
-              <a href="mailto:biz@phantomhealthcare.com">biz@phantomhealthcare.com</a>
-            </div>
-          </div>
-
-          {/* Gulf-Arab & African Region */}
-          <div className="footer-box-country footer-box2-country">
-            <h3>Gulf-Arab & African Region</h3>
-            <Image src="/images/uae-flag.jpg" alt="UAE Flag" width={200} height={150} unoptimized />
-            <p>
-              <strong>Phantom Healthcare AE FZC</strong> <br />
-              LV 63-C, Al Hamriyah Freezone, Sharjah<br />
-              United Arab Emirates(UAE)
-            </p>
-            <div className="a-link-country">
-              <a href="tel:+971522208819">+971522208819</a> <a href="tel:+971556357700">+971556357700</a>
-              <a href="mailto:sachin.rawat@phantomhealthcare.com">sachin.rawat@phantomhealthcare.com</a><br />
-              <a href="mailto:info@phantomhealthcare.com">info@phantomhealthcare.com</a>
-              <a href="mailto:biz@phantomhealthcare.com">biz@phantomhealthcare.com</a>
-            </div>
-          </div>
-
-          {/* India & Sub-Continent Region */}
-          <div className="footer-box-country footer-box1-country">
-            <h3>India & Sub-Continent Region</h3>
-            <Image src="/images/india-flag.jpg" alt="India Flag" width={200} height={150} unoptimized />
-            <p>
-              <strong>Phantom Healthcare IND Private Limited</strong> <br />
-              Plot No. 51, Sector 27C, Near NHPC Chowk,<br />
-              Main Mathura Road, Faridabad, Haryana – 121003 (INDIA)
-            </p>
-            <div className="a-link-country">
-              <a href="tel:+919899963601">+919899963601</a> <a href="tel:+911294312423">+911294312423</a>
-              <a href="mailto:info@phantomhealthcare.com">info@phantomhealthcare.com</a><br />
-              <a href="mailto:biz@phantomhealthcare.com">biz@phantomhealthcare.com</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Main Footer */}
-      <section className="footer">
-        <div className="footer-box-wrap container">
-          {/* Box 1 - Company Info */}
-          <div className="footer-box footer-box1">
-            <div className="footer-logo">
-              <Link href="/">
-                <Image src="/images/white-logo.png" alt="Phantom Healthcare" width={200} height={60} unoptimized />
-              </Link>
-            </div>
-            <div className="footer-company-name">
-              Phantom Healthcare IND Private Limited
-            </div>
-            <div className="phantom-address">
-              Plot No. 51, Sector 27C, Near NHPC Chowk,<br />
-              Main Mathura Road, Faridabad, Haryana – 121003 (INDIA)
-            </div>
-            <div className="phantom-contact">
-              <ul>
-                <li><a href="tel:+919899963601">+91 9899963601</a></li>
-                <li><a href="tel:+918384037073">+91 8384037073</a></li>
-                <li><a href="tel:+911294312423">+91 129 4312423</a></li>
-                <li><a href="mailto:info@phantomhealthcare.com">info@phantomhealthcare.com</a></li>
-                <li><a href="mailto:biz@phantomhealthcare.com">biz@phantomhealthcare.com</a></li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Box 2 - Useful Links & Services */}
-          <div className="footer-box footer-box2">
-            <div className="footer-our-products">
-              <div className="footer-our-products-heading">Useful Links</div>
-              <ul>
-                <li><Link href="/product-pages/mri-scanner-machines/1.5T-mri-scanner-machines.html">1.5T MRI Scanner Machines</Link></li>
-                <li><Link href="/product-pages/mri-scanner-machines/3.0T-mri-scanner-machines.html">3.0T MRI Scanner Machines</Link></li>
-                <li><Link href="/product-pages/refurbished-siemens-mri-scanner-machines.html">Siemens MRI Scanner Machines</Link></li>
-                <li><Link href="/product-pages/refurbished-siemens-mri-scanner-machines.html">GE MRI Scanner Machines</Link></li>
-                <li><Link href="/product-pages/refurbished-ct-scan-machines.html">CT Scanner Machines</Link></li>
-                <li><Link href="/product-pages/refurbished-pet-ct-scanner-machines.html">PET-CT Scanner Machines</Link></li>
-              </ul>
-            </div>
-
-            <div className="footer-our-services">
-              <div className="footer-our-products-heading">Our Services</div>
-              <ul>
-                <li><Link href="/service-pages/amc-cmc-services-packages-for-ct-scanner-machines.html">CMC/AMC Service Packages For CT Scanners</Link></li>
-                <li><Link href="/service-pages/amc-cmc-services-packages-fot-mri-scanner-machines.html">CMC/AMC Service Packages For MRI Scanners</Link></li>
-                <li><Link href="/service-pages/medical-imaging-radiology-equipment-installation.html">Medical Imaging Radiology Equipment Installation</Link></li>
-                <li><Link href="/service-pages/medical-imaging-radiology-site-planning-and-construction.html">Medical Imaging Radiology Site Planning and Construction</Link></li>
-                <li><Link href="/service-pages/mri-helium-filling-services.html">MRI Helium Filling Services</Link></li>
-                <li><Link href="/service-pages/mri-deinstallation-and-reinstallation-relocation.html">MRI De-Installation and Re-Installation</Link></li>
-              </ul>
-            </div>
-
-            <div className="footer-refurbished-mri">
-              <div className="footer-our-products-heading">More Products</div>
-              <ul>
-                <li><Link href="/product-pages/refurbished-cath-lab-machines.html">Cath Lab Machines</Link></li>
-                <li><Link href="/product-pages/refurbished-bone-densitometer-dexa.html">Bone Desnsitometer-DEXA</Link></li>
-                <li><Link href="/product-pages/refurbished-gamma-camera-spect-system-machine.html">Gamma Camera SPECT Machines</Link></li>
-                <li><Link href="/product-pages/brand-new-ct-scan-machines.html">Brand New CT Scanner Machines</Link></li>
-                <li><Link href="/events-and-news.html">News and Events</Link></li>
-                <li><Link href="/sitemap.xml">Sitemap.xml</Link></li>
-              </ul>
-            </div>
-          </div>
-
-          {/* Box 3 - Map & Social */}
-          <div className="footer-box footer-box3">
-            <div className="map-box">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23594.600297204677!2d77.29099839249344!3d28.46875377374462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce746b47731c5%3A0x696a695f7e4c3ded!2sPhantom%20Healthcare%20Pvt%20Ltd.!5e0!3m2!1sen!2sin!4v1663418936010!5m2!1sen!2sin"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
-
-            <div className="footer-social-icons">
-              <ul className="footer-social">
-                <li>
-                  <a className="sociali-footer" href="https://twitter.com/Phantomhealthc" target="_blank" aria-label="Twitter">
-                    <i className="fa fa-twitter fa-fw" title="Twitter"></i>
-                  </a>
-                </li>
-                <li>
-                  <a className="sociali-footer" href="https://wa.me/+919899963601" target="_blank" aria-label="Whatsapp">
-                    <i className="fa fa-whatsapp fa-fw" title="Whatsapp"></i>
-                  </a>
-                </li>
-                <li>
-                  <a className="sociali-footer" href="https://www.youtube.com/@phantomhealthcare" target="_blank" aria-label="YouTube">
-                    <i className="fa fa-youtube fa-fw" title="YouTube"></i>
-                  </a>
-                </li>
-                <li>
-                  <a className="sociali-footer" href="https://goo.gl/maps/2fdRZT8hEBVK4cni9" target="_blank" aria-label="Google Maps">
-                    <i className="fa fa-street-view fa-fw" title="Google Maps"></i>
-                  </a>
-                </li>
-                <li>
-                  <a className="sociali-footer" href="https://www.instagram.com/phantomhealthcare/" target="_blank" aria-label="Instagram">
-                    <i className="fa fa-instagram fa-fw" title="Instagram"></i>
-                  </a>
-                </li>
-                <li>
-                  <a className="sociali-footer" href="https://www.facebook.com/phantom.healthcare.ind" target="_blank" aria-label="Facebook">
-                    <i className="fa fa-facebook-square fa-fw" title="Facebook"></i>
-                  </a>
-                </li>
-                <li>
-                  <a className="sociali-footer" href="https://www.pinterest.com/phantomhealthcare/" target="_blank" aria-label="Pinterest">
-                    <i className="fa fa-pinterest fa-fw" title="Pinterest"></i>
-                  </a>
-                </li>
-                <li>
-                  <a className="sociali-footer" href="https://in.linkedin.com/company/phantom-healthcare-ind-private-limited-company" target="_blank" aria-label="LinkedIn">
-                    <i className="fa fa-linkedin fa-fw" title="LinkedIn"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+    <footer className="bg-gradient-to-b from-[#33a7ef] via-[#259ae1] to-[#133d5a] text-white pt-12">
+      {/* Footer Box Wrap */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-between">
+        {/* Company Info */}
+        <div className="w-full md:w-1/3 p-4">
+          <Link href="/">
+            <Image src="/images/white-logo.png" alt="Phantom Healthcare" width={180} height={55} className="mb-4 mx-auto" unoptimized />
+          </Link>
+          <p className="font-semibold mb-2 leading-tight text-center">Phantom Healthcare IND Private Limited</p>
+          <p className="text-xs leading-relaxed mb-4 text-center">Plot No. 51, Sector 27C, Near NHPC Chowk, Main Mathura Road, Faridabad, Haryana – 121003 (INDIA)</p>
+          <ul className="space-y-1 text-xs text-center">
+            <li><a href="tel:+919899963601" className="hover:underline">+91&nbsp;9899963601</a></li>
+            <li><a href="tel:+918384037073" className="hover:underline">+91&nbsp;8384037073</a></li>
+            <li><a href="tel:+911294312423" className="hover:underline">+91&nbsp;129&nbsp;4312423</a></li>
+            <li><a href="mailto:info@phantomhealthcare.com" className="hover:underline">info@phantomhealthcare.com</a></li>
+            <li><a href="mailto:biz@phantomhealthcare.com" className="hover:underline">biz@phantomhealthcare.com</a></li>
+          </ul>
         </div>
 
-        {/* Footer Menu */}
-        <div className="footer-menu">
-          <div className="footer-menu-wrap container">
-            <div className="footer-menu-box footer-menu-box1">
-              <Link href="/privacy-policy.html">Privacy Policy</Link>
-            </div>
-            <div className="footer-menu-box footer-menu-box1">
-              <Link href="/faqs.html">FAQs</Link>
-            </div>
-            <div className="footer-menu-box footer-menu-box1">
-              <Link href="/terms-and-conditions.html">Terms & Conditions</Link>
-            </div>
-            <div className="footer-menu-box footer-menu-box1">
-              <Link href="/sitemap.html">Sitemap</Link>
-            </div>
+        {/* Useful Links + Services */}
+        <div className="w-full md:w-1/3 p-4">
+          <h4 className="font-semibold text-lg mb-2 text-center">Useful Links</h4>
+          <ul className="space-y-1 text-xs tracking-tight text-center">
+            {['1.5T MRI Scanner Machines','3.0T MRI Scanner Machines','Siemens MRI Scanner Machines','GE MRI Scanner Machines','CT Scanner Machines','PET-CT Scanner Machines','News and Events','Blogs'].map((item)=> (
+              <li key={item}><Link href="#" className="hover:underline">{item}</Link></li>
+            ))}
+          </ul>
+
+          <h4 className="font-semibold text-lg mt-4 mb-2 text-center">Our Services</h4>
+          <ul className="space-y-1 text-xs tracking-tight text-center">
+            {['CMC/AMC Packages For CT','CMC/AMC Packages For MRI','Equipment Installation','Site Planning & Construction','MRI Helium Filling','MRI De-Installation & Re-Installation'].map(s=>(<li key={s}><Link href="#" className="hover:underline">{s}</Link></li>))}
+          </ul>
+        </div>
+
+        {/* Map & Social */}
+        <div className="w-full md:w-1/3 p-4 flex flex-col items-center">
+          {/* Map container - vertical rectangle like original site */}
+          <div className="w-full md:w-64 h-80 rounded-lg overflow-hidden shadow-lg mb-4 relative">
+            {/* Iframe positioned to show marker in center - using negative margins to shift view */}
+            <iframe
+              title="map"
+              /* Using exact iframe URL from original website - shows company name + correct location */
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23594.600297204677!2d77.29099839249344!3d28.46875377374462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce746b47731c5%3A0x696a695f7e4c3ded!2sPhantom%20Healthcare%20Pvt%20Ltd.!5e0!3m2!1sen!2sin!4v1663418936010!5m2!1sen!2sin"
+              loading="lazy"
+              className="absolute w-[150%] h-[150%] border-0"
+              style={{
+                left: '-25%',   /* Moderate left shift */
+                top: '-20%',    /* Moderate up shift to show marker and title */
+                transform: 'scale(1)'
+              }}
+            ></iframe>
+          </div>
+          <div className="flex gap-3 flex-wrap justify-center">
+            {[
+              {href:'https://twitter.com/Phantomhealthc', icon:'fa-twitter'},
+              {href:'https://wa.me/919899963601', icon:'fa-whatsapp'},
+              {href:'https://www.youtube.com/@phantomhealthcare', icon:'fa-youtube'},
+              {href:'https://www.instagram.com/phantomhealthcare/', icon:'fa-instagram'},
+              {href:'https://www.facebook.com/phantom.healthcare.ind', icon:'fa-facebook'},
+              {href:'https://www.pinterest.com/phantomhealthcare/', icon:'fa-pinterest'},
+              {href:'https://in.linkedin.com/company/phantom-healthcare-ind-private-limited-company', icon:'fa-linkedin'}
+            ].map(s=>(
+              <a key={s.icon} href={s.href} target="_blank" rel="noopener noreferrer" className="w-7 h-7 rounded-full bg-white bg-opacity-20 hover:bg-opacity-40 flex items-center justify-center text-[0.7rem]">
+                <i className={`fa ${s.icon}`}></i>
+              </a>
+            ))}
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Copyright */}
-      <section className="bottom-bar">
-        <div className="copyrights">
-          © Copyright 2011-2024- Phantom Healthcare
+      {/* Regional Offices */}
+      <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6 text-xs md:text-sm lg:text-base px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        {[
+          {region:'India & Sub-Continent', flag:'/images/india-flag.jpg', company:'Phantom Healthcare IND Private Limited', address:'Faridabad, Haryana – 121003 (INDIA)', phones:['+91 9899963601'], emails:['info@phantomhealthcare.com']},
+          {region:'USA & Western', flag:'/images/usa-map.jpg', company:'Phantom Healthcare US LLC', address:'Naperville, IL (USA)', phones:['+1 630 720 6801'], emails:['info@phantomhealthcare.com']},
+          {region:'Gulf-Arab & African', flag:'/images/uae-flag.jpg', company:'Phantom Healthcare AE FZC', address:'Sharjah (UAE)', phones:['+971 522 208 819'], emails:['sachin.rawat@phantomhealthcare.com']}
+        ].map(off=>(
+          <div key={off.region} className="bg-white bg-opacity-10 backdrop-blur-sm p-4 rounded-lg">
+            <div className="flex items-center gap-2 mb-2">
+              <Image src={off.flag} alt="flag" width={24} height={16} className="rounded-sm" unoptimized />
+              <p className="font-semibold">{off.region}</p>
+            </div>
+            <p className="font-semibold leading-tight mb-1">{off.company}</p>
+            <p className="leading-tight mb-2">{off.address}</p>
+            {off.phones.map(p=>(<p key={p}><a href={`tel:${p.replace(/[^\d+]/g,'')}`} className="hover:underline">{p}</a></p>))}
+            {off.emails.map(e=>(<p key={e}><a href={`mailto:${e}`} className="hover:underline">{e}</a></p>))}
+          </div>
+        ))}
+      </div>
+
+      {/* Footer Menu */}
+      <div className="footer-menu mt-4">
+        <div className="footer-menu-wrap container mx-auto flex justify-center space-x-4 text-sm">
+          <div className="footer-menu-box"><Link href="/privacy-policy" className="hover:underline">Privacy Policy</Link></div>
+          <div className="footer-menu-box"><Link href="/faqs" className="hover:underline">FAQs</Link></div>
+          <div className="footer-menu-box"><Link href="/terms-and-conditions" className="hover:underline">Terms & Conditions</Link></div>
+          <div className="footer-menu-box"><Link href="/sitemap" className="hover:underline">Sitemap</Link></div>
         </div>
-      </section>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="mt-4 py-4 bg-black bg-opacity-20 text-center text-xs">
+        © 2011-2024&nbsp;Phantom Healthcare
+      </div>
     </footer>
-  );
+  )
 } 
