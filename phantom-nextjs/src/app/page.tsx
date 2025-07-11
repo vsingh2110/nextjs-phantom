@@ -1,3 +1,90 @@
+/**
+ * HOME PAGE COMPONENT
+ * ===================
+ * 
+ * PURPOSE: Main landing page for Phantom Healthcare website
+ * CREATED: Initial development (date unknown)
+ * LAST MODIFIED: July 12, 2025 (testimonials carousel integration)
+ * 
+ * FEATURES:
+ * - Hero slider with multiple slides and call-to-action buttons
+ * - Top notification block for important announcements
+ * - "What We Do" services section with 4 main service categories
+ * - Featured products grid showcasing medical equipment
+ * - Company statistics section with key metrics
+ * - About Us section with company overview
+ * - Process workflow section explaining company approach
+ * - Customer testimonials carousel (newly implemented)
+ * - Global contact modal that can be triggered from any component
+ * 
+ * COMPONENTS USED:
+ * - HeroSlider: Main banner with rotating slides
+ * - TopBlock: Notification/announcement bar
+ * - ContactFormModal: Global contact form modal
+ * - TestimonialsCarousel: Customer testimonials with Swiper.js (July 12, 2025)
+ * 
+ * RESPONSIVE DESIGN:
+ * - Mobile-first approach with progressive enhancement
+ * - Grid layouts adapt from 1 column (mobile) to 4 columns (desktop)
+ * - Images and text scale appropriately for different screen sizes
+ * - Uses Tailwind CSS utility classes for consistent spacing
+ * 
+ * STATE MANAGEMENT:
+ * - isContactModalOpen: Controls global contact modal visibility
+ * - Event listener for 'openContactModal' custom event from other components
+ * 
+ * STYLING APPROACH:
+ * - Tailwind CSS for utility-first styling
+ * - Custom gradient backgrounds for accent sections
+ * - Card hover effects for interactive elements
+ * - Consistent spacing using Tailwind's spacing scale
+ * - Font smoothing (antialiased) applied following user preferences
+ * 
+ * PERFORMANCE CONSIDERATIONS:
+ * - Next.js Image component for optimized image loading
+ * - unoptimized flag used for some images (should be reviewed)
+ * - Client-side rendering for interactive components
+ * 
+ * RECENT CHANGES:
+ * - July 12, 2025: Integrated new TestimonialsCarousel component
+ * - Replaced previous custom carousel with Swiper.js implementation
+ * - Added proper responsive behavior for testimonials section
+ * 
+ * ACCESSIBILITY:
+ * - Semantic HTML structure with proper heading hierarchy
+ * - Alt text for all images
+ * - ARIA labels for interactive elements
+ * - Keyboard navigation support through standard HTML elements
+ * 
+ * SEO CONSIDERATIONS:
+ * - Proper heading structure (h1, h2, h3)
+ * - Descriptive alt text for images
+ * - Semantic content organization
+ * - Fast loading with optimized images
+ * 
+ * KNOWN ISSUES:
+ * - Some images use unoptimized flag (performance impact)
+ * - Floating contact button is commented out (feature incomplete)
+ * - Hard-coded product data (should consider CMS integration)
+ * 
+ * FUTURE IMPROVEMENTS:
+ * - Implement proper image optimization for all images
+ * - Add loading states for dynamic content
+ * - Consider lazy loading for below-fold sections
+ * - Implement proper error boundaries
+ * - Add analytics tracking for user interactions
+ * 
+ * RELATED FILES:
+ * - src/components/HeroSlider.tsx
+ * - src/components/TopBlock.tsx  
+ * - src/components/ContactFormModal.tsx
+ * - src/components/TestimonialsCarousel.tsx (July 12, 2025)
+ * - docs/dev-notes/2025-07-12-testimonials-carousel-implementation.md
+ * 
+ * USAGE:
+ * This is the default export for the root page route (/)
+ */
+
 "use client";
 import { useState, useEffect } from 'react';
 import HeroSlider from '@/components/HeroSlider'
@@ -5,6 +92,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import TopBlock from '@/components/TopBlock'
 import ContactFormModal from '@/components/ContactFormModal';
+import TestimonialsCarousel from '@/components/TestimonialsCarousel'
 
 export default function Home() {
   // Global modal state for ContactFormModal
@@ -596,116 +684,7 @@ export default function Home() {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-gray-900 mb-12 lg:mb-16">
             Customer Testimonials
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {/* Testimonial 1 - Dr. Vikas Jain */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 lg:p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="text-center mb-6">
-                <Image
-                  src="/images/doctors/dr.vikas-jain.jpg"
-                  alt="Dr. Vikas Jain"
-                  width={100}
-                  height={100}
-                  className="w-20 h-20 mx-auto rounded-full object-cover border-4 border-primary-100"
-                  unoptimized
-                />
-                <h4 className="text-xl font-bold text-gray-900 mt-4">Dr. Vikas Jain</h4>
-                <span className="text-sm text-gray-600">(Director, Advanced Imaging MRI)</span>
-              </div>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                "We thank Phantom Healthcare Pvt. Limited, the only third party vendor dealing in complete turnkey MR
-                project at a very affordable cost. They are very professional and competitive in approach. Their approach is
-                to make this imaging modality accessible and affordable to the investors and owners of diagnostic centers.
-                This makes the quality imaging of MR affordable and accessible to poor and masses."
-              </p>
-            </div>
-
-            {/* Testimonial 2 - Dr. Devender Singh Yadav */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 lg:p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="text-center mb-6">
-                <Image
-                  src="/images/doctors/Dr.Devender-Singh-Yadav.jpg"
-                  alt="Dr. Devender Singh Yadav"
-                  width={100}
-                  height={100}
-                  className="w-20 h-20 mx-auto rounded-full object-cover border-4 border-primary-100"
-                  unoptimized
-                />
-                <h4 className="text-xl font-bold text-gray-900 mt-4">Dr. Devender Singh Yadav</h4>
-                <span className="text-sm text-gray-600">(Modern Diagnostic & Research Centre)</span>
-              </div>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                "We thank Phantom Healthcare Pvt. Ltd. for providing us 1.5 T MRI machine at a very affordable cost. Phantom
-                Healthcare is the third party vendor that provides complete turnkey MRI project with skilled team of
-                engineers, best after sale support and good inventory."
-              </p>
-            </div>
-
-            {/* Testimonial 3 - Dr. Dhirendra Gyan */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 lg:p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="text-center mb-6">
-                <Image
-                  src="/images/doctors/Dr.DhirendraGyan.jpg"
-                  alt="Dr. Dhirendra Gyan"
-                  width={100}
-                  height={100}
-                  className="w-20 h-20 mx-auto rounded-full object-cover border-4 border-primary-100"
-                  unoptimized
-                />
-                <h4 className="text-xl font-bold text-gray-900 mt-4">Dr. Dhirendra Gyan</h4>
-                <span className="text-sm text-gray-600">(Dr. Pannalal Hospital & Research Centre (P) Ltd.)</span>
-              </div>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                "We at Dr.Pannalal Hospital & Research Centre (P) Ltd. thank Phantom Healthcare Pvt. Ltd. for providing us a
-                real good MRI imaging machine as a full turnkey MR project at a very affordable price and complete peace of
-                mind. They are highly professional in their very neat and tidy work."
-              </p>
-            </div>
-
-            {/* Testimonial 4 - Dr. Himanshu Agarwal */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 lg:p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="text-center mb-6">
-                <Image
-                  src="/images/doctors/Dr.Himanshu-Agarwal.jpg"
-                  alt="Dr. Himanshu Agarwal"
-                  width={100}
-                  height={100}
-                  className="w-20 h-20 mx-auto rounded-full object-cover border-4 border-primary-100"
-                  unoptimized
-                />
-                <h4 className="text-xl font-bold text-gray-900 mt-4">Dr. Himanshu Agarwal</h4>
-                <span className="text-sm text-gray-600">(Resonance Diagnostic Centre and Pathology)</span>
-              </div>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                "Phantom Healthcare Pvt. Ltd. is the only third party vendor dealing in complete turnkey GE MRI project,
-                providing us a good MRI machine well within our budget. Phantom Healthcare has a skilled team of engineers
-                and good inventory."
-              </p>
-            </div>
-
-            {/* Testimonial 5 - Dr. Deepak Patkar */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 lg:p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-              <div className="text-center mb-6">
-                <Image
-                  src="/images/doctors/DrDeepakPatkar.jpg"
-                  alt="Dr. Deepak Patkar"
-                  width={100}
-                  height={100}
-                  className="w-20 h-20 mx-auto rounded-full object-cover border-4 border-primary-100"
-                  unoptimized
-                />
-                <h4 className="text-xl font-bold text-gray-900 mt-4">Dr. Deepak Patkar</h4>
-                <span className="text-sm text-gray-600">(H.O.D Imaging, Nanavati SuperSpeciality Hospital)</span>
-              </div>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                "For 1.5T MRI, we trust only Phantom Healthcare Pvt. Ltd. based in New Delhi.
-                Phantom Healthcare has always provided best quality equipment at competitive prices. They have given us
-                prompt and effective post purchase services and upgradations."
-              </p>
-            </div>
-
-            {/* Spacer for better grid alignment */}
-            <div className="hidden lg:block"></div>
-          </div>
+          <TestimonialsCarousel />
         </div>
       </section>
 

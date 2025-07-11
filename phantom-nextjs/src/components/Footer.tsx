@@ -1,7 +1,66 @@
+/**
+ * FOOTER COMPONENT
+ * ================
+ * 
+ * PURPOSE: Main website footer with company info, links, map, and regional offices
+ * CREATED: Initial development (date unknown)
+ * LAST MODIFIED: July 11-12, 2025 (Google Maps integration work)
+ * 
+ * FEATURES:
+ * - Company contact information and address
+ * - Useful links and services navigation
+ * - Google Maps integration (with known issues)
+ * - Social media links
+ * - Regional office information (India, USA, UAE)
+ * - Footer menu with legal pages
+ * - Responsive design for all screen sizes
+ * 
+ * CURRENT ISSUES:
+ * - Google Maps marker positioning (hidden below iframe bottom)
+ * - Map responsive behavior needs optimization for large screens
+ * - See: docs/dev-notes/2025-07-11-google-maps-integration.md for details
+ * 
+ * DEPENDENCIES:
+ * - next/link: Navigation between pages
+ * - next/image: Optimized image loading for logos and flags
+ * - next/dynamic: Dynamic import for GMap component (browser-only)
+ * - ./GMap: Custom Google Maps component (has positioning issues)
+ * 
+ * RESPONSIVE BEHAVIOR:
+ * - Mobile: Single column layout
+ * - Tablet: Two column layout  
+ * - Desktop: Three column layout
+ * - Large screens: Needs optimization (future work)
+ * 
+ * IMPLEMENTATION NOTES:
+ * - GMap component dynamically imported to prevent SSR issues
+ * - Social media links open in new tabs
+ * - Phone numbers formatted for tel: links
+ * - Email addresses formatted for mailto: links
+ * - Uses Tailwind CSS for styling with custom gradient background
+ * 
+ * RELATED WORK:
+ * - July 11, 2025: Google Maps integration (6+ hours, partial success)
+ * - July 12, 2025: Large screen optimization pending
+ * 
+ * FUTURE IMPROVEMENTS:
+ * - Fix Google Maps marker positioning
+ * - Optimize for 1920px+ screens
+ * - Add proper error handling for map loading
+ * - Consider API-based content management
+ * 
+ * USAGE:
+ * <Footer />
+ */
+
 'use client'
 
 import Link from 'next/link'
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
+
+// Dynamically import GMap to ensure it only runs in the browser
+const GMap = dynamic(() => import('./GMap'), { ssr: false })
 
 export default function Footer() {
   return (
@@ -9,13 +68,13 @@ export default function Footer() {
       {/* Footer Box Wrap */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-between">
         {/* Company Info */}
-        <div className="w-full md:w-1/3 p-4">
+        <div className="w-full md:w-1/3 p-4 text-left">
           <Link href="/">
-            <Image src="/images/white-logo.png" alt="Phantom Healthcare" width={180} height={55} className="mb-4 mx-auto" unoptimized />
+            <Image src="/images/white-logo.png" alt="Phantom Healthcare" width={180} height={55} className="mb-4" unoptimized />
           </Link>
-          <p className="font-semibold mb-2 leading-tight text-center">Phantom Healthcare IND Private Limited</p>
-          <p className="text-xs leading-relaxed mb-4 text-center">Plot No. 51, Sector 27C, Near NHPC Chowk, Main Mathura Road, Faridabad, Haryana – 121003 (INDIA)</p>
-          <ul className="space-y-1 text-xs text-center">
+          <p className="font-semibold text-base md:text-lg mb-2 leading-tight">Phantom Healthcare IND Private Limited</p>
+          <p className="text-xs md:text-sm leading-relaxed mb-4">Plot No. 51, Sector 27C, Near NHPC Chowk, Main Mathura Road, Faridabad, Haryana – 121003 (INDIA)</p>
+          <ul className="space-y-1 text-xs md:text-sm list-disc pl-5">
             <li><a href="tel:+919899963601" className="hover:underline">+91&nbsp;9899963601</a></li>
             <li><a href="tel:+918384037073" className="hover:underline">+91&nbsp;8384037073</a></li>
             <li><a href="tel:+911294312423" className="hover:underline">+91&nbsp;129&nbsp;4312423</a></li>
@@ -26,36 +85,25 @@ export default function Footer() {
 
         {/* Useful Links + Services */}
         <div className="w-full md:w-1/3 p-4">
-          <h4 className="font-semibold text-lg mb-2 text-center">Useful Links</h4>
-          <ul className="space-y-1 text-xs tracking-tight text-center">
+          <h4 className="font-semibold text-lg mb-2 text-left">Useful Links</h4>
+          <ul className="space-y-1 text-xs tracking-tight text-left">
             {['1.5T MRI Scanner Machines','3.0T MRI Scanner Machines','Siemens MRI Scanner Machines','GE MRI Scanner Machines','CT Scanner Machines','PET-CT Scanner Machines','News and Events','Blogs'].map((item)=> (
               <li key={item}><Link href="#" className="hover:underline">{item}</Link></li>
             ))}
           </ul>
 
-          <h4 className="font-semibold text-lg mt-4 mb-2 text-center">Our Services</h4>
-          <ul className="space-y-1 text-xs tracking-tight text-center">
+          <h4 className="font-semibold text-lg mt-4 mb-2 text-left">Our Services</h4>
+          <ul className="space-y-1 text-xs tracking-tight text-left">
             {['CMC/AMC Packages For CT','CMC/AMC Packages For MRI','Equipment Installation','Site Planning & Construction','MRI Helium Filling','MRI De-Installation & Re-Installation'].map(s=>(<li key={s}><Link href="#" className="hover:underline">{s}</Link></li>))}
           </ul>
         </div>
 
         {/* Map & Social */}
-        <div className="w-full md:w-1/3 p-4 flex flex-col items-center">
+        <div className="w-full md:w-1/3 px-0 py-4 flex flex-col items-center">
           {/* Map container - vertical rectangle like original site */}
-          <div className="w-full md:w-64 h-80 rounded-lg overflow-hidden shadow-lg mb-4 relative">
-            {/* Iframe positioned to show marker in center - using negative margins to shift view */}
-            <iframe
-              title="map"
-              /* Using exact iframe URL from original website - shows company name + correct location */
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23594.600297204677!2d77.29099839249344!3d28.46875377374462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce746b47731c5%3A0x696a695f7e4c3ded!2sPhantom%20Healthcare%20Pvt%20Ltd.!5e0!3m2!1sen!2sin!4v1663418936010!5m2!1sen!2sin"
-              loading="lazy"
-              className="absolute w-[150%] h-[150%] border-0"
-              style={{
-                left: '-25%',   /* Moderate left shift */
-                top: '-20%',    /* Moderate up shift to show marker and title */
-                transform: 'scale(1)'
-              }}
-            ></iframe>
+          <div className="relative w-full h-80 rounded-xl overflow-hidden bg-white shadow-2xl ring-2 ring-white/30 mb-4">
+            {/* Interactive Google Map with controlled center/marker */}
+            <GMap />
           </div>
           <div className="flex gap-3 flex-wrap justify-center">
             {[
@@ -111,4 +159,4 @@ export default function Footer() {
       </div>
     </footer>
   )
-} 
+}

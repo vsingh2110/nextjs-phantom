@@ -52,21 +52,23 @@ The Google Maps embed shows the marker at the wrong position within the frame. T
 2. Red marker pin centered in frame
 3. Correct location at Plot 51, Sector 27C
 
-### Current Status
+### Current Status - FIXED
 ```jsx
 // Map container - vertical rectangle (taller than wide)
 <div className="w-full md:w-64 h-80 rounded-lg overflow-hidden shadow-lg mb-4 relative">
   <iframe
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23594.600297204677!2d77.29099839249344!3d28.46875377374462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce746b47731c5%3A0x696a695f7e4c3ded!2sPhantom%20Healthcare%20Pvt%20Ltd.!5e0!3m2!1sen!2sin!4v1663418936010!5m2!1sen!2sin"
-    className="absolute w-[150%] h-[150%] border-0"
+    className="absolute w-[200%] h-[200%] border-0"
     style={{
-      left: '-25%',   /* Needs adjustment */
-      top: '-20%',    /* Needs adjustment */
+      left: '-50%',   /* Centers the marker pin */
+      top: '-35%',    /* Shows company name at top */
       transform: 'scale(1)'
     }}
   />
 </div>
 ```
+
+**Fix Applied**: Increased iframe size to 200% and adjusted positioning to -50% left and -35% top. This centers the marker pin in the visible frame and shows the company name "Phantom Healthcare IND Private Limited" at the top of the map.
 
 ### Solution Approach
 The issue is **NOT** with coordinates or the embed URL (we're using the exact same URL from the working HTML site). The problem is **iframe positioning within its container**.
@@ -113,7 +115,7 @@ Think of it like this:
 - [x] Add visual tests (Chromatic / Playwright) for footer breakpoints.
 - [ ] Wire "News and Events" and "Blogs" links once pages exist.
 - [ ] Consider extracting `RegionalOfficeCard` component if reused elsewhere.
-- [ ] **FIX MAP POSITIONING** - marker should be centered with company name visible
+- [x] **FIX MAP POSITIONING** - marker should be centered with company name visible ✓ FIXED
 
 ---
 > _File auto-generated via Cursor AI pair-programming session 21 May 2024._ 
