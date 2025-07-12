@@ -93,6 +93,7 @@ import Link from 'next/link'
 import TopBlock from '@/components/TopBlock'
 import ContactFormModal from '@/components/ContactFormModal';
 import TestimonialsCarousel from '@/components/TestimonialsCarousel'
+import RegionalOffices from '@/components/RegionalOffices'
 
 export default function Home() {
   // Global modal state for ContactFormModal
@@ -687,6 +688,9 @@ export default function Home() {
           <TestimonialsCarousel />
         </div>
       </section>
+
+      {/* Regional Offices Section */}
+      <RegionalOffices />
 
     </main>
   )

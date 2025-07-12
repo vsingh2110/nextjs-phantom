@@ -183,3 +183,40 @@ Successfully implemented a production-ready testimonials carousel with:
 
 **End of Work Log**  
 **Session Completed:** 01:50 AM IST, July 12, 2025 
+
+---
+
+## Office Work Log: Regional Offices Section & Style Guidelines (July 12, 2025)
+
+- **Regional Offices Section (Home Page):**
+  - Designed and implemented the "Regional Offices" section for the home page, closely matching the original website's look and layout.
+  - Iteratively refined the section based on feedback:
+    - Removed card/box styling and overlays for a clean, light appearance.
+    - Ensured flags are undistorted and maintain correct aspect ratios.
+    - Reduced font sizes and tightened line spacing for a compact, business-like look.
+    - Removed extra top/bottom padding for a space-efficient section.
+    - Kept all content centered and visually balanced.
+  - Section is now responsive, visually compact, and uses only Tailwind CSS with modern units (rem, %, vw/vh, clamp).
+
+- **Documentation Update:**
+  - Created a new style guidelines document (`2025-07-13-style-guidelines.md`).
+  - Documented project rules: use Tailwind CSS by default, avoid custom/manual CSS unless absolutely necessary, never use px units, always use rem/em/vw/vh/clamp, and follow modern web best practices.
+  - Noted that all future AI or human contributors must follow these rules for consistency and maintainability.
+
+## Office Work Log: Responsive Testing Tools (July 12, 2025)
+
+**Discussion & Research on Responsive Testing Tools:**
+
+- Evaluated and compared several tools for responsive web design testing:
+  - [https://responsivetesttool.com/](https://responsivetesttool.com/) — Free, lightweight, browser-based, supports a wide range of device resolutions, fast and easy to use. Highly recommended for public site testing.
+  - [https://websiteresponsivetest.com/](https://websiteresponsivetest.com/) — Another free, browser-based tool with many device presets and a user-friendly interface.
+  - [Screenfly](https://screenfly.org/) — Free, online, decent for quick device/frame previews.
+  - [Am I Responsive?](http://ami.responsivedesign.is/) — Good for marketing screenshots, but **does not support localhost** or private URLs (limitation for development).
+  - **Pixefy Chrome Extension** — Chrome plugin for pixel-perfect measurement and responsive checks directly in the browser.
+- Decision: Uninstall Responsively App due to its heavy interface and performance issues. Prefer browser-based tools for speed and convenience.
+- Noted that for localhost testing, browser DevTools or tunneling tools (like ngrok) are still required.
+
+**Summary:**
+- For most workflows, responsivetesttool.com and websiteresponsivetest.com are the best free, no-install, multi-device responsive testing tools as of 2025.
+- Pixefy Chrome extension is useful for in-browser pixel measurement and quick checks.
+- Office work for July 12, 2025 concluded with these recommendations and workflow updates. 
