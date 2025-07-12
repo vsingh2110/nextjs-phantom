@@ -69,7 +69,7 @@ const RegionalOffices = () => {
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <div className="max-w-7xl mx-auto px-2 sm:px-4">
+      <div className="max-w-7xl xl:max-w-[90vw] 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-2 sm:px-4">
         <div className="flex flex-col md:flex-row justify-center items-start md:items-stretch gap-y-6 md:gap-y-0 md:gap-x-2 lg:gap-x-8">
           {offices.map((office) => (
             <div
@@ -98,7 +98,11 @@ const RegionalOffices = () => {
                   {office.address}
                 </span>
               </div>
-              <div className="flex flex-wrap justify-center gap-2 text-primary-700 mt-0.5 mb-0.5 text-xs md:text-sm leading-tight" style={{fontSize: 'clamp(0.85rem, 0.95vw, 0.95rem)'}}>
+              {/*
+                PHONE NUMBERS ROW
+                Do not change gap/leading for phone/email rows—spacing is intentional and was previously fixed.
+              */}
+              <div className="flex flex-wrap justify-center gap-x-1 text-primary-700 text-xs md:text-sm leading-none" style={{fontSize: 'clamp(0.85rem, 0.95vw, 0.95rem)'}}>
                 {office.phones.map((phone) => (
                   <a
                     key={phone}
@@ -109,7 +113,11 @@ const RegionalOffices = () => {
                   </a>
                 ))}
               </div>
-              <div className="flex flex-wrap justify-center gap-2 text-primary-700 mb-0.5 text-xs md:text-sm leading-tight" style={{fontSize: 'clamp(0.85rem, 0.95vw, 0.95rem)'}}>
+              {/*
+                EMAILS ROW
+                Do not change gap/leading for phone/email rows—spacing is intentional and was previously fixed.
+              */}
+              <div className="flex flex-wrap justify-center gap-x-1 text-primary-700 text-xs md:text-sm leading-none" style={{fontSize: 'clamp(0.85rem, 0.95vw, 0.95rem)'}}>
                 {office.emails.map((email) => (
                   <a
                     key={email}

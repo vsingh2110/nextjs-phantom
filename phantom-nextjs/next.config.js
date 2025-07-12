@@ -1,44 +1,57 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  allowedDevOrigins: ['http://192.168.1.111:3000'],
-  // Disable Next.js development overlay
-  devIndicators: {
-    position: 'bottom-right',
-  },
-  turbopack: {
-    rules: {
-      '*.svg': {
-        loaders: ['@svgr/webpack'],
-        as: '*.js',
-      },
+  // Bundle analyzer for performance monitoring
+  ...(process.env.ANALYZE === 'true' && {
+    webpack: (config) => {
+      const { BundleAnalyzerPlugin } = require('@next/bundle-analyzer');
+      config.plugins.push(
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'server',
+          analyzerPort: 8888,
+          openAnalyzer: true,
+        })
+      );
+      return config;
     },
-  },
+  }),
+  
+  // Image optimization
   images: {
-    domains: ['cdnjs.cloudflare.com', 'unpkg.com', 'cdn.jsdelivr.net'],
+    domains: ['maps.gstatic.com', 'unpkg.com'],
+    formats: ['image/webp', 'image/avif'],
   },
-  webpack: (config) => {
-    config.resolve.fallback = {
-      ...config.resolve.fallback,
-      fs: false,
-    };
-    return config;
+  
+  // Performance optimizations
+  experimental: {
+    optimizeCss: true,
+    optimizePackageImports: ['swiper'],
   },
-}
-
-/**
- * CORS headers for Next.js dev server to allow LAN/devices to access hot reload and assets.
- * Only needed for local development.
- */
-module.exports = {
-  ...nextConfig,
+  
+  // Compression
+  compress: true,
+  
+  // Security headers
   async headers() {
     return [
       {
-        source: '/_next/:path*',
+        source: '/(.*)',
         headers: [
-          { key: 'Access-Control-Allow-Origin', value: '*' },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block',
+          },
         ],
       },
     ];
   },
-}; 
+};
+
+module.exports = nextConfig; 

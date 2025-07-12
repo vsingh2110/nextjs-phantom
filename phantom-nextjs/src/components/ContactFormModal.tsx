@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 interface ContactFormModalProps {
   isOpen: boolean;
@@ -28,30 +28,62 @@ export default function ContactFormModal({
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [statusMessage, setStatusMessage] = useState('');
+  const [errors, setErrors] = useState<any>({});
 
   // Debug submitStatus changes
   useEffect(() => {
     console.log('SubmitStatus changed to:', submitStatus);
   }, [submitStatus]);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+  const validateForm = useCallback(() => {
+    const newErrors: any = {};
+    
+    if (!formData.name.trim()) {
+      newErrors.name = 'Name is required';
+    }
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Phone is required';
+    }
+    if (!formData.country.trim()) {
+      newErrors.country = 'Country is required';
+    }
+    if (!formData.city.trim()) {
+      newErrors.city = 'City is required';
+    }
 
-  const handleSubmit = async (e: React.FormEvent) => {
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  }, [formData]);
+
+  const handleInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
+  }, [errors]);
+
+  const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Check if all required fields are filled
-    if (!formData.name || !formData.phone || !formData.country || !formData.city) {
-      alert("Fill Required Fields!");
+    if (!validateForm()) {
+      setSubmitStatus('error');
+      setStatusMessage('Please fill in all required fields.');
       return;
     }
 
     setIsSubmitting(true);
     setSubmitStatus('idle');
+    setStatusMessage('');
 
     try {
       // Get timestamp
@@ -158,6 +190,7 @@ export default function ContactFormModal({
 
       console.log('Setting success status...');
       setSubmitStatus('success');
+      setStatusMessage(successMessage);
       console.log('Success status set to:', 'success');
       
       // Clear form
@@ -174,16 +207,17 @@ export default function ContactFormModal({
       setTimeout(() => {
         onClose();
         setSubmitStatus('idle');
+        setStatusMessage('');
       }, 5000);
 
     } catch (error) {
       console.error('Error during form submission:', error);
-      alert("Something went wrong. Please try again.");
       setSubmitStatus('error');
+      setStatusMessage('Something went wrong. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
-  };
+  }, [formData, validateForm, successMessage, onClose]);
 
   if (!isOpen) return null;
 
@@ -202,8 +236,9 @@ export default function ContactFormModal({
             &times;
           </button>
         </div>
+        
         {/* Form Container */}
-        <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto p-2 md:p-6 flex flex-col">
+        <form onSubmit={handleSubmit} className="flex-1 p-4 md:p-6">
           {/* Spinner */}
           <div 
             className="text-center py-4"
@@ -224,37 +259,41 @@ export default function ContactFormModal({
               </label>
               <div className="relative">
                 <i className="fa fa-user absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                <input 
-                  type="text" 
-                  name="name" 
+                <input
+                  type="text"
+                  name="name"
                   id="name" 
                   value={formData.name}
                   onChange={handleInputChange}
                   placeholder="Type Your Name" 
                   required 
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white"
+                  disabled={isSubmitting}
+                  className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white ${errors.name ? 'border-red-500' : 'border-gray-300'}`}
                 />
               </div>
+              {errors.name && <span className="text-red-500 text-sm mt-1">{errors.name}</span>}
             </div>
 
             {/* Phone */}
-            <div className="md:col-span-2">
+            <div>
               <label className="block text-sm font-semibold text-gray-700 mb-2" htmlFor="phone">
                 Phone <span className="text-red-500">*</span>
               </label>
               <div className="relative">
                 <i className="fa fa-phone absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                <input 
-                  type="tel" 
-                  name="phone" 
+                <input
+                  type="tel"
+                  name="phone"
                   id="phone" 
                   value={formData.phone}
                   onChange={handleInputChange}
                   placeholder="Type Your Phone Number" 
                   required 
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white"
+                  disabled={isSubmitting}
+                  className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white ${errors.phone ? 'border-red-500' : 'border-gray-300'}`}
                 />
               </div>
+              {errors.phone && <span className="text-red-500 text-sm mt-1">{errors.phone}</span>}
             </div>
 
             {/* Email */}
@@ -264,13 +303,14 @@ export default function ContactFormModal({
               </label>
               <div className="relative">
                 <i className="fa fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                <input 
-                  type="email" 
-                  name="email" 
+                <input
+                  type="email"
+                  name="email"
                   id="email" 
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder="Type Your Email" 
+                  disabled={isSubmitting}
                   className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white"
                 />
               </div>
@@ -283,17 +323,19 @@ export default function ContactFormModal({
               </label>
               <div className="relative">
                 <i className="fa fa-globe absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                <input 
-                  type="text" 
-                  name="country" 
+                <input
+                  type="text"
+                  name="country"
                   id="country" 
                   value={formData.country}
                   onChange={handleInputChange}
                   placeholder="Type Your Country" 
                   required
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white"
+                  disabled={isSubmitting}
+                  className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white ${errors.country ? 'border-red-500' : 'border-gray-300'}`}
                 />
               </div>
+              {errors.country && <span className="text-red-500 text-sm mt-1">{errors.country}</span>}
             </div>
 
             {/* City */}
@@ -303,17 +345,19 @@ export default function ContactFormModal({
               </label>
               <div className="relative">
                 <i className="fa fa-map-marker absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                <input 
-                  type="text" 
-                  name="city" 
+                <input
+                  type="text"
+                  name="city"
                   id="city" 
                   value={formData.city}
                   onChange={handleInputChange}
                   placeholder="Type Your City" 
                   required
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white"
+                  disabled={isSubmitting}
+                  className={`w-full pl-10 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white ${errors.city ? 'border-red-500' : 'border-gray-300'}`}
                 />
               </div>
+              {errors.city && <span className="text-red-500 text-sm mt-1">{errors.city}</span>}
             </div>
 
             {/* Hospital */}
@@ -323,13 +367,14 @@ export default function ContactFormModal({
               </label>
               <div className="relative">
                 <i className="fa fa-hospital-o absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                <input 
-                  type="text" 
-                  name="hospital" 
+                <input
+                  type="text"
+                  name="hospital"
                   id="hospital" 
                   value={formData.hospital}
                   onChange={handleInputChange}
                   placeholder="Type Hospital/Clinic Name" 
+                  disabled={isSubmitting}
                   className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white"
                 />
               </div>
@@ -342,14 +387,15 @@ export default function ContactFormModal({
               </label>
               <div className="relative">
                 <i className="fa fa-comment absolute left-3 top-3 text-gray-400"></i>
-                <textarea 
-                  name="enquiry" 
+                <textarea
+                  name="enquiry"
                   id="enquiry" 
                   value={formData.enquiry}
                   onChange={handleInputChange}
                   placeholder="Type Your Enquiries/Requests" 
                   required
                   rows={4}
+                  disabled={isSubmitting}
                   className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200 bg-gray-50 hover:bg-white resize-none"
                 />
               </div>
@@ -360,7 +406,7 @@ export default function ContactFormModal({
           <button 
             type="submit" 
             disabled={isSubmitting}
-            className="w-full bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 disabled:from-gray-400 disabled:to-gray-500 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 disabled:transform-none disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
+            className="w-full bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 disabled:from-gray-400 disabled:to-gray-500 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 disabled:transform-none disabled:cursor-not-allowed shadow-lg hover:shadow-xl mt-6"
           >
             {isSubmitting ? (
               <span className="flex items-center justify-center">
@@ -382,6 +428,58 @@ export default function ContactFormModal({
           </p>
         </form>
       </div>
+
+      {/* Centered Success Overlay */}
+      {submitStatus === 'success' && (
+        <div className="fixed inset-0 z-[10001] flex items-center justify-center bg-black bg-opacity-30 animate-fade-in">
+          <div className="bg-gradient-to-br from-[#00b67a] to-[#009e60] text-white rounded-2xl shadow-2xl px-8 py-10 flex flex-col items-center max-w-[90vw] w-full sm:w-[400px] animate-slide-up relative">
+            <svg className="w-16 h-16 mb-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="#00b67a" />
+              <path stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" d="M8 12.5l3 3 5-5" />
+            </svg>
+            <div className="text-xl font-bold mb-2 text-center">{statusMessage || 'Your Form Has Been Submitted Successfully'}</div>
+            <button
+              onClick={() => {
+                setSubmitStatus('idle');
+                setStatusMessage('');
+                onClose();
+              }}
+              className="absolute top-3 right-3 text-white text-2xl hover:text-green-200 focus:outline-none"
+              aria-label="Close success message"
+            >
+              &times;
+            </button>
+          </div>
+        </div>
+      )}
+      
+      {submitStatus === 'error' && (
+        <div className="fixed top-4 right-4 z-[10000] bg-red-500 text-white px-6 py-4 rounded-lg shadow-lg max-w-sm animate-fade-in">
+          <div className="flex items-center">
+            <div className="flex-shrink-0">
+              <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+              </svg>
+            </div>
+            <div className="ml-3">
+              <p className="text-sm font-medium">{statusMessage}</p>
+            </div>
+            <div className="ml-auto pl-3">
+              <button
+                onClick={() => {
+                  setSubmitStatus('idle');
+                  setStatusMessage('');
+                }}
+                className="text-white hover:text-gray-200"
+              >
+                <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 } 

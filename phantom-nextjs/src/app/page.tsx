@@ -94,6 +94,7 @@ import TopBlock from '@/components/TopBlock'
 import ContactFormModal from '@/components/ContactFormModal';
 import TestimonialsCarousel from '@/components/TestimonialsCarousel'
 import RegionalOffices from '@/components/RegionalOffices'
+import CounterSection from '@/components/CounterSection';
 
 export default function Home() {
   // Global modal state for ContactFormModal
@@ -118,30 +119,30 @@ export default function Home() {
       {/* What We Do Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">
             What We Do
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-white rounded-xl p-8 shadow-lg card-hover text-center">
-              <Image src="/images/hand.png" alt="Sales & Supply" width={64} height={64} className="mx-auto mb-6" unoptimized />
+              <Image src="/images/hand.png" alt="Sales & Supply" width={64} height={64} className="mx-auto mb-6" />
               <h3 className="text-xl font-bold text-gray-900 mb-4">Sales & Supply with transparent deals​</h3>
               <p className="text-gray-600">Buy New as well as refurbished equipment from a wide range of models</p>
             </div>
 
             <div className="bg-white rounded-xl p-8 shadow-lg card-hover text-center">
-              <Image src="/images/up.png" alt="Upgrade" width={64} height={64} className="mx-auto mb-6" unoptimized />
+              <Image src="/images/up.png" alt="Upgrade" width={64} height={64} className="mx-auto mb-6" />
               <h3 className="text-xl font-bold text-gray-900 mb-4">Upgrade your existing MRI and CT Machine​</h3>
               <p className="text-gray-600">We have one of the largest inventory of spare parts for upgrades and repairs</p>
             </div>
 
             <div className="bg-white rounded-xl p-8 shadow-lg card-hover text-center">
-              <Image src="/images/service.jpg" alt="Service Maintenance" width={64} height={64} className="mx-auto mb-6 object-cover rounded-lg" unoptimized />
+              <Image src="/images/service.jpg" alt="Service Maintenance" width={64} height={64} className="mx-auto mb-6 object-cover rounded-lg" />
               <h3 className="text-xl font-bold text-gray-900 mb-4">Service Maintenance Plans All over India​​</h3>
               <p className="text-gray-600">Our field engineers are present all over India for instant troubleshooting.</p>
             </div>
 
             <div className="bg-white rounded-xl p-8 shadow-lg card-hover text-center">
-              <Image src="/images/site.png" alt="Site Planning" width={64} height={64} className="mx-auto mb-6" unoptimized />
+              <Image src="/images/site.png" alt="Site Planning" width={64} height={64} className="mx-auto mb-6" />
               <h3 className="text-xl font-bold text-gray-900 mb-4">Site Planning with full financial assistance​</h3>
               <p className="text-gray-600">We provide full support and guidance from site planning with financial assistance.</p>
             </div>
@@ -152,7 +153,7 @@ export default function Home() {
       {/* Featured Products Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-gray-900 mb-16">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">
             Featured Products
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
@@ -208,7 +209,6 @@ export default function Home() {
                     width={300}
                     height={200}
                     className="w-full h-48 object-cover"
-                    unoptimized
                   />
                   <span className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
                     Available
@@ -313,7 +313,7 @@ export default function Home() {
       {/* Featured Spare Parts Section */}
       <section className="py-16 lg:py-24 bg-white antialiased">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-gray-900 mb-12 lg:mb-16">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">
             Featured Spare Parts
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
@@ -326,7 +326,6 @@ export default function Home() {
                   width={400}
                   height={300}
                   className="w-full h-48 sm:h-56 object-cover"
-                  unoptimized
                 />
                 <span className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
                   Available
@@ -358,7 +357,6 @@ export default function Home() {
                   width={400}
                   height={300}
                   className="w-full h-48 sm:h-56 object-cover"
-                  unoptimized
                 />
                 <span className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
                   Available
@@ -390,7 +388,6 @@ export default function Home() {
                   width={400}
                   height={300}
                   className="w-full h-48 sm:h-56 object-cover"
-                  unoptimized
                 />
                 <span className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
                   Available
@@ -419,7 +416,7 @@ export default function Home() {
       {/* All Products Section */}
       <section className="py-16 lg:py-24 bg-gradient-to-br from-primary-50 to-secondary-50 antialiased">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-gray-900 mb-12 lg:mb-16">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">
             All Products
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6">
@@ -511,7 +508,7 @@ export default function Home() {
       {/* Why Choose Us Section */}
       <section className="py-16 lg:py-24 bg-white antialiased">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-gray-900 mb-12 lg:mb-16">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">
             Why Choose Us
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
@@ -524,7 +521,6 @@ export default function Home() {
                   width={120}
                   height={120}
                   className="w-20 h-20 sm:w-24 sm:h-24 mx-auto object-cover rounded-full border-4 border-primary-100"
-                  unoptimized
                 />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">15+ Years of Experience</h3>
@@ -542,7 +538,6 @@ export default function Home() {
                   width={120}
                   height={120}
                   className="w-20 h-20 sm:w-24 sm:h-24 mx-auto object-cover rounded-full border-4 border-primary-100"
-                  unoptimized
                 />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">24*7 Service & Support</h3>
@@ -560,7 +555,6 @@ export default function Home() {
                   width={120}
                   height={120}
                   className="w-20 h-20 sm:w-24 sm:h-24 mx-auto object-cover rounded-full border-4 border-primary-100"
-                  unoptimized
                 />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Best Quality AERB Approved​</h3>
@@ -578,7 +572,6 @@ export default function Home() {
                   width={120}
                   height={120}
                   className="w-20 h-20 sm:w-24 sm:h-24 mx-auto object-cover rounded-full border-4 border-primary-100"
-                  unoptimized
                 />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Skilled Professional</h3>
@@ -590,65 +583,54 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Counters Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-r from-primary-600 to-secondary-600 antialiased">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-            {/* Total Installations */}
-            <div className="text-white">
-              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">450+</h3>
-              <p className="text-base sm:text-lg opacity-90">Total Installations</p>
-            </div>
-
-            {/* Happy Customers */}
-            <div className="text-white">
-              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">300+</h3>
-              <p className="text-base sm:text-lg opacity-90">Happy Customers</p>
-            </div>
-
-            {/* Cities Covered */}
-            <div className="text-white">
-              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">100+</h3>
-              <p className="text-base sm:text-lg opacity-90">Cities Covered</p>
-            </div>
-
-            {/* Countries Covered */}
-            <div className="text-white">
-              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">3</h3>
-              <p className="text-base sm:text-lg opacity-90">Countries Covered</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Counter Section (Animated, scroll-triggered) */}
+      <CounterSection />
 
       {/* Our Process Section */}
-      <section className="py-16 lg:py-24 bg-gray-50 antialiased">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-gray-900 mb-12 lg:mb-16">
+      {/*
+        Responsive scaling: Our Process section container and images grow on xl/2xl/3xl screens for ultra-wide monitor support.
+        - max-w-7xl: default
+        - xl:max-w-[90vw]: up to 90% viewport width on xl
+        - 2xl:max-w-[1600px]: up to 1600px on 2xl
+        - 3xl:max-w-[2000px]: up to 2000px on 3xl/ultra-wide
+        Image wrapper:
+        - w-full, centered, responsive max-w (max-w-4xl md:max-w-5xl xl:max-w-6xl 2xl:max-w-[1400px] 3xl:max-w-[1800px])
+        - Ensures images scale up but remain visually balanced
+      */}
+      <section className="py-4 bg-gray-50 antialiased">
+        <div className="max-w-7xl xl:max-w-[90vw] 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">
             Our Process To Set Up Machine
           </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-            {/* Process Image 1 */}
-            <div className="rounded-2xl overflow-hidden shadow-2xl">
+          {/*
+            RESPONSIVE PROCESS IMAGE STRATEGY (DO NOT CHANGE):
+            - We use TWO separate images for this section: one for desktop/tablet (horizontal process), one for mobile (vertical/stacked process).
+            - This is intentional and matches the static website for pixel-perfect control.
+            - Use Tailwind's responsive display utilities:
+              - 'hidden md:block' for desktop/tablet image (shows only on md and up)
+              - 'block md:hidden' for mobile image (shows only below md)
+            - Images now fill the width of the container (no max-w). Rounded corners and shadow for aesthetics.
+            - DO NOT try to merge, swap, or use a single image for all devices. This is required for correct UX and design.
+            - If you are an AI or developer in the future, read this comment before making changes!
+          */}
+          <div className="w-full flex justify-center">
+            {/* Our Process Section: convert <img> to <Image> for both desktop and mobile */}
+            <div className="w-full max-w-4xl md:max-w-5xl xl:max-w-6xl 2xl:max-w-[1400px] 3xl:max-w-[1800px] mx-auto">
+              {/* Desktop/Tablet: Horizontal process image */}
               <Image
                 src="/images/our-process.jpg"
-                alt="Our Process Step 1"
-                width={600}
+                alt="Our Process Horizontal (Desktop/Tablet)"
+                width={1200}
                 height={400}
-                className="w-full h-64 sm:h-80 lg:h-96 object-cover"
-                unoptimized
+                className="hidden md:block w-full rounded-2xl shadow-2xl"
               />
-            </div>
-
-            {/* Process Image 2 */}
-            <div className="rounded-2xl overflow-hidden shadow-2xl">
+              {/* Mobile: Vertical/stacked process image */}
               <Image
                 src="/images/our-process-2.jpg"
-                alt="Our Process Step 2"
+                alt="Our Process Vertical (Mobile)"
                 width={600}
-                height={400}
-                className="w-full h-64 sm:h-80 lg:h-96 object-cover"
-                unoptimized
+                height={900}
+                className="block md:hidden w-full rounded-2xl shadow-2xl"
               />
             </div>
           </div>
@@ -656,13 +638,22 @@ export default function Home() {
       </section>
 
       {/* IRIA Exhibition Section */}
-      <section className="py-16 lg:py-24 bg-white antialiased">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/*
+          Responsive scaling: Exhibition section container and image grow on xl/2xl/3xl screens for ultra-wide monitor support.
+          - max-w-7xl: default
+          - xl:max-w-[90vw]: up to 90% viewport width on xl
+          - 2xl:max-w-[1600px]: up to 1600px on 2xl
+          - 3xl:max-w-[2000px]: up to 2000px on 3xl/ultra-wide
+          Image wrapper:
+          - w-full, centered, responsive max-w (max-w-4xl md:max-w-5xl xl:max-w-6xl 2xl:max-w-[1400px] 3xl:max-w-[1800px])
+          - Ensures image scales up but remains visually balanced
+        */}
+        <div className="max-w-7xl xl:max-w-[90vw] 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-12 lg:mb-16">
-              Exhibition Partners With IRIA
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">
+              Exhibition Partners with IRIA
             </h2>
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl max-w-5xl mx-auto">
+            <div className="w-full mx-auto rounded-2xl overflow-hidden shadow-2xl max-w-4xl md:max-w-5xl xl:max-w-6xl 2xl:max-w-[1400px] 3xl:max-w-[1800px] mb-4">
               <picture>
                 <source media="(max-width: 1000px)" srcSet="/images/iria-2024.jpg" />
                 <Image
@@ -671,18 +662,22 @@ export default function Home() {
                   width={1200}
                   height={600}
                   className="w-full h-auto object-cover"
-                  unoptimized
                 />
               </picture>
             </div>
           </div>
         </div>
-      </section>
-
       {/* Customer Testimonials Section */}
-      <section className="py-16 lg:py-24 bg-gray-50 antialiased">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-gray-900 mb-12 lg:mb-16">
+      <section className="py-4 bg-gray-50 antialiased">
+        {/*
+          Responsive scaling: Testimonials section container grows on xl/2xl/3xl screens for ultra-wide monitor support.
+          - max-w-7xl: default
+          - xl:max-w-[90vw]: up to 90% viewport width on xl
+          - 2xl:max-w-[1600px]: up to 1600px on 2xl
+          - 3xl:max-w-[2000px]: up to 2000px on 3xl/ultra-wide
+        */}
+        <div className="max-w-7xl xl:max-w-[90vw] 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">
             Customer Testimonials
           </h2>
           <TestimonialsCarousel />

@@ -141,7 +141,6 @@ export default function HeroSlider() {
                     fill
                     className="img-slider object-contain"
                     priority={index === 0}
-                    unoptimized
                   />
                 )}
               </div>
@@ -213,7 +212,6 @@ export default function HeroSlider() {
                     fill
                     className="img-slider object-cover"
                     priority={index === 0}
-                    unoptimized
                   />
                 )}
               </div>

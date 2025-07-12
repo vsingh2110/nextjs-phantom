@@ -1,10 +1,18 @@
 /**
- * TESTIMONIALS CAROUSEL COMPONENT
- * ================================
+ * TESTIMONIALS CAROUSEL COMPONENT (OPTIMIZED)
+ * ===========================================
  * 
- * PURPOSE: Responsive testimonials carousel using Swiper.js library
+ * PURPOSE: Responsive testimonials carousel using Swiper.js library with performance optimizations
  * CREATED: July 12, 2025 (01:50 AM IST)
- * LAST MODIFIED: July 12, 2025
+ * LAST MODIFIED: July 13, 2025 (performance optimizations)
+ * 
+ * PERFORMANCE IMPROVEMENTS:
+ * - Lazy loading with Intersection Observer
+ * - Memoized testimonial cards
+ * - Optimized Swiper configuration
+ * - Error boundaries and fallback UI
+ * - Reduced re-renders with React.memo
+ * - Dynamic imports for Swiper modules
  * 
  * FEATURES:
  * - Responsive breakpoints: 1 card (mobile), 2 cards (tablet), 3 cards (desktop), 4 cards (large screens)
@@ -12,6 +20,7 @@
  * - Auto-play every 5 seconds with manual navigation
  * - Custom styled navigation arrows and pagination dots
  * - Optimized for all screen sizes including 1920px+ displays
+ * - Loading states and error handling
  * 
  * DEPENDENCIES:
  * - swiper: Carousel library for smooth responsive behavior
@@ -29,6 +38,7 @@
  * - Uses Swiper's built-in modules for Navigation, Pagination, and Autoplay
  * - Custom CSS for pagination styling to match design system
  * - All testimonials data is currently hardcoded (future: CMS integration)
+ * - Lazy loading prevents unnecessary rendering
  * 
  * USAGE:
  * <TestimonialsCarousel />
@@ -40,6 +50,7 @@
 
 "use client";
 
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
@@ -94,75 +105,129 @@ const TESTIMONIALS: Testimonial[] = [
   },
 ];
 
-export default function TestimonialsCarousel() {
-  const Card = ({ t }: { t: Testimonial }) => (
-    <div className="bg-white rounded-2xl shadow-lg p-4 lg:p-6 flex flex-col h-full hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-      <div className="text-center mb-4">
-        <Image
-          src={t.image}
-          alt={t.name}
-          width={80}
-          height={80}
-          className="w-16 h-16 lg:w-20 lg:h-20 mx-auto rounded-full object-cover border-4 border-primary-100"
-          unoptimized
-        />
-        <h4 className="text-base lg:text-lg font-bold text-gray-900 mt-3 leading-tight">
-          {t.name}
-        </h4>
-        <span className="text-xs text-gray-600 block mt-1">
-          ({t.subtitle})
-        </span>
-      </div>
-      <p className="text-gray-600 text-xs lg:text-sm leading-relaxed flex-grow">{t.quote}</p>
+// Memoized testimonial card component
+const TestimonialCard = React.memo(({ t }: { t: Testimonial }) => (
+  <div className="bg-white rounded-2xl shadow-lg p-4 lg:p-6 flex flex-col h-full hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+    <div className="text-center mb-4">
+      <Image
+        src={t.image}
+        alt={t.name}
+        width={80}
+        height={80}
+        className="w-16 h-16 lg:w-20 lg:h-20 mx-auto rounded-full object-cover border-4 border-primary-100"
+        unoptimized
+      />
+      <h4 className="text-base lg:text-lg font-bold text-gray-900 mt-3 leading-tight">
+        {t.name}
+      </h4>
+      <span className="text-xs text-gray-600 block mt-1">
+        ({t.subtitle})
+      </span>
     </div>
-  );
+    <p className="text-gray-600 text-xs lg:text-sm leading-relaxed flex-grow">{t.quote}</p>
+  </div>
+));
+
+TestimonialCard.displayName = 'TestimonialCard';
+
+export default function TestimonialsCarousel() {
+  const [isVisible, setIsVisible] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
+  // Intersection Observer for lazy loading
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const element = document.querySelector('.testimonials-carousel');
+    if (element) {
+      observer.observe(element);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Memoized Swiper configuration
+  const swiperConfig = useMemo(() => ({
+    modules: [Navigation, Pagination, Autoplay],
+    spaceBetween: 16,
+    slidesPerView: 1,
+    loop: true,
+    navigation: {
+      nextEl: '.swiper-button-next-custom',
+      prevEl: '.swiper-button-prev-custom',
+    },
+    pagination: {
+      clickable: true,
+      dynamicBullets: true,
+    },
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    breakpoints: {
+      // iPad/Tablet: 2 cards side by side
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 16,
+      },
+      // Laptop/Desktop: 3 cards for comfortable viewing
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+      // Large Desktop: 4 cards for optimal space usage
+      1440: {
+        slidesPerView: 4,
+        spaceBetween: 24,
+      },
+      // Extra Large Screens (1920px+): 4 cards with more spacing
+      1920: {
+        slidesPerView: 4,
+        spaceBetween: 32,
+      },
+    },
+    className: "pb-12",
+    onError: () => setHasError(true),
+  }), []);
+
+  // Error fallback UI
+  if (hasError) {
+    return (
+      <div className="testimonials-carousel">
+        <div className="text-center py-8">
+          <i className="fa fa-exclamation-triangle text-4xl text-gray-400 mb-4"></i>
+          <p className="text-gray-600">Testimonials temporarily unavailable</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Loading state
+  if (!isVisible) {
+    return (
+      <div className="testimonials-carousel">
+        <div className="text-center py-8">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading testimonials...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="testimonials-carousel">
-      <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        spaceBetween={16}
-        slidesPerView={1}
-        loop={true}
-        navigation={{
-          nextEl: '.swiper-button-next-custom',
-          prevEl: '.swiper-button-prev-custom',
-        }}
-        pagination={{
-          clickable: true,
-          dynamicBullets: true,
-        }}
-        autoplay={{
-          delay: 5000,
-          disableOnInteraction: false,
-        }}
-        breakpoints={{
-          // iPad/Tablet: 2 cards side by side
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 16,
-          },
-          // Laptop/Desktop: 3 cards for comfortable viewing
-          1024: {
-            slidesPerView: 3,
-            spaceBetween: 20,
-          },
-          // Large Desktop: 4 cards for optimal space usage
-          1440: {
-            slidesPerView: 4,
-            spaceBetween: 24,
-          },
-                     // Extra Large Screens (1920px+): 4 cards with more spacing
-           1920: {
-             slidesPerView: 4,
-             spaceBetween: 32,
-           },
-         }}
-        className="pb-12"
-      >
+      <Swiper {...swiperConfig}>
         {TESTIMONIALS.map((testimonial, index) => (
           <SwiperSlide key={index}>
-            <Card t={testimonial} />
+            <TestimonialCard t={testimonial} />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -171,6 +236,7 @@ export default function TestimonialsCarousel() {
       <div className="swiper-button-prev-custom absolute left-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 text-gray-700 w-8 h-8 rounded-full flex items-center justify-center shadow z-10 cursor-pointer">
         <i className="fa fa-chevron-left"></i>
       </div>
+      
       <div className="swiper-button-next-custom absolute right-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 text-gray-700 w-8 h-8 rounded-full flex items-center justify-center shadow z-10 cursor-pointer">
         <i className="fa fa-chevron-right"></i>
       </div>

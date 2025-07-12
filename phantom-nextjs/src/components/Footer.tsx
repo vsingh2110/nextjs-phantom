@@ -66,7 +66,7 @@ export default function Footer() {
   return (
     <footer className="bg-gradient-to-b from-[#33a7ef] via-[#259ae1] to-[#133d5a] text-white pt-12">
       {/* Footer Box Wrap */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-between">
+      <div className="max-w-7xl xl:max-w-[90vw] 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-between">
         {/* Company Info */}
         <div className="w-full md:w-1/3 p-4 text-left">
           <Link href="/">
@@ -124,7 +124,7 @@ export default function Footer() {
       </div>
 
       {/* Regional Offices */}
-      <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6 text-xs md:text-sm lg:text-base px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6 text-xs md:text-sm lg:text-base px-4 sm:px-6 lg:px-8 max-w-7xl xl:max-w-[90vw] 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto">
         {[
           {region:'India & Sub-Continent', flag:'/images/india-flag.jpg', company:'Phantom Healthcare IND Private Limited', address:'Faridabad, Haryana – 121003 (INDIA)', phones:['+91 9899963601'], emails:['info@phantomhealthcare.com']},
           {region:'USA & Western', flag:'/images/usa-map.jpg', company:'Phantom Healthcare US LLC', address:'Naperville, IL (USA)', phones:['+1 630 720 6801'], emails:['info@phantomhealthcare.com']},
@@ -145,7 +145,13 @@ export default function Footer() {
 
       {/* Footer Menu */}
       <div className="footer-menu mt-4">
-        <div className="footer-menu-wrap container mx-auto flex justify-center space-x-4 text-sm">
+        {/*
+          Responsive scaling: Footer menu container grows on xl/2xl screens for better balance.
+        */}
+        {/*
+          Ultra-wide scaling: Footer menu container grows up to 2000px on 3xl screens (2000px+ monitors).
+        */}
+        <div className="footer-menu-wrap max-w-7xl xl:max-w-[90vw] 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto flex justify-center space-x-4 text-sm">
           <div className="footer-menu-box"><Link href="/privacy-policy" className="hover:underline">Privacy Policy</Link></div>
           <div className="footer-menu-box"><Link href="/faqs" className="hover:underline">FAQs</Link></div>
           <div className="footer-menu-box"><Link href="/terms-and-conditions" className="hover:underline">Terms & Conditions</Link></div>

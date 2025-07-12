@@ -18,7 +18,7 @@ export default function Services() {
       {/* Service Packages */}
       <section id="service-packages" className="service-section">
         <div className="container">
-          <h2>Service Packages</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">Service Packages</h2>
           <div className="services-grid">
             <div className="service-card">
               <Image src="/images/services/amc-annual.jpg" alt="AMC Services" width={400} height={300} />
@@ -52,7 +52,7 @@ export default function Services() {
       {/* Repairs and Upgrades */}
       <section id="repairs-and-upgrdaes" className="service-section">
         <div className="container">
-          <h2>Repairs and Upgrades</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">Repairs and Upgrades</h2>
           <div className="services-grid">
             <div className="service-card">
               <Image src="/images/services/repair-your-mri-ct.jpg" alt="Equipment Repair" width={400} height={300} />
@@ -84,7 +84,7 @@ export default function Services() {
       {/* Installation and Site Planning */}
       <section className="service-section">
         <div className="container">
-          <h2>Installation and Site Planning</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">Installation and Site Planning</h2>
           <div className="services-grid">
             <div className="service-card">
               <Image src="/images/services/de-installation-relocation.jpg" alt="Installation Services" width={400} height={300} />
@@ -118,7 +118,7 @@ export default function Services() {
       {/* Specialized Services */}
       <section className="service-section">
         <div className="container">
-          <h2>Specialized Services</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">Specialized Services</h2>
           <div className="services-grid">
             <div className="service-card">
               <Image src="/images/services/cold-head-helium.jpg" alt="Helium Services" width={400} height={300} />

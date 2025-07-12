@@ -35,7 +35,7 @@ export default function Blogs() {
       {/* Blog Grid */}
       <section className="blogs-section">
         <div className="container">
-          <h2>Latest Articles</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">Latest Articles</h2>
           <div className="blogs-grid">
             <article className="blog-card">
               <div className="blog-image">

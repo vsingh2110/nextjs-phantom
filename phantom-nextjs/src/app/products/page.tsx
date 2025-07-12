@@ -18,7 +18,7 @@ export default function Products() {
       {/* MRI Scanners */}
       <section className="product-category">
         <div className="container">
-          <h2>MRI Scanners</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">MRI Scanners</h2>
           <div className="products-grid">
             <div className="product-card">
               <Image src="/images/machines/1.5t-mri/GE Signa 1.5T HDxt.jpg" alt="GE Signa 1.5T HDxt" width={400} height={300} />
@@ -45,7 +45,7 @@ export default function Products() {
       {/* CT Scanners */}
       <section className="product-category">
         <div className="container">
-          <h2>CT Scanners</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">CT Scanners</h2>
           <div className="products-grid">
             <div className="product-card">
               <Image src="/images/machines/ct-scan/GE revolution EVO.jpg" alt="GE Revolution EVO" width={400} height={300} />
@@ -72,7 +72,7 @@ export default function Products() {
       {/* PET-CT Scanners */}
       <section className="product-category">
         <div className="container">
-          <h2>PET-CT Scanners</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">PET-CT Scanners</h2>
           <div className="products-grid">
             <div className="product-card">
               <Image src="/images/machines/pet-ct/pet-ct.png" alt="PET-CT Scanner" width={400} height={300} />
@@ -87,7 +87,7 @@ export default function Products() {
       {/* Cath-Lab */}
       <section className="product-category">
         <div className="container">
-          <h2>Cath-Lab Systems</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">Cath-Lab Systems</h2>
           <div className="products-grid">
             <div className="product-card">
               <Image src="/images/machines/allura.png" alt="Philips Allura" width={400} height={300} />
@@ -102,7 +102,7 @@ export default function Products() {
       {/* Gamma Camera SPECT */}
       <section className="product-category">
         <div className="container">
-          <h2>Gamma Camera SPECT Systems</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">Gamma Camera SPECT Systems</h2>
           <div className="products-grid">
             <div className="product-card">
               <Image src="/images/machines/gamma camera spect/GE infinia gamma camera SPECT.jpg" alt="GE Infinia Gamma Camera" width={400} height={300} />
@@ -117,7 +117,7 @@ export default function Products() {
       {/* Bone Densitometer */}
       <section className="product-category">
         <div className="container">
-          <h2>Bone Densitometer DXA</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">Bone Densitometer DXA</h2>
           <div className="products-grid">
             <div className="product-card">
               <Image src="/images/machines/Dexa Bone Densitometer.jpg" alt="DEXA Bone Densitometer" width={400} height={300} />

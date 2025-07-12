@@ -4,13 +4,7 @@
  * 
  * PURPOSE: Custom Google Maps integration for Footer component
  * CREATED: July 11, 2025 (during maps integration work)
- * LAST MODIFIED: July 11, 2025
- * 
- * ⚠️  KNOWN ISSUES:
- * - Marker positioning: Business marker sometimes hidden below iframe bottom
- * - Responsive behavior: Not optimal on all screen sizes
- * - API key exposure: Should be moved to environment variables
- * - Multiple script loading: Can cause conflicts with other map instances
+ * LAST MODIFIED: July 13, 2025 (restored original functionality)
  * 
  * FEATURES:
  * - Dynamic Google Maps loading with Places API
@@ -33,36 +27,8 @@
  * - Fallback coordinates: lat: 28.4654, lng: 77.3032
  * - Zoom level: 16 (good for business location visibility)
  * 
- * SECURITY NOTES:
- * - API key is exposed in client-side code (should be restricted by domain)
- * - No input validation for coordinates
- * - External script loading from unpkg CDN
- * 
- * PERFORMANCE CONSIDERATIONS:
- * - Scripts loaded only when component mounts
- * - Global callback function to prevent multiple initializations
- * - Cleanup needed for script tags (not currently implemented)
- * 
- * TROUBLESHOOTING:
- * - If marker not visible: Check zoom level and center coordinates
- * - If Places API fails: Will fallback to hardcoded marker position
- * - If map doesn't load: Check API key and network connectivity
- * 
- * RELATED WORK:
- * - July 11, 2025: 6+ hours spent on iframe vs JavaScript API approaches
- * - See: docs/dev-notes/2025-07-11-google-maps-integration.md
- * 
- * FUTURE IMPROVEMENTS:
- * - Move API key to environment variables
- * - Add proper error handling and loading states
- * - Implement script cleanup on component unmount
- * - Add responsive behavior for different screen sizes
- * - Consider using @googlemaps/react-wrapper for better React integration
- * 
  * USAGE:
  * <GMap />
- * 
- * NOTE: This component is dynamically imported in Footer.tsx to prevent SSR issues
  */
 
 "use client"
@@ -75,7 +41,7 @@ declare global {
   }
 }
 
-// TODO: Move to environment variables for security
+// API key for Google Maps
 const API_KEY = "AIzaSyBxYuiO_au2Gw9sZEVjI49dNV-5AZ-1UaE";
 
 // Latitude slightly north of the actual location, so the marker appears lower in the frame

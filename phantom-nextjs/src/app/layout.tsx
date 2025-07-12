@@ -2,6 +2,14 @@ import type { Metadata } from 'next'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import ScrollRestoration from '@/components/ScrollRestoration';
+/**
+ * IMPORTANT: This layout.tsx is kept as a SERVER COMPONENT for SEO.
+ * Do NOT add 'use client' or client-only logic (like useEffect) here.
+ * For scroll restoration or other client-only features, use a dedicated client component (see ScrollRestoration.tsx).
+ * This ensures full SSR/SSG for SEO, fast initial load, and correct social/meta previews.
+ * If you are an AI or developer in the future, DO NOT move client logic here unless you want to lose SEO benefits.
+ */
 
 export const metadata: Metadata = {
   title: 'Phantom Healthcare - MRI,CT Scanner, PET-CT, Cath-Lab, Gamma Camera SPECT, Bone Densitometer DXA',
@@ -105,6 +113,8 @@ export default function RootLayout({
         />
       </head>
       <body className="Poppins w-full min-h-screen">
+        {/* ScrollRestoration is a client component for scroll position restore. Placing it here ensures all pages get the feature, but layout remains a server component for SEO. */}
+        <ScrollRestoration />
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe 

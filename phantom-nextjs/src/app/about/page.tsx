@@ -40,7 +40,7 @@ export default function About() {
       {/* Team Section */}
       <section className="team-section">
         <div className="container">
-          <h2>Our Leadership Team</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">Our Leadership Team</h2>
           <div className="team-grid">
             <div className="team-member">
               <Image src="/images/brijesh-suneja.jpg" alt="Brijesh Suneja" width={400} height={300} />
@@ -59,7 +59,7 @@ export default function About() {
       {/* Values Section */}
       <section className="values-section">
         <div className="container">
-          <h2>Our Core Values</h2>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">Our Core Values</h2>
           <div className="values-grid">
             <div className="value-card">
               <i className="fa fa-star"></i>
