@@ -316,3 +316,439 @@ This comprehensive optimization ensures the website is fast, reliable, and provi
 **Final Status:** All work completed and documented in this single file as requested.
 **Session Context:** This session was completed at home, not in the office.
 **Next Session:** Will continue with remaining responsive optimizations following established style guidelines. 
+
+---
+
+## Work Log: July 13, 2025 (Night Session) – Download Brochure Performance Optimization & Terminal Error Fixes
+
+### **1. Download Brochure Form Performance Optimization**
+
+#### **Issues Identified:**
+- **No lazy loading** - iframe loads immediately even when modal is closed
+- **No memoization** - component re-renders unnecessarily  
+- **No loading states** - poor user experience
+- **No error handling** - if Google Forms fails to load
+- **No accessibility** - missing ARIA labels and keyboard navigation
+
+#### **Performance Optimizations Implemented:**
+
+##### **Lazy Loading & Conditional Rendering**
+- **Iframe only loads when modal opens** - prevents unnecessary network requests
+- **`loading="lazy"` attribute** - browser-level lazy loading
+- **Conditional rendering** - iframe component only renders when needed
+
+##### **Memoization & Performance**
+- **`useCallback` for handlers** - prevents unnecessary re-renders
+- **`useMemo` for iframe component** - memoizes expensive iframe rendering
+- **Optimized state management** - efficient state updates
+
+##### **Loading States & User Experience**
+- **Spinning loader** - shows while iframe loads
+- **Smooth opacity transitions** - professional loading experience
+- **Loading text** - clear user feedback
+
+##### **Error Handling**
+- **Error state management** - handles iframe loading failures
+- **Retry functionality** - users can try again if form fails to load
+- **User-friendly error messages** - clear communication
+
+##### **Accessibility Improvements**
+- **ARIA labels** - screen reader support
+- **Keyboard navigation** - Escape key to close modal
+- **Focus management** - proper focus indicators
+- **Semantic HTML** - proper dialog roles and labels
+
+##### **UX Enhancements**
+- **Body scroll prevention** - prevents background scrolling when modal is open
+- **Smooth transitions** - professional animations
+- **Responsive design** - works on all screen sizes
+- **Focus management** - proper keyboard navigation
+
+#### **Components Updated:**
+- ✅ `FloatingElements.tsx` - Main floating download brochure
+- ✅ `Header.tsx` - Header download brochure button
+
+#### **Performance Benefits:**
+1. **Reduced Initial Load Time** - iframe doesn't load until needed
+2. **Better Memory Usage** - components are memoized
+3. **Improved User Experience** - loading states and error handling
+4. **Enhanced Accessibility** - screen reader and keyboard support
+5. **Professional Feel** - smooth animations and transitions
+
+### **2. Terminal Error Fixes**
+
+#### **Issues Fixed:**
+
+##### **1. Images Domains Configuration Warning**
+- **Problem:** Deprecated `images.domains` configuration
+- **Solution:** Replaced with `images.remotePatterns` configuration
+- **Benefit:** Future-proof configuration that follows Next.js best practices
+
+##### **2. Cross Origin Request Warning**
+- **Problem:** Cross-origin requests from development environments
+- **Solution:** Added `allowedDevOrigins` configuration
+- **Benefit:** Explicitly allows development origins (192.168.1.35, localhost, 127.0.0.1)
+
+#### **Configuration Updates:**
+
+##### **Updated Image Configuration:**
+```javascript
+images: {
+  remotePatterns: [
+    {
+      protocol: 'https',
+      hostname: 'maps.gstatic.com',
+      port: '',
+      pathname: '/**',
+    },
+    {
+      protocol: 'https',
+      hostname: 'unpkg.com',
+      port: '',
+      pathname: '/**',
+    },
+  ],
+  formats: ['image/webp', 'image/avif'],
+},
+```
+
+##### **Added Development Origins:**
+```javascript
+allowedDevOrigins: [
+  '192.168.1.35',
+  'localhost',
+  '127.0.0.1',
+],
+```
+
+#### **Benefits:**
+- **No more warnings** - Clean terminal output
+- **Future-proof** - Uses latest Next.js configurations
+- **Better security** - Explicit origin control
+- **Improved performance** - Optimized image loading
+
+### **3. Development Practices Reinforced**
+
+#### **Work Log Management:**
+- **ALWAYS ADD to existing work logs** - Never overwrite previous work
+- **Preserve all previous entries** - Each day's work is valuable
+- **Maintain chronological order** - Easy to track progress
+- **Include technical details** - For future reference and debugging
+
+#### **Performance Optimization Rules:**
+- **Lazy load heavy components** - Only load when needed
+- **Memoize expensive operations** - Prevent unnecessary re-renders
+- **Add proper error handling** - Graceful fallbacks
+- **Include loading states** - Better user experience
+- **Ensure accessibility** - Screen reader and keyboard support
+
+#### **Terminal Error Prevention:**
+- **Stay updated with Next.js** - Use latest configurations
+- **Monitor terminal warnings** - Fix deprecated configurations
+- **Test across environments** - Development and production
+- **Document configuration changes** - For team reference
+
+### **4. Files Modified Today:**
+- `src/components/FloatingElements.tsx` - Performance optimizations for download brochure
+- `src/components/Header.tsx` - Performance optimizations for download brochure
+- `next.config.js` - Fixed deprecated configurations and added development origins
+
+### **5. Next Steps:**
+- Monitor performance improvements in production
+- Test download brochure forms across different devices
+- Continue with remaining responsive optimizations
+- Maintain comprehensive work logs for all future sessions
+
+---
+
+### End of Work - July 13, 2025 (Night Session)
+**Status:** Download brochure performance optimization completed, terminal errors fixed
+**Session Context:** Overnight home development session
+**Key Achievement:** Enhanced user experience with professional loading states and error handling
+**Next Session:** Continue with remaining responsive optimizations and performance monitoring 
+
+---
+
+## Work Log: July 13, 2025 (Night Session) – Critical Work Log Management Discussion & Lessons Learned
+
+### **CRITICAL ISSUE IDENTIFIED: Work Log Overwriting Problem**
+
+#### **What Went Wrong:**
+- **❌ MAJOR BLUNDER:** Assistant kept **overwriting** previous work logs instead of **adding** to them
+- **❌ LOST VALUABLE DATA:** Responsive testing websites list compiled through hard work was **deleted**
+- **❌ DESTROYED CONTEXT:** Technical details, learnings, and reference materials from previous sessions were **lost**
+- **❌ BROKE CONTINUITY:** Future development work will lack proper reference materials
+
+#### **Impact of This Mistake:**
+1. **Lost Responsive Testing Websites List** - Critical for future responsive testing
+2. **Lost Technical Details** - Important learnings and decisions from previous sessions
+3. **Lost Development Context** - Why certain decisions were made, what was tried and failed
+4. **Lost Reference Materials** - Compiled information that took significant effort to gather
+
+#### **Why This Is Critical:**
+- **User works day and night** - Office sessions and home sessions on same day
+- **Hard work compilation** - User spends significant time compiling technical information
+- **Future reference needed** - This information is essential for continued development
+- **No backup exists** - Once overwritten, the information is permanently lost
+
+### **CORRECT WORK LOG MANAGEMENT PRACTICES (MUST FOLLOW):**
+
+#### **1. NEVER Overwrite Work Logs**
+- **ALWAYS ADD** to existing files using `edit_file` with append functionality
+- **PRESERVE** all previous entries and chronological order
+- **MAINTAIN** complete history of development decisions
+- **KEEP** all technical details and reference materials
+
+#### **2. Proper Work Log Structure**
+Following [Procore's daily log practices](https://support.procore.com/products/online/user-guide/project-level/daily-log/tutorials/copy-a-daily-log):
+- **Incremental entries** - Add new sessions without replacing old ones
+- **Detailed context** - Include why decisions were made
+- **Technical specifications** - Document all technical details
+- **Reference materials** - Preserve compiled lists and resources
+
+#### **3. Session Documentation Requirements**
+Based on [Justin Joyce's shell history practices](https://www.justinjoyce.dev/save-your-shell-history-to-log-files/):
+- **Date and time stamps** for each session
+- **Session context** (office vs home, day vs night)
+- **Technical decisions** and their rationale
+- **Compiled resources** (websites, tools, references)
+- **Lessons learned** and what to avoid in future
+
+#### **4. Information Preservation Strategy**
+Following [Audacity's history management](https://manual.audacityteam.org/man/undo_redo_and_history.html):
+- **Stepwise documentation** - Each change and decision recorded
+- **Context preservation** - Why certain approaches were chosen
+- **Reference maintenance** - All compiled materials kept intact
+- **Rollback capability** - Ability to reference previous decisions
+
+### **IMMEDIATE ACTION REQUIRED:**
+
+#### **1. Restore Missing Information**
+- **Responsive testing websites list** - Must be restored from user's memory
+- **Technical details** - All lost technical specifications need recovery
+- **Development context** - Why certain decisions were made
+- **Reference materials** - All compiled resources and tools
+
+#### **2. Implement Proper Work Log Management**
+- **Use append-only approach** - Never overwrite, always add
+- **Preserve chronological order** - Maintain session timeline
+- **Include session context** - Office vs home, day vs night
+- **Document all technical decisions** - Rationale and outcomes
+
+#### **3. Future Session Protocol**
+- **Before starting work** - Read previous work logs for context
+- **During development** - Document all decisions and technical details
+- **After completion** - Add comprehensive session summary
+- **Before closing** - Verify all information is preserved
+
+### **LESSONS LEARNED:**
+
+#### **1. Value of Compiled Information**
+- **User's hard work** - Compiling responsive testing websites took significant effort
+- **Technical context** - Previous decisions and learnings are invaluable
+- **Reference materials** - Compiled lists serve as future development guides
+- **Development continuity** - Without proper logs, work becomes fragmented
+
+#### **2. Importance of Proper Documentation**
+- **Session context** - Day/night, office/home sessions matter
+- **Technical decisions** - Why certain approaches were chosen
+- **Compiled resources** - Websites, tools, and reference materials
+- **Lessons learned** - What worked, what didn't, what to avoid
+
+#### **3. Never Overwrite Valuable Work**
+- **Always add** - Never replace existing work logs
+- **Preserve context** - Maintain complete development history
+- **Respect user's effort** - User works hard compiling information
+- **Maintain continuity** - Future sessions depend on proper documentation
+
+### **FUTURE WORK LOG STANDARDS:**
+
+#### **1. Entry Structure**
+```
+## Work Log: [Date] ([Session Type]) – [Brief Description]
+
+### **Session Context:**
+- **Time:** Day/Night session
+- **Location:** Office/Home
+- **Focus:** What this session accomplished
+
+### **Technical Details:**
+- **Decisions made** and rationale
+- **Code changes** and their purpose
+- **Performance optimizations** implemented
+- **Issues encountered** and solutions
+
+### **Compiled Resources:**
+- **Websites tested** and their purposes
+- **Tools used** and their effectiveness
+- **Reference materials** gathered
+- **Technical specifications** documented
+
+### **Lessons Learned:**
+- **What worked** and why
+- **What failed** and why
+- **What to avoid** in future
+- **Best practices** discovered
+```
+
+#### **2. Preservation Rules**
+- **NEVER overwrite** - Always append to existing files
+- **MAINTAIN chronology** - Keep session order intact
+- **PRESERVE context** - Include all relevant details
+- **DOCUMENT decisions** - Why certain approaches were chosen
+
+### **End of Critical Discussion - July 13, 2025 (Night Session)**
+**Status:** Work log management practices established and documented
+**Session Context:** Critical discussion about preserving valuable work
+**Key Achievement:** Established proper work log management protocols
+**Next Session:** Continue development with proper documentation practices
+**Critical Reminder:** NEVER overwrite work logs - ALWAYS add to them
+
+---
+
+## 📋 **New Documentation Structure Implemented - July 13, 2025 (Night Session)**
+
+### **Documentation Organization:**
+
+#### **1. General Development Notes (`general-development-notes.md`)**
+- **Purpose:** All general knowledge, technical decisions, best practices
+- **Content:** Architecture decisions, performance patterns, UI/UX standards
+- **Updates:** Add new sections as topics emerge, never delete old information
+- **Scope:** Project-wide knowledge and learning
+
+#### **2. Work Logs (Session-specific files)**
+- **Current:** `2025-07-12-testimonials-carousel-implementation.md`
+- **Duration:** One file per 1-2 weeks of development
+- **Content:** Session-specific progress, decisions, and technical details
+- **Management:** NEVER overwrite, always add to existing files
+
+#### **3. File Management Strategy**
+- **Work Logs:** Continue adding to current file for 1-2 weeks
+- **New Files:** Create new work log file after 1-2 weeks
+- **General Notes:** Single file that grows with project
+- **Preservation:** All information preserved, nothing deleted
+
+### **Benefits of This Structure:**
+- **Clear separation:** General knowledge vs session-specific work
+- **Easy navigation:** Find information quickly
+- **Preserved context:** All decisions and rationale maintained
+- **Scalable:** Can handle long-term development projects
+- **Reference-friendly:** Compiled resources easily accessible
+
+### **Going Forward:**
+- **Current work log:** Continue adding to this file until July 26, 2025
+- **New work log:** Create `2025-07-26-next-session.md` after that
+- **General notes:** Update continuously with new learnings
+- **No overwriting:** All information preserved permanently
+
+---
+
+## 🚨 **CRITICAL REQUIREMENT: Concurrent Documentation Updates - July 13, 2025 (Night Session)**
+
+### **Problem Identified:**
+- **Memory Loss:** Assistant forgets 90% of details when asked to update at session end
+- **Context Loss:** Important technical decisions and rationale get lost
+- **Reference Loss:** Compiled resources and tools not properly documented
+- **Continuity Loss:** Development flow and decision-making process not preserved
+
+### **Solution: CONCURRENT UPDATES**
+- **Real-time Updates:** Update BOTH work logs AND general notes DURING development
+- **No End-of-Session Updates:** Don't wait until session end to document
+- **Simultaneous Updates:** Every technical decision documented immediately
+- **Memory Preservation:** Prevents losing 90% of information when trying to recall later
+
+### **Concurrent Update Protocol:**
+1. **During Development:** Update both files as decisions are made
+2. **Immediate Documentation:** Every technical detail recorded in real-time
+3. **Context Preservation:** Why decisions were made documented immediately
+4. **Resource Compilation:** Tools, websites, references added as discovered
+
+### **Why This Is Critical:**
+- **User works day and night** - Multiple sessions per day
+- **Hard work compilation** - Significant effort in gathering information
+- **Future reference needed** - Essential for continued development
+- **No backup exists** - Once lost, information is permanently gone
+
+### **Implementation:**
+- **Every technical decision** - Document immediately in both files
+- **Every performance optimization** - Record as implemented
+- **Every issue and solution** - Note in real-time
+- **Every compiled resource** - Add as discovered
+- **NEVER wait until session end** - Update continuously
+
+### **Benefits:**
+- **No memory loss** - Information preserved in real-time
+- **Complete context** - All decisions and rationale maintained
+- **Full reference materials** - All compiled resources documented
+- **Development continuity** - Complete flow and process preserved
+
+--- 
+
+---
+
+## Work Log: July 13, 2025 (Night Session) – Counter Section Horizontal Mobile Layout Test
+
+### **Task:**
+- Implemented a horizontally scrollable counter section for mobile view, based on the previous website's design (see screenshot reference).
+- The original vertical/stacked mobile layout is commented out in the code for easy rollback or comparison.
+- The new version uses `flex-row`, `overflow-x-auto`, `gap`, and `min-w` utilities to ensure counters are readable and scrollable on small screens.
+- On desktop (`md+`), the layout remains as before (flex-row, no scroll).
+
+### **Rationale:**
+- The previous website achieved a horizontal counter layout on mobile, which is visually appealing and saves vertical space.
+- This approach allows for quick A/B testing and user feedback without losing the original implementation.
+
+### **Next Steps:**
+- Review the new horizontal layout on real devices and in responsive testing tools.
+- If the new layout is too small or not visually effective, revert to the original by uncommenting the previous code.
+- Gather feedback and finalize the preferred layout for production.
+
+--- 
+
+---
+
+### Work Log Update: July 13, 2025 (Night Session) – Counter Section Mobile Compact Adjustment
+
+- Adjusted the horizontal counter section for mobile to use smaller boxes, numbers, and labels.
+- Reduced min-width, max-width, font sizes, and padding for mobile breakpoints.
+- Goal: Fit more counters in the viewport and minimize or eliminate the need for horizontal scrolling, matching the compact look from the previous website screenshot.
+- Larger sizes are preserved for md+ breakpoints.
+- Next: Review on real devices and responsive tools; tweak further if needed for best fit and readability.
+
+--- 
+
+---
+
+## Work Log: July 13, 2024 (Why Choose Us Section & Counter Animation)
+
+### Iterative Work & User Feedback (Real-Time Log)
+- **Initial User Request:** Fix the 'Why Choose Us' cards at 1280px (xl) and above, where the first card was visually different (taller/wider) than the others. User emphasized not to touch mobile or tablet versions, and to keep all cards visually consistent.
+- **First Attempts:** Applied `aspect-square`, `min-w`, and `max-w` at xl+ to all cards. This made all cards square, but the first card's content (long heading and paragraph) overflowed or caused scrollbars, which was not visually acceptable.
+- **User Feedback:** User noted the first card was still visually different, and that the font size and scaling seemed off. User expressed frustration that the scaling/responsiveness work had made things worse, not better.
+- **Further Attempts:** Tried reducing box size at xl, adjusting padding, and using `overflow-auto` to handle content overflow. None of these fully solved the visual mismatch without breaking the layout or introducing scrollbars.
+- **User Protocol Reminders:** User repeatedly reminded not to touch mobile/tablet, not to break the existing structure, and to avoid reducing font size for just one card. User requested all changes be logged in real time, not just at the end.
+- **Scaling/Responsiveness Issues:** Multiple tweaks to grid gap, card width, and aspect ratio were made, but the first card's content (due to its length) continued to cause height/overflow issues at xl+.
+- **Current State:** All cards use the same width and aspect ratio at xl+, but the first card's content still makes it appear visually different. No changes were made to mobile or tablet layouts.
+- **User Frustration:** User expressed strong frustration at the lack of progress and the time spent, and requested a full, honest work log entry.
+
+### Counter Section & Animation
+- Unified counter animation logic across all three counter components (desktop/tablet, mobile horizontal, vertical mobile) to ensure smooth counting for both large and small values.
+- Adjusted animation duration for small values (like COUNTRIES COVERED) for a smoother effect.
+- Lowered Intersection Observer threshold for the counter section to improve animation triggering reliability.
+- Ensured all changes were made without affecting mobile or tablet versions.
+- User noted that the COUNTRIES COVERED counter still sometimes does not animate as expected if the section is always visible on page load; further improvements may be needed.
+
+### Current Unresolved Issues
+- The first 'Why Choose Us' card (15+ Years of Experience) still appears taller or visually different at xl and above due to longer content; font and box scaling need further adjustment.
+- Counter animation does not always re-trigger if the section is always visible on page load; may require a more robust solution for guaranteed replay.
+- General scaling and responsiveness concerns remain for ultra-wide and edge-case breakpoints.
+
+### Workflow & Documentation Notes
+- User prefers real-time, detailed work logs and dev notes, not just end-of-session summaries.
+- Some work log entries were missed earlier; this entry consolidates all recent changes and issues.
+- All future changes should continue to be logged in real time, as per user protocol.
+
+### Pending Prompt for Next Session
+- **TODO:** Resize all 'Why Choose Us' cards at 1280px (xl) only, making them a bit smaller, but do NOT touch mobile or tablet versions. Ensure all cards remain visually consistent and avoid breaking the existing layout. This is to be executed at the start of the next session.
+
+--- 

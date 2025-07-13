@@ -119,3 +119,36 @@ Think of it like this:
 
 ---
 > _File auto-generated via Cursor AI pair-programming session 21 May 2024._ 
+
+## [2024-07-12] Counter Section Mobile Optimization & Scrollbar Hiding
+
+- Updated the counter section to ensure no horizontal scrollbar appears at 320px, 360px, or 390px widths.
+- Used Tailwind CSS to make counter boxes smaller and more flexible on mobile, allowing shrinking and reducing min-width.
+- Added a custom `scrollbar-hide` class in `globals.css` to visually hide scrollbars across all browsers, following best practices ([ref](https://dev.to/logrocket/how-to-use-css-to-hide-scrollbars-without-impacting-scrolling-2eba)).
+- Added ARIA attributes (`role="region"`, `aria-label`, `tabIndex`) for accessibility.
+- Kept the original counter code commented out in the component for safe reference.
+- Tested at 320px, 360px, and 390px widths: all counters fit, no visible scrollbar, layout remains clean and readable.
+- All changes appended as per work log protocol. 
+
+## [2024-07-12] Counter Section Responsive Mobile Update
+
+- Updated the counter section to use a much more compact, mobile-first horizontal layout.
+- Reduced min-width, padding, and gap for mobile to ensure counters fit in the viewport and are easily scrollable.
+- Kept the original vertical stacked counter code commented at the top of the file for safe reference.
+- Retained the animated counter logic for number counting.
+- All changes appended as per work log protocol. 
+
+## [2024-07-12] Counter Section: Restore Original Vertical Code on Mobile
+
+- Restored the original vertical stacked counter code for mobile (block sm:hidden), with no design or style changes, exactly as it was in the comment.
+- Kept the horizontal counter for sm and up.
+- Noted and fixed previous mistake: assistant changed the design/colors of commented reference code when only an uncomment was requested.
+- Documented this as a workflow and trust issue; protocol is to never alter commented reference code unless explicitly requested. 
+
+---
+## 2024-07-13 Counter Section Redesign & Workflow Protocols
+- Counter section underwent multiple iterations for mobile (horizontal scroll, square/viewport boxes) and desktop (centered, scalable, visually polished).
+- Protocol established: Never alter commented reference code unless explicitly instructed; always append, never overwrite, work logs.
+- Mistakes and recovery steps are to be documented in real time, not just at session end.
+- Lesson: Trust and code integrity depend on strict adherence to user protocols and transparent documentation.
+--- 

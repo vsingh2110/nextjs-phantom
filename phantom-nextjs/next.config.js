@@ -1,3 +1,9 @@
+// WARNING: The following headers and settings are for LOCAL DEVELOPMENT ONLY!
+// - X-Frame-Options: ALLOWALL is set to allow embedding in iframes for responsive testing tools.
+// - Google Maps API key is hardcoded for local dev and must be blocked/secured before deployment.
+//
+// REMOVE or SECURE these before deploying to production!
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   // Bundle analyzer for performance monitoring
@@ -15,9 +21,22 @@ const nextConfig = {
     },
   }),
   
-  // Image optimization
+  // Image optimization - Updated to use remotePatterns instead of deprecated domains
   images: {
-    domains: ['maps.gstatic.com', 'unpkg.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'maps.gstatic.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'unpkg.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
     formats: ['image/webp', 'image/avif'],
   },
   
@@ -29,6 +48,13 @@ const nextConfig = {
   
   // Compression
   compress: true,
+  
+  // Development origins for cross-origin requests
+  allowedDevOrigins: [
+    '192.168.1.35',
+    'localhost',
+    '127.0.0.1',
+  ],
   
   // Security headers
   async headers() {
@@ -42,7 +68,7 @@ const nextConfig = {
           },
           {
             key: 'X-Frame-Options',
-            value: 'DENY',
+            value: 'ALLOWALL', // WARNING: Only for local dev!
           },
           {
             key: 'X-XSS-Protection',

@@ -507,13 +507,13 @@ export default function Home() {
 
       {/* Why Choose Us Section */}
       <section className="py-16 lg:py-24 bg-white antialiased">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl xl:max-w-[90vw] 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">
             Why Choose Us
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-12 2xl:gap-16 3xl:gap-20 items-stretch">
             {/* 15+ Years of Experience */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 xl:min-w-[15rem] xl:max-w-[17rem] 2xl:aspect-square flex flex-col justify-center items-center">
               <div className="mb-6">
                 <Image
                   src="/images/15.jpg"
@@ -523,14 +523,14 @@ export default function Home() {
                   className="w-20 h-20 sm:w-24 sm:h-24 mx-auto object-cover rounded-full border-4 border-primary-100"
                 />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">15+ Years of Experience</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <h3 className="text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl font-bold text-gray-900 mb-3">15+ Years of Experience</h3>
+              <p className="text-gray-600 text-sm xl:text-base 2xl:text-lg 3xl:text-xl leading-relaxed">
                 We have 15 year experience and sell best refurbished Machine In India
               </p>
             </div>
 
             {/* 24*7 Service & Support */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 xl:min-w-[15rem] xl:max-w-[17rem] 2xl:aspect-square flex flex-col justify-center items-center">
               <div className="mb-6">
                 <Image
                   src="/images/24.jpg"
@@ -547,7 +547,7 @@ export default function Home() {
             </div>
 
             {/* Best Quality AERB Approved */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 xl:min-w-[15rem] xl:max-w-[17rem] 2xl:aspect-square flex flex-col justify-center items-center">
               <div className="mb-6">
                 <Image
                   src="/images/best.jpg"
@@ -564,7 +564,7 @@ export default function Home() {
             </div>
 
             {/* Skilled Professional */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 xl:min-w-[15rem] xl:max-w-[17rem] 2xl:aspect-square flex flex-col justify-center items-center">
               <div className="mb-6">
                 <Image
                   src="/images/skill.jpg"

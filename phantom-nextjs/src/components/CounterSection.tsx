@@ -1,4 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
+import MobileHorizontalCounterSection from './MobileHorizontalCounterSection';
+import VerticalMobileCounter from './VerticalMobileCounter';
 
 /**
  * COUNTER SECTION COMPONENT (MODERN CARD STYLE)
@@ -17,10 +19,10 @@ import React, { useRef, useEffect, useState } from "react";
  */
 
 const counters = [
-  { label: "Total Installations", value: 450 },
-  { label: "Happy Customers", value: 300 },
-  { label: "Cities Covered", value: 100 },
-  { label: "Countries Covered", value: 3 },
+  { label: "TOTAL INSTALLATIONS", value: 450 },
+  { label: "HAPPY CUSTOMERS", value: 300 },
+  { label: "CITIES COVERED", value: 100 },
+  { label: "COUNTRIES COVERED", value: 3 },
 ];
 
 function useCounterAnimation(visible, value) {
@@ -32,7 +34,8 @@ function useCounterAnimation(visible, value) {
     }
     let start = 0;
     const duration = 2000;
-    const step = Math.max(1, Math.ceil(value / (duration / 16)));
+    // For small values, always step by 1 for smooth animation
+    const step = value < 20 ? 1 : Math.max(1, Math.ceil(value / (duration / 16)));
     let frame;
     function animate() {
       start += step;
@@ -57,51 +60,62 @@ export default function CounterSection() {
     if (!sectionRef.current) return;
     const observer = new window.IntersectionObserver(
       ([entry]) => setVisible(entry.isIntersecting),
-      { threshold: 0.5 }
+      { threshold: 0.1 }
     );
     observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="counters py-8 px-2 md:px-0 bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700"
-    >
-      {/*
-        COUNTER SECTION (FULL-WIDTH, SPREAD, MODERN, RESPONSIVE)
-        - On mobile: counters stack vertically (flex-col), with vertical spacing (gap-y).
-        - On md/lg (e.g. 1024px): counters are centered as a group (justify-center).
-        - On xl+: counters are spread edge-to-edge (justify-between).
-        - Responsive horizontal padding: small on mobile, larger on desktop.
-        - Do NOT shrink counters too much on mobile; keep them readable.
-      */}
-      <div className="counters-wrap w-full flex flex-col md:flex-row items-stretch md:items-center justify-center xl:justify-between gap-y-4 md:gap-y-0 md:gap-x-8 xl:gap-x-16 px-2 sm:px-4 md:px-12 xl:px-24 2xl:px-32 3xl:px-48 mx-auto">
-        {counters.map((counter, i) => {
-          const count = useCounterAnimation(visible, counter.value);
-          return (
-            <div
-              key={counter.label}
-              className="counter-box flex flex-col items-center justify-center px-2 sm:px-4 xl:px-8 2xl:px-12 py-2 sm:py-4 xl:py-6 2xl:py-8 min-w-[100px] xl:min-w-[160px] 2xl:min-w-[200px] 3xl:min-w-[260px] max-w-full md:max-w-[200px] xl:max-w-[260px] 2xl:max-w-[320px] 3xl:max-w-[400px] border border-white/30 shadow-lg rounded-xl bg-white/10 backdrop-blur-sm transition-transform duration-300 hover:scale-105"
-              /*
-                - border-white/30: subtle border for separation
-                - shadow-lg: soft shadow for depth
-                - bg-white/10 + backdrop-blur-sm: very subtle glass effect, not a box
-                - Responsive min/max width and padding for ultra-wide screens
-                - On mobile: max-w-full so counters fill width, not squeezed
-                - Do NOT use solid backgrounds or heavy borders
-              */
-            >
-              <span className="num text-white text-3xl sm:text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl font-extrabold drop-shadow-sm">
-                {count}+
-              </span>
-              <span className="text-white text-xs sm:text-sm xl:text-base 2xl:text-lg font-medium mt-2 uppercase tracking-wide text-center opacity-90">
-                {counter.label}
-              </span>
-            </div>
-          );
-        })}
+    <section ref={sectionRef} className="counters py-8 px-2 md:px-0 bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700">
+      {/* Show mobile counters only below 640px */}
+      <div className="sm:hidden">
+        <div className="mb-6">
+          <MobileHorizontalCounterSection visible={visible} />
+        </div>
+        <VerticalMobileCounter visible={visible} />
+      </div>
+      {/* Show desktop/tablet counter for sm and up (including iPad) */}
+      <div className="hidden sm:block">
+        <div className="w-full max-w-full md:max-w-full md:w-full flex flex-row justify-center gap-10 md:gap-8 xl:gap-16 2xl:gap-20 3xl:gap-28 px-4 md:px-[5vw]" role="region" aria-label="Company statistics" tabIndex={0}>
+          {counters.map((counter, i) => {
+            const count = useCounterAnimation(visible, counter.value);
+            return (
+              <div
+                key={counter.label}
+                className="flex-shrink-0 sm:min-w-[9rem] sm:max-w-[11rem] md:flex-1 md:min-w-0 md:max-w-none md:aspect-square xl:min-w-[13rem] xl:max-w-[15rem] 2xl:min-w-[15rem] 2xl:max-w-[17rem] 3xl:min-w-[17rem] 3xl:max-w-[19rem] aspect-square bg-white/10 rounded-2xl border border-white/30 p-2 sm:p-4 text-center flex flex-col justify-center items-center shadow-xl"
+              >
+                <div className="font-bold text-white" style={{fontSize:'clamp(1.5rem,2vw,2.1rem)', textShadow:'2px 2px 4px #000000'}}>
+                  <span className="xl:text-[2.1rem] 2xl:text-[2.4rem] 3xl:text-[2.7rem]">{count}+</span>
+                </div>
+                <div className="font-normal text-white opacity-90 leading-tight" style={{fontSize:'clamp(0.85rem,1vw,1rem)', textShadow:'2px 2px 4px #000000'}}>
+                  <span className="xl:text-[1.1rem] 2xl:text-[1.2rem] 3xl:text-[1.3rem]">{counter.label}</span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
-} 
+}
+
+// --- WORK LOG ENTRY: 2024-07-13 ---
+// Counter Section Redesign (Mobile & Desktop)
+// - Iterative process to achieve a horizontally scrollable counter section on mobile (square, viewport-relative boxes, all four visible, no cut-off).
+// - Desktop: counters centered, increased gaps, scalable font sizes, font shadow, matching visual polish of other sections.
+// - Strict protocol: commented reference (vertical/stacked) code must never be altered unless explicitly requested.
+// - Mistakes: At one point, commented code was changed, leading to user frustration and a protocol update.
+// - Workflow: All technical decisions, mistakes, and warnings are documented in real time; logs are always appended, never overwritten.
+// - Lessons: Only touch mobile/desktop code as instructed, never alter untouched or reference code, always document mistakes and recovery steps.
+// - Final: Both mobile and desktop versions are visually improved, responsive, and consistent with site design. Ready for further tweaks as needed.
+// --- END WORK LOG ENTRY ---
+
+// --- WORK LOG ENTRY: 2024-07-13 ---
+// Mobile Counter Refactor & Comparison
+// - Created two separate mobile counter components: MobileHorizontalCounterSection (modern horizontal) and VerticalMobileCounter (original vertical stacked).
+// - Both are now rendered on mobile for side-by-side comparison, as per user request.
+// - VerticalMobileCounter is a new component, allowing independent edits without affecting desktop or horizontal mobile versions.
+// - User intends to show both to their team and decide which looks better.
+// - All changes maintain strict separation of concerns and allow for easy future tweaks to either version.
+// --- END WORK LOG ENTRY --- 

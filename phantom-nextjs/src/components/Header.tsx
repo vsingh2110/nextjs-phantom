@@ -1,16 +1,18 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback, useMemo, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Header() {
   // State for mobile menu and dropdowns (Next.js version of static site JS menu logic)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMRIOpen, setIsMRIOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isIframeLoaded, setIsIframeLoaded] = useState(false);
+  const [iframeError, setIframeError] = useState<string | null>(null);
 
   // Toggle mobile menu (ported from static site hamburger logic)
   const toggleMenu = () => {
@@ -18,15 +20,102 @@ export default function Header() {
   };
 
   // Modal open/close logic (used for contact form modal)
-  const openModal = () => {
+  const openModal = useCallback(() => {
     setIsModalOpen(true);
-    document.body.classList.add('modal-open');
-  };
+    // Reset states when opening modal
+    setIsIframeLoaded(false);
+    setIframeError(null);
+  }, []);
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setIsModalOpen(false);
-    document.body.classList.remove('modal-open');
-  };
+    // Reset states when closing modal
+    setIsIframeLoaded(false);
+    setIframeError(null);
+  }, []);
+
+  // Handle iframe load events
+  const handleIframeLoad = useCallback(() => {
+    setIsIframeLoaded(true);
+    setIframeError(null);
+  }, []);
+
+  const handleIframeError = useCallback(() => {
+    setIframeError('Failed to load the form. Please try again later.');
+    setIsIframeLoaded(false);
+  }, []);
+
+  // Memoized iframe component to prevent unnecessary re-renders
+  const iframeComponent = useMemo(() => {
+    if (!isModalOpen) return null;
+
+    return (
+      <div className="relative w-full h-full">
+        {!isIframeLoaded && !iframeError && (
+          <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+            <div className="text-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#59913d] mx-auto mb-4"></div>
+              <p className="text-gray-600 text-lg">Loading form...</p>
+            </div>
+          </div>
+        )}
+        
+        {iframeError && (
+          <div className="absolute inset-0 flex items-center justify-center bg-red-50">
+            <div className="text-center p-6">
+              <i className="fa fa-exclamation-triangle text-red-500 text-4xl mb-4"></i>
+              <p className="text-red-600 text-lg mb-4">{iframeError}</p>
+              <button 
+                onClick={() => {
+                  setIframeError(null);
+                  setIsIframeLoaded(false);
+                }}
+                className="bg-[#59913d] text-white px-6 py-2 rounded-lg hover:bg-[#255a0a] transition-colors"
+              >
+                Try Again
+              </button>
+            </div>
+          </div>
+        )}
+
+        <iframe 
+          src="https://docs.google.com/forms/d/e/1FAIpQLSe_biYDKz7FI69XzVT_FoH-hzNvksu5mgYlPg5n9VKVgj62xQ/viewform?embedded=true"
+          width="100%" 
+          height="100%" 
+          frameBorder="0" 
+          className={`w-full border-0 transition-opacity duration-300 ${isIframeLoaded ? 'opacity-100' : 'opacity-0'}`}
+          style={{ minHeight: '100%' }}
+          onLoad={handleIframeLoad}
+          onError={handleIframeError}
+          title="Download Brochure Form"
+          aria-label="Google Forms for downloading brochure"
+          loading="lazy"
+        >
+          Loading…
+        </iframe>
+      </div>
+    );
+  }, [isModalOpen, isIframeLoaded, iframeError, handleIframeLoad, handleIframeError]);
+
+  // Handle escape key to close modal
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isModalOpen) {
+        closeModal();
+      }
+    };
+
+    if (isModalOpen) {
+      document.addEventListener('keydown', handleEscape);
+      // Prevent body scroll when modal is open
+      document.body.style.overflow = 'hidden';
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isModalOpen, closeModal]);
 
   return (
     <>
@@ -400,37 +489,39 @@ export default function Header() {
 
       {/* Floating Download Brochure */}
       <div className="fixed bottom-8 right-1 md:right-4 z-30">
-        <button onClick={openModal} className="flex flex-col items-center bg-[#59913d] rounded-lg text-white border-none cursor-pointer hover:bg-[#255a0a] p-1 md:p-2 shadow-lg">
-          <i className="fa fa-download text-xs md:text-lg mb-1"></i>
+        <button 
+          onClick={openModal} 
+          className="flex flex-col items-center bg-[#59913d] rounded-lg text-white border-none cursor-pointer hover:bg-[#255a0a] p-1 md:p-2 shadow-lg focus:outline-none focus:ring-2 focus:ring-[#59913d] focus:ring-opacity-50"
+          aria-label="Download brochure form"
+          title="Download our brochure"
+        >
+          <i className="fa fa-download text-xs md:text-lg mb-1" aria-hidden="true"></i>
           <p className="text-xs text-center">Download<br />Brochure</p>
         </button>
 
         {isModalOpen && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 md:p-4">
+          <div 
+            className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-2 md:p-4"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="header-modal-title"
+          >
             <div className="bg-white rounded-lg w-full max-w-4xl h-[95vh] md:h-[90vh] overflow-hidden relative flex flex-col">
               {/* Header */}
               <div className="bg-primary-500 text-white p-4 rounded-t-lg flex-shrink-0">
-                <h2 className="text-xl font-bold text-center">Download Our Brochure</h2>
+                <h2 id="header-modal-title" className="text-xl font-bold text-center">Download Our Brochure</h2>
                 <p className="text-center text-primary-100 mt-1">Fill up the form below to get instant access</p>
                 <button 
                   onClick={closeModal} 
-                  className="absolute top-3 right-3 text-white hover:text-gray-200 text-xl font-bold border-none cursor-pointer bg-transparent hover:bg-white hover:bg-opacity-20 rounded-full w-8 h-8 flex items-center justify-center transition-all duration-200"
+                  className="absolute top-3 right-3 text-white hover:text-gray-200 text-xl font-bold border-none cursor-pointer bg-transparent hover:bg-white hover:bg-opacity-20 rounded-full w-8 h-8 flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50"
+                  aria-label="Close modal"
                 >
-                  <i className="fa fa-close"></i>
+                  <i className="fa fa-close" aria-hidden="true"></i>
                 </button>
               </div>
               {/* Form Container */}
               <div className="flex-1 overflow-y-auto p-0">
-                <iframe 
-                  src="https://docs.google.com/forms/d/e/1FAIpQLSe_biYDKz7FI69XzVT_FoH-hzNvksu5mgYlPg5n9VKVgj62xQ/viewform?embedded=true"
-                  width="100%" 
-                  height="100%" 
-                  frameBorder="0" 
-                  className="w-full border-0"
-                  style={{ minHeight: '100%' }}
-                >
-                  Loading…
-                </iframe>
+                {iframeComponent}
               </div>
             </div>
           </div>
