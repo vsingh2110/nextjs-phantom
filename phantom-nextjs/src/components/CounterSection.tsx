@@ -32,17 +32,19 @@ function useCounterAnimation(visible, value) {
       setCount(0);
       return;
     }
-    let start = 0;
     const duration = 2000;
-    // For small values, always step by 1 for smooth animation
-    const step = value < 20 ? 1 : Math.max(1, Math.ceil(value / (duration / 16)));
+    const totalFrames = Math.round(duration / 16);
+    const increment = value / totalFrames;
+    let current = 0;
+    let frameCount = 0;
     let frame;
     function animate() {
-      start += step;
-      if (start >= value) {
+      frameCount++;
+      current += increment;
+      if (frameCount >= totalFrames) {
         setCount(value);
       } else {
-        setCount(start);
+        setCount(Math.round(current));
         frame = requestAnimationFrame(animate);
       }
     }

@@ -252,3 +252,23 @@ Achieve perfect alignment, scaling, and responsiveness for the Why Choose Us sec
 
 ### Status
 **COMPLETE** – Task closed. Section ready for production. 
+
+---
+
+## Work Log: July 15, 2025 – Counter Section Animation Sync Fixes
+
+### Objective
+Ensure all four counters (desktop and mobile) animate in perfect sync, starting and ending together, regardless of their values (including small numbers like COUNTRIES COVERED).
+
+### Issues Addressed
+- COUNTRIES COVERED (value: 3) was not animating in sync with the other counters; it finished too quickly or got stuck.
+- Previous logic used a fixed step for small values, causing desynchronization.
+
+### Solution
+- Updated the `useCounterAnimation` hook in all counter components (desktop, MobileHorizontalCounterSection, VerticalMobileCounter):
+  - All counters now use a float increment based on total frames, so they animate for the same duration and finish together.
+  - The displayed value is rounded each frame, and the final value is set at the end.
+- Verified that all counters (including small values) now animate in sync on all devices and layouts.
+
+### Status
+**COMPLETE** – Counter animation is now visually perfect and consistent everywhere. 
