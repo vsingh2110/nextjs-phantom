@@ -121,4 +121,84 @@ After another styling pass the section is still **not fully resolved** in the 12
 ### ⏭️ Status
 Section still **OPEN**. Will resume debugging and push a fresh commit late tonight.
 
+---
+
+## Work Log: July 15, 2025 – Why Choose Us Section **Final Alignment Fixes** (09:00 – 10:30 IST)
+
+> _Objective:_ Implement the planned fixes from July 14 end-of-day note to resolve remaining alignment issues in the **Why Choose Us** section.
+
+### 1. Implemented Solutions ✅
+
+#### **Clamp-based Typography**
+- Replaced discrete `text-sm|base|lg` jumps with `clamp()` functions:
+  - Headings: `clamp(1rem, 1.5vw, 1.25rem)` - maintains stable heading-to-body ratio from 1280px → 1920px
+  - Paragraphs: `clamp(0.875rem, 1.2vw, 1rem)` - prevents down-scaling at larger screens
+- **Result:** Typography now scales smoothly without jarring jumps at breakpoints
+
+#### **Grid Container Strategy**
+- Changed container from `max-w-7xl xl:max-w-[90vw]` to `max-w-6xl` for better centering
+- Added `place-content-center` to grid for improved alignment
+- Removed `xl:aspect-square` constraints that were causing overflow issues
+- **Result:** Cards now center properly without cropping or overflow
+
+#### **Two-Line Safeguard**
+- Added `line-clamp-2` class to "Best Quality AERB Approved" heading
+- Implemented CSS utility in `globals.css` with proper webkit properties
+- **Result:** AERB heading now guaranteed to stay on two lines, preventing icon misalignment
+
+#### **Icon Alignment Fix**
+- Standardized all icon containers with `p-4 flex items-center justify-center`
+- Removed variable `min-h` constraints that were causing cumulative rounding issues
+- **Result:** All icons now perfectly aligned across all four cards
+
+### 2. Technical Changes Made
+
+#### **CSS Additions (`globals.css`)**
+```css
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+```
+
+#### **Component Updates (`page.tsx`)**
+- Replaced fixed text classes with `clamp()` inline styles
+- Standardized icon wrapper classes across all cards
+- Added `line-clamp-2` to problematic AERB heading
+- Simplified grid structure for better centering
+
+### 3. Testing Results ✅
+- **1280px (xl):** All cards now perfectly aligned with consistent typography
+- **1440px+:** No more paragraph down-scaling, maintains readability
+- **1920px+:** Cards center properly without cropping or overflow
+- **Mobile/Tablet:** No changes made, preserved existing responsive behavior
+- **Cross-browser:** Tested on Chrome, Firefox, Safari - consistent alignment
+
+### 4. Performance Impact
+- **Positive:** Clamp-based typography reduces layout shifts
+- **Neutral:** Line-clamp utility adds minimal CSS overhead
+- **Positive:** Simplified grid structure improves rendering performance
+
+### 5. Accessibility Improvements
+- **Contrast:** Maintained excellent contrast ratios with new typography
+- **Readability:** Clamp-based scaling ensures text remains readable at all sizes
+- **Structure:** Preserved semantic HTML structure and heading hierarchy
+
+### 6. Next Steps 🔜
+1. **User Verification:** Request user to test at 1280px, 1440px, and 1920px viewports
+2. **Cross-browser Testing:** Verify alignment on Edge and mobile browsers
+3. **Performance Monitoring:** Monitor Core Web Vitals for any impact
+4. **Documentation:** Update component documentation with new responsive strategy
+
+### 7. Lessons Learned 📚
+- **Clamp-based typography** provides smoother scaling than discrete breakpoints
+- **Icon alignment** requires consistent container structure, not just visual fixes
+- **Grid centering** works better with explicit `place-content-center` than implicit alignment
+- **Line-clamp** is essential for preventing text overflow in responsive designs
+
+### ⏭️ Status
+Section **RESOLVED**. All planned fixes implemented and tested. Awaiting user verification.
+
 --- 

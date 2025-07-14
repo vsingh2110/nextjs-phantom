@@ -507,14 +507,14 @@ export default function Home() {
 
       {/* Why Choose Us Section */}
       <section className="py-16 lg:py-24 bg-white antialiased">
-        <div className="max-w-7xl xl:max-w-[90vw] 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">
             Why Choose Us
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8 2xl:gap-10 3xl:gap-12 items-stretch">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8 2xl:gap-10 3xl:gap-12 place-content-center">
             {/* 15+ Years of Experience */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 w-full xl:aspect-square 2xl:aspect-square flex flex-col justify-center items-center">
-              <div className="mb-6">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 w-full flex flex-col justify-center items-center">
+              <div className="mb-6 p-4 flex items-center justify-center">
                 <Image
                   src="/images/15.jpg"
                   alt="15+ Years of Experience"
@@ -523,17 +523,17 @@ export default function Home() {
                   className="w-20 h-20 sm:w-24 sm:h-24 mx-auto object-cover rounded-full border-4 border-primary-100"
                 />
               </div>
-              <h3 className="min-h-[3.25rem] md:min-h-[3.5rem] flex flex-col justify-center text-base md:text-lg font-bold text-gray-900 mb-2 xl:text-lg 2xl:text-xl 3xl:text-2xl">
+              <h3 className="text-base md:text-lg font-bold text-gray-900 mb-2 leading-tight" style={{fontSize: 'clamp(1rem, 1.5vw, 1.25rem)'}}>
                 15+ Years of Experience
               </h3>
-              <p className="text-gray-600 text-sm xl:text-base 2xl:text-lg 3xl:text-xl leading-relaxed">
+              <p className="text-gray-600 leading-relaxed" style={{fontSize: 'clamp(0.875rem, 1.2vw, 1rem)'}}>
                 We have 15 year experience and sell best refurbished Machine In India
               </p>
             </div>
 
             {/* 24*7 Service & Support */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 w-full xl:aspect-square 2xl:aspect-square flex flex-col justify-center items-center">
-              <div className="mb-6">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 w-full flex flex-col justify-center items-center">
+              <div className="mb-6 p-4 flex items-center justify-center">
                 <Image
                   src="/images/24.jpg"
                   alt="24*7 Service & Support"
@@ -542,15 +542,15 @@ export default function Home() {
                   className="w-20 h-20 sm:w-24 sm:h-24 mx-auto object-cover rounded-full border-4 border-primary-100"
                 />
               </div>
-              <h3 className="min-h-[3.25rem] md:min-h-[3.5rem] flex flex-col justify-center text-base md:text-lg font-bold text-gray-900 mb-2 xl:text-lg 2xl:text-xl 3xl:text-2xl">24*7 Service & <br/> Support</h3>
-              <p className="text-gray-600 text-sm xl:text-base leading-relaxed">
+              <h3 className="text-base md:text-lg font-bold text-gray-900 mb-2 leading-tight" style={{fontSize: 'clamp(1rem, 1.5vw, 1.25rem)'}}>24*7 Service & <br/> Support</h3>
+              <p className="text-gray-600 leading-relaxed" style={{fontSize: 'clamp(0.875rem, 1.2vw, 1rem)'}}>
                 Our team is well experienced to set up refurbished MRI machine
               </p>
             </div>
 
             {/* Best Quality AERB Approved */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 w-full xl:aspect-square 2xl:aspect-square flex flex-col justify-center items-center">
-              <div className="mb-6">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 w-full flex flex-col justify-center items-center">
+              <div className="mb-6 p-4 flex items-center justify-center">
                 <Image
                   src="/images/best.jpg"
                   alt="Best Quality AERB Approved"
@@ -559,15 +559,17 @@ export default function Home() {
                   className="w-20 h-20 sm:w-24 sm:h-24 mx-auto object-cover rounded-full border-4 border-primary-100"
                 />
               </div>
-              <h3 className="min-h-[3.25rem] md:min-h-[3.5rem] flex flex-col justify-center text-base md:text-lg font-bold text-gray-900 mb-2 xl:text-lg 2xl:text-xl 3xl:text-2xl">Best Quality<br/><span className="whitespace-nowrap">AERB Approved</span></h3>
-              <p className="text-gray-600 text-sm xl:text-base leading-relaxed">
+              <h3 className="text-base md:text-lg font-bold text-gray-900 mb-2 leading-tight line-clamp-2" style={{fontSize: 'clamp(1rem, 1.5vw, 1.25rem)'}}>
+                Best Quality<br/><span className="whitespace-nowrap">AERB Approved</span>
+              </h3>
+              <p className="text-gray-600 leading-relaxed" style={{fontSize: 'clamp(0.875rem, 1.2vw, 1rem)'}}>
                 We are giving 100% satisfied guaranteed result of client​
               </p>
             </div>
 
             {/* Skilled Professional */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 w-full xl:aspect-square 2xl:aspect-square flex flex-col justify-center items-center">
-              <div className="mb-6">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 w-full flex flex-col justify-center items-center">
+              <div className="mb-6 p-4 flex items-center justify-center">
                 <Image
                   src="/images/skill.jpg"
                   alt="Skilled Professional"
@@ -576,8 +578,8 @@ export default function Home() {
                   className="w-20 h-20 sm:w-24 sm:h-24 mx-auto object-cover rounded-full border-4 border-primary-100"
                 />
               </div>
-              <h3 className="min-h-[3.25rem] md:min-h-[3.5rem] flex flex-col justify-center text-base md:text-lg font-bold text-gray-900 mb-2 xl:text-lg 2xl:text-xl 3xl:text-2xl">Skilled <br/> Professional</h3>
-              <p className="text-gray-600 text-sm xl:text-base leading-relaxed">
+              <h3 className="text-base md:text-lg font-bold text-gray-900 mb-2 leading-tight" style={{fontSize: 'clamp(1rem, 1.5vw, 1.25rem)'}}>Skilled <br/> Professional</h3>
+              <p className="text-gray-600 leading-relaxed" style={{fontSize: 'clamp(0.875rem, 1.2vw, 1rem)'}}>
                 We provide a dedicated work for better coordination and with getting
               </p>
             </div>
