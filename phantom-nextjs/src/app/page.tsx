@@ -318,7 +318,7 @@ export default function Home() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {/* MRI Coils */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 xl:min-w-[17rem] xl:max-w-[19rem] 2xl:min-w-[19rem] 2xl:max-w-[22rem] flex flex-col justify-start items-center">
               <div className="relative">
                 <Image
                   src="/images/machines/spare parts/Brain coil.png"
@@ -349,7 +349,7 @@ export default function Home() {
             </div>
 
             {/* Cold Head MRI Machine */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 xl:min-w-[17rem] xl:max-w-[19rem] 2xl:min-w-[19rem] 2xl:max-w-[22rem] flex flex-col justify-start items-center">
               <div className="relative">
                 <Image
                   src="/images/machines/spare parts/cold head.png"
@@ -380,7 +380,7 @@ export default function Home() {
             </div>
 
             {/* MHU Tube - CT Scanner */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 xl:min-w-[17rem] xl:max-w-[19rem] 2xl:min-w-[19rem] 2xl:max-w-[22rem] flex flex-col justify-start items-center">
               <div className="relative">
                 <Image
                   src="/images/machines/spare parts/MHU Tube.png"
@@ -511,9 +511,9 @@ export default function Home() {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">
             Why Choose Us
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-12 2xl:gap-16 3xl:gap-20 items-stretch">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8 2xl:gap-10 3xl:gap-12 items-stretch">
             {/* 15+ Years of Experience */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 xl:min-w-[15rem] xl:max-w-[17rem] 2xl:aspect-square flex flex-col justify-center items-center">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 w-full xl:aspect-square 2xl:aspect-square flex flex-col justify-center items-center">
               <div className="mb-6">
                 <Image
                   src="/images/15.jpg"
@@ -523,14 +523,16 @@ export default function Home() {
                   className="w-20 h-20 sm:w-24 sm:h-24 mx-auto object-cover rounded-full border-4 border-primary-100"
                 />
               </div>
-              <h3 className="text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl font-bold text-gray-900 mb-3">15+ Years of Experience</h3>
+              <h3 className="min-h-[3.25rem] md:min-h-[3.5rem] flex flex-col justify-center text-base md:text-lg font-bold text-gray-900 mb-2 xl:text-lg 2xl:text-xl 3xl:text-2xl">
+                15+ Years of Experience
+              </h3>
               <p className="text-gray-600 text-sm xl:text-base 2xl:text-lg 3xl:text-xl leading-relaxed">
                 We have 15 year experience and sell best refurbished Machine In India
               </p>
             </div>
 
             {/* 24*7 Service & Support */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 xl:min-w-[15rem] xl:max-w-[17rem] 2xl:aspect-square flex flex-col justify-center items-center">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 w-full xl:aspect-square 2xl:aspect-square flex flex-col justify-center items-center">
               <div className="mb-6">
                 <Image
                   src="/images/24.jpg"
@@ -540,14 +542,14 @@ export default function Home() {
                   className="w-20 h-20 sm:w-24 sm:h-24 mx-auto object-cover rounded-full border-4 border-primary-100"
                 />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">24*7 Service & Support</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <h3 className="min-h-[3.25rem] md:min-h-[3.5rem] flex flex-col justify-center text-base md:text-lg font-bold text-gray-900 mb-2 xl:text-lg 2xl:text-xl 3xl:text-2xl">24*7 Service & <br/> Support</h3>
+              <p className="text-gray-600 text-sm xl:text-base leading-relaxed">
                 Our team is well experienced to set up refurbished MRI machine
               </p>
             </div>
 
             {/* Best Quality AERB Approved */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 xl:min-w-[15rem] xl:max-w-[17rem] 2xl:aspect-square flex flex-col justify-center items-center">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 w-full xl:aspect-square 2xl:aspect-square flex flex-col justify-center items-center">
               <div className="mb-6">
                 <Image
                   src="/images/best.jpg"
@@ -557,14 +559,14 @@ export default function Home() {
                   className="w-20 h-20 sm:w-24 sm:h-24 mx-auto object-cover rounded-full border-4 border-primary-100"
                 />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Best Quality AERB Approved​</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <h3 className="min-h-[3.25rem] md:min-h-[3.5rem] flex flex-col justify-center text-base md:text-lg font-bold text-gray-900 mb-2 xl:text-lg 2xl:text-xl 3xl:text-2xl">Best Quality<br/><span className="whitespace-nowrap">AERB Approved</span></h3>
+              <p className="text-gray-600 text-sm xl:text-base leading-relaxed">
                 We are giving 100% satisfied guaranteed result of client​
               </p>
             </div>
 
             {/* Skilled Professional */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 xl:min-w-[15rem] xl:max-w-[17rem] 2xl:aspect-square flex flex-col justify-center items-center">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 w-full xl:aspect-square 2xl:aspect-square flex flex-col justify-center items-center">
               <div className="mb-6">
                 <Image
                   src="/images/skill.jpg"
@@ -574,8 +576,8 @@ export default function Home() {
                   className="w-20 h-20 sm:w-24 sm:h-24 mx-auto object-cover rounded-full border-4 border-primary-100"
                 />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Skilled Professional</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <h3 className="min-h-[3.25rem] md:min-h-[3.5rem] flex flex-col justify-center text-base md:text-lg font-bold text-gray-900 mb-2 xl:text-lg 2xl:text-xl 3xl:text-2xl">Skilled <br/> Professional</h3>
+              <p className="text-gray-600 text-sm xl:text-base leading-relaxed">
                 We provide a dedicated work for better coordination and with getting
               </p>
             </div>

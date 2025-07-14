@@ -67,7 +67,7 @@
   display: none;
   transition: opacity 0.5s ease;
   overflow: hidden;
-  height: auto;
+  height: 100%; /* FIX: Changed from auto to 100% to fill container */
 }
 
 .hero-slider-container .myslide.active {
@@ -182,29 +182,31 @@
   text-shadow: 2px 2px 4px #000000;
 }
 
-/* Only animate img-slider when slide is active */
-.hero-slider-container .myslide.active .img-slider {
-  transform: scale(1.5, 1.5);
-  -webkit-animation-name: zoomin;
-  -webkit-animation-duration: 8s;
-  animation-name: zoomin;
-  animation-duration: 8s;
-}
+/* Only animate img-slider when slide is active - DESKTOP ONLY */
+@media screen and (min-width: 801px) {
+  .hero-slider-container .myslide.active .img-slider {
+    transform: scale(1.5, 1.5);
+    -webkit-animation-name: zoomin;
+    -webkit-animation-duration: 8s;
+    animation-name: zoomin;
+    animation-duration: 8s;
+  }
 
-/* Reset transform for non-active slides */
-.hero-slider-container .myslide:not(.active) .img-slider {
-  transform: scale(1, 1);
-  animation: none;
-}
+  /* Reset transform for non-active slides */
+  .hero-slider-container .myslide:not(.active) .img-slider {
+    transform: scale(1, 1);
+    animation: none;
+  }
 
-@-webkit-keyframes zoomin {
-  from {transform: scale(1, 1);}
-  to {transform: scale(1.5, 1.5);}
-}
+  @-webkit-keyframes zoomin {
+    from {transform: scale(1, 1);}
+    to {transform: scale(1.5, 1.5);}
+  }
 
-@keyframes zoomin {
-  from {transform: scale(1, 1);}
-  to {transform: scale(1.5, 1.5);}
+  @keyframes zoomin {
+    from {transform: scale(1, 1);}
+    to {transform: scale(1.5, 1.5);}
+  }
 }
 
 .hero-slider-container .video-bg {
@@ -216,9 +218,6 @@
 
 /* Mobile Responsive - Scoped to hero container */
 @media screen and (max-width: 800px) {
-  .hero-slider-container .myslide {
-    height: 520px;
-  }
   
   .hero-slider-container .txt {
     top: 80%;
@@ -295,6 +294,57 @@
   
   .hero-slider-container .video-bg {
     object-fit: cover;
+  }
+
+  /* FIX: Added mobile-specific zoom animation */
+  .hero-slider-container .myslide.active .img-slider {
+    -webkit-animation-name: zoomin-mobile;
+    -webkit-animation-duration: 4s; /* FASTER: Reduced from 8s to 4s */
+    animation-name: zoomin-mobile;
+    animation-duration: 4s; /* FASTER: Reduced from 8s to 4s */
+    animation-fill-mode: forwards; /* Ensures it stays zoomed */
+    transform-origin: center;
+  }
+
+  @-webkit-keyframes zoomin-mobile {
+    from { transform: scale(1, 1); }
+    to { transform: scale(1.35, 1.35); } /* PRECISE ZOOM: Adjusted to exactly 1.35x */
+  }
+
+  @keyframes zoomin-mobile {
+    from { transform: scale(1, 1); }
+    to { transform: scale(1.35, 1.35); } /* PRECISE ZOOM: Adjusted to exactly 1.35x */
+  }
+
+  /* FIX: Target the exact container structure from the component */
+  .hero-slider-container .block.md\:hidden .relative.h-\[70vh\] {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .hero-slider-container .block.md\:hidden .myslide {
+    flex: 1;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .hero-slider-container .block.md\:hidden .myslide .absolute.inset-0 {
+    height: 100%;
+    width: 100%;
+  }
+  
+  .hero-slider-container .img-slider {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    object-position: center;
+  }
+  
+  /* Remove any potential margin/padding causing the gap */
+  .hero-slider-container .block.md\:hidden .relative.h-\[70vh\] > div {
+    margin: 0;
+    padding: 0;
   }
 }
 
@@ -835,16 +885,10 @@ iframe {
   }
 }
 
-/* --- Fix hero-slider zoom overflow on mobile --- */
+/* Mobile slider - NO zoom animation (matches original static website) */
 @media (max-width: 800px) {
-  .hero-slider-container .myslide.active .img-slider {
-    transform: scale(1.05, 1.05) !important;
-    animation-name: zoomin-mobile !important;
-    animation-duration: 8s !important;
-  }
-  @keyframes zoomin-mobile {
-    from {transform: scale(1, 1);}
-    to {transform: scale(1.05, 1.05);}
+  .hero-slider-container .img-slider {
+    object-fit: cover;
   }
 }
 

@@ -139,7 +139,7 @@ export default function HeroSlider() {
                     src={slide.mobileImage}
                     alt={slide.title}
                     fill
-                    className="img-slider object-contain"
+                    className="img-slider object-cover"
                     priority={index === 0}
                   />
                 )}
@@ -182,7 +182,7 @@ export default function HeroSlider() {
             <i className={`fas ${isAutoPlaying ? 'fa-pause' : 'fa-play'} text-xl`}></i>
           </button>
         </div>
-        <div className="bg-white py-6 px-2 w-full mt-4">
+        <div className="bg-white py-6 px-2 w-full">
           <HeroSideSection />
         </div>
       </div>
