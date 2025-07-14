@@ -506,14 +506,14 @@ export default function Home() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-16 lg:py-24 bg-white antialiased">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">
+      <section className="py-4 bg-white antialiased">
+        <div className="w-full 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-2 md:px-2 lg:px-4 xl:px-8 2xl:px-12">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-2 lg:mb-4">
             Why Choose Us
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8 2xl:gap-10 3xl:gap-12 place-content-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-4 2xl:gap-10 3xl:gap-16 place-content-center">
             {/* 15+ Years of Experience */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 w-full flex flex-col justify-center items-center">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-4 2xl:p-8 3xl:p-12 w-full flex flex-col justify-center items-center min-h-[340px] max-w-full xl:max-w-[320px] 2xl:aspect-square 3xl:aspect-square">
               <div className="mb-6 p-4 flex items-center justify-center">
                 <Image
                   src="/images/15.jpg"
@@ -532,7 +532,7 @@ export default function Home() {
             </div>
 
             {/* 24*7 Service & Support */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 w-full flex flex-col justify-center items-center">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-4 2xl:p-8 3xl:p-12 w-full flex flex-col justify-center items-center min-h-[340px] max-w-full xl:max-w-[320px] 2xl:aspect-square 3xl:aspect-square">
               <div className="mb-6 p-4 flex items-center justify-center">
                 <Image
                   src="/images/24.jpg"
@@ -549,7 +549,7 @@ export default function Home() {
             </div>
 
             {/* Best Quality AERB Approved */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 w-full flex flex-col justify-center items-center">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-4 2xl:p-8 3xl:p-12 w-full flex flex-col justify-center items-center min-h-[340px] max-w-full xl:max-w-[320px] 2xl:aspect-square 3xl:aspect-square">
               <div className="mb-6 p-4 flex items-center justify-center">
                 <Image
                   src="/images/best.jpg"
@@ -568,7 +568,7 @@ export default function Home() {
             </div>
 
             {/* Skilled Professional */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 w-full flex flex-col justify-center items-center">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-4 2xl:p-8 3xl:p-12 w-full flex flex-col justify-center items-center min-h-[340px] max-w-full xl:max-w-[320px] 2xl:aspect-square 3xl:aspect-square">
               <div className="mb-6 p-4 flex items-center justify-center">
                 <Image
                   src="/images/skill.jpg"
