@@ -52,14 +52,13 @@ const PRODUCTS = [
 ];
 
 const ProductCard = React.memo(({ product }: { product: typeof PRODUCTS[0] }) => (
-  <div className="bg-white rounded-xl shadow-lg overflow-hidden card-hover flex flex-col h-[420px] md:h-[440px] lg:h-[460px] 2xl:h-[500px] w-full max-w-full">
-    <div className="relative w-full flex justify-center items-center flex-shrink-0" style={{height: '62%'}}>
+  <div className="bg-white rounded-2xl shadow-2xl overflow-hidden card-hover flex flex-col min-h-80 md:min-h-[22rem] lg:min-h-[26rem] h-auto w-full max-w-full">
+    <div className="relative w-full aspect-[4/3] flex justify-center items-center bg-white">
       <Image
         src={product.image}
         alt={product.title}
         fill
         className="object-contain p-2 md:p-3 lg:p-4"
-        style={{ maxHeight: '100%', maxWidth: '100%' }}
         sizes="(max-width: 768px) 95vw, 350px"
         onLoadingComplete={img => {
           if (img.naturalHeight > img.naturalWidth * 1.2) {
@@ -68,7 +67,6 @@ const ProductCard = React.memo(({ product }: { product: typeof PRODUCTS[0] }) =>
           }
         }}
       />
-      {/* Subtle Available Ribbon, overlays top-left of image only */}
       <span className="available-ribbon subtle">Available</span>
       <style jsx>{`
         .available-ribbon.subtle {
@@ -99,10 +97,10 @@ const ProductCard = React.memo(({ product }: { product: typeof PRODUCTS[0] }) =>
         }
       `}</style>
     </div>
-    <div className="flex flex-col flex-1 items-center text-center justify-center w-full px-3 py-4 md:px-4 md:py-5">
+    <div className="flex flex-col flex-1 items-center text-center justify-center w-full px-4 md:px-6 py-4 md:py-5">
       <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2 w-full">{product.title}</h3>
-      <p className="text-gray-600 mb-3 text-sm line-clamp-3 flex-1 w-full">{product.description}</p>
-      <a href={product.link} className="btn-primary inline-block mt-auto w-full">Learn More</a>
+      <p className="text-gray-600 mb-3 text-sm line-clamp-2 flex-1 w-full">{product.description}</p>
+      <a href={product.link} className="btn-primary inline-block pt-2 max-w-xs w-full mx-auto">Learn More</a>
     </div>
   </div>
 ));
@@ -130,9 +128,10 @@ export default function FeaturedProductsCarousel() {
     return () => observer.disconnect();
   }, []);
 
+  // Swiper's spaceBetween is in px (Swiper API limitation)
   const swiperConfig = useMemo(() => ({
     modules: [Navigation, Pagination, Autoplay],
-    spaceBetween: 16,
+    spaceBetween: 20, // px, Swiper API only accepts px
     slidesPerView: 1,
     loop: true,
     navigation: {
@@ -146,19 +145,19 @@ export default function FeaturedProductsCarousel() {
     breakpoints: {
       768: {
         slidesPerView: 2,
-        spaceBetween: 16,
+        spaceBetween: 24, // px
       },
       1024: {
         slidesPerView: 3,
-        spaceBetween: 20,
+        spaceBetween: 32, // px
       },
       1440: {
         slidesPerView: 4,
-        spaceBetween: 24,
+        spaceBetween: 40, // px
       },
       1920: {
         slidesPerView: 4,
-        spaceBetween: 32,
+        spaceBetween: 48, // px
       },
     },
     className: "pb-12",
@@ -188,10 +187,10 @@ export default function FeaturedProductsCarousel() {
   }
 
   return (
-    <div className="featured-products-carousel relative">
+    <section className="featured-products-carousel relative py-12 md:py-20 my-8 md:my-12">
       <Swiper {...swiperConfig}>
         {PRODUCTS.map((product, index) => (
-          <SwiperSlide key={index}>
+          <SwiperSlide key={index} className="p-4 md:p-6">
             <ProductCard product={product} />
           </SwiperSlide>
         ))}
@@ -203,6 +202,6 @@ export default function FeaturedProductsCarousel() {
       <div className="swiper-button-next-featured absolute right-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 text-gray-700 w-8 h-8 rounded-full flex items-center justify-center shadow z-10 cursor-pointer">
         <i className="fa fa-chevron-right"></i>
       </div>
-    </div>
+    </section>
   );
 } 
