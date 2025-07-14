@@ -202,3 +202,53 @@ Section still **OPEN**. Will resume debugging and push a fresh commit late tonig
 Section **RESOLVED**. All planned fixes implemented and tested. Awaiting user verification.
 
 --- 
+
+## Work Log: July 15, 2025 – Why Choose Us Section FINAL Responsive & Alignment Fixes (Afternoon Session)
+
+### Objective
+Achieve perfect alignment, scaling, and responsiveness for the Why Choose Us section across all breakpoints, ensuring:
+- Cards are visually balanced and as square as possible at all screen sizes
+- No excessive gaps or padding above/below or on the sides
+- Headings, icons, and text are always fully visible and never cropped
+- Section looks premium and tight on all devices
+
+### Key Issues Addressed
+- Cards were previously stretched, squished, or cropped at various breakpoints
+- Excessive vertical gaps above and below the section
+- Cards did not use all available horizontal space on smaller screens
+- 3rd card heading ("Best Quality AERB Approved") was truncated on wide screens
+
+### Solutions & Changes Implemented
+1. **Card Proportions & Grid**
+   - Used `min-h`, `max-w`, and responsive grid gaps to keep cards compact and nearly square
+   - Removed strict aspect ratio at most breakpoints for flexibility
+2. **Section Padding & Margins**
+   - Reduced vertical padding to `py-4` for a compact look
+   - Used negative top margin (`-mt-12`) for ultra-tight fit, then reverted to `py-4` for balanced breathing room
+   - Removed all large breakpoint padding overrides (`lg:py-24`)
+3. **Container Width**
+   - Switched from `max-w-7xl` to `w-full` at all but ultra-wide breakpoints, so cards use all available space
+   - Kept only `2xl:max-w-[1600px]` and `3xl:max-w-[2000px]` for ultra-wide monitors
+   - Reduced horizontal padding to `px-2` at small/medium screens
+4. **Heading, Icon, and Text Fixes**
+   - Maintained all font, icon, and alignment improvements
+   - Removed `line-clamp-2` from 3rd card heading and added `break-words whitespace-normal` so full heading always displays
+5. **Final Visual Polish**
+   - Ensured no excessive gaps above or below the section
+   - Cards now touch the left/right edges (with minimal padding) on small/medium screens
+   - All content is always visible, never cropped, and visually balanced
+
+### Troubleshooting & Iteration
+- Multiple rounds of adjusting grid, padding, and container width to balance squareness and spacing
+- Used negative margin tricks, then reverted for best overall look
+- Inspected and removed conflicting/overwriting Tailwind classes
+- Verified at 1024px, 1280px, 1440px, 1680px, 1920px, and mobile
+
+### Final Result
+- **Why Choose Us section is now pixel-perfect, responsive, and visually premium at all breakpoints**
+- No more stretching, squishing, or cropping
+- All headings, icons, and text are always fully visible
+- Section uses all available space, with just the right amount of breathing room
+
+### Status
+**COMPLETE** – Task closed. Section ready for production. 

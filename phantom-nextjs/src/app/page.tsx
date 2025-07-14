@@ -559,7 +559,7 @@ export default function Home() {
                   className="w-20 h-20 sm:w-24 sm:h-24 mx-auto object-cover rounded-full border-4 border-primary-100"
                 />
               </div>
-              <h3 className="text-base md:text-lg font-bold text-gray-900 mb-2 leading-tight line-clamp-2" style={{fontSize: 'clamp(1rem, 1.5vw, 1.25rem)'}}>
+              <h3 className="text-base md:text-lg font-bold text-gray-900 mb-2 leading-tight break-words whitespace-normal" style={{fontSize: 'clamp(1rem, 1.5vw, 1.25rem)'}}>
                 Best Quality<br/><span className="whitespace-nowrap">AERB Approved</span>
               </h3>
               <p className="text-gray-600 leading-relaxed" style={{fontSize: 'clamp(0.875rem, 1.2vw, 1rem)'}}>
