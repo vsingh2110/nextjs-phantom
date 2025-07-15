@@ -152,38 +152,15 @@ export default function Home() {
       </section>
 
       {/* Featured Products Section */}
-      <section className="py-4 bg-white antialiased">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">
-            Featured Products
-          </h2>
-          <FeaturedProductsCarousel />
-        </div>
+      <section className="py-2 bg-white antialiased">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-1">
+          Featured Products
+        </h2>
+        <FeaturedProductsCarousel />
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 gradient-bg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className="text-white">
-              <h3 className="text-4xl md:text-5xl font-bold mb-2">450+</h3>
-              <p className="text-lg opacity-90">Installations</p>
-            </div>
-            <div className="text-white">
-              <h3 className="text-4xl md:text-5xl font-bold mb-2">100+</h3>
-              <p className="text-lg opacity-90">Service Engineers</p>
-            </div>
-            <div className="text-white">
-              <h3 className="text-4xl md:text-5xl font-bold mb-2">24/7</h3>
-              <p className="text-lg opacity-90">Support Available</p>
-            </div>
-            <div className="text-white">
-              <h3 className="text-4xl md:text-5xl font-bold mb-2">15+</h3>
-              <p className="text-lg opacity-90">Years Experience</p>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* Floating Contact Button - HIDDEN */}
       {/* <button 

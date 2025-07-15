@@ -187,7 +187,7 @@ export default function FeaturedProductsCarousel() {
   }
 
   return (
-    <section className="featured-products-carousel relative py-12 md:py-20 my-8 md:my-12">
+    <section className="featured-products-carousel relative py-0 my-0 px-0 w-screen left-1/2 right-1/2 -translate-x-1/2 2xl:max-w-[1600px] 3xl:max-w-[2000px]" style={{position:'relative'}}>
       <Swiper {...swiperConfig}>
         {PRODUCTS.map((product, index) => (
           <SwiperSlide key={index} className="p-4 md:p-6">
