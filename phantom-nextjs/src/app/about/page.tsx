@@ -8,10 +8,23 @@ export default function About() {
       <Header />
       
       {/* About Hero Section */}
-      <section className="page-hero">
-        <div className="container">
-          <h1>About Phantom Healthcare</h1>
-          <p>Your trusted partner in medical imaging solutions</p>
+      <section
+        style={{ backgroundImage: "url('/images/phantom-building.jpg')" }}
+        className="relative w-full min-h-[400px] flex flex-col md:flex-row items-center justify-between bg-cover bg-center"
+      >
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/60 z-0"></div>
+        {/* Content */}
+        <div className="relative z-10 p-8 md:w-1/2 flex flex-col justify-center">
+          <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">About Phantom Healthcare</h1>
+          <p className="text-white mb-6">
+            Our Group had started the operations in year 2011 and has become the leading remarketers, refurbishers and re-assemblers of Pre-owned Super Conductive MRIs and CT Scanners in India. Phantom Healthcare strives to provide professional support with quality services that are custom fit to the needs of today's growing healthcare industry. We aim to develop long-term relationships with our clients and do our best possible to keep Imaging equipment up-to-date and working like new.
+          </p>
+          <button className="bg-blue-500 text-white px-6 py-2 rounded-full font-semibold w-max">LEARN MORE</button>
+        </div>
+        {/* Video or other content */}
+        <div className="relative z-10 p-8 md:w-1/2 flex justify-center items-center">
+          {/* Place your YouTube embed or other content here */}
         </div>
       </section>
 

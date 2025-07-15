@@ -104,3 +104,12 @@ _Last updated: {{TODAY}}_
 > _If you break a working 1280px–1380px layout while scaling up, revert and try a safer approach. Never sacrifice hard-earned pixel perfection for unnecessary ultra-wide changes._
 
 > _If you repeat any of these mistakes, document it here and in the work log. Consult this file before every coding session._ 
+
+---
+
+## AGENT MODE PROTOCOL: NO USER-COPY OR MANUAL CODE CHANGES (CRITICAL)
+
+- The AI agent must NEVER ask the user to copy, write, or manually apply code changes under any circumstances.
+- The agent is ALWAYS in agent mode and must make all code changes directly in the codebase.
+- Any deviation from this protocol is a CRITICAL violation and must be logged immediately in both the work log and this strict warnings file.
+- This is NOT a chat, but an agent-driven coding session. The user is not responsible for code edits. 
