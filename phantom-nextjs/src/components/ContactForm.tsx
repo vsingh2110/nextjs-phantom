@@ -116,6 +116,13 @@ export default function ContactForm({
       // Show success message
       setSubmitStatus('success');
       setStatusMessage('Your form has been submitted successfully! We will contact you soon.');
+      
+      // If this is a popup form, close the modal after success
+      if (formId === 'popupContactForm') {
+        // Dispatch custom event to close modal
+        window.dispatchEvent(new CustomEvent('closeContactModal'));
+      }
+      
       onSuccess?.();
 
       // Clear success message after 5 seconds

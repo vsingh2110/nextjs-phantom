@@ -34,6 +34,18 @@ export default function PopupModal({
     };
   }, [isOpen]);
 
+  // Listen for close event from ContactForm
+  useEffect(() => {
+    const handleCloseEvent = () => {
+      handleClose();
+    };
+
+    window.addEventListener('closeContactModal', handleCloseEvent);
+    return () => {
+      window.removeEventListener('closeContactModal', handleCloseEvent);
+    };
+  }, []);
+
   const handleClose = () => {
     setIsVisible(false);
     setTimeout(() => {
@@ -70,7 +82,6 @@ export default function PopupModal({
           {showForm ? (
             <ContactForm 
               formId="popupContactForm"
-              onSuccess={handleClose}
             />
           ) : (
             children

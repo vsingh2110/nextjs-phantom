@@ -1,3 +1,5 @@
+'use client';
+
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
@@ -64,7 +66,6 @@ export default function Contact() {
               <h2>Send us a Message</h2>
               <ContactForm 
                 formId="contactPageForm"
-                onSuccess={() => console.log('Form submitted successfully')}
               />
             </div>
           </div>

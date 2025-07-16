@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useRef, useEffect, useState } from "react";
 import MobileHorizontalCounterSection from './MobileHorizontalCounterSection';
 import VerticalMobileCounter from './VerticalMobileCounter';
