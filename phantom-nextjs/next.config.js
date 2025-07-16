@@ -68,7 +68,7 @@ const nextConfig = {
           },
           {
             key: 'X-Frame-Options',
-            value: 'ALLOWALL', // WARNING: Only for local dev!
+            value: 'SAMEORIGIN',
           },
           {
             key: 'X-XSS-Protection',
