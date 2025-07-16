@@ -136,7 +136,7 @@ export default function HeroSlider() {
                   </video>
                 ) : (
                   <Image
-                    src={slide.mobileImage}
+                    src={slide.mobileImage || slide.image || '/images/slideshow/Phantom PPT.jpg'}
                     alt={slide.title}
                     fill
                     className="img-slider object-cover"
@@ -207,7 +207,7 @@ export default function HeroSlider() {
                   </video>
                 ) : (
                   <Image
-                    src={slide.image}
+                    src={slide.image || '/images/slideshow/Phantom PPT.jpg'}
                     alt={slide.title}
                     fill
                     className="img-slider object-cover"

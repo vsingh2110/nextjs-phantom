@@ -1,3 +1,5 @@
+import emailjs from '@emailjs/browser';
+
 declare global {
   interface Window {
     emailjs: any;
@@ -13,15 +15,8 @@ export const sendEmailNotification = async (formData: {
   hospital?: string;
   enquiry?: string;
 }) => {
-  if (typeof window === 'undefined' || !window.emailjs) {
-    throw new Error('EmailJS not available');
-  }
-
-  // Initialize EmailJS
-  window.emailjs.init("2kZrD3IVCkNfJsW6w");
-
   try {
-    const response = await window.emailjs.send(
+    const response = await emailjs.send(
       "service_x2ysvvr", 
       "template_0qgs9u9", 
       {
@@ -32,6 +27,9 @@ export const sendEmailNotification = async (formData: {
         city: formData.city,
         hospital: formData.hospital || '',
         enquiry: formData.enquiry || '',
+      },
+      {
+        publicKey: "2kZrD3IVCkNfJsW6w"
       }
     );
     return { success: true, response };

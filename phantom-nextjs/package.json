@@ -12,9 +12,11 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "@eslint/config-array": "^0.21.0",
+    "@eslint/object-schema": "^2.1.6",
     "@types/node": "^20",
-    "emailjs-com": "^3.2.0",
-    "eslint": "^8",
+    "eslint": "^9.31.0",
     "eslint-config-next": "15.3.5",
     "firebase": "^10.7.1",
     "next": "15.3.5",
@@ -22,6 +24,9 @@
     "react-dom": "^18",
     "swiper": "^11.2.10",
     "typescript": "^5"
+  },
+  "overrides": {
+    "undici": "^6.21.1"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^15.3.5",
