@@ -94,6 +94,7 @@ import TestimonialsCarousel from '@/components/TestimonialsCarousel'
 import RegionalOffices from '@/components/RegionalOffices'
 import CounterSection from '@/components/CounterSection';
 import FeaturedProductsCarousel from '@/components/FeaturedProductsCarousel';
+import YouTubeEmbed from '@/components/YouTubeEmbed';
 
 export default function Home() {
   return (
@@ -142,9 +143,9 @@ export default function Home() {
       {/* Featured Products Section */}
       <section className="py-2 bg-white antialiased">
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-1">
-          Featured Products
-        </h2>
-        <FeaturedProductsCarousel />
+            Featured Products
+          </h2>
+          <FeaturedProductsCarousel />
       </section>
 
       {/* Stats Section */}
@@ -159,15 +160,26 @@ export default function Home() {
       </button> */}
 
       {/* About Us Section */}
-      <section className="py-16 lg:py-24 bg-gray-50 antialiased">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section 
+        className="py-16 lg:py-24 antialiased relative"
+        style={{ 
+          backgroundImage: "url('/images/phantom-building.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat"
+        }}
+      >
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/60"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* About Content */}
             <div className="order-2 lg:order-1 space-y-6">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
                 About Phantom Healthcare
               </h2>
-              <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+              <p className="text-sm sm:text-base text-white leading-relaxed">
                 Our Group had started the operations in year 2011 and has become
                 the leading remarketers, refurbishers and re-assemblers of
                 Pre-owned Super Conductive MRIs and CT Scanners in India. Phantom
@@ -190,15 +202,8 @@ export default function Home() {
 
             {/* About Video */}
             <div className="order-1 lg:order-2">
-              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
-                <iframe 
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/xmB3MDYaOMU?controls=0"
-                  title="Phantom Healthcare Video"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
+              <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-900">
+                <YouTubeEmbed videoId="dQw4w9WgXcQ" />
               </div>
             </div>
           </div>
