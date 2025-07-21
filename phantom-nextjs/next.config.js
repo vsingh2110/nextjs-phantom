@@ -78,9 +78,9 @@ const nextConfig = {
         headers: [
           // X-Content-Type-Options - Conditional for development embedding
           ...(isDevelopment ? [] : [
-            {
-              key: 'X-Content-Type-Options',
-              value: 'nosniff',
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
             }
           ]),
           // X-Frame-Options - Allow embedding in development, secure in production
