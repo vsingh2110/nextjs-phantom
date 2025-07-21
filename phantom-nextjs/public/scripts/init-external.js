@@ -1,3 +1,23 @@
+// Facebook Pixel (ID from your previous code or scripts)
+if (typeof fbq === 'undefined') {
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'YOUR_PIXEL_ID'); // <-- Use your actual Pixel ID here if you have it in your old code
+  fbq('track', 'PageView');
+}
+
+// Google Tag Manager (GTM-T6XTLDS) and Google Analytics (G-WKQZP6J4CR)
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-WKQZP6J4CR');
+
 // Firebase configuration
 window.addEventListener('DOMContentLoaded', function() {
   // Firebase
@@ -30,11 +50,4 @@ window.addEventListener('DOMContentLoaded', function() {
     }
   }
   initEmailJS();
-
-  // Google Analytics (gtag)
-  if (typeof window.gtag === 'undefined' && typeof window.dataLayer !== 'undefined') {
-    window.gtag = function(){dataLayer.push(arguments);};
-    window.gtag('js', new Date());
-    window.gtag('config', 'G-WKQZP6J4CR');
-  }
 }); 

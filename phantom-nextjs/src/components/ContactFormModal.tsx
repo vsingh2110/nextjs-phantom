@@ -1,6 +1,10 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
+import { useRef } from 'react';
+import { initializeApp, getApps } from 'firebase/app';
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import emailjs from '@emailjs/browser';
 
 interface ContactFormModalProps {
   isOpen: boolean;
@@ -30,11 +34,49 @@ export default function ContactFormModal({
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [statusMessage, setStatusMessage] = useState('');
   const [errors, setErrors] = useState<any>({});
+  const [firebaseReady, setFirebaseReady] = useState(false);
+  const [firestoreDb, setFirestoreDb] = useState<any>(null);
+  const [emailjsReady, setEmailjsReady] = useState(false);
+  const [emailjsInstance, setEmailjsInstance] = useState<any>(null);
+  const firebaseConfig = {
+    apiKey: "AIzaSyB_Jl_3FgNT7bHFRY63_e2FkfuqMkUJz5A",
+    authDomain: "phantom-test-site-form.firebaseapp.com",
+    databaseURL: "https://phantom-test-site-form-default-rtdb.firebaseio.com",
+    projectId: "phantom-test-site-form",
+    storageBucket: "phantom-test-site-form.appspot.com",
+    messagingSenderId: "514732869106",
+    appId: "1:514732869106:web:b65039a4f2e1728aeb976b"
+  };
 
   // Debug submitStatus changes
   useEffect(() => {
     console.log('SubmitStatus changed to:', submitStatus);
   }, [submitStatus]);
+
+  useEffect(() => {
+    // Firebase
+    try {
+      if (!getApps().length) {
+        initializeApp(firebaseConfig);
+        console.log('Firebase initialized');
+      }
+      const db = getFirestore();
+      setFirestoreDb(db);
+      setFirebaseReady(true);
+      console.log('Firestore set and ready');
+    } catch (e) {
+      console.error('Firebase init error:', e);
+    }
+    // EmailJS (NPM)
+    try {
+      emailjs.init("2kZrD3IVCkNfJsW6w");
+      setEmailjsReady(true);
+      setEmailjsInstance(emailjs);
+      console.log('EmailJS ready (NPM)');
+    } catch (e) {
+      console.error('EmailJS init error:', e);
+    }
+  }, []);
 
   const validateForm = useCallback(() => {
     const newErrors: any = {};
@@ -80,6 +122,12 @@ export default function ContactFormModal({
       setStatusMessage('Please fill in all required fields.');
       return;
     }
+    // Block submission if not ready
+    if (!firebaseReady || !firestoreDb || !emailjsReady || !emailjsInstance) {
+      setSubmitStatus('error');
+      setStatusMessage('Form system not ready. Please wait a few seconds and try again.');
+      return;
+    }
 
     setIsSubmitting(true);
     setSubmitStatus('idle');
@@ -97,20 +145,10 @@ export default function ContactFormModal({
       console.log('Starting form submission...');
       console.log('Form data:', formData);
 
-      // Check if Firebase is available
-      const firebase = (window as any).firebase;
-      const db = (window as any).db;
-      
-      console.log('Firebase available:', !!firebase);
-      console.log('DB available:', !!db);
-
-      let firebasePromise = Promise.resolve();
-      let emailjsPromise = Promise.resolve();
-
       // Save Form Data To Firebase FIRST
-      if (firebase && db) {
+      if (firebaseReady && firestoreDb) {
         console.log('Saving to Firebase...');
-        firebasePromise = db.doc().set({
+        await addDoc(collection(firestoreDb, 'formData'), {
           name: formData.name,
           phone: formData.phone,
           email: formData.email,
@@ -119,24 +157,16 @@ export default function ContactFormModal({
           city: formData.city,
           hospital: formData.hospital,
           sayDateVal: sayDateVal,
-        }).then(() => {
-          console.log('Firebase save successful');
-        }).catch((error: any) => {
-          console.error('Firebase save error:', error);
-          throw error;
         });
+        console.log('Firebase save successful');
       } else {
         console.warn('Firebase not available');
       }
 
       // Send email using EmailJS SECOND
-      const emailjs = (window as any).emailjs;
-      console.log('EmailJS available:', !!emailjs);
-      console.log('EmailJS ready:', (window as any).emailjsReady);
-      
-      if (emailjs && emailjs.send && (window as any).emailjsReady) {
+      if (emailjsReady && emailjsInstance) {
         console.log('Sending email via EmailJS...');
-        emailjsPromise = emailjs.send("service_x2ysvvr", "template_0qgs9u9", {
+        await emailjsInstance.send("service_x2ysvvr", "template_0qgs9u9", {
           name: formData.name,
           phone: formData.phone,
           email: formData.email,
@@ -144,16 +174,12 @@ export default function ContactFormModal({
           city: formData.city,
           hospital: formData.hospital,
           enquiry: formData.enquiry,
-        }).then((response: any) => {
-          console.log('EmailJS send successful:', response);
-        }).catch((error: any) => {
-          console.error('EmailJS send error:', error);
-          throw error;
         });
+        console.log('EmailJS send successful');
       } else {
         console.warn('EmailJS not available or not ready');
         // Try to wait for EmailJS to be ready
-        if (emailjs && emailjs.send && !(window as any).emailjsReady) {
+        if (emailjsReady && emailjsInstance && !(window as any).emailjsReady) {
           console.log('Waiting for EmailJS to be ready...');
           await new Promise(resolve => {
             const checkReady = () => {
@@ -167,7 +193,7 @@ export default function ContactFormModal({
           });
           
           console.log('EmailJS is now ready, sending email...');
-          emailjsPromise = emailjs.send("service_x2ysvvr", "template_0qgs9u9", {
+          await emailjsInstance.send("service_x2ysvvr", "template_0qgs9u9", {
             name: formData.name,
             phone: formData.phone,
             email: formData.email,
@@ -175,18 +201,9 @@ export default function ContactFormModal({
             city: formData.city,
             hospital: formData.hospital,
             enquiry: formData.enquiry,
-          }).then((response: any) => {
-            console.log('EmailJS send successful:', response);
-          }).catch((error: any) => {
-            console.error('EmailJS send error:', error);
-            throw error;
           });
         }
       }
-
-      // Execute both Firebase save and EmailJS send concurrently
-      await Promise.all([firebasePromise, emailjsPromise]);
-      console.log("Both Firebase save and EmailJS send completed successfully");
 
       console.log('Setting success status...');
       setSubmitStatus('success');
@@ -217,7 +234,7 @@ export default function ContactFormModal({
     } finally {
       setIsSubmitting(false);
     }
-  }, [formData, validateForm, successMessage, onClose]);
+  }, [formData, validateForm, successMessage, onClose, firebaseReady, firestoreDb, emailjsReady, emailjsInstance]);
 
   if (!isOpen) return null;
 
