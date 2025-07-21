@@ -106,4 +106,6 @@ const nextConfig = {
   },
 };
 
+// Remove next-safe integration
+// Restore original export
 module.exports = nextConfig; 
