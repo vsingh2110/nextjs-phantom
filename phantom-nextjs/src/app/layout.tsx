@@ -23,6 +23,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  // Read the nonce from the request headers (set by middleware)
+  // @ts-ignore - Next.js will inject the nonce header for us
+  const nonce = typeof window === 'undefined' ? (globalThis as any).__NEXT_DATA__?.props?.nonce || '' : '';
+
   return (
     <html lang="en">
       <head>
@@ -58,7 +62,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <AppScripts />
+        <AppScripts nonce={nonce} />
       </body>
     </html>
   )
