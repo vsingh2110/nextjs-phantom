@@ -3,6 +3,7 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ScrollRestoration from '@/components/ScrollRestoration';
+import AppScripts from '@/components/AppScripts';
 /**
  * IMPORTANT: This layout.tsx is kept as a SERVER COMPONENT for SEO.
  * Do NOT add 'use client' or client-only logic (like useEffect) here.
@@ -31,86 +32,12 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
         
         {/* Firebase */}
-        <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              // Firebase configuration
-              var firebaseConfig = {
-                apiKey: "AIzaSyB_Jl_3FgNT7bHFRY63_e2FkfuqMkUJz5A",
-                authDomain: "phantom-test-site-form.firebaseapp.com",
-                databaseURL: "https://phantom-test-site-form-default-rtdb.firebaseio.com",
-                projectId: "phantom-test-site-form",
-                storageBucket: "phantom-test-site-form.appspot.com",
-                messagingSenderId: "514732869106",
-                appId: "1:514732869106:web:b65039a4f2e1728aeb976b"
-              };
-              
-              // Initialize Firebase
-              if (!firebase.apps.length) {
-                firebase.initializeApp(firebaseConfig);
-              } else {
-                firebase.app();
-              }
-              
-              // Initialize Firestore
-              var firestore = firebase.firestore();
-              const db = firestore.collection("formData");
-            `,
-          }}
-        />
         
         {/* EmailJS */}
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                // Wait for EmailJS to load
-                function initEmailJS() {
-                  if (typeof emailjs !== 'undefined') {
-                    console.log('EmailJS loaded, initializing...');
-                    emailjs.init("2kZrD3IVCkNfJsW6w"); // Public Key from EmailJS
-                    console.log('EmailJS initialized successfully');
-                    window.emailjsReady = true;
-                  } else {
-                    console.log('EmailJS not loaded yet, retrying...');
-                    setTimeout(initEmailJS, 100);
-                  }
-                }
-                initEmailJS();
-              })();
-            `,
-          }}
-        />
         
         {/* Google Tag Manager */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-T6XTLDS');
-            `,
-          }}
-        />
-        {/* End Google Tag Manager */}
         
         {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-WKQZP6J4CR"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-WKZP6J4CR');
-            `,
-          }}
-        />
       </head>
       <body className="Poppins w-full min-h-screen" suppressHydrationWarning={true}>
         {/* ScrollRestoration is a client component for scroll position restore. Placing it here ensures all pages get the feature, but layout remains a server component for SEO. */}
@@ -131,6 +58,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <AppScripts />
       </body>
     </html>
   )
