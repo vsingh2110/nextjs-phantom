@@ -27,8 +27,8 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
         <link rel="icon" href="/images/Fav-Icon.png" />
+        {/* Font Awesome - Single reliable CDN source */}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css" />
         
         {/* Firebase */}
         <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
@@ -107,12 +107,12 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-WKQZP6J4CR');
+              gtag('config', 'G-WKZP6J4CR');
             `,
           }}
         />
       </head>
-      <body className="Poppins w-full min-h-screen">
+      <body className="Poppins w-full min-h-screen" suppressHydrationWarning={true}>
         {/* ScrollRestoration is a client component for scroll position restore. Placing it here ensures all pages get the feature, but layout remains a server component for SEO. */}
         <ScrollRestoration />
         {/* Google Tag Manager (noscript) */}

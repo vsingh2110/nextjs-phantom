@@ -472,18 +472,7 @@ button {
 }
 
 /* Specific icon fallbacks */
-.fa-twitter::before { content: "𝕏"; }
-.fa-whatsapp::before { content: "📱"; }
-.fa-youtube::before { content: "▶"; }
-.fa-street-view::before { content: "📍"; }
-.fa-instagram::before { content: "📷"; }
-.fa-facebook-square::before { content: "📘"; }
-.fa-pinterest::before { content: "📌"; }
-.fa-linkedin::before { content: "💼"; }
-.fa-user::before { content: "👤"; }
-.fa-download::before { content: "⬇"; }
-.fa-angle-down::before { content: "▼"; }
-.fa-close::before { content: "✕"; }
+/* Font Awesome icons restored - removed custom emoji replacements */
 
 html, body {
   -webkit-font-smoothing: antialiased;

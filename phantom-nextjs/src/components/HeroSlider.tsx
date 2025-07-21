@@ -139,6 +139,7 @@ export default function HeroSlider() {
                     src={slide.mobileImage || slide.image || '/images/slideshow/Phantom PPT.jpg'}
                     alt={slide.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="img-slider object-cover"
                     priority={index === 0}
                   />
@@ -210,6 +211,7 @@ export default function HeroSlider() {
                     src={slide.image || '/images/slideshow/Phantom PPT.jpg'}
                     alt={slide.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, 70vw"
                     className="img-slider object-cover"
                     priority={index === 0}
                   />

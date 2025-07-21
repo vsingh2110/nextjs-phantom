@@ -94,7 +94,7 @@ import TestimonialsCarousel from '@/components/TestimonialsCarousel'
 import RegionalOffices from '@/components/RegionalOffices'
 import CounterSection from '@/components/CounterSection';
 import FeaturedProductsCarousel from '@/components/FeaturedProductsCarousel';
-import YouTubeEmbed from '@/components/YouTubeEmbed';
+import YouTubeEmbedComponent from '@/components/YouTubeEmbed';
 
 export default function Home() {
   return (
@@ -203,7 +203,7 @@ export default function Home() {
             {/* About Video */}
             <div className="order-1 lg:order-2">
               <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-900">
-                <YouTubeEmbed videoId="dQw4w9WgXcQ" />
+                <YouTubeEmbedComponent videoId="dQw4w9WgXcQ" />
               </div>
             </div>
           </div>

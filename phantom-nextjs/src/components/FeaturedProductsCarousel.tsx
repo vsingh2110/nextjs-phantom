@@ -62,7 +62,8 @@ const ProductCard = React.memo(({ product }: { product: typeof PRODUCTS[0] }) =>
         fill
         className="object-contain p-2 md:p-3 lg:p-4"
         sizes="(max-width: 768px) 95vw, 350px"
-        onLoadingComplete={img => {
+        onLoad={(e) => {
+          const img = e.currentTarget;
           if (img.naturalHeight > img.naturalWidth * 1.2) {
             img.classList.remove('object-cover');
             img.classList.add('object-contain');
