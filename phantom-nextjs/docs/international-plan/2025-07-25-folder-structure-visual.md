@@ -1,6 +1,6 @@
 # Phantom Medical Equipment - Project Folder Structure
 
-**Date:** January 27, 2025  
+**Date:** July 25, 2025  
 **Purpose:** Visual representation of current and planned project structure
 
 ---
