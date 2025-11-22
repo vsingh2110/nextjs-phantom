@@ -121,6 +121,7 @@
 - ⚠️ Font Awesome loading could be optimized (bundle vs CDN)
 
 ### **Recently Resolved:**
+- ✅ Hero slider text styling & animations (Nov 22, 2025)
 - ✅ Mobile horizontal overflow (Nov 22, 2025)
 - ✅ Hero slider zoom on mobile (Nov 22, 2025)
 - ✅ Footer Google Maps loading (July 21, 2025)

@@ -216,6 +216,34 @@ xcopy "phantom-website\images\machines" "phantom-nextjs\public\images\machines\"
 
 ---
 
+### 11. Hero Slider Text Styling Fixes
+**Problem**: Hero slider text font sizes and positioning not matching static website exactly. Next.js `rem` values were rendering larger than static site's `rem` values (due to base font size difference).
+**Solution**: Converted all hero slider text styles to use exact pixel (`px`) values from the static website to ensure 1:1 visual match.
+
+**Files Modified**:
+- `src/app/globals.css`
+
+**Changes**:
+- **Desktop**:
+  - `.txt h1`: 4rem → 40px
+  - `.txt p`: 2rem → 20px
+  - `.txt1 h1`: 3rem → 30px
+  - `.txt1 p`: 2rem → 20px
+- **Mobile (max-width: 800px)**:
+  - `.txt h1`: 2rem → 35px
+  - `.txt p`: 1rem → 13px
+  - `.txt1 h1`: 2rem → 35px
+  - `.txt1 p`: 1rem → 10px
+- **Mobile (max-width: 520px)**:
+  - Updated block with correct pixel values (30px/13px)
+- **Large Screens (min-width: 1600px)**:
+  - Updated block with correct pixel values (55px/36px/50px/30px)
+
+**Verification**:
+- Animations (`posi`, `positxt1`, `posi2`, `positxt2`) verified to match static website keyframes.
+
+---
+
 ## Current Status
 
 ### ✅ Working
@@ -261,6 +289,11 @@ git commit -m "Downgrade to Next.js 15.3.5 and React 18 for Vercel compatibility
 git commit -m "Add missing images and fix hero slider txt1 transform"
 # 37 files changed, 1 insertion(+), 1 deletion(-)
 # 34 new image files created
+```
+
+### Commit 5: Hero Slider Text Styling Fixes
+```bash
+git commit -m "Fix hero slider text styling - convert rem to px values"
 ```
 
 ---

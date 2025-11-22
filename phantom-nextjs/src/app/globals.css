@@ -127,7 +127,7 @@
 
 .hero-slider-container .txt h1 {
   color: white;
-  font-size: 4rem;
+  font-size: 40px;
   letter-spacing: 0px;
   line-height: 35px;
   margin-bottom: 20px;
@@ -139,7 +139,7 @@
   font-weight: bold;
   letter-spacing: 0px;
   line-height: 25px;
-  font-size: 2rem;
+  font-size: 20px;
   font-weight: 500;
   text-shadow: 2px 2px 4px #000000;
 }
@@ -173,8 +173,8 @@
 .hero-slider-container .txt1 h1 {
   color: white;
   letter-spacing: 0rem;
-  line-height: 2.8rem;
-  font-size: 3rem;
+  line-height: 28px;
+  font-size: 30px;
   margin-bottom: 20px;
   text-align: center;
   text-shadow: 2px 2px 4px #000000;
@@ -183,7 +183,7 @@
 .hero-slider-container .txt1 p {
   font-weight: bold;
   letter-spacing: 0.1rem;
-  line-height: 2rem;
+  line-height: 20px;
   font-size: 20px;
   text-align: center;
   color: #A0EB36;
@@ -245,13 +245,13 @@
   }
 
   .hero-slider-container .txt h1 {
-    font-size: 2rem;
+    font-size: 35px;
     line-height: 25px;
     text-align: center;
   }
   
   .hero-slider-container .txt p {
-    font-size: 1rem;
+    font-size: 13px;
     line-height: 20px;
     text-align: center;
   }
@@ -283,13 +283,13 @@
   .hero-slider-container .txt1 h1 {
     letter-spacing: 0px;
     line-height: 28px;
-    font-size: 2rem;
+    font-size: 35px;
   }
 
   .hero-slider-container .txt1 p {
     letter-spacing: 0px;
     line-height: normal;
-    font-size: 1rem;
+    font-size: 10px;
   }
 
   .hero-slider-container .img-slider {
@@ -354,37 +354,39 @@
 
 @media screen and (max-width: 520px) {
   .hero-slider-container .txt h1 {
-    font-size: 1.75rem;
+    font-size: 30px;
     margin-bottom: 8px;
     text-align: center;
   }
 
   .hero-slider-container .txt p {
-    font-size: 0.875rem;
+    font-size: 13px;
     text-align: center;
   }
 
   .hero-slider-container .txt1 h1 {
-    font-size: 1.75rem;
-    margin-bottom: 8px;
+    letter-spacing: 0px;
+    line-height: 28px;
+    font-size: 30px;
+    margin-bottom: 20px;
     text-align: center;
   }
 
   .hero-slider-container .txt1 p {
-    font-size: 0.875rem;
+    font-size: 13px;
     text-align: center;
   }
 }
 
 @media screen and (min-width: 1600px) {
   .hero-slider-container .txt h1 {
-    font-size: 3rem;
-    line-height: 40px;
+    font-size: 55px;
+    margin-bottom: 45px;
   }
   
   .hero-slider-container .txt p {
-    font-size: 1.5rem;
-    line-height: 30px;
+    font-size: 36px;
+    line-height: 40px;
   }
 
   .hero-slider-container .txt1 {
@@ -394,13 +396,13 @@
   .hero-slider-container .txt1 h1 {
     letter-spacing: 0px;
     line-height: 45px;
-    font-size: 5rem;
+    font-size: 50px;
     margin-bottom: 20px;
   }
 
   .hero-slider-container .txt1 p {
-    font-size: 3rem;
-    line-height: 4rem;
+    font-size: 30px;
+    line-height: 40px;
   }
 }
 
