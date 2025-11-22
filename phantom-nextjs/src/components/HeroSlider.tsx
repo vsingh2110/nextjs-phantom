@@ -193,7 +193,7 @@ export default function HeroSlider() {
           {slides.map((slide, index) => (
             <div
               key={slide.id}
-              className={`myslide absolute inset-0 h-full w-full ${index === currentSlide ? 'active fade' : 'hidden'}`}
+              className={`myslide absolute inset-0 h-full w-full ${index === currentSlide ? 'active fade' : ''}`}
             >
               <div className="absolute inset-0 h-full w-full">
                 {slide.video ? (
