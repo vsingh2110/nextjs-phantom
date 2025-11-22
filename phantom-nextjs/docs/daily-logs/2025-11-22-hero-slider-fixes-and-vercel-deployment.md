@@ -475,3 +475,17 @@ git commit -m "Fix hero slider layout - adjust desktop/sidebar widths and mobile
     - Added `flex-shrink-0` to the sidebar container to prevent it from shrinking.
 
 ---
+
+### 16. Reverting and Refining Layouts
+- **TopBlock Images**: Copied `icons.png`, `upd.png`, and `ser.png` from the static site to `public/images/` to ensure the correct line-art icons are used instead of the blue circles.
+- **TopBlock Styling**: Updated `TopBlock.tsx` to match the original design more closely:
+    - Changed shadow to `shadow-[0_0_15px_rgba(0,0,0,0.1)]` (lighter, more diffuse).
+    - Increased padding to `p-6 md:p-8`.
+    - Adjusted font sizes and weights.
+    - Added hover effect `hover:-translate-y-1`.
+- **HeroSlider Mobile**: Reverted the mobile container height from `aspect-[4/3]` back to `h-[70vh]` to fix the "fucked up" slider area.
+- **HeroSideSection Mobile**: 
+    - Added `mt-4` to the mobile section to restore separation from the slider (fixing the "touching" issue).
+    - Kept `p-0` and `w-full` to ensure no side gaps, but the `mt-4` should handle the top spacing.
+
+---

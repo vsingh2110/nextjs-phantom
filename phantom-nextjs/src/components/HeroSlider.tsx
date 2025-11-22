@@ -115,7 +115,7 @@ export default function HeroSlider() {
       <div className="hidden md:block absolute bottom-0 left-0 w-full h-6 shadow-[0_12px_32px_-8px_rgba(0,0,0,0.18)] z-20 pointer-events-none"></div>
       {/* Mobile Hero (only visible on mobile) */}
       <div className="block md:hidden w-full overflow-x-hidden bg-blue-100">
-        <div className="relative h-auto aspect-[4/3] w-full overflow-hidden">
+        <div className="relative h-[70vh] min-h-[350px] max-h-[90vh] w-full overflow-hidden">
           {slides.map((slide, index) => (
             <div
               key={slide.id}
