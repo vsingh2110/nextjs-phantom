@@ -461,3 +461,17 @@ git commit -m "Fix hero slider layout - adjust desktop/sidebar widths and mobile
 - 44+ image files copied to `public/images/`
 
 **End of Log**
+
+## Daily Log - November 22, 2025
+
+### 15. Layout Refinements and Section Reordering
+- **Moved About Us Section**: Relocated the "About Us" section in `src/app/page.tsx` to be immediately after the TopBlock (Request A Callback section), as requested.
+- **Mobile Gap Fix**: 
+    - Updated `HeroSideSection.tsx` to remove all padding (`p-0`) and spacing (`space-y-0`) on mobile.
+    - Added `p-4` to individual items on mobile to maintain internal spacing while removing the wrapper gap.
+    - Changed `HeroSlider.tsx` mobile container from fixed `h-[70vh]` to `h-auto aspect-[4/3]` to better fit mobile images and reduce vertical whitespace.
+- **Desktop Layout Fix**:
+    - Changed `HeroSlider.tsx` desktop layout from `w-3/4` + `w-1/4` to `flex-1` + `w-[320px]`. This ensures the sidebar has a fixed, appropriate width (matching `HeroSideSection`'s internal width) and the slider takes the remaining space, preventing the "squished" or "distorted" look.
+    - Added `flex-shrink-0` to the sidebar container to prevent it from shrinking.
+
+---
