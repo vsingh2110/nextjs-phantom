@@ -163,7 +163,7 @@ export default function HeroSlider() {
           >
             <i className="fas fa-chevron-right text-xl"></i>
           </button>
-          <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
+          <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
             {slides.map((_, index) => (
               <button
                 key={index}
@@ -183,13 +183,13 @@ export default function HeroSlider() {
             <i className={`fas ${isAutoPlaying ? 'fa-pause' : 'fa-play'} text-xl`}></i>
           </button>
         </div>
-        <div className="bg-white py-1 px-2 w-full">
+        <div className="bg-white py-0 px-0 w-full">
           <HeroSideSection />
         </div>
       </div>
       {/* Desktop/Tablet Hero (only visible on md and up) */}
       <div className="hidden md:flex w-full h-[70vh] flex-row">
-        <div className="relative flex-grow basis-0 min-w-0 h-full">
+        <div className="relative w-3/4 h-full">
           {slides.map((slide, index) => (
             <div
               key={slide.id}
@@ -251,7 +251,7 @@ export default function HeroSlider() {
             <i className="fas fa-chevron-right text-xl"></i>
           </button>
         </div>
-        <div className="relative h-full w-[320px] min-w-[320px] max-w-[320px] flex items-center justify-center overflow-hidden">
+        <div className="relative h-full w-1/4 flex items-center justify-center overflow-hidden">
           <HeroSideSection />
         </div>
       </div>

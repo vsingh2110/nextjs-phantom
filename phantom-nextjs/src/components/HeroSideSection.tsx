@@ -10,8 +10,8 @@ export default function HeroSideSection() {
   return (
     <>
       {/* Hero Side Section - Responsive for desktop and mobile */}
-      <section className="hero-side w-full h-auto lg:h-auto max-h-full z-20 flex items-center justify-center p-1 lg:p-2">
-        <div className="hero-side-warpper bg-white bg-opacity-95 backdrop-blur-sm rounded-2xl p-2 lg:p-3 w-full lg:w-[300px] xl:w-[320px] space-y-2 lg:space-y-3 shadow-2xl max-h-full overflow-y-auto">
+      <section className="hero-side w-full h-auto lg:h-auto max-h-full z-20 flex items-center justify-center p-0 lg:p-2">
+        <div className="hero-side-warpper bg-white bg-opacity-95 backdrop-blur-sm rounded-none lg:rounded-2xl p-2 lg:p-3 w-full lg:w-[300px] xl:w-[320px] space-y-2 lg:space-y-3 shadow-none lg:shadow-2xl max-h-full overflow-y-auto">
           {/* Buy Online - EXACT TEXT */}
           <div className="buy-online text-center p-2 lg:p-2 bg-gradient-to-r from-primary-50 to-primary-100 rounded-lg">
             <h2 className="text-sm lg:text-lg font-bold text-primary-700 mb-1">Buy Online</h2>

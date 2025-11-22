@@ -274,6 +274,23 @@ xcopy "phantom-website\images\machines" "phantom-nextjs\public\images\machines\"
 
 ---
 
+### 14. Hero Slider Layout & Mobile Gap Fixes
+**Problem**: 
+- Desktop hero slider images appeared distorted/pressed compared to static site.
+- Mobile hero sidebar had unnecessary vertical gaps.
+- Mobile hero slider dots were still too high.
+
+**Solution**:
+- **Desktop Layout**: Switched from fixed width sidebar (`320px`) to percentage-based layout (`w-3/4` slider, `w-1/4` sidebar) to match static site's 75%/25% ratio exactly. This prevents the slider from becoming too wide on large screens, which was causing the "pressed" look.
+- **Mobile Sidebar Gap**: Removed all padding (`p-0`, `py-0`) from mobile sidebar wrappers and removed rounded corners/shadows on mobile to create a seamless look.
+- **Mobile Dots**: Moved navigation dots to `bottom-1` (4px) to clear content.
+
+**Files Modified**:
+- `src/components/HeroSlider.tsx`
+- `src/components/HeroSideSection.tsx`
+
+---
+
 ## Current Status
 
 ### ✅ Working
@@ -336,6 +353,11 @@ git commit -m "Fix hero slider content formatting - add line breaks"
 git commit -m "Fix mobile UI issues and add missing assets"
 ```
 
+### Commit 8: Hero Slider Layout Fixes
+```bash
+git commit -m "Fix hero slider layout - adjust desktop/sidebar widths and mobile gaps"
+```
+
 ---
 
 ## Key Files Modified Summary
@@ -347,6 +369,7 @@ git commit -m "Fix mobile UI issues and add missing assets"
 | `package.json` | Downgraded Next.js & React | 25-27 |
 | `src/app/globals.css` | Fixed txt1 transform, mobile overflow | 163, mobile section |
 | `src/components/HeroSlider.tsx` | Removed 'hidden' class | 204 |
+| `src/components/HeroSideSection.tsx` | Adjusted mobile padding | 50-55 |
 
 ---
 
