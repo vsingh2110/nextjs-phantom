@@ -244,6 +244,18 @@ xcopy "phantom-website\images\machines" "phantom-nextjs\public\images\machines\"
 
 ---
 
+### 12. Hero Slider Content Formatting
+**Problem**: Long text in hero slider slides was not wrapping correctly, and bullet points were displayed on a single line.
+**Solution**: Updated `src/components/HeroSlider.tsx` to use JSX fragments (`<>...<br />...</>`) for descriptions instead of plain strings.
+- **Slide 3 (Dedicated Team)**: Added line break after "Engineers".
+- **Slide 4 (Turnkey Solutions)**: Added line breaks to separate bullet points vertically.
+- **Slide 6 (Spare Parts)**: Added line break after "Spare Parts,".
+
+**Files Modified**:
+- `src/components/HeroSlider.tsx`
+
+---
+
 ## Current Status
 
 ### ✅ Working
@@ -294,6 +306,11 @@ git commit -m "Add missing images and fix hero slider txt1 transform"
 ### Commit 5: Hero Slider Text Styling Fixes
 ```bash
 git commit -m "Fix hero slider text styling - convert rem to px values"
+```
+
+### Commit 6: Hero Slider Content Formatting
+```bash
+git commit -m "Fix hero slider content formatting - add line breaks"
 ```
 
 ---

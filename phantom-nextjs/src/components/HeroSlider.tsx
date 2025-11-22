@@ -27,14 +27,14 @@ const slides = [
     image: '/images/slideshow/Eng.jpg',
     mobileImage: '/images/slideshow/eng-mob.jpg',
     title: 'Dedicated Team',
-    description: 'Our 100+ Team Of Service Engineers Are Always Present 24*7 For You',
+    description: <>Our 100+ Team Of Service Engineers<br />Are Always Present 24*7 For You</>,
     textClass: 'txt'
   },
   {
     id: 4,
     video: '/images/video2.mp4',
     title: 'Complete Turnkey Solutions',
-    description: '• Site Planning, Construction • Financial Assistance, Installation • De-Installations, Re-Installation',
+    description: <>• Site Planning, Construction<br />• Financial Assistance, Installation<br />• De-Installations, Re-Installation</>,
     textClass: 'txt'
   },
   {
@@ -50,9 +50,9 @@ const slides = [
     image: '/images/slideshow/hf.jpg',
     mobileImage: '/images/slideshow/Spare-mob.jpg',
     title: 'Spare Parts and Services',
-    description: 'We Have One Of The Largest Inventory of Spare Parts, We Provide AMC/CMC Services',
+    description: <>We Have One Of The Largest Inventory of Spare Parts,<br />We Provide AMC/CMC Services</>,
     textClass: 'txt'
-  }
+  },
 ];
 
 // Custom hook to detect if screen is below lg breakpoint
