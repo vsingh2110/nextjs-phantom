@@ -5,7 +5,7 @@ import Image from 'next/image';
 export default function TopBlock() {
   return (
     <section className="py-8 bg-white w-full overflow-x-hidden">
-      <div className="w-full max-w-5xl mx-auto px-2 sm:px-4">
+      <div className="w-full max-w-[90%] xl:max-w-7xl mx-auto px-2 sm:px-4">
         {/* Three Boxes Row (from static: .top-wrap-box) */}
         <div className="flex flex-col md:flex-row gap-4 md:gap-8 justify-center items-stretch mb-8">
           {/* Box 1: Buy/Sell Machines */}

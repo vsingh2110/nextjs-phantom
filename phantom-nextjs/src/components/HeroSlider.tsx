@@ -114,7 +114,7 @@ export default function HeroSlider() {
       {/* Desktop-only bottom smooth shadow separator for hero section */}
       <div className="hidden md:block absolute bottom-0 left-0 w-full h-6 shadow-[0_12px_32px_-8px_rgba(0,0,0,0.18)] z-20 pointer-events-none"></div>
       {/* Mobile Hero (only visible on mobile) */}
-      <div className="block md:hidden w-full overflow-x-hidden bg-blue-100">
+      <div className="block md:hidden w-full overflow-x-hidden bg-white">
         <div className="relative h-[70vh] min-h-[350px] max-h-[90vh] w-full overflow-hidden">
           {slides.map((slide, index) => (
             <div
@@ -183,7 +183,7 @@ export default function HeroSlider() {
             <i className={`fas ${isAutoPlaying ? 'fa-pause' : 'fa-play'} text-xl`}></i>
           </button>
         </div>
-        <div className="bg-white py-0 px-0 w-full">
+        <div className="bg-white py-4 px-0 w-full">
           <HeroSideSection />
         </div>
       </div>

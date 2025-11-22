@@ -489,3 +489,10 @@ git commit -m "Fix hero slider layout - adjust desktop/sidebar widths and mobile
     - Kept `p-0` and `w-full` to ensure no side gaps, but the `mt-4` should handle the top spacing.
 
 ---
+
+### 17. Final Polish: TopBlock Width and Mobile Spacing
+- **TopBlock Width**: Increased `max-w-5xl` to `max-w-[90%] xl:max-w-7xl` in `TopBlock.tsx` to utilize more screen real estate on desktop, matching the static site's layout.
+- **HeroSlider Mobile Background**: Removed `bg-blue-100` from the mobile wrapper in `HeroSlider.tsx` (changed to `bg-white`) to eliminate the visible blue background gap.
+- **HeroSlider Mobile Spacing**: Added `py-4` to the `HeroSideSection` wrapper in `HeroSlider.tsx` to enforce a clear gap between the slider and the side section on mobile, resolving the "touching" issue.
+
+---
