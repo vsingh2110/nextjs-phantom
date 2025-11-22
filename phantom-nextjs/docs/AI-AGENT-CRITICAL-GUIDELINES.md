@@ -1,0 +1,310 @@
+# 🚨 AI AGENT CRITICAL GUIDELINES 🚨
+
+## 🔴 READ THIS BEFORE ANYTHING ELSE - NO EXCEPTIONS 🔴
+
+**Last Updated:** November 22, 2025  
+**Priority:** ABSOLUTE HIGHEST - MANDATORY COMPLIANCE  
+**Project:** Phantom Medical Imaging - Static to Next.js Migration
+
+---
+
+## ⚠️ PROJECT CONTEXT
+
+**Project Name:** Phantom Medical Imaging Equipment Website  
+**Current Phase:** Migration from Static HTML/CSS to Next.js  
+**Developer Profile:** Frontend Developer (relies on AI for backend/infrastructure)
+
+**Critical Understanding:**
+- **Static Site:** `phantom-website/` folder (current live website)
+- **Next.js Site:** `phantom-nextjs/` folder (migration target)
+- **Goal:** Replicate and enhance static site functionality in Next.js
+- **Tech Stack:** Next.js 15.3.5, Firebase, EmailJS, Tailwind CSS, Swiper, React-YouTube
+
+---
+
+## 🔴 THE GOLDEN RULE: RESEARCH-FIRST METHODOLOGY
+
+### NEVER START WORK WITHOUT CHECKING DOCUMENTATION FIRST
+
+When user reports ANY issue or requests ANY feature:
+
+1. ✅ **Read relevant documentation files** (15 min)
+   - Check `CURRENT-STATUS.md` for known issues
+   - Review `project-overview.md` for context
+   - Check `daily-logs/` for recent work history
+   - Review `precautions-and-guardrails.md` for restrictions
+
+2. ✅ **Search official documentation** (15 min)
+   - Next.js: https://nextjs.org/docs
+   - Tailwind CSS: https://tailwindcss.com/docs
+   - Firebase: https://firebase.google.com/docs
+   - EmailJS: https://www.emailjs.com/docs/
+   - Swiper: https://swiperjs.com/
+
+3. ✅ **Search official repositories for examples** (15 min)
+   - Look for production examples
+   - Check GitHub issues for similar problems
+   - Verify tech stack versions match
+
+4. ✅ **Identify patterns and best practices**
+
+5. ❌ **ONLY THEN propose and implement solution**
+
+**BANNED APPROACH**: Trial-and-error without research = IMMEDIATE FAILURE
+
+---
+
+## 🚨 CRITICAL PROJECT-SPECIFIC RULES
+
+### 1. MOBILE/DESKTOP SEPARATION (ABSOLUTE)
+
+**THE MOST VIOLATED RULE - ZERO TOLERANCE**
+
+- ❌ **NEVER** merge mobile and desktop hero/slider/enquiry sections
+- ❌ **NEVER** apply desktop styles to mobile or vice versa
+- ❌ **NEVER** use same image sources for mobile and desktop
+- ❌ **NEVER** add zoom animation to mobile hero slider
+- ❌ **NEVER** merge JSX blocks for mobile/desktop
+- ✅ **ALWAYS** keep separate components for mobile and desktop
+- ✅ **ALWAYS** test on real devices, not just browser resize
+
+**See:** `docs/daily-logs/2025-07-10-hero-section-separation-critical.md`
+
+---
+
+### 2. UNAUTHORIZED CHANGES (ZERO TOLERANCE)
+
+**Historical Issue:** AI agents have broken working features by making unauthorized changes
+
+**STRICT RULES:**
+- ❌ **NEVER** modify components not mentioned in user's request
+- ❌ **NEVER** alter footer, maps, navigation, or any component without explicit permission
+- ❌ **NEVER** assume something needs fixing if not mentioned
+- ✅ **ALWAYS** ask before making changes outside the request scope
+- ✅ **ALWAYS** document what you changed and WHY
+- ✅ **ALWAYS** test changes before implementing
+
+**Example Violation:** User asks to fix YouTube embed → AI breaks footer map (July 21, 2025)
+
+---
+
+### 3. WORK LOG & DOCUMENTATION PROTOCOLS
+
+**THE SECOND MOST VIOLATED RULE**
+
+#### Real-Time Documentation (MANDATORY):
+- ✅ **ALWAYS** update documentation DURING development, not at end
+- ✅ **ALWAYS** update BOTH work logs AND general notes concurrently
+- ❌ **NEVER** wait until session end to document
+- ❌ **NEVER** overwrite or replace existing work logs - APPEND ONLY
+- ✅ **ALWAYS** preserve chronological order and session context
+- ✅ **ALWAYS** document WHY decisions were made, not just WHAT
+
+#### Why Concurrent Updates Are Critical:
+- AI agents forget 90% of details when asked to update at session end
+- Important technical decisions and rationale get lost
+- Development flow and decision-making process not preserved
+- Compiled resources and tools not properly documented
+
+**See:** `docs/dev-notes/general-development-notes.md` Section on Documentation
+
+---
+
+### 4. CODE PRESERVATION & REFERENCE CODE
+
+**STRICT RULES:**
+- ❌ **NEVER** alter commented reference code unless explicitly instructed
+- ❌ **NEVER** change design/colors of commented code when only uncomment is requested
+- ✅ **ALWAYS** keep original code commented safely when making modifications
+- ✅ **ALWAYS** document mistakes and recovery steps in real time
+
+---
+
+### 5. TAILWIND & CSS PROTOCOLS
+
+**MANDATORY CONVENTIONS:**
+- ✅ **ALWAYS** use Tailwind utility classes first
+- ✅ **ALWAYS** use rem, em, %, vw, vh, vmin, vmax, clamp() for responsive units
+- ❌ **NEVER** use px except where absolutely required (e.g., Swiper configuration)
+- ❌ **NEVER** use manual/custom CSS unless Tailwind cannot achieve the result
+- ✅ **ALWAYS** apply font smoothing with `antialiased` and `subpixel-antialiased`
+- ✅ **ALWAYS** preserve brand green (#59913d) and gradient themes
+
+**Performance:**
+- ✅ Use `max-width: 100vw` and `overflow-x: hidden` to prevent horizontal scroll
+- ✅ Limit transforms/scales on mobile to prevent viewport overflow
+- ✅ Test responsive behavior on actual mobile devices
+
+---
+
+### 6. MOBILE ZOOM/OVERFLOW ISSUES (CURRENT FOCUS)
+
+**Recent Issue (Nov 22, 2025):** Large gap on right side of mobile website, zoom in/out issues
+
+**Common Causes:**
+- Hero slider scale transforms (e.g., `scale(1.5)`) overflow viewport
+- Fixed widths instead of responsive units
+- Large negative margins
+- Elements with `position: absolute` extending beyond viewport
+
+**Standard Fixes:**
+```css
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+@media (max-width: 800px) {
+  .hero-slider-container .myslide.active .img-slider {
+    transform: scale(1.05) !important; /* Reduced from 1.5 */
+  }
+}
+```
+
+---
+
+## 📚 MANDATORY PRE-WORK CHECKLIST
+
+Before starting ANY work:
+
+- [ ] Read `CURRENT-STATUS.md` for active issues
+- [ ] Review latest `daily-logs/` entry
+- [ ] Check `precautions-and-guardrails.md` for restrictions
+- [ ] Review `project-overview.md` for context
+- [ ] Search official documentation for the feature/issue
+- [ ] Check recent work logs for similar issues
+- [ ] Verify you understand the MOBILE/DESKTOP separation rule
+- [ ] Confirm you will NOT touch unauthorized components
+- [ ] Commit to REAL-TIME documentation updates
+
+---
+
+## 🎯 TECHNICAL STACK REFERENCE
+
+**Core Technologies:**
+- **Framework:** Next.js 15.3.5 (App Router)
+- **Styling:** Tailwind CSS 3.4.0
+- **Database:** Firebase 10.14.1 (Firestore)
+- **Email:** EmailJS (@emailjs/browser 4.4.1)
+- **Sliders:** Swiper 11.2.10
+- **Video:** react-youtube 10.1.0
+- **Language:** TypeScript 5
+
+**Key Integrations:**
+- Google Maps (hardcoded API key for performance)
+- Google Analytics (@next/third-parties)
+- Font Awesome icons
+- YouTube embeds
+- Contact forms with Firebase storage
+
+---
+
+## ⚡ COMMON ISSUES & SOLUTIONS
+
+### Issue: Mobile Horizontal Overflow
+**Solution:** Add `max-width: 100vw; overflow-x: hidden;` to html/body
+
+### Issue: Hero Slider Too Large on Mobile
+**Solution:** Reduce scale transforms in mobile media queries
+
+### Issue: Firebase "not defined" Error
+**Solution:** Check Content Security Policy, ensure proper Script tag loading
+
+### Issue: EmailJS Not Sending
+**Solution:** Verify @emailjs/browser package, check service/template IDs
+
+### Issue: Icons Not Showing
+**Solution:** Verify Font Awesome CDN loading, check CSP headers
+
+---
+
+## 📝 SESSION WORKFLOW
+
+1. **Start Session:**
+   - Read `CURRENT-STATUS.md`
+   - Review latest daily log entry
+   - Create new daily log entry with timestamp
+
+2. **During Work:**
+   - Document decisions in REAL-TIME
+   - Update work log as you progress
+   - Test thoroughly before committing changes
+   - Only modify components explicitly mentioned
+
+3. **End Session:**
+   - Update `CURRENT-STATUS.md` with current state
+   - Finalize daily log entry
+   - List any pending issues or blockers
+   - Commit all changes with descriptive messages
+
+---
+
+## 🔥 PAST FAILURES TO LEARN FROM
+
+### July 21, 2025: Unauthorized Footer Map Changes
+- **Issue:** User asked to fix YouTube embed
+- **Mistake:** AI broke footer map without permission
+- **Impact:** User extremely frustrated, multiple broken features
+- **Lesson:** NEVER touch components not in the request
+
+### July 16, 2025: Firebase Dependency Issues
+- **Issue:** 10 moderate vulnerabilities in Firebase packages
+- **Solution:** Override undici version in package.json
+- **Lesson:** Research official solutions before making changes
+
+### Multiple Sessions: Work Log Overwrites
+- **Issue:** AI agents overwrote entire work logs instead of appending
+- **Impact:** Lost development history and context
+- **Lesson:** APPEND ONLY, never overwrite logs
+
+---
+
+## ✅ SUCCESS PATTERNS
+
+### What Works:
+- ✅ Reading documentation before coding
+- ✅ Real-time concurrent documentation
+- ✅ Testing on actual mobile devices
+- ✅ Asking permission before changing unrelated components
+- ✅ Using Tailwind utilities over custom CSS
+- ✅ Preserving mobile/desktop separation
+- ✅ Keeping reference code commented and safe
+
+---
+
+## 🚀 NEXT AI AGENT QUICK START
+
+1. Read this file completely (5 min)
+2. Read `CURRENT-STATUS.md` (3 min)
+3. Read latest `daily-logs/` entry (5 min)
+4. Read `project-overview.md` (5 min)
+5. Understand user's request
+6. Research relevant documentation (15-30 min)
+7. Create daily log entry
+8. Implement with real-time documentation
+9. Test thoroughly
+10. Update status files
+
+**Total Prep Time:** 30-45 minutes  
+**Result:** Avoid 8+ hours of debugging and user frustration
+
+---
+
+## 📞 EMERGENCY CONTACTS
+
+**When Stuck:**
+1. Search project documentation
+2. Search official docs
+3. Search GitHub issues
+4. Ask user for clarification
+5. Document the blocker in daily log
+
+**Never:**
+- Make random changes hoping something works
+- Touch unrelated components
+- Skip documentation
+- Implement without testing
+
+---
+
+**Remember:** Every mistake costs the developer time, money, and frustration. Research first, implement carefully, document everything.

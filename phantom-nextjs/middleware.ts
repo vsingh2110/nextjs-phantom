@@ -89,7 +89,7 @@ export function middleware(request: NextRequest) {
 
 function detectCountry(request: NextRequest): string | null {
   // Method 1: IP-based detection (basic)
-  const ip = request.ip || request.headers.get('x-forwarded-for') || '';
+  const ip = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || '';
   const countryFromIP = getCountryFromIP(ip);
   
   if (countryFromIP) return countryFromIP;
