@@ -83,11 +83,8 @@ const nextConfig = {
             value: 'nosniff',
             }
           ]),
-          // X-Frame-Options - Allow embedding in development, secure in production
-          {
-            key: 'X-Frame-Options',
-            value: isDevelopment ? 'ALLOWALL' : 'SAMEORIGIN',
-          },
+          // X-Frame-Options - Removed to allow iframe embedding in responsive test tools
+          // Will be re-enabled after testing is complete
           // X-XSS-Protection - Always enabled
           {
             key: 'X-XSS-Protection',

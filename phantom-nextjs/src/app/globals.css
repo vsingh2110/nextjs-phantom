@@ -71,11 +71,12 @@
    All hero slider, text, and image classes are scoped to .hero-slider-container.
    --- END STRATEGY --- */
 
+/* EXACT REPLICATION FROM WORKING STATIC WEBSITE */
 .hero-slider-container .myslide {
   display: none;
   transition: opacity 0.5s ease;
   overflow: hidden;
-  height: 100%; /* FIX: Changed from auto to 100% to fill container */
+  height: auto;
 }
 
 .hero-slider-container .myslide.active {
@@ -190,31 +191,23 @@
   text-shadow: 2px 2px 4px #000000;
 }
 
-/* Only animate img-slider when slide is active - DESKTOP ONLY */
-@media screen and (min-width: 801px) {
-  .hero-slider-container .myslide.active .img-slider {
-    transform: scale(1.5, 1.5);
-    -webkit-animation-name: zoomin;
-    -webkit-animation-duration: 8s;
-    animation-name: zoomin;
-    animation-duration: 8s;
-  }
+/* DESKTOP: img-slider animation - EXACT FROM STATIC WEBSITE */
+.hero-slider-container .img-slider {
+  transform: scale(1.5, 1.5);
+  -webkit-animation-name: zoomin;
+  -webkit-animation-duration: 40s;
+  animation-name: zoomin;
+  animation-duration: 8s;
+}
 
-  /* Reset transform for non-active slides */
-  .hero-slider-container .myslide:not(.active) .img-slider {
-    transform: scale(1, 1);
-    animation: none;
-  }
+@-webkit-keyframes zoomin {
+  from {transform: scale(1, 1);}
+  to {transform: scale(1.5, 1.5);}
+}
 
-  @-webkit-keyframes zoomin {
-    from {transform: scale(1, 1);}
-    to {transform: scale(1.5, 1.5);}
-  }
-
-  @keyframes zoomin {
-    from {transform: scale(1, 1);}
-    to {transform: scale(1.5, 1.5);}
-  }
+@keyframes zoomin {
+  from {transform: scale(1, 1);}
+  to {transform: scale(1.5, 1.5);}
 }
 
 .hero-slider-container .video-bg {
@@ -224,8 +217,11 @@
   filter: brightness(60%);
 }
 
-/* Mobile Responsive - Scoped to hero container */
+/* Mobile Responsive - EXACT FROM STATIC WEBSITE */
 @media screen and (max-width: 800px) {
+  .hero-slider-container .myslide {
+    height: 520px;
+  }
   
   .hero-slider-container .txt {
     top: 80%;
