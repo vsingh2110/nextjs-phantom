@@ -8,49 +8,20 @@
 
 ## 🎯 CURRENT FOCUS
 
-### **Mobile Horizontal Overflow / Zoom Issue**
-**Status:** ✅ **FIXED** (Awaiting User Verification)  
-**Date Fixed:** November 22, 2025
+### **Homepage Visual Parity (Hero & Top Block)**
+**Status:** 🚧 **FINE TUNING** (Major fixes applied, awaiting final polish)
+**Date:** November 22, 2025
 
-**Problem:**
-- Large gap on right side of website in mobile version
-- Zoom in/zoom out behavior
-- Horizontal scrolling
+**Recent Achievements:**
+- **Hero Slider (Desktop):** Fixed aspect ratio distortion by switching to fixed-width sidebar (`320px`) + flexible slider.
+- **Hero Slider (Mobile):** Fixed gaps and "touching" issues between slider and sidebar.
+- **Top Block:** Restored original line-art icons and updated styling (shadows, width) to match static site.
+- **Layout:** Moved "About Us" section to below Top Block.
 
-**Root Cause:**
-- Hero slider using `transform: scale(1.5)` on active slides
-- 150% scale causes elements to overflow viewport width on mobile
-- No `overflow-x: hidden` on html/body elements
-
-**Solution Implemented:**
-1. Added viewport overflow prevention:
-   ```css
-   html, body {
-     max-width: 100vw;
-     overflow-x: hidden;
-   }
-   ```
-
-2. Reduced mobile scale transform:
-   ```css
-   @media (max-width: 800px) {
-     .hero-slider-container .myslide.active .img-slider {
-       transform: scale(1.05, 1.05) !important;
-       animation-name: zoomin-mobile !important;
-       animation-duration: 8s !important;
-     }
-   }
-   ```
-
-3. Created mobile-specific zoom animation (1.0 → 1.05 instead of 1.0 → 1.5)
-
-**Files Modified:**
-- `src/app/globals.css`
-
-**Testing Required:**
-- User to verify on actual mobile devices
-- Check multiple screen sizes (iPhone, Android, tablets)
-- Verify no other elements causing overflow
+**Remaining Issues (Fine Tuning):**
+- Sidebar still slightly touching slider area on desktop.
+- Minor background color visibility issues behind slider.
+- Exact spacing of Top Block elements needs final verification.
 
 ---
 
