@@ -163,7 +163,7 @@ export default function HeroSlider() {
           >
             <i className="fas fa-chevron-right text-xl"></i>
           </button>
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
+          <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
             {slides.map((_, index) => (
               <button
                 key={index}
@@ -183,7 +183,7 @@ export default function HeroSlider() {
             <i className={`fas ${isAutoPlaying ? 'fa-pause' : 'fa-play'} text-xl`}></i>
           </button>
         </div>
-        <div className="bg-white py-6 px-2 w-full">
+        <div className="bg-white py-1 px-2 w-full">
           <HeroSideSection />
         </div>
       </div>

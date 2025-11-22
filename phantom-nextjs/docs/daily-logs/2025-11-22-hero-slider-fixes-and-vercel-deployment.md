@@ -256,6 +256,24 @@ xcopy "phantom-website\images\machines" "phantom-nextjs\public\images\machines\"
 
 ---
 
+### 13. Mobile UI & Asset Fixes
+**Problem**: 
+- Customer testimonial images missing (404 errors).
+- Exhibition Partners image missing on mobile devices.
+- Mobile hero slider navigation dots overlapping with content.
+- Unnecessary vertical gap in mobile hero sidebar section.
+
+**Solution**:
+- **Assets**: Copied missing doctor images and `iria-2024.jpg` (mobile exhibition image) from static site.
+- **Mobile Hero Dots**: Moved dots lower by changing `bottom-8` to `bottom-2` in `HeroSlider.tsx` (mobile block).
+- **Mobile Sidebar Gap**: Reduced padding from `py-6` to `py-1` in `HeroSlider.tsx` (mobile block wrapper).
+
+**Files Modified**:
+- `src/components/HeroSlider.tsx`
+- **Assets Added**: 5 doctor images, 1 exhibition image.
+
+---
+
 ## Current Status
 
 ### ✅ Working
@@ -311,6 +329,11 @@ git commit -m "Fix hero slider text styling - convert rem to px values"
 ### Commit 6: Hero Slider Content Formatting
 ```bash
 git commit -m "Fix hero slider content formatting - add line breaks"
+```
+
+### Commit 7: Mobile UI & Asset Fixes
+```bash
+git commit -m "Fix mobile UI issues and add missing assets"
 ```
 
 ---
