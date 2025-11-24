@@ -127,6 +127,18 @@
 
 ---
 
+#### **November 24, 2025: Visual Polish & Security Hardening**
+**Focus:** Homepage Refinement, CSP, and Third-Party Integrations
+
+**Achievements:**
+- **Homepage:** Perfected Hero Slider (desktop sidebar fix, 10s animation) and Top Block (responsive scaling to 1800px).
+- **Security:** Implemented production-grade Content Security Policy (CSP) in `middleware.ts`, resolving blocking issues for YouTube, Vercel, and Maps.
+- **Integrations:** Switched Google Maps to robust iframe embed (fixing API errors) and polished YouTube background video (privacy mode, 1.5x scale).
+
+**Lesson:** Conflicting configuration files (next.config.js vs middleware.ts) can silently break security headers. Always check for overrides.
+
+---
+
 ## 🎯 CURRENT PHASE: CONTENT MIGRATION (Nov-Dec 2025)
 
 ### **Goals:**
