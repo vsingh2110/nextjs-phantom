@@ -28,24 +28,3 @@ export default function GMap() {
     </div>
   );
 }
-    if (!window.markerWithLabelLoaded) {
-      const markerScriptId = "markerwithlabel-script";
-      if (!document.getElementById(markerScriptId)) {
-        const m = document.createElement("script");
-        m.id = markerScriptId;
-        m.src = "https://unpkg.com/@googlemaps/markerwithlabel/dist/index.min.js";
-        m.async = true;
-        m.onload = () => {
-          window.markerWithLabelLoaded = true;
-          tryInit();
-        };
-        document.body.appendChild(m);
-      }
-    }
-
-    // Fallback: if both are already loaded (e.g., hot reload), initialize
-    tryInit();
-  }, []);
-
-  return <div ref={ref} className="w-full h-full" />;
-} 
