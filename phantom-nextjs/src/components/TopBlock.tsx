@@ -9,20 +9,20 @@ export default function TopBlock() {
         {/* Three Boxes Row (from static: .top-wrap-box) */}
         <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-8 xl:gap-10 justify-center items-stretch mb-8">
           {/* Box 1: Buy/Sell Machines */}
-          <div className="flex-1 bg-white rounded-3xl shadow-[0_0_15px_rgba(0,0,0,0.1)] p-6 md:p-8 flex flex-col items-center text-center antialiased border border-gray-100 min-w-0 hover:-translate-y-1 transition-transform duration-300">
-            <Image src="/images/icons.png" alt="Buy/Sell MRI Machines, CT Scanner, PET-CT, Cath-Lab Machines" width={0} height={0} sizes="100vw" className="mb-6 w-20 h-20 md:w-24 md:h-24 object-contain" unoptimized />
+          <div className="flex-1 bg-white rounded-3xl shadow-[0_0_20px_rgba(0,0,0,0.15)] p-6 md:p-8 flex flex-col items-center text-center antialiased border border-gray-100 min-w-0 hover:scale-105 hover:shadow-[0_0_30px_rgba(0,0,0,0.2)] transition-all duration-300">
+            <Image src="/images/icons.png" alt="Buy/Sell MRI Machines, CT Scanner, PET-CT, Cath-Lab Machines" width={0} height={0} sizes="100vw" className="mb-6 w-24 h-24 md:w-28 md:h-28 object-contain" unoptimized />
             <h2 className="text-base md:text-lg font-bold text-gray-800 mb-3 leading-tight">Buy/Sell MRI Machines, CT Scanner, PET-CT, Cath-Lab Machines</h2>
             <h3 className="text-sm font-medium text-gray-500 leading-relaxed">Buy New as well as refurbished equipment from a wide range of models</h3>
           </div>
           {/* Box 2: Spare Parts Inventory */}
-          <div className="flex-1 bg-white rounded-3xl shadow-[0_0_15px_rgba(0,0,0,0.1)] p-6 md:p-8 flex flex-col items-center text-center antialiased border border-gray-100 min-w-0 hover:-translate-y-1 transition-transform duration-300">
-            <Image src="/images/upd.png" alt="Inventory of Spare Parts also Available" width={0} height={0} sizes="100vw" className="mb-6 w-20 h-20 md:w-24 md:h-24 object-contain" unoptimized />
+          <div className="flex-1 bg-white rounded-3xl shadow-[0_0_20px_rgba(0,0,0,0.15)] p-6 md:p-8 flex flex-col items-center text-center antialiased border border-gray-100 min-w-0 hover:scale-105 hover:shadow-[0_0_30px_rgba(0,0,0,0.2)] transition-all duration-300">
+            <Image src="/images/upd.png" alt="Inventory of Spare Parts also Available" width={0} height={0} sizes="100vw" className="mb-6 w-24 h-24 md:w-28 md:h-28 object-contain" unoptimized />
             <h2 className="text-base md:text-lg font-bold text-gray-800 mb-3 leading-tight">Inventory of Spare Parts also Available</h2>
             <h3 className="text-sm font-medium text-gray-500 leading-relaxed">We have a large inventory of spare parts available for upgrades.</h3>
           </div>
           {/* Box 3: Services and Repairs */}
-          <div className="flex-1 bg-white rounded-3xl shadow-[0_0_15px_rgba(0,0,0,0.1)] p-6 md:p-8 flex flex-col items-center text-center antialiased border border-gray-100 min-w-0 hover:-translate-y-1 transition-transform duration-300">
-            <Image src="/images/ser.png" alt="Services and Repairs for Your Equipment" width={0} height={0} sizes="100vw" className="mb-6 w-20 h-20 md:w-24 md:h-24 object-contain" unoptimized />
+          <div className="flex-1 bg-white rounded-3xl shadow-[0_0_20px_rgba(0,0,0,0.15)] p-6 md:p-8 flex flex-col items-center text-center antialiased border border-gray-100 min-w-0 hover:scale-105 hover:shadow-[0_0_30px_rgba(0,0,0,0.2)] transition-all duration-300">
+            <Image src="/images/ser.png" alt="Services and Repairs for Your Equipment" width={0} height={0} sizes="100vw" className="mb-6 w-24 h-24 md:w-28 md:h-28 object-contain" unoptimized />
             <h2 className="text-base md:text-lg font-bold text-gray-800 mb-3 leading-tight">Services and Repairs for Your Equipment</h2>
             <h3 className="text-sm font-medium text-gray-500 leading-relaxed">We provide service plans and also do repair work of your machines</h3>
           </div>

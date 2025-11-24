@@ -38,6 +38,21 @@
   - Increased padding (`px-4 md:px-6 lg:px-8`) to prevent sticking to edges.
   - Made gaps responsive (`gap-4 md:gap-6 lg:gap-8 xl:gap-10`) to maintain proportions.
 
+### **4. Top Block Visual Enhancements**
+**Issue:** User requested stronger shadow, card-like effect, larger icons, and specific hover behavior (scale up 5% + darker shadow).
+**Solution:**
+- Modified `src/components/TopBlock.tsx`:
+  - **Shadow:** Increased base shadow to `shadow-[0_0_20px_rgba(0,0,0,0.15)]`.
+  - **Hover:** Changed to `hover:scale-105` (5% scale) and `hover:shadow-[0_0_30px_rgba(0,0,0,0.2)]` (darker shadow).
+  - **Icons:** Increased size from `w-20 h-20` to `w-24 h-24` (mobile) and `w-24 h-24` to `w-28 h-28` (desktop).
+
+### **5. Hero Slider Animation Speed**
+**Issue:** Desktop zoom animation was too slow (40s). User requested faster speed matching mobile.
+**Solution:**
+- Modified `src/app/globals.css`:
+  - Changed `.hero-slider-container .img-slider` animation duration from `40s` to `10s`.
+  - This provides a much faster, noticeable zoom effect on all devices (since mobile inherits this class unless overridden, and 10s is a standard "active" zoom speed).
+
 ## 📝 FILES MODIFIED
 - `src/components/HeroSideSection.tsx`
 - `src/app/globals.css`
