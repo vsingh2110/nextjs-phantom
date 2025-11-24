@@ -25,6 +25,8 @@
 - **CSP Updates (Nov 24):** Updated Content Security Policy in `middleware.ts` to allow `youtube-nocookie.com`, `vercel.live`, `maps.googleapis.com`, and enabled embedding on `responsivetesttool.com` for testing.
 - **CSP Refinement (Nov 24):** Implemented "Senior Developer" grade CSP rules. Added `worker-src` for Maps, `blob:` for images, and specific Firebase Auth domains (`identitytoolkit`, `securetoken`) to resolve all console errors.
 - **Critical Fix (Nov 24):** Removed conflicting `Content-Security-Policy` header from `next.config.js`. This was overriding the `middleware.ts` settings and causing the persistent blocking of YouTube and Vercel scripts despite the middleware updates.
+- **Map Replacement (Nov 24):** Replaced complex Google Maps API implementation with a simple, robust `iframe` embed to resolve "DeletedApiProjectMapError" and simplify maintenance.
+- **YouTube Polish (Nov 24):** Increased video scale to `1.5x` and centered it (`top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2`) to eliminate black bars and ensure full coverage.
 
 **Remaining Issues (Fine Tuning):**
 - Minor background color visibility issues behind slider (monitoring).
