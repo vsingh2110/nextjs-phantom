@@ -96,6 +96,20 @@
   - **Hide Title:** Added `scale-[1.35]` to the iframe. This zooms in slightly to crop out the top title bar and bottom controls, leaving only the clean video content.
   - **Container:** Ensured `overflow-hidden` clips the zoomed iframe.
 
+### **10. Content Security Policy (CSP) Updates**
+**Issue:** 
+- User reported multiple CSP violations in console:
+  - `frame-src` blocking `youtube-nocookie.com`.
+  - `script-src` blocking `vercel.live` and `unpkg.com`.
+  - `connect-src` blocking `maps.googleapis.com` and `gstatic.com`.
+  - `frame-ancestors` blocking `responsivetesttool.com` (used for testing).
+**Solution:**
+- Modified `middleware.ts`:
+  - **frame-src:** Added `https://www.youtube-nocookie.com` and `https://vercel.live`.
+  - **script-src:** Added `https://vercel.live` and `https://unpkg.com`. Removed `nonce` temporarily to allow `unsafe-inline` for third-party scripts that don't support nonces easily (like Vercel feedback).
+  - **connect-src:** Added `https://maps.googleapis.com`, `https://www.facebook.com`, and `https://www.gstatic.com`.
+  - **frame-ancestors:** Changed from `'none'` to `'self' https://responsivetesttool.com` to allow embedding for testing.
+
 ## 📝 FILES MODIFIED
 - `src/components/HeroSideSection.tsx`
 - `src/app/globals.css`

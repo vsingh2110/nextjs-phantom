@@ -22,6 +22,7 @@
 - **Visual Polish (Nov 24):** Enhanced Top Block with stronger shadows (base & hover), larger icons (up to 32px larger), and 10% scale hover effect. Sped up Hero Slider zoom animation to 10s for better visibility. Verified video slide is unaffected by image animations.
 - **About Us Section (Nov 24):** Refactored into `AboutSection.tsx`. Fixed background image implementation (using Next.js Image) and updated YouTube video to the correct ID (`xmB3MDYaOMU`) from the static site.
 - **YouTube Embed (Nov 24):** Fixed "black screen" and "data usage" issues. Switched to `youtube-nocookie.com`, enabled autoplay/mute/loop, disabled controls, and added 1.35x scale to crop out title/UI for a clean background video look.
+- **CSP Updates (Nov 24):** Updated Content Security Policy in `middleware.ts` to allow `youtube-nocookie.com`, `vercel.live`, `maps.googleapis.com`, and enabled embedding on `responsivetesttool.com` for testing.
 
 **Remaining Issues (Fine Tuning):**
 - Minor background color visibility issues behind slider (monitoring).
