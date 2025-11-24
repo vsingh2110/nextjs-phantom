@@ -70,6 +70,17 @@
 **Note:** User expressed concern about the "Complete Turnkey Solutions" video slide being affected by image animations.
 **Verification:** Confirmed that the zoom animation in `globals.css` targets `.img-slider` class only. The video slide uses `.video-bg` class which does not have the zoom animation. The video slide remains untouched and safe.
 
+### **8. About Us Section Implementation**
+**Issue:** 
+- User reported past issues with YouTube embedding ("hit and trial").
+- Current implementation in `page.tsx` used a placeholder video (Rick Astley) and inline styles for background image (which was flagged as problematic in past logs).
+**Solution:**
+- **Video ID:** Retrieved correct video ID `xmB3MDYaOMU` from static website `index.html`.
+- **Component:** Created new `src/components/AboutSection.tsx` to encapsulate the section.
+- **Background Image:** Replaced inline styles with Next.js `<Image>` component using `fill` and `object-cover` for better performance and reliability.
+- **YouTube Embed:** Used the existing robust `YouTubeEmbedComponent` (iframe-based) with the correct video ID.
+- **Refactor:** Updated `src/app/page.tsx` to use the new `AboutSection` component.
+
 ## 📝 FILES MODIFIED
 - `src/components/HeroSideSection.tsx`
 - `src/app/globals.css`

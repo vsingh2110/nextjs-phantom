@@ -20,6 +20,7 @@
 - **Refinement (Nov 24):** Fixed sidebar "touching" issue on desktop by adjusting wrapper width. Corrected animation duration (40s) and letter-spacing (px) for hero slider.
 - **Top Block (Nov 24):** Adjusted responsive width and spacing. Now uses 95% width with responsive gaps and padding, scaling up to 1800px on large screens to fix the "horrible" narrow look on 1920px displays.
 - **Visual Polish (Nov 24):** Enhanced Top Block with stronger shadows (base & hover), larger icons (up to 32px larger), and 10% scale hover effect. Sped up Hero Slider zoom animation to 10s for better visibility. Verified video slide is unaffected by image animations.
+- **About Us Section (Nov 24):** Refactored into `AboutSection.tsx`. Fixed background image implementation (using Next.js Image) and updated YouTube video to the correct ID (`xmB3MDYaOMU`) from the static site.
 
 **Remaining Issues (Fine Tuning):**
 - Minor background color visibility issues behind slider (monitoring).
