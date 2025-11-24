@@ -81,6 +81,21 @@
 - **YouTube Embed:** Used the existing robust `YouTubeEmbedComponent` (iframe-based) with the correct video ID.
 - **Refactor:** Updated `src/app/page.tsx` to use the new `AboutSection` component.
 
+### **9. YouTube Embed Fixes (Privacy & UI)**
+**Issue:** 
+- User reported "80% black screen", "no autoplay", and "data usage" issues.
+- User requested NO controls, NO heading, and NO interaction.
+- User specifically asked to prevent "website data" usage (cookies).
+**Solution:**
+- Modified `src/components/YouTubeEmbed.tsx`:
+  - **Privacy:** Switched domain to `www.youtube-nocookie.com`.
+  - **Autoplay:** Added `autoplay=1&mute=1` (mute is required for autoplay).
+  - **Loop:** Added `loop=1&playlist=${videoId}`.
+  - **UI Cleanup:** Added `controls=0`, `modestbranding=1`, `rel=0`, `iv_load_policy=3` (hide annotations).
+  - **No Interaction:** Added `pointer-events-none` class to iframe to prevent clicking/pausing.
+  - **Hide Title:** Added `scale-[1.35]` to the iframe. This zooms in slightly to crop out the top title bar and bottom controls, leaving only the clean video content.
+  - **Container:** Ensured `overflow-hidden` clips the zoomed iframe.
+
 ## 📝 FILES MODIFIED
 - `src/components/HeroSideSection.tsx`
 - `src/app/globals.css`
