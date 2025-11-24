@@ -98,22 +98,40 @@
 
 ### **10. Content Security Policy (CSP) Updates**
 **Issue:** 
-- User reported multiple CSP violations in console:
-  - `frame-src` blocking `youtube-nocookie.com`.
-  - `script-src` blocking `vercel.live` and `unpkg.com`.
-  - `connect-src` blocking `maps.googleapis.com` and `gstatic.com`.
-  - `frame-ancestors` blocking `responsivetesttool.com` (used for testing).
+- Console errors reported blocking of `youtube-nocookie.com`, `vercel.live`, `maps.googleapis.com`, and `responsivetesttool.com`.
+- User reported "Framing ... violates CSP" and "Loading script ... violates CSP".
 **Solution:**
 - Modified `middleware.ts`:
-  - **frame-src:** Added `https://www.youtube-nocookie.com` and `https://vercel.live`.
-  - **script-src:** Added `https://vercel.live` and `https://unpkg.com`. Removed `nonce` temporarily to allow `unsafe-inline` for third-party scripts that don't support nonces easily (like Vercel feedback).
-  - **connect-src:** Added `https://maps.googleapis.com`, `https://www.facebook.com`, and `https://www.gstatic.com`.
-  - **frame-ancestors:** Changed from `'none'` to `'self' https://responsivetesttool.com` to allow embedding for testing.
+  - Added `https://www.youtube-nocookie.com` to `frame-src`.
+  - Added `https://vercel.live` to `script-src`, `frame-src`, and `connect-src`.
+  - Added `https://maps.googleapis.com` and `https://unpkg.com` to `script-src` and `connect-src`.
+  - Added `frame-ancestors 'self' https://responsivetesttool.com` to allow embedding in the testing tool.
+  - Added `worker-src 'self' blob:;` and `img-src ... blob:` for Google Maps performance.
+  - Added Firebase Auth domains (`identitytoolkit`, `securetoken`, `firebaseinstallations`) to `connect-src`.
+- **Critical Fix:** Removed conflicting `Content-Security-Policy` header from `next.config.js` which was overriding the middleware settings.
 
-## 📝 FILES MODIFIED
-- `src/components/HeroSideSection.tsx`
-- `src/app/globals.css`
+### **11. Google Maps Fixes**
+**Issue:** 
+- "DeletedApiProjectMapError" with the API-based map implementation.
+- Map pin was showing the wrong location (generic area instead of specific business).
+- User requested to switch to a simple iframe embed to avoid API complexity.
+**Solution:**
+- Modified `src/components/GMap.tsx`:
+  - Completely replaced the complex API-based code with a simple `<iframe>` embed.
+  - Updated the embed URL to use the specific "Phantom Healthcare IND Private Limited" place ID and coordinates provided by the user.
+  - Ensured the map view is "Normal" (Roadmap) instead of Satellite as per user request.
+  - Fixed a syntax error (orphaned code) that caused a build failure.
 
-## ⏭️ NEXT STEPS
-- Verify the Top Block spacing with the user (screenshot comparison needed).
-- Continue with Product Pages migration.
+### **12. YouTube Embed Polish**
+**Issue:** 
+- User reported "more than half of screen is black" with the previous scale.
+**Solution:**
+- Modified `src/components/YouTubeEmbed.tsx`:
+  - Increased scale to `1.5` (150%).
+  - Added centering classes: `top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2`.
+  - This ensures the video zooms from the center, effectively cropping black bars on all sides while keeping the subject visible.
+
+## 📝 NEXT STEPS
+- Verify the Map Pin location on the live site (user reported it might still be slightly off).
+- Create missing pages: `privacy-policy`, `terms-and-conditions`, `faqs`.
+- Monitor for any remaining CSP violations.

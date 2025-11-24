@@ -12,6 +12,7 @@
 "use client";
 
 export default function GMap() {
+  // Updated map location to correct coordinates (Nov 24, 2025)
   return (
     <div className="w-full h-full min-h-[400px] rounded-lg overflow-hidden shadow-lg bg-gray-100">
       <iframe 
