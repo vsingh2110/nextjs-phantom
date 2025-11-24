@@ -5,9 +5,9 @@ import Image from 'next/image';
 export default function TopBlock() {
   return (
     <section className="py-8 bg-white w-full overflow-x-hidden">
-      <div className="w-full max-w-[90%] xl:max-w-7xl mx-auto px-2 sm:px-4">
+      <div className="w-full max-w-[95%] 2xl:max-w-[1800px] mx-auto px-4 md:px-6 lg:px-8">
         {/* Three Boxes Row (from static: .top-wrap-box) */}
-        <div className="flex flex-col md:flex-row gap-4 md:gap-8 justify-center items-stretch mb-8">
+        <div className="flex flex-col md:flex-row gap-4 md:gap-6 lg:gap-8 xl:gap-10 justify-center items-stretch mb-8">
           {/* Box 1: Buy/Sell Machines */}
           <div className="flex-1 bg-white rounded-3xl shadow-[0_0_15px_rgba(0,0,0,0.1)] p-6 md:p-8 flex flex-col items-center text-center antialiased border border-gray-100 min-w-0 hover:-translate-y-1 transition-transform duration-300">
             <Image src="/images/icons.png" alt="Buy/Sell MRI Machines, CT Scanner, PET-CT, Cath-Lab Machines" width={0} height={0} sizes="100vw" className="mb-6 w-20 h-20 md:w-24 md:h-24 object-contain" unoptimized />

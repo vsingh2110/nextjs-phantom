@@ -182,7 +182,7 @@
 
 .hero-slider-container .txt1 p {
   font-weight: bold;
-  letter-spacing: 0.1rem;
+  letter-spacing: 1px;
   line-height: 20px;
   font-size: 20px;
   text-align: center;
@@ -197,7 +197,7 @@
   -webkit-animation-name: zoomin;
   -webkit-animation-duration: 40s;
   animation-name: zoomin;
-  animation-duration: 8s;
+  animation-duration: 40s;
 }
 
 @-webkit-keyframes zoomin {
