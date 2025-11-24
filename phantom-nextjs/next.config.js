@@ -90,13 +90,6 @@ const nextConfig = {
             key: 'X-XSS-Protection',
             value: '1; mode=block',
           },
-          // Content Security Policy - Allow all necessary external resources
-          {
-            key: 'Content-Security-Policy',
-            value: isDevelopment 
-              ? "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.youtube.com https://s.ytimg.com https://www.googletagmanager.com https://www.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://use.fontawesome.com https://maps.googleapis.com https://connect.facebook.net; frame-src 'self' https://www.youtube.com https://youtube.com https://www.google.com; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' data: https://cdnjs.cloudflare.com https://use.fontawesome.com https://fonts.googleapis.com https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://firestore.googleapis.com https://api.emailjs.com https://www.facebook.com;"
-              : "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com https://s.ytimg.com https://www.googletagmanager.com https://www.gstatic.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://use.fontawesome.com https://maps.googleapis.com https://connect.facebook.net; frame-src 'self' https://www.youtube.com https://youtube.com https://www.google.com; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' data: https://cdnjs.cloudflare.com https://use.fontawesome.com https://fonts.googleapis.com https://fonts.gstatic.com; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://firestore.googleapis.com https://api.emailjs.com https://www.facebook.com;",
-          },
         ],
       },
     ];
