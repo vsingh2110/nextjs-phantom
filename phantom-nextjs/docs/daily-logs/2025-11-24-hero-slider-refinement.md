@@ -53,6 +53,23 @@
   - Changed `.hero-slider-container .img-slider` animation duration from `40s` to `10s`.
   - This provides a much faster, noticeable zoom effect on all devices (since mobile inherits this class unless overridden, and 10s is a standard "active" zoom speed).
 
+### **6. Top Block Further Refinements**
+**Issue:** User requested even stronger visual cues:
+- Icons "a bit more big"
+- "More box shadow behind" (base state)
+- "More darker shadow on hover"
+- "A bit more scale on hover"
+**Solution:**
+- Modified `src/components/TopBlock.tsx`:
+  - **Icons:** Increased to `w-28 h-28 md:w-32 md:h-32` (was `w-24/28`).
+  - **Base Shadow:** Increased to `shadow-[0_0_25px_rgba(0,0,0,0.2)]`.
+  - **Hover Shadow:** Increased to `shadow-[0_0_45px_rgba(0,0,0,0.3)]`.
+  - **Hover Scale:** Increased to `scale-110` (10% zoom).
+
+### **7. Hero Slider Video Slide Clarification**
+**Note:** User expressed concern about the "Complete Turnkey Solutions" video slide being affected by image animations.
+**Verification:** Confirmed that the zoom animation in `globals.css` targets `.img-slider` class only. The video slide uses `.video-bg` class which does not have the zoom animation. The video slide remains untouched and safe.
+
 ## 📝 FILES MODIFIED
 - `src/components/HeroSideSection.tsx`
 - `src/app/globals.css`
