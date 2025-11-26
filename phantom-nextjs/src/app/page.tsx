@@ -117,25 +117,25 @@ export default function Home() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="bg-white rounded-xl p-8 shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 text-center">
-              <Image src="/images/hand.png" alt="Sales & Supply" width={64} height={64} className="mx-auto mb-6" />
+              <Image src="/images/hand.png" alt="Sales & Supply" width={96} height={96} className="mx-auto mb-6 w-24 h-24" />
               <h3 className="text-xl font-bold text-gray-900 mb-4">Sales & Supply with transparent deals​</h3>
               <p className="text-gray-600">Buy New as well as refurbished equipment from a wide range of models</p>
             </div>
 
             <div className="bg-white rounded-xl p-8 shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 text-center">
-              <Image src="/images/up.png" alt="Upgrade" width={64} height={64} className="mx-auto mb-6" />
+              <Image src="/images/up.png" alt="Upgrade" width={96} height={96} className="mx-auto mb-6 w-24 h-24" />
               <h3 className="text-xl font-bold text-gray-900 mb-4">Upgrade your existing MRI and CT Machine​</h3>
               <p className="text-gray-600">We have one of the largest inventory of spare parts for upgrades and repairs</p>
             </div>
 
             <div className="bg-white rounded-xl p-8 shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 text-center">
-              <Image src="/images/service.jpg" alt="Service Maintenance" width={64} height={64} className="mx-auto mb-6 object-cover rounded-lg" />
+              <Image src="/images/service.jpg" alt="Service Maintenance" width={96} height={96} className="mx-auto mb-6 w-24 h-24 object-cover rounded-lg" />
               <h3 className="text-xl font-bold text-gray-900 mb-4">Service Maintenance Plans All over India​​</h3>
               <p className="text-gray-600">Our field engineers are present all over India for instant troubleshooting.</p>
             </div>
 
             <div className="bg-white rounded-xl p-8 shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 text-center">
-              <Image src="/images/site.png" alt="Site Planning" width={64} height={64} className="mx-auto mb-6" />
+              <Image src="/images/site.png" alt="Site Planning" width={96} height={96} className="mx-auto mb-6 w-24 h-24" />
               <h3 className="text-xl font-bold text-gray-900 mb-4">Site Planning with full financial assistance​</h3>
               <p className="text-gray-600">We provide full support and guidance from site planning with financial assistance.</p>
             </div>
@@ -168,15 +168,15 @@ export default function Home() {
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">
             Featured Spare Parts
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {/* MRI Coils */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-gray-100 text-center flex flex-col h-full">
-              <div className="relative w-full aspect-[4/3] flex justify-center items-center bg-white">
+              <div className="relative w-full aspect-square flex justify-center items-center bg-white">
                 <Image
                   src="/images/machines/spare parts/Brain coil.png"
                   alt="MRI Coils"
                   fill
-                  className="object-contain p-4"
+                  className="object-contain p-2"
                 />
                 <span style={{
                   position: 'absolute',
@@ -220,12 +220,12 @@ export default function Home() {
 
             {/* Cold Head MRI Machine */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-gray-100 text-center flex flex-col h-full">
-              <div className="relative w-full aspect-[4/3] flex justify-center items-center bg-white">
+              <div className="relative w-full aspect-square flex justify-center items-center bg-white">
                 <Image
                   src="/images/machines/spare parts/cold head.png"
                   alt="Cold Head MRI Machine"
                   fill
-                  className="object-contain p-4"
+                  className="object-contain p-2"
                 />
                 <span style={{
                   position: 'absolute',
@@ -269,12 +269,12 @@ export default function Home() {
 
             {/* MHU Tube - CT Scanner */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-gray-100 text-center flex flex-col h-full">
-              <div className="relative w-full aspect-[4/3] flex justify-center items-center bg-white">
+              <div className="relative w-full aspect-square flex justify-center items-center bg-white">
                 <Image
                   src="/images/machines/spare parts/MHU Tube.png"
                   alt="MHU Tube - CT Scanner"
                   fill
-                  className="object-contain p-4"
+                  className="object-contain p-2"
                 />
                 <span style={{
                   position: 'absolute',

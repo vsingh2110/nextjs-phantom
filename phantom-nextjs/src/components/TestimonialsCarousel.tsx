@@ -223,7 +223,7 @@ export default function TestimonialsCarousel() {
   }
 
   return (
-    <div className="testimonials-carousel">
+    <div className="testimonials-carousel px-12 md:px-16">
       <Swiper {...swiperConfig}>
         {TESTIMONIALS.map((testimonial, index) => (
           <SwiperSlide key={index}>
@@ -233,12 +233,12 @@ export default function TestimonialsCarousel() {
       </Swiper>
 
       {/* Custom Navigation Buttons */}
-      <div className="swiper-button-prev-custom absolute left-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 text-gray-700 w-8 h-8 rounded-full flex items-center justify-center shadow z-10 cursor-pointer">
-        <i className="fa fa-chevron-left"></i>
+      <div className="swiper-button-prev-custom absolute left-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 text-primary-600 w-10 h-10 rounded-full flex items-center justify-center shadow-lg z-10 cursor-pointer border border-gray-100">
+        <i className="fa fa-chevron-left text-lg"></i>
       </div>
       
-      <div className="swiper-button-next-custom absolute right-2 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 text-gray-700 w-8 h-8 rounded-full flex items-center justify-center shadow z-10 cursor-pointer">
-        <i className="fa fa-chevron-right"></i>
+      <div className="swiper-button-next-custom absolute right-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 text-primary-600 w-10 h-10 rounded-full flex items-center justify-center shadow-lg z-10 cursor-pointer border border-gray-100">
+        <i className="fa fa-chevron-right text-lg"></i>
       </div>
 
       <style jsx>{`
