@@ -11,10 +11,10 @@
 
 "use client";
 
-const MAP_EMBED_URL = "https://maps.google.com/maps?q=28.4663696,77.3032972+(Phantom+Healthcare+IND+Private+Limited)&z=15&output=embed";
+const MAP_EMBED_URL = "https://maps.google.com/maps?q=Plot+No.+51,+Sector+27C,+Near+NHPC+Chowk,+Main+Mathura+Road,+Faridabad,+Haryana+121003&t=m&z=15&output=embed&iwloc=near";
 
 export default function GMap() {
-  // Updated map center (Nov 27, 2025) - Using the 'q=Lat,Lon+(Name)' format WITHOUT the 'loc:' prefix. This is the standard method to force the map to center on specific coordinates while displaying a custom title in the info window.
+  // Updated map center (Nov 27, 2025) - Using the exact address query. This ensures the pin is placed at the correct physical location (Sector 27C/NHPC Chowk) rather than the potentially incorrect business listing coordinates. The title will display the address, which is accurate and professional.
   return (
     <div className="w-full h-full rounded-lg overflow-hidden shadow-lg bg-gray-100">
       <iframe 
