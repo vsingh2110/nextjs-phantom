@@ -22,7 +22,7 @@ export function middleware(request: NextRequest) {
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://use.fontawesome.com;
     img-src 'self' data: blob: https://*.google.com https://*.googleapis.com https://*.gstatic.com https://www.facebook.com https://maps.gstatic.com;
     font-src 'self' data: https://cdnjs.cloudflare.com https://use.fontawesome.com https://fonts.googleapis.com https://fonts.gstatic.com;
-    frame-src 'self' https://www.youtube.com https://youtube.com https://www.youtube-nocookie.com https://www.google.com https://vercel.live https://*.firebaseapp.com;
+    frame-src 'self' https://www.youtube.com https://youtube.com https://www.youtube-nocookie.com https://www.google.com https://maps.google.com https://vercel.live https://*.firebaseapp.com;
     connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://firestore.googleapis.com https://api.emailjs.com https://www.facebook.com https://maps.googleapis.com https://maps.gstatic.com https://vercel.live https://identitytoolkit.googleapis.com https://firebaseinstallations.googleapis.com https://securetoken.googleapis.com;
     worker-src 'self' blob:;
     object-src 'none';

@@ -216,6 +216,9 @@
 
 ## 📝 RECENT ACTIVITY LOG
 
+### **November 26, 2025:**
+- ⏹️ Began creating Privacy Policy / Terms / FAQs pages + PageHeader component, but work was rolled back per user direction to keep focus on the home page.
+
 ### **November 22, 2025:**
 - ✅ Fixed mobile horizontal overflow issue
 - ✅ Reduced hero slider zoom scale for mobile
