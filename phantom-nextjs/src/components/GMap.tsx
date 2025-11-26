@@ -11,10 +11,10 @@
 
 "use client";
 
-const MAP_EMBED_URL = "https://maps.google.com/maps?q=loc:28.4663696,77.3032972+(Phantom+Healthcare+IND+Private+Limited)&t=m&z=14&output=embed&iwloc=near";
+const MAP_EMBED_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.9676736666!2d77.3032972!3d28.4663696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce746b47731c5%3A0x696a695f7e4c3ded!2sPhantom%20Healthcare%20Pvt%20Ltd.!5e0!3m2!1sen!2sin";
 
 export default function GMap() {
-  // Updated map center (Nov 26, 2025) using exact coordinates and label to force correct centering.
+  // Updated map center (Nov 27, 2025) - Using the specific 'pb' string to ensure the business name "Phantom Healthcare Pvt Ltd." appears in the map card instead of coordinates.
   return (
     <div className="w-full h-full rounded-lg overflow-hidden shadow-lg bg-gray-100">
       <iframe 
