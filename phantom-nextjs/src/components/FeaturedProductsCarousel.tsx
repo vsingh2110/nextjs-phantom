@@ -54,13 +54,13 @@ const PRODUCTS = [
 ];
 
 const ProductCard = React.memo(({ product }: { product: typeof PRODUCTS[0] }) => (
-  <div className="bg-white rounded-2xl shadow-2xl overflow-hidden hover:scale-105 hover:shadow-2xl transition-all duration-300 flex flex-col min-h-80 md:min-h-[22rem] lg:min-h-[26rem] h-auto w-full max-w-full">
+  <div className="bg-white rounded-2xl shadow-2xl overflow-hidden hover:scale-105 hover:shadow-2xl transition-all duration-300 flex flex-col min-h-72 md:min-h-[20rem] lg:min-h-[22rem] h-auto w-full max-w-full">
     <div className="relative w-full aspect-[4/3] flex justify-center items-center bg-white">
       <Image
         src={product.image}
         alt={product.title}
         fill
-        className="object-contain p-0 md:p-1 lg:p-2"
+        className="object-contain p-2 md:p-3"
         sizes="(max-width: 768px) 95vw, 350px"
         onLoad={(e) => {
           const img = e.currentTarget;
@@ -100,10 +100,10 @@ const ProductCard = React.memo(({ product }: { product: typeof PRODUCTS[0] }) =>
         }
       `}</style>
     </div>
-    <div className="flex flex-col flex-1 items-center text-center justify-center w-full px-4 md:px-6 py-4 md:py-5">
-      <h3 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2 w-full">{product.title}</h3>
-      <p className="text-gray-600 mb-3 text-sm line-clamp-2 flex-1 w-full">{product.description}</p>
-      <a href={product.link} className="btn-primary inline-block pt-2 max-w-xs w-full mx-auto">Learn More</a>
+    <div className="flex flex-col flex-1 items-center text-center justify-center w-full px-3 md:px-4 py-3">
+      <h3 className="text-lg font-bold text-gray-900 mb-1 line-clamp-2 w-full">{product.title}</h3>
+      <p className="text-gray-600 mb-2 text-sm line-clamp-2 flex-1 w-full">{product.description}</p>
+      <a href={product.link} className="btn-primary inline-block py-2 px-4 w-full max-w-[80%] mx-auto text-sm">Learn More</a>
     </div>
   </div>
 ));
