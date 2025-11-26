@@ -41,11 +41,23 @@ Unlike products, these content types are generally flat lists.
 2.  Create `src/app/news/[slug]/page.tsx` (Dynamic detail view).
 3.  Use a CMS or a structured JSON file to manage the content for these lists to avoid hardcoding every single page.
 
-## 4. Internationalization (Future Scope)
-The folder structure is designed to support the following plan:
-- **Phase 1 (Current)**: Establish English (Global/India) structure.
-- **Phase 2**: Move `src/app/*` (excluding `layout.tsx` and `api`) into `src/app/[lang]/`.
-- **Phase 3**: Create dictionaries for text content (en-US, en-GB, etc.).
+## 4. Internationalization Strategy (Regional Sites)
+**Reference:** See `docs/international-plan/2025-07-25-folder-structure-visual.md` for the definitive plan.
+
+**Strategy:** We are implementing **completely separate regional websites** hosted under the same domain but in different directories. This is **NOT** a simple translation (i18n) project.
+
+### Architecture Plan (Confirmed):
+- **Root (`/`)**: Global/India site (Default).
+- **US Site (`/us/`)**: Independent directory `src/app/us/`. Contains US-specific content, products, and legal info.
+- **UAE Site (`/ae/`)**: Independent directory `src/app/ae/`. Contains Gulf-specific content and products.
+- **Other Regions**: As defined in the international plan.
+
+### Why this structure?
+- **Content Divergence**: Different countries have different product availability (e.g., specific MRI models only for India).
+- **Marketing**: Different strategies and landing pages for each region.
+- **Legal**: Different compliance requirements and contact entities.
+
+**Implementation Note:** The current refactor (cleaning up `src/components` and `src/app`) is the prerequisite for this. Once the core (India/Global) site is populated, we will duplicate/adapt the structure into `src/app/us/`, `src/app/ae/`, etc., as "mini-apps".
 
 ## 5. Next Steps
 1.  **Fill Content**: The newly created product and service pages are currently empty placeholders. Content needs to be migrated from the static site.

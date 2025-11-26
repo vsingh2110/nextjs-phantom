@@ -199,6 +199,8 @@
 ## 📝 RECENT ACTIVITY LOG
 
 ### **November 27, 2025:**
+- ✅ **International Strategy:** Confirmed alignment with `docs/international-plan/` (Separate regional sites, not just translation).
+- ✅ **Build Fixes:** Resolved `Module not found` errors in `AboutSection` (YouTubeEmbed) and `HeroSideSection` (unused import).
 - ✅ **Build Fixes:** Resolved `Module not found` errors in `CounterSection` and `Footer` after refactor.
 - ✅ **Major Refactor:** Reorganized `src/components` into `layout`, `home`, `ui`, `features`, `scripts`.
 - ✅ **Structure Expansion:** Created file structure for all product and service pages to match static site URLs.

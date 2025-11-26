@@ -1,26 +1,26 @@
 # Session Handover: November 27, 2025
 
 ## 📅 Session Summary
-**Focus:** Structural Refactor & Internationalization Preparation
-**Outcome:** Successfully reorganized the component library and established the route structure for all products and services.
+**Focus:** Structural Refactor, Build Fixes, and International Strategy Clarification
+**Outcome:** 
+- Reorganized component library (`src/components/` subfolders).
+- Established route structure for all products/services.
+- Fixed multiple build errors caused by the refactor.
+- Clarified the "Regional Sites" strategy (separate directories, not just translation).
 
 ## 🚧 Current State
-- **Folder Structure:** Cleaned up. Components are now in `layout`, `home`, `ui`, `features`, `scripts`.
-- **Routes:** All legacy URLs (products/services) now have corresponding Next.js routes in `src/app`.
-- **Pages:** The new pages are currently **empty placeholders** ("Content Coming Soon").
-- **Build Status:** Fixed import errors in `CounterSection` and `Footer` caused by the refactor.
+- **Build Status:** ✅ Should be passing now. Fixed `YouTubeEmbed` and `ContactFormModal` import issues.
+- **Folder Structure:** Clean and organized.
+- **Routes:** Placeholders exist for all pages.
 
 ## 📝 Pending Tasks (Next Session)
-1.  **Content Migration:** The highest priority is to start filling the empty product and service pages with actual content.
-2.  **Template Creation:** Create `ProductPageTemplate` and `ServicePageTemplate` to avoid code duplication.
-3.  **Internationalization (Future):** The structure is ready. See `docs/dev-notes/2025-11-27-structure-refactor-and-expansion-plan.md` for the plan.
+1.  **Content Migration:** Start filling the empty product/service pages.
+2.  **Regional Expansion:** When ready, create `src/app/us/` and `src/app/ae/` for the separate regional sites.
 
 ## ⚠️ Critical Notes
-- **Do NOT revert the folder structure.** The new organization is intentional.
-- **Do NOT delete the empty pages.** They are placeholders for the migration.
-- **Check Imports:** If you move any more components, ensure you update their import paths in consuming files.
+- **Internationalization:** We are following the strategy in `docs/international-plan/`. This means **separate directory trees** (`/us`, `/ae`) for different content, products, and services. It is NOT just a translation layer.
+- **Imports:** Always check relative imports when moving files.
 
 ## 🔗 Relevant Documentation
+- `docs/dev-notes/2025-11-27-structure-refactor-and-expansion-plan.md` (Updated with Regional Strategy)
 - `docs/CURRENT-STATUS.md` (Updated)
-- `docs/development-roadmap.md` (Updated)
-- `docs/dev-notes/2025-11-27-structure-refactor-and-expansion-plan.md` (New)

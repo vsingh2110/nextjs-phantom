@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import YouTubeEmbedComponent from './YouTubeEmbed';
+import YouTubeEmbedComponent from '../ui/YouTubeEmbed';
 
 export default function AboutSection() {
   return (
