@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import ContactForm from './ContactForm';
+import ContactForm from '../features/ContactForm';
 
 interface PopupModalProps {
   isOpen: boolean;
