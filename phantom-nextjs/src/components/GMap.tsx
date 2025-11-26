@@ -11,10 +11,10 @@
 
 "use client";
 
-const MAP_EMBED_URL = "https://maps.google.com/maps?q=Phantom+Healthcare+IND+Private+Limited&ll=28.4663696,77.3032972&z=16&t=m&output=embed";
+const MAP_EMBED_URL = "https://maps.google.com/maps?cid=7595999580375498221&ll=28.4663696,77.3032972&z=16&output=embed";
 
 export default function GMap() {
-  // Updated map center (Nov 27, 2025) - Switched to legacy query mode with explicit 'll' (center) parameter. This combination forces the map to center on the coordinates while using the business name for the pin title.
+  // Updated map center (Nov 27, 2025) - Using the specific CID (Customer ID) combined with the 'll' parameter. This forces the map to load the specific business entity (fixing the title) while explicitly centering the camera on the correct coordinates (fixing the frame).
   return (
     <div className="w-full h-full rounded-lg overflow-hidden shadow-lg bg-gray-100">
       <iframe 
