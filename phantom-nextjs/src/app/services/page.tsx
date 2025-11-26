@@ -1,11 +1,8 @@
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 import Image from 'next/image'
 
 export default function Services() {
   return (
     <main className="main-content">
-      <Header />
       
       {/* Services Hero Section */}
       <section className="page-hero">
@@ -149,7 +146,6 @@ export default function Services() {
         </div>
       </section>
 
-      <Footer />
     </main>
   )
 } 

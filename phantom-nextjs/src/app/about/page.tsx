@@ -1,11 +1,8 @@
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 import Image from 'next/image'
 
 export default function About() {
   return (
     <main className="main-content">
-      <Header />
       
       {/* About Hero Section */}
       <section 
@@ -105,7 +102,6 @@ export default function About() {
         </div>
       </section>
 
-      <Footer />
     </main>
   )
 } 

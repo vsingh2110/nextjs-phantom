@@ -1,36 +1,26 @@
 # Phantom Medical Imaging — Current Status
 
-**Last Updated:** November 24, 2025  
+**Last Updated:** November 27, 2025  
 **Phase:** Active Migration - Static to Next.js  
-**Priority:** Mobile Responsiveness Issues
+**Priority:** Structure Refactor & Internationalization Prep
 
 ---
 
 ## 🎯 CURRENT FOCUS
 
-### **Homepage Visual Parity (Hero & Top Block)**
-**Status:** 🚧 **FINE TUNING** (Major fixes applied, awaiting final polish)
-**Date:** November 24, 2025
+### **Project Structure & Internationalization Readiness**
+**Status:** ✅ **COMPLETED** (Refactor done, pending content migration)
+**Date:** November 27, 2025
 
 **Recent Achievements:**
-- **Hero Slider (Desktop):** Fixed aspect ratio distortion by switching to fixed-width sidebar (`320px`) + flexible slider.
-- **Hero Slider (Mobile):** Fixed gaps and "touching" issues between slider and sidebar.
-- **Top Block:** Restored original line-art icons and updated styling (shadows, width) to match static site.
-- **Layout:** Moved "About Us" section to below Top Block.
-- **Refinement (Nov 24):** Fixed sidebar "touching" issue on desktop by adjusting wrapper width. Corrected animation duration (40s) and letter-spacing (px) for hero slider.
-- **Top Block (Nov 24):** Adjusted responsive width and spacing. Now uses 95% width with responsive gaps and padding, scaling up to 1800px on large screens to fix the "horrible" narrow look on 1920px displays.
-- **Visual Polish (Nov 24):** Enhanced Top Block with stronger shadows (base & hover), larger icons (up to 32px larger), and 10% scale hover effect. Sped up Hero Slider zoom animation to 10s for better visibility. Verified video slide is unaffected by image animations.
-- **About Us Section (Nov 24):** Refactored into `AboutSection.tsx`. Fixed background image implementation (using Next.js Image) and updated YouTube video to the correct ID (`xmB3MDYaOMU`) from the static site.
-- **YouTube Embed (Nov 24):** Fixed "black screen" and "data usage" issues. Switched to `youtube-nocookie.com`, enabled autoplay/mute/loop, disabled controls, and added 1.35x scale to crop out title/UI for a clean background video look.
-- **CSP Updates (Nov 24):** Updated Content Security Policy in `middleware.ts` to allow `youtube-nocookie.com`, `vercel.live`, `maps.googleapis.com`, and enabled embedding on `responsivetesttool.com` for testing.
-- **CSP Refinement (Nov 24):** Implemented "Senior Developer" grade CSP rules. Added `worker-src` for Maps, `blob:` for images, and specific Firebase Auth domains (`identitytoolkit`, `securetoken`) to resolve all console errors.
-- **Critical Fix (Nov 24):** Removed conflicting `Content-Security-Policy` header from `next.config.js`. This was overriding the `middleware.ts` settings and causing the persistent blocking of YouTube and Vercel scripts despite the middleware updates.
-- **Map Replacement (Nov 24):** Replaced complex Google Maps API implementation with a simple, robust `iframe` embed to resolve "DeletedApiProjectMapError" and simplify maintenance.
-- **Map Update (Nov 24):** Updated map embed link to the correct "normal" map view (not satellite) and corrected the coordinates to match the user's specific location request.
-- **YouTube Polish (Nov 24):** Increased video scale to `1.5x` and centered it (`top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2`) to eliminate black bars and ensure full coverage.
+- **Component Reorganization:** Moved all components from the flat `src/components` folder into logical subdirectories (`layout`, `home`, `ui`, `features`, `scripts`) to improve maintainability and follow React/Next.js best practices.
+- **Page Structure Creation:** Replicated the full URL structure of the legacy static site within `src/app`. Created folders for all product categories (e.g., `product-pages/mri-scanner-machines`) and service pages.
+- **Placeholder Pages:** Generated `page.tsx` files for all 50+ planned pages with minimal "Content Coming Soon" placeholders to establish the routing structure without cluttering the codebase with dummy content.
+- **Documentation Update:** Created detailed documentation (`docs/dev-notes/2025-11-27-structure-refactor-and-expansion-plan.md`) explaining the new structure, the logic behind it (Products vs. Blogs hierarchy), and the future internationalization plan.
 
 **Remaining Issues (Fine Tuning):**
-- Minor background color visibility issues behind slider (monitoring).
+- **Content Migration:** The newly created pages are empty. We need to migrate the actual content from the static HTML files.
+- **Template Development:** Need to create reusable templates for Product Categories and Service Pages to ensure consistency.
 
 ---
 
@@ -67,14 +57,15 @@
 - [x] Responsive design (mobile-first)
 - [x] SEO meta tags
 - [x] Performance optimization (bundle analyzer)
+- [x] **New Folder Structure** (Clean separation of concerns)
 
 ---
 
 ## 🚧 IN PROGRESS
 
 ### **Migration Tasks:**
-- [ ] Complete product detail pages migration (from static HTML)
-- [ ] Complete service detail pages migration
+- [ ] **Migrate content for Product Pages** (currently placeholders)
+- [ ] **Migrate content for Service Pages** (currently placeholders)
 - [ ] Blog system implementation
 - [ ] Events & News section
 - [ ] FAQs page
@@ -95,18 +86,15 @@
 
 ### **Minor Issues:**
 - ⚠️ Some legacy CSS from static site still present (needs cleanup)
-- ⚠️ Not all product pages migrated yet
-- ⚠️ Not all service pages migrated yet
+- ⚠️ Product/Service pages are empty placeholders
 - ⚠️ YouTube embed may need further testing (previous issues July 21)
 - ⚠️ Font Awesome loading could be optimized (bundle vs CDN)
 
 ### **Recently Resolved:**
+- ✅ **Component Clutter:** Fixed by reorganizing into subfolders (Nov 27, 2025)
+- ✅ **Missing Routes:** Fixed by creating file structure for all products/services (Nov 27, 2025)
 - ✅ Hero slider text styling & animations (Nov 22, 2025)
 - ✅ Mobile horizontal overflow (Nov 22, 2025)
-- ✅ Hero slider zoom on mobile (Nov 22, 2025)
-- ✅ Footer Google Maps loading (July 21, 2025)
-- ✅ EmailJS package update (July 16, 2025)
-- ✅ Firebase dependency vulnerabilities (July 16, 2025)
 
 ---
 
@@ -130,27 +118,27 @@
 | Sitemap | ✅ | ⏳ | Planned |
 
 ### **Product Pages Status:**
-- Brand New CT Scan: ⏳ Planned
-- Refurbished CT Scan: ⏳ Planned
-- Refurbished MRI (General): ⏳ Planned
-- Refurbished GE MRI: ⏳ Planned
-- Refurbished Siemens MRI: ⏳ Planned
-- 1.5T MRI Scanner: ⏳ Planned
-- 3.0T MRI Scanner: ⏳ Planned
-- PET-CT Scanner: ⏳ Planned
-- Gamma Camera SPECT: ⏳ Planned
-- Bone Densitometer DEXA: ⏳ Planned
-- Cath Lab Machines: ⏳ Planned
+- Brand New CT Scan: 🚧 Structure Ready (Empty)
+- Refurbished CT Scan: 🚧 Structure Ready (Empty)
+- Refurbished MRI (General): 🚧 Structure Ready (Empty)
+- Refurbished GE MRI: 🚧 Structure Ready (Empty)
+- Refurbished Siemens MRI: 🚧 Structure Ready (Empty)
+- 1.5T MRI Scanner: 🚧 Structure Ready (Empty)
+- 3.0T MRI Scanner: 🚧 Structure Ready (Empty)
+- PET-CT Scanner: 🚧 Structure Ready (Empty)
+- Gamma Camera SPECT: 🚧 Structure Ready (Empty)
+- Bone Densitometer DEXA: 🚧 Structure Ready (Empty)
+- Cath Lab Machines: 🚧 Structure Ready (Empty)
 
 ### **Service Pages Status:**
-- AMC/CMC for CT Scanner: ⏳ Planned
-- AMC/CMC for MRI Scanner: ⏳ Planned
-- Installation Services: ⏳ Planned
-- Site Planning & Construction: ⏳ Planned
-- MRI Deinstallation & Reinstallation: ⏳ Planned
-- MRI Helium Filling: ⏳ Planned
+- AMC/CMC for CT Scanner: 🚧 Structure Ready (Empty)
+- AMC/CMC for MRI Scanner: 🚧 Structure Ready (Empty)
+- Installation Services: 🚧 Structure Ready (Empty)
+- Site Planning & Construction: 🚧 Structure Ready (Empty)
+- MRI Deinstallation & Reinstallation: 🚧 Structure Ready (Empty)
+- MRI Helium Filling: 🚧 Structure Ready (Empty)
 
-**Overall Migration Progress:** ~35% complete
+**Overall Migration Progress:** ~45% complete (Structure is 90%, Content is 40%)
 
 ---
 
@@ -188,10 +176,10 @@
 
 ## 🎯 IMMEDIATE NEXT STEPS
 
-### **Priority 1: Verification** (Today)
-1. User to test mobile overflow fix on real devices
-2. Verify no regression on desktop
-3. Check all pages for similar overflow issues
+### **Priority 1: Content Migration** (Next Session)
+1. Create a `ProductPageTemplate` component.
+2. Migrate content for one major category (e.g., MRI Scanners) to test the template.
+3. Verify mobile responsiveness of the new template.
 
 ### **Priority 2: Complete Core Pages** (This Week)
 1. Finish blog system implementation
@@ -199,13 +187,7 @@
 3. Implement FAQs page
 4. Add Events & News section
 
-### **Priority 3: Product Pages** (Next Week)
-1. Create product detail template
-2. Migrate CT Scan product pages
-3. Migrate MRI product pages
-4. Implement product filtering/search
-
-### **Priority 4: Polish & Optimize** (Ongoing)
+### **Priority 3: Polish & Optimize** (Ongoing)
 1. Run performance audit
 2. Optimize images with Next.js Image
 3. Implement advanced SEO
@@ -215,6 +197,12 @@
 ---
 
 ## 📝 RECENT ACTIVITY LOG
+
+### **November 27, 2025:**
+- ✅ **Major Refactor:** Reorganized `src/components` into `layout`, `home`, `ui`, `features`, `scripts`.
+- ✅ **Structure Expansion:** Created file structure for all product and service pages to match static site URLs.
+- ✅ **Documentation:** Updated docs to reflect new structure and internationalization plan.
+- ✅ **Placeholder Pages:** Initialized all new pages with empty states.
 
 ### **November 26, 2025:**
 - ⏹️ Began creating Privacy Policy / Terms / FAQs pages + PageHeader component, but work was rolled back per user direction to keep focus on the home page.

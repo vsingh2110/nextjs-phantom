@@ -1,13 +1,10 @@
 'use client';
 
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import ContactForm from '@/components/ContactForm';
+import ContactForm from '@/components/features/ContactForm';
 
 export default function Contact() {
   return (
     <main className="main-content">
-      <Header />
       
       {/* Contact Hero Section */}
       <section className="page-hero">
@@ -91,7 +88,6 @@ export default function Contact() {
         </div>
       </section>
 
-      <Footer />
     </main>
   );
 } 

@@ -1,11 +1,8 @@
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 import Image from 'next/image'
 
 export default function Blogs() {
   return (
     <main className="main-content">
-      <Header />
       
       {/* Blogs Hero Section */}
       <section className="page-hero">
@@ -126,7 +123,6 @@ export default function Blogs() {
         </div>
       </section>
 
-      <Footer />
     </main>
   )
 } 

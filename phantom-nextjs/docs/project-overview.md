@@ -104,7 +104,16 @@ phantom-website/
 phantom-nextjs/
 ├── src/
 │   ├── app/ (Next.js App Router pages)
+│   │   ├── product-pages/ (Product categories & details)
+│   │   ├── service-pages/ (Service details)
+│   │   ├── news/ (News & Events - Planned)
+│   │   └── blogs/ (Blog posts - Planned)
 │   ├── components/ (React components)
+│   │   ├── layout/ (Header, Footer, etc.)
+│   │   ├── home/ (Homepage specific)
+│   │   ├── ui/ (Reusable UI elements)
+│   │   ├── features/ (Functional components)
+│   │   └── scripts/ (Third-party scripts)
 │   ├── lib/ (utilities, Firebase, EmailJS config)
 │   ├── types/ (TypeScript definitions)
 │   └── scripts/ (helper scripts)
@@ -268,6 +277,25 @@ phantom-nextjs/
 - `src/app/globals.css`
 
 **Status:** ✅ Fixed (pending user verification)
+
+---
+
+### **Phase 4: Structure Refactor & Expansion (November 27, 2025)**
+
+#### **November 27, 2025: Component Reorganization & Page Structure**
+**Goal:** Clean up codebase and prepare for internationalization
+
+**Implementation:**
+- **Component Refactor:** Moved components from flat `src/components` to logical subfolders (`layout`, `home`, `ui`, `features`, `scripts`).
+- **Page Structure:** Replicated static site URL structure in `src/app` (e.g., `product-pages/mri-scanner-machines`).
+- **Placeholder Pages:** Created 50+ empty page files to establish routing.
+- **Documentation:** Updated docs to reflect new structure and internationalization readiness.
+
+**Key Decisions:**
+- **Products vs. Blogs:** Defined hierarchy strategy (Products = Nested, Blogs = Flat).
+- **Internationalization Prep:** Structure allows easy wrapping in `[lang]` folder later.
+
+**Status:** ✅ Structure Complete, Content Pending
 
 ---
 

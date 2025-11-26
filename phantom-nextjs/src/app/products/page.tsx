@@ -1,11 +1,8 @@
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 import Image from 'next/image'
 
 export default function Products() {
   return (
     <main className="main-content">
-      <Header />
       
       {/* Products Hero Section */}
       <section className="page-hero">
@@ -129,7 +126,6 @@ export default function Products() {
         </div>
       </section>
 
-      <Footer />
     </main>
   )
 } 

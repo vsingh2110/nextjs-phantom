@@ -85,16 +85,16 @@
  * This is the default export for the root page route (/)
  */
 
-import HeroSlider from '@/components/HeroSlider'
+import HeroSlider from '@/components/home/HeroSlider'
 import Image from 'next/image'
 import Link from 'next/link'
-import TopBlock from '@/components/TopBlock'
-import ContactFormModalWrapper from '@/components/ContactFormModalWrapper';
-import TestimonialsCarousel from '@/components/TestimonialsCarousel'
-import RegionalOffices from '@/components/RegionalOffices'
-import CounterSection from '@/components/CounterSection';
-import FeaturedProductsCarousel from '@/components/FeaturedProductsCarousel';
-import AboutSection from '@/components/AboutSection';
+import TopBlock from '@/components/layout/TopBlock'
+import ContactFormModalWrapper from '@/components/ui/ContactFormModalWrapper';
+import TestimonialsCarousel from '@/components/home/TestimonialsCarousel'
+import RegionalOffices from '@/components/home/RegionalOffices'
+import CounterSection from '@/components/home/CounterSection';
+import FeaturedProductsCarousel from '@/components/home/FeaturedProductsCarousel';
+import AboutSection from '@/components/home/AboutSection';
 
 export default function Home() {
   return (
