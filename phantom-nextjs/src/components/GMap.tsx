@@ -11,7 +11,7 @@
 
 "use client";
 
-const MAP_EMBED_URL = "https://maps.google.com/maps?q=28.46705%2C77.30418&t=m&z=18&output=embed&iwloc=near&hl=en";
+const MAP_EMBED_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23594.600297204677!2d77.29099839249344!3d28.46875377374462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce746b47731c5%3A0x696a695f7e4c3ded!2sPhantom%20Healthcare%20Pvt%20Ltd.!5e0!3m2!1sen!2sin!4v1663418936010!5m2!1sen!2sin";
 
 export default function GMap() {
   // Updated map center (Nov 26, 2025) so the Phantom Healthcare marker is visible without scrolling.
