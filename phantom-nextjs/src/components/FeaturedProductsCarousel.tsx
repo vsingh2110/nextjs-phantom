@@ -60,7 +60,7 @@ const ProductCard = React.memo(({ product }: { product: typeof PRODUCTS[0] }) =>
         src={product.image}
         alt={product.title}
         fill
-        className="object-contain p-2 md:p-3"
+        className="object-contain p-4 md:p-5"
         sizes="(max-width: 768px) 95vw, 350px"
         onLoad={(e) => {
           const img = e.currentTarget;

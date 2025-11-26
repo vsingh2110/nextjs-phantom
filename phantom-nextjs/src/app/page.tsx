@@ -171,12 +171,12 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {/* MRI Coils */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-gray-100 text-center flex flex-col h-full">
-              <div className="relative w-full aspect-square flex justify-center items-center bg-white">
+              <div className="relative w-full aspect-[4/3] flex justify-center items-center bg-white">
                 <Image
                   src="/images/machines/spare parts/Brain coil.png"
                   alt="MRI Coils"
                   fill
-                  className="object-contain p-2"
+                  className="object-contain p-6"
                 />
                 <span style={{
                   position: 'absolute',
@@ -199,7 +199,7 @@ export default function Home() {
                   Available
                 </span>
               </div>
-              <div className="p-6 flex flex-col flex-1 items-center justify-between">
+              <div className="p-5 flex flex-col flex-1 items-center justify-between">
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">MRI Coils</h3>
                   <p className="text-gray-600 mb-4 text-sm">
@@ -220,12 +220,12 @@ export default function Home() {
 
             {/* Cold Head MRI Machine */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-gray-100 text-center flex flex-col h-full">
-              <div className="relative w-full aspect-square flex justify-center items-center bg-white">
+              <div className="relative w-full aspect-[4/3] flex justify-center items-center bg-white">
                 <Image
                   src="/images/machines/spare parts/cold head.png"
                   alt="Cold Head MRI Machine"
                   fill
-                  className="object-contain p-2"
+                  className="object-contain p-6"
                 />
                 <span style={{
                   position: 'absolute',
@@ -248,7 +248,7 @@ export default function Home() {
                   Available
                 </span>
               </div>
-              <div className="p-6 flex flex-col flex-1 items-center justify-between">
+              <div className="p-5 flex flex-col flex-1 items-center justify-between">
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">Cold Head MRI Machine</h3>
                   <p className="text-gray-600 mb-4 text-sm">
@@ -269,12 +269,12 @@ export default function Home() {
 
             {/* MHU Tube - CT Scanner */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-gray-100 text-center flex flex-col h-full">
-              <div className="relative w-full aspect-square flex justify-center items-center bg-white">
+              <div className="relative w-full aspect-[4/3] flex justify-center items-center bg-white">
                 <Image
                   src="/images/machines/spare parts/MHU Tube.png"
                   alt="MHU Tube - CT Scanner"
                   fill
-                  className="object-contain p-2"
+                  className="object-contain p-6"
                 />
                 <span style={{
                   position: 'absolute',
@@ -297,7 +297,7 @@ export default function Home() {
                   Available
                 </span>
               </div>
-              <div className="p-6 flex flex-col flex-1 items-center justify-between">
+              <div className="p-5 flex flex-col flex-1 items-center justify-between">
                 <div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">MHU Tube - CT Scanner</h3>
                   <p className="text-gray-600 mb-4 text-sm">
