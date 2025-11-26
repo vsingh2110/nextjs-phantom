@@ -11,10 +11,10 @@
 
 "use client";
 
-const MAP_EMBED_URL = "https://maps.google.com/maps?q=Phantom+Healthcare+IND+Private+Limited+Faridabad&t=m&z=14&output=embed&iwloc=near";
+const MAP_EMBED_URL = "https://maps.google.com/maps?q=loc:28.4663696,77.3032972+(Phantom+Healthcare+IND+Private+Limited)&t=m&z=14&output=embed&iwloc=near";
 
 export default function GMap() {
-  // Updated map center (Nov 26, 2025) to use name-based query for accurate centering on the business location.
+  // Updated map center (Nov 26, 2025) using exact coordinates and label to force correct centering.
   return (
     <div className="w-full h-full rounded-lg overflow-hidden shadow-lg bg-gray-100">
       <iframe 
