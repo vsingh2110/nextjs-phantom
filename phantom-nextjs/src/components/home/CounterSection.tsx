@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useRef, useEffect, useState } from "react";
-import MobileHorizontalCounterSection from './MobileHorizontalCounterSection';
-import VerticalMobileCounter from './VerticalMobileCounter';
+import MobileHorizontalCounterSection from '../layout/MobileHorizontalCounterSection';
+import VerticalMobileCounter from '../layout/VerticalMobileCounter';
 
 /**
  * COUNTER SECTION COMPONENT (MODERN CARD STYLE)

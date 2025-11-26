@@ -60,7 +60,7 @@ import Image from 'next/image'
 import dynamic from 'next/dynamic'
 
 // Dynamically import GMap to ensure it only runs in the browser
-const GMap = dynamic(() => import('./GMap'), { ssr: false })
+const GMap = dynamic(() => import('../features/GMap'), { ssr: false })
 
 export default function Footer() {
   return (
