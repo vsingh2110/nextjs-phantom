@@ -11,10 +11,10 @@
 
 "use client";
 
-const MAP_EMBED_URL = "https://maps.google.com/maps?cid=7595999580375498221&ll=28.4663696,77.3032972&z=16&output=embed";
+const MAP_EMBED_URL = "https://maps.google.com/maps?q=28.4663696,77.3032972+(Phantom+Healthcare+IND+Private+Limited)&z=15&output=embed";
 
 export default function GMap() {
-  // Updated map center (Nov 27, 2025) - Using the specific CID (Customer ID) combined with the 'll' parameter. This forces the map to load the specific business entity (fixing the title) while explicitly centering the camera on the correct coordinates (fixing the frame).
+  // Updated map center (Nov 27, 2025) - Using the 'q=Lat,Lon+(Name)' format WITHOUT the 'loc:' prefix. This is the standard method to force the map to center on specific coordinates while displaying a custom title in the info window.
   return (
     <div className="w-full h-full rounded-lg overflow-hidden shadow-lg bg-gray-100">
       <iframe 
