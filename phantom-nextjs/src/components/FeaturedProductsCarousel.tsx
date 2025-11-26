@@ -54,7 +54,7 @@ const PRODUCTS = [
 ];
 
 const ProductCard = React.memo(({ product }: { product: typeof PRODUCTS[0] }) => (
-  <div className="bg-white rounded-2xl shadow-2xl overflow-hidden card-hover flex flex-col min-h-80 md:min-h-[22rem] lg:min-h-[26rem] h-auto w-full max-w-full">
+  <div className="bg-white rounded-2xl shadow-2xl overflow-hidden hover:scale-105 hover:shadow-2xl transition-all duration-300 flex flex-col min-h-80 md:min-h-[22rem] lg:min-h-[26rem] h-auto w-full max-w-full">
     <div className="relative w-full aspect-[4/3] flex justify-center items-center bg-white">
       <Image
         src={product.image}

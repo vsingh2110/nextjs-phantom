@@ -111,30 +111,30 @@ export default function Home() {
 
       {/* What We Do Section */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">
             What We Do
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-white rounded-xl p-8 shadow-lg card-hover text-center">
+            <div className="bg-white rounded-xl p-8 shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 text-center">
               <Image src="/images/hand.png" alt="Sales & Supply" width={64} height={64} className="mx-auto mb-6" />
               <h3 className="text-xl font-bold text-gray-900 mb-4">Sales & Supply with transparent deals​</h3>
               <p className="text-gray-600">Buy New as well as refurbished equipment from a wide range of models</p>
             </div>
 
-            <div className="bg-white rounded-xl p-8 shadow-lg card-hover text-center">
+            <div className="bg-white rounded-xl p-8 shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 text-center">
               <Image src="/images/up.png" alt="Upgrade" width={64} height={64} className="mx-auto mb-6" />
               <h3 className="text-xl font-bold text-gray-900 mb-4">Upgrade your existing MRI and CT Machine​</h3>
               <p className="text-gray-600">We have one of the largest inventory of spare parts for upgrades and repairs</p>
             </div>
 
-            <div className="bg-white rounded-xl p-8 shadow-lg card-hover text-center">
+            <div className="bg-white rounded-xl p-8 shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 text-center">
               <Image src="/images/service.jpg" alt="Service Maintenance" width={64} height={64} className="mx-auto mb-6 object-cover rounded-lg" />
               <h3 className="text-xl font-bold text-gray-900 mb-4">Service Maintenance Plans All over India​​</h3>
               <p className="text-gray-600">Our field engineers are present all over India for instant troubleshooting.</p>
             </div>
 
-            <div className="bg-white rounded-xl p-8 shadow-lg card-hover text-center">
+            <div className="bg-white rounded-xl p-8 shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 text-center">
               <Image src="/images/site.png" alt="Site Planning" width={64} height={64} className="mx-auto mb-6" />
               <h3 className="text-xl font-bold text-gray-900 mb-4">Site Planning with full financial assistance​</h3>
               <p className="text-gray-600">We provide full support and guidance from site planning with financial assistance.</p>
@@ -164,30 +164,48 @@ export default function Home() {
 
       {/* Featured Spare Parts Section */}
       <section className="py-16 lg:py-24 bg-white antialiased">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">
             Featured Spare Parts
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {/* MRI Coils */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 xl:min-w-[17rem] xl:max-w-[19rem] 2xl:min-w-[19rem] 2xl:max-w-[22rem] flex flex-col justify-start items-center">
-              <div className="relative">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-gray-100 text-center flex flex-col h-full">
+              <div className="relative w-full aspect-[4/3] flex justify-center items-center bg-white">
                 <Image
                   src="/images/machines/spare parts/Brain coil.png"
                   alt="MRI Coils"
-                  width={400}
-                  height={300}
-                  className="w-full h-48 sm:h-56 object-cover"
+                  fill
+                  className="object-contain p-4"
                 />
-                <span className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                <span style={{
+                  position: 'absolute',
+                  top: '14px',
+                  left: '10px',
+                  zIndex: 10,
+                  display: 'inline-block',
+                  padding: '0.18em 1.2em',
+                  fontSize: '0.92rem',
+                  fontWeight: 600,
+                  color: '#fff',
+                  background: '#59913d',
+                  borderRadius: '0.35em',
+                  boxShadow: '0 1px 4px rgba(0,0,0,0.08)',
+                  transform: 'rotate(-18deg)',
+                  letterSpacing: '0.2px',
+                  textShadow: '0 1px 2px #0001',
+                  opacity: 0.93
+                }}>
                   Available
                 </span>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">MRI Coils</h3>
-                <p className="text-gray-600 mb-4 text-sm">
-                  High-quality MRI coils for enhanced imaging performance and patient comfort.
-                </p>
+              <div className="p-6 flex flex-col flex-1 items-center justify-between">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">MRI Coils</h3>
+                  <p className="text-gray-600 mb-4 text-sm">
+                    High-quality MRI coils for enhanced imaging performance and patient comfort.
+                  </p>
+                </div>
                 <Link 
                   href="https://phantomhealthcare.shop/" 
                   className="inline-flex items-center px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-all duration-300 text-sm"
@@ -201,24 +219,42 @@ export default function Home() {
             </div>
 
             {/* Cold Head MRI Machine */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 xl:min-w-[17rem] xl:max-w-[19rem] 2xl:min-w-[19rem] 2xl:max-w-[22rem] flex flex-col justify-start items-center">
-              <div className="relative">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-gray-100 text-center flex flex-col h-full">
+              <div className="relative w-full aspect-[4/3] flex justify-center items-center bg-white">
                 <Image
                   src="/images/machines/spare parts/cold head.png"
                   alt="Cold Head MRI Machine"
-                  width={400}
-                  height={300}
-                  className="w-full h-48 sm:h-56 object-cover"
+                  fill
+                  className="object-contain p-4"
                 />
-                <span className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                <span style={{
+                  position: 'absolute',
+                  top: '14px',
+                  left: '10px',
+                  zIndex: 10,
+                  display: 'inline-block',
+                  padding: '0.18em 1.2em',
+                  fontSize: '0.92rem',
+                  fontWeight: 600,
+                  color: '#fff',
+                  background: '#59913d',
+                  borderRadius: '0.35em',
+                  boxShadow: '0 1px 4px rgba(0,0,0,0.08)',
+                  transform: 'rotate(-18deg)',
+                  letterSpacing: '0.2px',
+                  textShadow: '0 1px 2px #0001',
+                  opacity: 0.93
+                }}>
                   Available
                 </span>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Cold Head MRI Machine</h3>
-                <p className="text-gray-600 mb-4 text-sm">
-                  Essential cold head components for MRI machine cooling systems and helium management.
-                </p>
+              <div className="p-6 flex flex-col flex-1 items-center justify-between">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">Cold Head MRI Machine</h3>
+                  <p className="text-gray-600 mb-4 text-sm">
+                    Essential cold head components for MRI machine cooling systems and helium management.
+                  </p>
+                </div>
                 <Link 
                   href="https://phantomhealthcare.shop/" 
                   className="inline-flex items-center px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-all duration-300 text-sm"
@@ -232,24 +268,42 @@ export default function Home() {
             </div>
 
             {/* MHU Tube - CT Scanner */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-8 2xl:p-10 3xl:p-12 xl:min-w-[17rem] xl:max-w-[19rem] 2xl:min-w-[19rem] 2xl:max-w-[22rem] flex flex-col justify-start items-center">
-              <div className="relative">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-gray-100 text-center flex flex-col h-full">
+              <div className="relative w-full aspect-[4/3] flex justify-center items-center bg-white">
                 <Image
                   src="/images/machines/spare parts/MHU Tube.png"
                   alt="MHU Tube - CT Scanner"
-                  width={400}
-                  height={300}
-                  className="w-full h-48 sm:h-56 object-cover"
+                  fill
+                  className="object-contain p-4"
                 />
-                <span className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                <span style={{
+                  position: 'absolute',
+                  top: '14px',
+                  left: '10px',
+                  zIndex: 10,
+                  display: 'inline-block',
+                  padding: '0.18em 1.2em',
+                  fontSize: '0.92rem',
+                  fontWeight: 600,
+                  color: '#fff',
+                  background: '#59913d',
+                  borderRadius: '0.35em',
+                  boxShadow: '0 1px 4px rgba(0,0,0,0.08)',
+                  transform: 'rotate(-18deg)',
+                  letterSpacing: '0.2px',
+                  textShadow: '0 1px 2px #0001',
+                  opacity: 0.93
+                }}>
                   Available
                 </span>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">MHU Tube - CT Scanner</h3>
-                <p className="text-gray-600 mb-4 text-sm">
-                  High-performance MHU tubes for CT scanners ensuring optimal imaging quality and durability.
-                </p>
+              <div className="p-6 flex flex-col flex-1 items-center justify-between">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">MHU Tube - CT Scanner</h3>
+                  <p className="text-gray-600 mb-4 text-sm">
+                    High-performance MHU tubes for CT scanners ensuring optimal imaging quality and durability.
+                  </p>
+                </div>
                 <Link 
                   href="https://phantomhealthcare.shop/" 
                   className="inline-flex items-center px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-lg transition-all duration-300 text-sm"
@@ -267,7 +321,7 @@ export default function Home() {
 
       {/* All Products Section */}
       <section className="py-16 lg:py-24 bg-gradient-to-br from-primary-50 to-secondary-50 antialiased">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">
             All Products
           </h2>
@@ -276,7 +330,7 @@ export default function Home() {
             <div className="group">
               <Link 
                 href="#" 
-                className="block w-full bg-white hover:bg-primary-600 text-gray-900 hover:text-white font-semibold py-4 px-3 sm:px-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center text-sm sm:text-base border border-gray-200"
+                className="block w-full bg-white hover:bg-primary-600 text-gray-900 hover:text-white font-semibold py-4 px-3 sm:px-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl text-center text-sm sm:text-base border border-gray-200"
               >
                 GE MRI
               </Link>
@@ -286,7 +340,7 @@ export default function Home() {
             <div className="group">
               <Link 
                 href="#" 
-                className="block w-full bg-white hover:bg-primary-600 text-gray-900 hover:text-white font-semibold py-4 px-3 sm:px-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center text-sm sm:text-base border border-gray-200"
+                className="block w-full bg-white hover:bg-primary-600 text-gray-900 hover:text-white font-semibold py-4 px-3 sm:px-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl text-center text-sm sm:text-base border border-gray-200"
               >
                 Siemens MRI
               </Link>
@@ -296,7 +350,7 @@ export default function Home() {
             <div className="group">
               <Link 
                 href="#" 
-                className="block w-full bg-white hover:bg-primary-600 text-gray-900 hover:text-white font-semibold py-4 px-3 sm:px-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center text-sm sm:text-base border border-gray-200"
+                className="block w-full bg-white hover:bg-primary-600 text-gray-900 hover:text-white font-semibold py-4 px-3 sm:px-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl text-center text-sm sm:text-base border border-gray-200"
               >
                 CT
               </Link>
@@ -306,7 +360,7 @@ export default function Home() {
             <div className="group">
               <Link 
                 href="#" 
-                className="block w-full bg-white hover:bg-primary-600 text-gray-900 hover:text-white font-semibold py-4 px-3 sm:px-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center text-sm sm:text-base border border-gray-200"
+                className="block w-full bg-white hover:bg-primary-600 text-gray-900 hover:text-white font-semibold py-4 px-3 sm:px-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl text-center text-sm sm:text-base border border-gray-200"
               >
                 Cath-Lab
               </Link>
@@ -316,7 +370,7 @@ export default function Home() {
             <div className="group">
               <Link 
                 href="#" 
-                className="block w-full bg-white hover:bg-primary-600 text-gray-900 hover:text-white font-semibold py-4 px-3 sm:px-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center text-sm sm:text-base border border-gray-200"
+                className="block w-full bg-white hover:bg-primary-600 text-gray-900 hover:text-white font-semibold py-4 px-3 sm:px-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl text-center text-sm sm:text-base border border-gray-200"
               >
                 PET-CT
               </Link>
@@ -326,7 +380,7 @@ export default function Home() {
             <div className="group">
               <Link 
                 href="#" 
-                className="block w-full bg-white hover:bg-primary-600 text-gray-900 hover:text-white font-semibold py-4 px-3 sm:px-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center text-sm sm:text-base border border-gray-200"
+                className="block w-full bg-white hover:bg-primary-600 text-gray-900 hover:text-white font-semibold py-4 px-3 sm:px-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl text-center text-sm sm:text-base border border-gray-200"
               >
                 Gamma Camera SPECT
               </Link>
@@ -336,7 +390,7 @@ export default function Home() {
             <div className="group">
               <Link 
                 href="#" 
-                className="block w-full bg-white hover:bg-primary-600 text-gray-900 hover:text-white font-semibold py-4 px-3 sm:px-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center text-sm sm:text-base border border-gray-200"
+                className="block w-full bg-white hover:bg-primary-600 text-gray-900 hover:text-white font-semibold py-4 px-3 sm:px-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl text-center text-sm sm:text-base border border-gray-200"
               >
                 Bone Densitometer
               </Link>
@@ -346,7 +400,7 @@ export default function Home() {
             <div className="group">
               <Link 
                 href="https://phantomhealthcare.shop/" 
-                className="block w-full bg-white hover:bg-secondary-600 text-gray-900 hover:text-white font-semibold py-4 px-3 sm:px-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center text-sm sm:text-base border border-gray-200"
+                className="block w-full bg-white hover:bg-secondary-600 text-gray-900 hover:text-white font-semibold py-4 px-3 sm:px-4 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-2xl text-center text-sm sm:text-base border border-gray-200"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -365,7 +419,7 @@ export default function Home() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-4 2xl:gap-10 3xl:gap-16 place-content-center">
             {/* 15+ Years of Experience */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-4 2xl:p-8 3xl:p-12 w-full flex flex-col justify-center items-center min-h-[340px] max-w-full xl:max-w-[320px] 2xl:aspect-square 3xl:aspect-square">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-gray-100 text-center p-6 xl:p-4 2xl:p-8 3xl:p-12 w-full flex flex-col justify-center items-center min-h-[340px] max-w-full xl:max-w-[320px] 2xl:aspect-square 3xl:aspect-square">
               <div className="mb-6 p-4 flex items-center justify-center">
                 <Image
                   src="/images/15.jpg"
@@ -384,7 +438,7 @@ export default function Home() {
             </div>
 
             {/* 24*7 Service & Support */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-4 2xl:p-8 3xl:p-12 w-full flex flex-col justify-center items-center min-h-[340px] max-w-full xl:max-w-[320px] 2xl:aspect-square 3xl:aspect-square">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-gray-100 text-center p-6 xl:p-4 2xl:p-8 3xl:p-12 w-full flex flex-col justify-center items-center min-h-[340px] max-w-full xl:max-w-[320px] 2xl:aspect-square 3xl:aspect-square">
               <div className="mb-6 p-4 flex items-center justify-center">
                 <Image
                   src="/images/24.jpg"
@@ -401,7 +455,7 @@ export default function Home() {
             </div>
 
             {/* Best Quality AERB Approved */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-4 2xl:p-8 3xl:p-12 w-full flex flex-col justify-center items-center min-h-[340px] max-w-full xl:max-w-[320px] 2xl:aspect-square 3xl:aspect-square">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-gray-100 text-center p-6 xl:p-4 2xl:p-8 3xl:p-12 w-full flex flex-col justify-center items-center min-h-[340px] max-w-full xl:max-w-[320px] 2xl:aspect-square 3xl:aspect-square">
               <div className="mb-6 p-4 flex items-center justify-center">
                 <Image
                   src="/images/best.jpg"
@@ -420,7 +474,7 @@ export default function Home() {
             </div>
 
             {/* Skilled Professional */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 text-center p-6 xl:p-4 2xl:p-8 3xl:p-12 w-full flex flex-col justify-center items-center min-h-[340px] max-w-full xl:max-w-[320px] 2xl:aspect-square 3xl:aspect-square">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-gray-100 text-center p-6 xl:p-4 2xl:p-8 3xl:p-12 w-full flex flex-col justify-center items-center min-h-[340px] max-w-full xl:max-w-[320px] 2xl:aspect-square 3xl:aspect-square">
               <div className="mb-6 p-4 flex items-center justify-center">
                 <Image
                   src="/images/skill.jpg"
