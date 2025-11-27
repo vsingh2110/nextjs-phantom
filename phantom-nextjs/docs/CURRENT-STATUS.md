@@ -15,12 +15,15 @@
 **Recent Achievements:**
 - **Component Reorganization:** Moved all components from the flat `src/components` folder into logical subdirectories (`layout`, `home`, `ui`, `features`, `scripts`) to improve maintainability and follow React/Next.js best practices.
 - **Page Structure Creation:** Replicated the full URL structure of the legacy static site within `src/app`. Created folders for all product categories (e.g., `product-pages/mri-scanner-machines`) and service pages.
+- **City Pages (India SEO):** Created `src/app/locations/` for Indiamart-style city pages (e.g., `/locations/mumbai`, `/locations/mumbai/mri`). These are shallow directory pages for SEO.
+- **International Sites:** Created `src/app/[lang]/` for complete international websites (e.g., `/en-us/`, `/en-ae/`). Each has its own products, services, and city pages.
 - **Placeholder Pages:** Generated `page.tsx` files for all 50+ planned pages with minimal "Content Coming Soon" placeholders to establish the routing structure without cluttering the codebase with dummy content.
-- **Documentation Update:** Created detailed documentation (`docs/dev-notes/2025-11-27-structure-refactor-and-expansion-plan.md`) explaining the new structure, the logic behind it (Products vs. Blogs hierarchy), and the future internationalization plan.
+- **Documentation Update:** Created `docs/international-plan/2025-11-27-FINAL-ARCHITECTURE.md` explaining the three-layer structure (Main Site + City Pages + International Sites).
 
 **Remaining Issues (Fine Tuning):**
 - **Content Migration:** The newly created pages are empty. We need to migrate the actual content from the static HTML files.
 - **Template Development:** Need to create reusable templates for Product Categories and Service Pages to ensure consistency.
+- **Middleware Configuration:** Need to configure `middleware.ts` for geo-based redirection to international sites.
 
 ---
 
@@ -58,6 +61,8 @@
 - [x] SEO meta tags
 - [x] Performance optimization (bundle analyzer)
 - [x] **New Folder Structure** (Clean separation of concerns)
+- [x] **City Pages for India** (`/locations/[city]/[category]`)
+- [x] **International Sites** (`/[lang]/` for US, UAE, UK, AU, FR)
 
 ---
 
@@ -66,6 +71,8 @@
 ### **Migration Tasks:**
 - [ ] **Migrate content for Product Pages** (currently placeholders)
 - [ ] **Migrate content for Service Pages** (currently placeholders)
+- [ ] **Add city data** to location pages (currently using sample list)
+- [ ] **Configure geo-redirection** in middleware.ts
 - [ ] Blog system implementation
 - [ ] Events & News section
 - [ ] FAQs page
@@ -91,6 +98,12 @@
 - ⚠️ Font Awesome loading could be optimized (bundle vs CDN)
 
 ### **Recently Resolved:**
+- ✅ **Deep Product Structure:** Created spec-level folders (16/32/64/128-slice CT, 1.5T/3.0T MRI) with individual model pages (Nov 27, 2025)
+- ✅ **Deep Service Structure:** Created brand-specific AMC pages (GE/Siemens MRI/CT AMC) (Nov 27, 2025)
+- ✅ **Missing Pages:** Created privacy-policy, terms, faqs, customer-feedback, events-news, sell-equipment, spare-parts, sitemap (Nov 27, 2025)
+- ✅ **SEO Files:** Created robots.txt and sitemap.xml in public/ folder (Nov 27, 2025)
+- ✅ **City Pages Structure:** Created `/locations/[city]/[category]` for India SEO (Nov 27, 2025)
+- ✅ **International Structure:** Created `/[lang]/` for complete international sites (Nov 27, 2025)
 - ✅ **Component Clutter:** Fixed by reorganizing into subfolders (Nov 27, 2025)
 - ✅ **Missing Routes:** Fixed by creating file structure for all products/services (Nov 27, 2025)
 - ✅ Hero slider text styling & animations (Nov 22, 2025)
@@ -110,12 +123,14 @@
 | Services Overview | ✅ | ✅ | Complete |
 | Contact | ✅ | ✅ | Complete |
 | Blogs | ✅ | 🚧 | In Progress |
-| Customer Feedback | ✅ | 🚧 | In Progress |
-| Events & News | ✅ | ⏳ | Planned |
-| FAQs | ✅ | ⏳ | Planned |
-| Privacy Policy | ✅ | ⏳ | Planned |
-| Terms & Conditions | ✅ | ⏳ | Planned |
-| Sitemap | ✅ | ⏳ | Planned |
+| Customer Feedback | ✅ | ✅ | **Structure Ready** |
+| Events & News | ✅ | ✅ | **Structure Ready** |
+| FAQs | ✅ | ✅ | **Structure Ready** |
+| Privacy Policy | ✅ | ✅ | **Structure Ready** |
+| Terms & Conditions | ✅ | ✅ | **Structure Ready** |
+| Sell Your Equipment | ✅ | ✅ | **Structure Ready** |
+| Spare Parts & Inventory | ✅ | ✅ | **Structure Ready** |
+| Sitemap (HTML) | ✅ | ✅ | **Structure Ready** |
 
 ### **Product Pages Status:**
 - Brand New CT Scan: 🚧 Structure Ready (Empty)
@@ -130,6 +145,14 @@
 - Bone Densitometer DEXA: 🚧 Structure Ready (Empty)
 - Cath Lab Machines: 🚧 Structure Ready (Empty)
 
+**NEW - Deep Product Structure (Nov 27, 2025):**
+- 16-slice CT (GE BrightSpeed, Siemens Emotion): ✅ Structure Created
+- 32-slice CT (GE Optima, Siemens Go.Top): ✅ Structure Created
+- 64-slice CT (GE Revolution, Siemens Definition): ✅ Structure Created
+- 128-slice CT (GE Revolution Frontier, Siemens Force): ✅ Structure Created
+- 1.5T MRI (GE Signa HDxt, Siemens Avanto): ✅ Structure Created
+- 3.0T MRI (GE Discovery MR750, Siemens Vida): ✅ Structure Created
+
 ### **Service Pages Status:**
 - AMC/CMC for CT Scanner: 🚧 Structure Ready (Empty)
 - AMC/CMC for MRI Scanner: 🚧 Structure Ready (Empty)
@@ -138,7 +161,13 @@
 - MRI Deinstallation & Reinstallation: 🚧 Structure Ready (Empty)
 - MRI Helium Filling: 🚧 Structure Ready (Empty)
 
-**Overall Migration Progress:** ~45% complete (Structure is 90%, Content is 40%)
+**NEW - Brand-Specific AMC Pages (Nov 27, 2025):**
+- GE MRI AMC: ✅ Structure Created
+- Siemens MRI AMC: ✅ Structure Created
+- GE CT AMC: ✅ Structure Created
+- Siemens CT AMC: ✅ Structure Created
+
+**Overall Migration Progress:** ~55% complete (Structure is 95%, Content is 40%)
 
 ---
 
