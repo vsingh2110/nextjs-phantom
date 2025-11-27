@@ -100,12 +100,12 @@ export default function Footer() {
 
         {/* Map & Social */}
         <div className="w-full md:w-1/3 px-0 py-4 flex flex-col items-center">
-          {/* Map container - vertical rectangle like original site */}
-          <div className="relative w-full h-80 rounded-xl overflow-hidden bg-white shadow-2xl ring-2 ring-white/30 mb-4">
+          {/* Map container - vertical rectangle like original site - hidden on very small screens to prevent overlap */}
+          <div className="relative w-full h-48 sm:h-64 md:h-80 rounded-xl overflow-hidden bg-white shadow-2xl ring-2 ring-white/30 mb-4">
             {/* Interactive Google Map with controlled center/marker */}
             <GMap />
           </div>
-          <div className="flex gap-3 flex-wrap justify-center">
+          <div className="flex gap-2 sm:gap-3 flex-wrap justify-center">
             {[
               {href:'https://twitter.com/Phantomhealthc', icon:'fa-twitter'},
               {href:'https://wa.me/919899963601', icon:'fa-whatsapp'},
@@ -115,7 +115,7 @@ export default function Footer() {
               {href:'https://www.pinterest.com/phantomhealthcare/', icon:'fa-pinterest'},
               {href:'https://in.linkedin.com/company/phantom-healthcare-ind-private-limited-company', icon:'fa-linkedin'}
             ].map(s=>(
-              <a key={s.icon} href={s.href} target="_blank" rel="noopener noreferrer" className="w-7 h-7 rounded-full bg-white bg-opacity-20 hover:bg-opacity-40 flex items-center justify-center text-[0.7rem]">
+              <a key={s.icon} href={s.href} target="_blank" rel="noopener noreferrer" className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white bg-opacity-20 hover:bg-opacity-40 flex items-center justify-center text-[0.6rem] sm:text-[0.7rem]">
                 <i className={`fa ${s.icon}`}></i>
               </a>
             ))}

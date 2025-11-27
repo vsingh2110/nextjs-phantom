@@ -175,10 +175,17 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Regional Offices Section */}
-      <section className="py-10 sm:py-14 md:py-16 lg:py-20 bg-gray-100 relative overflow-hidden">
-        {/* World Map Background - Matching Static Site Style */}
-        <div className="absolute inset-0 opacity-[0.15] bg-[url('/images/world-map-3.png')] bg-center bg-no-repeat bg-cover"></div>
+      {/* Regional Offices Section with World Map Background */}
+      <section 
+        className="py-10 sm:py-14 md:py-16 lg:py-20 relative"
+        style={{
+          backgroundImage: "url('/images/world-map-3.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundColor: '#e5e7eb' // gray-200 as fallback
+        }}
+      >
         <div className="relative w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-8 sm:mb-10 md:mb-12">
             Our Global Presence
@@ -319,18 +326,16 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Full Width Map - Added margin bottom to prevent footer overlap */}
-      <section className="w-full mb-0">
-        <div className="w-full h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[70vh] min-h-[250px] max-h-[500px]">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23594.600297204677!2d77.29099839249344!3d28.46875377374462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce746b47731c5%3A0x696a695f7e4c3ded!2sPhantom%20Healthcare%20Pvt%20Ltd.!5e0!3m2!1sen!2sin!4v1663418936010!5m2!1sen!2sin"
-            className="w-full h-full border-0"
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Phantom Healthcare Location - India Headquarters"
-          />
-        </div>
+      {/* Full Width Google Map - Like Static Site */}
+      <section className="w-full h-[50vh] min-h-[300px] max-h-[450px]">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23594.600297204677!2d77.29099839249344!3d28.46875377374462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce746b47731c5%3A0x696a695f7e4c3ded!2sPhantom%20Healthcare%20Pvt%20Ltd.!5e0!3m2!1sen!2sin!4v1663418936010!5m2!1sen!2sin"
+          className="w-full h-full border-0"
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Phantom Healthcare Location - India Headquarters"
+        />
       </section>
 
     </main>
