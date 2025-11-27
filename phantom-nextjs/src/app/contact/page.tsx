@@ -121,41 +121,41 @@ export default function Contact() {
               {/* Social Links */}
               <div className="mt-8 pt-6 border-t border-gray-200">
                 <h3 className="font-semibold text-gray-900 text-sm sm:text-base mb-4">Follow Us</h3>
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-2 sm:gap-3">
                   <a href="https://wa.me/+919899963601" target="_blank" rel="noopener noreferrer" 
-                     className="w-10 h-10 sm:w-11 sm:h-11 bg-green-500 hover:bg-green-600 text-white rounded-full flex items-center justify-center transition-all hover:scale-110"
+                     className="w-8 h-8 sm:w-10 sm:h-10 md:w-11 md:h-11 bg-green-500 hover:bg-green-600 text-white rounded-full flex items-center justify-center transition-all hover:scale-110"
                      aria-label="WhatsApp">
-                    <i className="fa-brands fa-whatsapp text-lg"></i>
+                    <i className="fa-brands fa-whatsapp text-sm sm:text-base md:text-lg"></i>
                   </a>
                   <a href="https://www.facebook.com/phantom.healthcare.ind" target="_blank" rel="noopener noreferrer" 
-                     className="w-10 h-10 sm:w-11 sm:h-11 bg-blue-600 hover:bg-blue-700 text-white rounded-full flex items-center justify-center transition-all hover:scale-110"
+                     className="w-8 h-8 sm:w-10 sm:h-10 md:w-11 md:h-11 bg-blue-600 hover:bg-blue-700 text-white rounded-full flex items-center justify-center transition-all hover:scale-110"
                      aria-label="Facebook">
-                    <i className="fa-brands fa-facebook-f text-lg"></i>
+                    <i className="fa-brands fa-facebook-f text-sm sm:text-base md:text-lg"></i>
                   </a>
                   <a href="https://www.instagram.com/phantomhealthcare/" target="_blank" rel="noopener noreferrer" 
-                     className="w-10 h-10 sm:w-11 sm:h-11 bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 hover:from-purple-700 hover:via-pink-600 hover:to-orange-500 text-white rounded-full flex items-center justify-center transition-all hover:scale-110"
+                     className="w-8 h-8 sm:w-10 sm:h-10 md:w-11 md:h-11 bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 hover:from-purple-700 hover:via-pink-600 hover:to-orange-500 text-white rounded-full flex items-center justify-center transition-all hover:scale-110"
                      aria-label="Instagram">
-                    <i className="fa-brands fa-instagram text-lg"></i>
+                    <i className="fa-brands fa-instagram text-sm sm:text-base md:text-lg"></i>
                   </a>
                   <a href="https://in.linkedin.com/company/phantom-healthcare-ind-private-limited-company" target="_blank" rel="noopener noreferrer" 
-                     className="w-10 h-10 sm:w-11 sm:h-11 bg-blue-700 hover:bg-blue-800 text-white rounded-full flex items-center justify-center transition-all hover:scale-110"
+                     className="w-8 h-8 sm:w-10 sm:h-10 md:w-11 md:h-11 bg-blue-700 hover:bg-blue-800 text-white rounded-full flex items-center justify-center transition-all hover:scale-110"
                      aria-label="LinkedIn">
-                    <i className="fa-brands fa-linkedin-in text-lg"></i>
+                    <i className="fa-brands fa-linkedin-in text-sm sm:text-base md:text-lg"></i>
                   </a>
                   <a href="https://www.youtube.com/@phantomhealthcare" target="_blank" rel="noopener noreferrer" 
-                     className="w-10 h-10 sm:w-11 sm:h-11 bg-red-600 hover:bg-red-700 text-white rounded-full flex items-center justify-center transition-all hover:scale-110"
+                     className="w-8 h-8 sm:w-10 sm:h-10 md:w-11 md:h-11 bg-red-600 hover:bg-red-700 text-white rounded-full flex items-center justify-center transition-all hover:scale-110"
                      aria-label="YouTube">
-                    <i className="fa-brands fa-youtube text-lg"></i>
+                    <i className="fa-brands fa-youtube text-sm sm:text-base md:text-lg"></i>
                   </a>
                   <a href="https://twitter.com/Phantomhealthc" target="_blank" rel="noopener noreferrer" 
-                     className="w-10 h-10 sm:w-11 sm:h-11 bg-gray-900 hover:bg-black text-white rounded-full flex items-center justify-center transition-all hover:scale-110"
+                     className="w-8 h-8 sm:w-10 sm:h-10 md:w-11 md:h-11 bg-sky-500 hover:bg-sky-600 text-white rounded-full flex items-center justify-center transition-all hover:scale-110"
                      aria-label="Twitter/X">
-                    <i className="fa-brands fa-x-twitter text-lg"></i>
+                    <i className="fa-brands fa-twitter text-sm sm:text-base md:text-lg"></i>
                   </a>
                   <a href="https://goo.gl/maps/2fdRZT8hEBVK4cni9" target="_blank" rel="noopener noreferrer" 
-                     className="w-10 h-10 sm:w-11 sm:h-11 bg-primary-600 hover:bg-primary-700 text-white rounded-full flex items-center justify-center transition-all hover:scale-110"
+                     className="w-8 h-8 sm:w-10 sm:h-10 md:w-11 md:h-11 bg-primary-600 hover:bg-primary-700 text-white rounded-full flex items-center justify-center transition-all hover:scale-110"
                      aria-label="Google Maps">
-                    <i className="fa-solid fa-street-view text-lg"></i>
+                    <i className="fa-solid fa-location-dot text-sm sm:text-base md:text-lg"></i>
                   </a>
                 </div>
               </div>
@@ -176,9 +176,9 @@ export default function Contact() {
       </section>
 
       {/* Regional Offices Section */}
-      <section className="py-10 sm:py-14 md:py-16 lg:py-20 bg-white relative">
-        {/* World Map Background */}
-        <div className="absolute inset-0 opacity-5 bg-[url('/images/world-map.png')] bg-center bg-no-repeat bg-contain"></div>
+      <section className="py-10 sm:py-14 md:py-16 lg:py-20 bg-gray-100 relative overflow-hidden">
+        {/* World Map Background - Matching Static Site Style */}
+        <div className="absolute inset-0 opacity-[0.15] bg-[url('/images/world-map-3.png')] bg-center bg-no-repeat bg-cover"></div>
         <div className="relative w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-8 sm:mb-10 md:mb-12">
             Our Global Presence
@@ -319,9 +319,9 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Full Width Map */}
-      <section className="w-full">
-        <div className="w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] min-h-[300px] max-h-[600px]">
+      {/* Full Width Map - Added margin bottom to prevent footer overlap */}
+      <section className="w-full mb-0">
+        <div className="w-full h-[40vh] sm:h-[50vh] md:h-[60vh] lg:h-[70vh] min-h-[250px] max-h-[500px]">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23594.600297204677!2d77.29099839249344!3d28.46875377374462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce746b47731c5%3A0x696a695f7e4c3ded!2sPhantom%20Healthcare%20Pvt%20Ltd.!5e0!3m2!1sen!2sin!4v1663418936010!5m2!1sen!2sin"
             className="w-full h-full border-0"
