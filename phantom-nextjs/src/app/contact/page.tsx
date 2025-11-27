@@ -329,7 +329,7 @@ export default function Contact() {
       {/* Google Map Section - Simple box with margins */}
       <section className="py-8 sm:py-10 md:py-12 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto">
-          <div className="h-[300px] sm:h-[350px] md:h-[400px]">
+          <div className="h-[300px] sm:h-[350px] md:h-[400px] rounded-xl shadow-lg overflow-hidden">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23594.600297204677!2d77.29099839249344!3d28.46875377374462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce746b47731c5%3A0x696a695f7e4c3ded!2sPhantom%20Healthcare%20Pvt%20Ltd.!5e0!3m2!1sen!2sin!4v1663418936010!5m2!1sen!2sin"
               style={{ border: 0, width: '100%', height: '100%' }}
