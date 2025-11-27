@@ -204,124 +204,152 @@ export default function ContactForm({
       <form 
         id={formId}
         onSubmit={handleSubmit}
-        className={`contact-form ${className}`}
+        className={`space-y-4 sm:space-y-5 ${className}`}
       >
-        <div className="form-group">
+        {/* Name Field */}
+        <div className="space-y-1">
+          <label htmlFor="name" className="block text-xs sm:text-sm font-medium text-gray-700">
+            Name <span className="text-red-500">*</span>
+          </label>
           <input
             type="text"
             id="name"
             name="name"
             value={formData.name}
             onChange={handleInputChange}
-            placeholder="Your Name *"
-            className={errors.name ? 'error' : ''}
+            placeholder="Type your name"
+            className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent ${errors.name ? 'border-red-500 bg-red-50' : 'border-gray-300 hover:border-gray-400'} disabled:bg-gray-100 disabled:cursor-not-allowed`}
             disabled={isSubmitting}
           />
-          {errors.name && <span className="error-message">{errors.name}</span>}
+          {errors.name && <span className="text-xs sm:text-sm text-red-600">{errors.name}</span>}
         </div>
 
-        <div className="form-group">
+        {/* Phone Field */}
+        <div className="space-y-1">
+          <label htmlFor="phone" className="block text-xs sm:text-sm font-medium text-gray-700">
+            Phone <span className="text-red-500">*</span>
+          </label>
           <input
             type="tel"
             id="phone"
             name="phone"
             value={formData.phone}
             onChange={handleInputChange}
-            placeholder="Phone Number *"
-            className={errors.phone ? 'error' : ''}
+            placeholder="Type your phone number"
+            className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent ${errors.phone ? 'border-red-500 bg-red-50' : 'border-gray-300 hover:border-gray-400'} disabled:bg-gray-100 disabled:cursor-not-allowed`}
             disabled={isSubmitting}
           />
-          {errors.phone && <span className="error-message">{errors.phone}</span>}
+          {errors.phone && <span className="text-xs sm:text-sm text-red-600">{errors.phone}</span>}
         </div>
 
-        <div className="form-group">
+        {/* Email Field */}
+        <div className="space-y-1">
+          <label htmlFor="email" className="block text-xs sm:text-sm font-medium text-gray-700">
+            Email
+          </label>
           <input
             type="email"
             id="email"
             name="email"
             value={formData.email}
             onChange={handleInputChange}
-            placeholder="Email Address"
+            placeholder="Type your email"
+            className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg transition-all duration-200 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent disabled:bg-gray-100 disabled:cursor-not-allowed"
             disabled={isSubmitting}
           />
         </div>
 
-        <div className="form-group">
-          <select
-            id="country"
-            name="country"
-            value={formData.country}
-            onChange={handleInputChange}
-            className={errors.country ? 'error' : ''}
-            disabled={isSubmitting}
-          >
-            <option value="">Select Country *</option>
-            <option value="India">India</option>
-            <option value="USA">USA</option>
-            <option value="UK">UK</option>
-            <option value="Canada">Canada</option>
-            <option value="Australia">Australia</option>
-            <option value="Germany">Germany</option>
-            <option value="France">France</option>
-            <option value="Other">Other</option>
-          </select>
-          {errors.country && <span className="error-message">{errors.country}</span>}
+        {/* Country & City - 2 Column Grid on larger screens */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* Country Field */}
+          <div className="space-y-1">
+            <label htmlFor="country" className="block text-xs sm:text-sm font-medium text-gray-700">
+              Country <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="country"
+              name="country"
+              value={formData.country}
+              onChange={handleInputChange}
+              placeholder="Type your country"
+              className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent ${errors.country ? 'border-red-500 bg-red-50' : 'border-gray-300 hover:border-gray-400'} disabled:bg-gray-100 disabled:cursor-not-allowed`}
+              disabled={isSubmitting}
+            />
+            {errors.country && <span className="text-xs sm:text-sm text-red-600">{errors.country}</span>}
+          </div>
+
+          {/* City Field */}
+          <div className="space-y-1">
+            <label htmlFor="city" className="block text-xs sm:text-sm font-medium text-gray-700">
+              City <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="city"
+              name="city"
+              value={formData.city}
+              onChange={handleInputChange}
+              placeholder="Type your city"
+              className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent ${errors.city ? 'border-red-500 bg-red-50' : 'border-gray-300 hover:border-gray-400'} disabled:bg-gray-100 disabled:cursor-not-allowed`}
+              disabled={isSubmitting}
+            />
+            {errors.city && <span className="text-xs sm:text-sm text-red-600">{errors.city}</span>}
+          </div>
         </div>
 
-        <div className="form-group">
-          <input
-            type="text"
-            id="city"
-            name="city"
-            value={formData.city}
-            onChange={handleInputChange}
-            placeholder="City *"
-            className={errors.city ? 'error' : ''}
-            disabled={isSubmitting}
-          />
-          {errors.city && <span className="error-message">{errors.city}</span>}
-        </div>
-
-        <div className="form-group">
+        {/* Hospital Field */}
+        <div className="space-y-1">
+          <label htmlFor="hospital" className="block text-xs sm:text-sm font-medium text-gray-700">
+            Hospital/Clinic/Diagnostic Center Name <span className="text-gray-400 text-xs">(Optional)</span>
+          </label>
           <input
             type="text"
             id="hospital"
             name="hospital"
             value={formData.hospital}
             onChange={handleInputChange}
-            placeholder="Hospital/Clinic Name"
+            placeholder="Type hospital/clinic/diagnostic center name"
+            className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg transition-all duration-200 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent disabled:bg-gray-100 disabled:cursor-not-allowed"
             disabled={isSubmitting}
           />
         </div>
 
-        <div className="form-group">
+        {/* Enquiry Field */}
+        <div className="space-y-1">
+          <label htmlFor="enquiry" className="block text-xs sm:text-sm font-medium text-gray-700">
+            Enquiry / Request
+          </label>
           <textarea
             id="enquiry"
             name="enquiry"
             value={formData.enquiry}
             onChange={handleInputChange}
-            placeholder="Your Enquiry"
+            placeholder="Type your enquiry or request here..."
             rows={4}
+            className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg transition-all duration-200 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent disabled:bg-gray-100 disabled:cursor-not-allowed resize-y min-h-[100px]"
             disabled={isSubmitting}
           />
         </div>
 
-        <div className="form-group">
+        {/* Submit Button */}
+        <div className="pt-2">
           <button 
             type="submit" 
             id="submit"
             disabled={isSubmitting}
-            className="submit-btn"
+            className="w-full bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-700 hover:to-primary-600 text-white font-semibold py-3 sm:py-4 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02] hover:shadow-lg disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:shadow-none text-sm sm:text-base flex items-center justify-center gap-2"
           >
             {isSubmitting ? (
               <>
-                <span id="spinner" style={{ display: 'inline-block' }}>
-                  <i className="fa fa-spinner fa-spin"></i>
-                </span>
-                Submitting...
+                <i className="fa fa-spinner fa-spin"></i>
+                <span>Submitting...</span>
               </>
             ) : (
-              'Submit'
+              <>
+                <i className="fa-solid fa-paper-plane"></i>
+                <span>Submit Enquiry</span>
+              </>
             )}
           </button>
         </div>

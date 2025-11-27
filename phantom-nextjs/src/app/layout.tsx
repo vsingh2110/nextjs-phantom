@@ -4,6 +4,8 @@ import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import ScrollRestoration from '@/components/ui/ScrollRestoration';
 import AppScripts from '@/components/scripts/AppScripts';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 /**
  * IMPORTANT: This layout.tsx is kept as a SERVER COMPONENT for SEO.
  * Do NOT add 'use client' or client-only logic (like useEffect) here.
@@ -63,6 +65,8 @@ export default function RootLayout({
         </main>
         <Footer />
         <AppScripts nonce={nonce} />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
