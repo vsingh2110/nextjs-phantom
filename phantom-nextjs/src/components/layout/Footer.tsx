@@ -94,12 +94,11 @@ export default function Footer() {
 
         {/* Map & Social */}
         <div className="w-full md:w-1/3 px-4 py-4 flex flex-col items-center">
-          {/* Map container - responsive box with proper containment */}
-          <div className="relative w-full rounded-xl overflow-hidden bg-white shadow-2xl ring-2 ring-white/30 mb-4" style={{ height: 'clamp(180px, 25vh, 280px)' }}>
-            {/* Google Maps iframe - simpler and more reliable than GMap component */}
+          {/* Map container - matching static site */}
+          <div className="w-full h-[35vh] mt-4 ml-0 md:ml-4">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.5!2d77.3163!3d28.4688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce746b47731c5%3A0x696a695f7e4c3ded!2sPhantom%20Healthcare%20Pvt%20Ltd.!5e0!3m2!1sen!2sin!4v1663418936010!5m2!1sen!2sin"
-              className="w-full h-full border-0"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23594.600297204677!2d77.29099839249344!3d28.46875377374462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce746b47731c5%3A0x696a695f7e4c3ded!2sPhantom%20Healthcare%20Pvt%20Ltd.!5e0!3m2!1sen!2sin!4v1663418936010!5m2!1sen!2sin"
+              style={{ border: 0, width: '100%', height: '100%' }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
