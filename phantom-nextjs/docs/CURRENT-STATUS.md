@@ -228,6 +228,11 @@
 ## 📝 RECENT ACTIVITY LOG
 
 ### **November 27, 2025:**
+- ✅ **Contact Page:** Complete rebuild of Contact Us page with modern design, responsive from 320px to 1920px+
+- ✅ **Contact Page Sections:** Hero, Visit Us info, Contact Form, Regional Offices (India/USA/UAE), Google Maps
+- ✅ **World Map Background:** Added behind regional offices section with proper inline styling
+- ✅ **Social Icons Fixed:** Proper sizing for mobile (320px), Twitter visibility fixed, Google Maps icon updated
+- ⚠️ **Google Maps Marker Issue:** UNRESOLVED - marker appears at edge of iframe (known issue since July 2025)
 - ✅ **International Strategy:** Confirmed alignment with `docs/international-plan/` (Separate regional sites, not just translation).
 - ✅ **Build Fixes:** Resolved `Module not found` errors in `AboutSection` (YouTubeEmbed) and `HeroSideSection` (unused import).
 - ✅ **Build Fixes:** Resolved `Module not found` errors in `CounterSection` and `Footer` after refactor.
@@ -275,7 +280,8 @@
 
 ## 🐛 BUG TRACKING
 
-### **Active Bugs:** *(None)*
+### **Active Bugs:**
+1. **Google Maps Marker Positioning** (Contact Page & Footer) - Marker appears at edge/bottom of iframe instead of centered. Known issue since July 2025. Static site uses identical URL and works correctly - suspected CSS/container interaction.
 
 ### **Recently Fixed:**
 1. **Mobile Overflow** (Nov 22) - Hero slider scale causing horizontal scroll

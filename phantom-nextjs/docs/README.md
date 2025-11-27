@@ -2,6 +2,8 @@
 
 **Welcome to the project documentation!** This folder contains all the information you need to understand, work on, and contribute to the Phantom Medical Imaging website migration project.
 
+**Last Updated:** November 27, 2025
+
 ---
 
 ## 🚀 QUICK START FOR NEW AI AGENTS
@@ -21,13 +23,19 @@
    - Recent fixes and known issues
    - Immediate next steps
 
-3. **[project-overview.md](./project-overview.md)** 📋
+3. **[SESSION-HANDOVER-2025-11-27.md](./SESSION-HANDOVER-2025-11-27.md)** 🔄 **LATEST HANDOVER**
+   - Complete context from last session
+   - Unresolved issues and next steps
+   - Key files modified
+   - User communication style
+
+4. **[project-overview.md](./project-overview.md)** 📋
    - Project background and goals
    - Tech stack overview
    - Migration journey and history
    - Key features and implementations
 
-4. **[Latest Daily Log](./daily-logs/)** 📅
+5. **[Latest Daily Log](./daily-logs/)** 📅
    - Most recent work session
    - Current context and decisions
    - What was attempted, what worked, what failed
@@ -45,6 +53,7 @@
 |------|---------|--------------|
 | **AI-AGENT-CRITICAL-GUIDELINES.md** | Mandatory rules for all AI agents | Every session start |
 | **CURRENT-STATUS.md** | Real-time project status | Every session start |
+| **SESSION-HANDOVER-*.md** | Context from previous AI session | Every session start |
 | **precautions-and-guardrails.md** | Development restrictions & safety rules | Before major changes |
 
 ### **📖 Project Information**
@@ -54,6 +63,7 @@
 | **project-overview.md** | Complete project context & history | First time, or when confused |
 | **development-roadmap.md** | Future plans & milestones | Planning new features |
 | **tech-stack-reference.md** | All technologies & configurations | Working with specific tech |
+| **FINAL-ARCHITECTURE.md** | Three-layer site structure explanation | Understanding site structure |
 
 ### **💻 Development Guides**
 

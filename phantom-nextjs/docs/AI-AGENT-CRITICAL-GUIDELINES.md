@@ -2,7 +2,7 @@
 
 ## 🔴 READ THIS BEFORE ANYTHING ELSE - NO EXCEPTIONS 🔴
 
-**Last Updated:** November 22, 2025  
+**Last Updated:** November 27, 2025  
 **Priority:** ABSOLUTE HIGHEST - MANDATORY COMPLIANCE  
 **Project:** Phantom Medical Imaging - Static to Next.js Migration
 
@@ -120,7 +120,36 @@ When user reports ANY issue or requests ANY feature:
 
 ---
 
-### 5. TAILWIND & CSS PROTOCOLS
+### 5. GOOGLE MAPS EMBED ISSUE (KNOWN PROBLEM)
+
+**Status:** UNRESOLVED since July 2025
+**Affected Files:** `src/app/contact/page.tsx`, `src/components/layout/Footer.tsx`
+
+**Problem:**
+Google Maps marker appears at edge/bottom of iframe instead of centered.
+
+**Key Observation:**
+The static site (`phantom-website/contact.html`) uses the EXACT SAME embed URL and works perfectly. This means the issue is NOT the URL but CSS/container styling in Next.js.
+
+**What Has Been Tried:**
+- Different embed URLs with various zoom levels ❌
+- Removed `overflow-hidden` and `rounded` classes ❌
+- Changed container heights ❌
+- Various CSS combinations ❌
+
+**What To Investigate:**
+- Compare container CSS between static site and Next.js
+- Check global styles that might affect iframes
+- Test with completely stripped-down container
+- Consider Google Maps JavaScript API as fallback
+
+**DO NOT:**
+- Spend hours trying random URL changes
+- Assume the embed URL is wrong (it's the same as static site)
+
+---
+
+### 6. TAILWIND & CSS PROTOCOLS
 
 **MANDATORY CONVENTIONS:**
 - ✅ **ALWAYS** use Tailwind utility classes first
@@ -137,7 +166,7 @@ When user reports ANY issue or requests ANY feature:
 
 ---
 
-### 6. MOBILE ZOOM/OVERFLOW ISSUES (CURRENT FOCUS)
+### 7. MOBILE ZOOM/OVERFLOW ISSUES (CURRENT FOCUS)
 
 **Recent Issue (Nov 22, 2025):** Large gap on right side of mobile website, zoom in/out issues
 

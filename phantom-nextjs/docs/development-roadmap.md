@@ -139,6 +139,35 @@
 
 ---
 
+#### **November 27, 2025: Structure Refactor & Contact Page**
+**Focus:** Multi-session day with major structure changes and contact page creation
+
+**Session 1 - Structure Refactor:**
+- Reorganized `src/components/` into logical subfolders (layout, home, ui, features, scripts)
+- Created full page structure for all products and services
+- Created India city pages structure (`/locations/[city]/[category]`)
+- Created international sites structure (`/[lang]/` for US, UAE, UK, etc.)
+
+**Session 2 - Data & International Components:**
+- Created `src/lib/data/cities.ts` with 20+ Indian cities
+- Created `src/components/international/` with country-specific components
+- Updated city pages to use real data
+
+**Session 3 - Contact Page Creation:**
+- Complete rebuild of Contact Us page (`src/app/contact/page.tsx`)
+- Responsive design from 320px to 1920px+
+- All content copied from static site (addresses, phones, emails)
+- Regional offices section with world map background
+
+**Unresolved Issue:**
+- Google Maps marker appears at edge/bottom of iframe
+- Same URL works perfectly on static site
+- Likely CSS/container interaction issue
+
+**Lesson:** When embed URLs work on static site but not Next.js, investigate CSS differences, not the URL itself.
+
+---
+
 ## 🎯 CURRENT PHASE: CONTENT MIGRATION (Nov-Dec 2025)
 
 ### **Goals:**

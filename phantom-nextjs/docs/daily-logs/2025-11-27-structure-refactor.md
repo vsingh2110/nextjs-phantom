@@ -98,6 +98,63 @@
 - Create reusable templates (`ProductPageTemplate`, `ServicePageTemplate`) to speed up migration.
 - ~~Add more Indian cities to the `validCities` array in location pages.~~ ✅ DONE (20+ cities added)
 - Configure `middleware.ts` for geo-based redirection to international sites.
+
+---
+
+## 📍 Session 3: Contact Page Creation (Late Afternoon)
+**Time:** ~5:00 PM onwards
+
+### Activities
+
+#### 9. Contact Page Complete Rebuild
+- **Task:** Create modern Contact Us page for Next.js site, copying content from static site
+- **Source File:** `phantom-website/contact.html`
+- **Target File:** `src/app/contact/page.tsx`
+
+**Created Sections:**
+1. **Hero Section:** Blue gradient with pattern overlay, responsive text sizing
+2. **Visit Us Card:** Company address, phone numbers, emails with icons
+3. **Contact Form:** Using existing `ContactForm` component with updated styling
+4. **Regional Offices Section:** 3 cards for India, USA, UAE with country flags and gradient borders
+5. **Google Maps Section:** Embedded iframe with location marker
+
+**Responsive Design:**
+- Works on all screen sizes: 320px (old smartphones) to 1920px+ (large monitors)
+- Used Tailwind breakpoints: `sm:`, `md:`, `lg:`, `xl:`, `2xl:`, `3xl:`
+- Mobile-first approach with progressive enhancement
+
+#### 10. Bug Fixes During Session
+- **Social Icons Size:** Reduced from `w-10 h-10` to `w-8 h-8` on mobile for 320px screens
+- **Twitter Icon Visibility:** Changed from black (`text-black`) to sky blue (`bg-sky-500`) for visibility on dark backgrounds
+- **Google Maps Icon:** Changed from `fa-google` to `fa-location-dot` for proper map/location representation
+- **World Map Background:** Added inline style with correct image path `/images/world-map-3.png` behind regional offices section
+
+#### 11. Google Maps Embed Issue (UNRESOLVED - Known Long-Standing Issue)
+- **Problem:** Google Maps marker appears at edge/bottom of iframe, not centered
+- **Attempted Solutions:**
+  - Different embed URLs
+  - Various CSS properties (height, overflow, position)
+  - Removed `overflow-hidden` and `rounded` classes
+  - Used exact same URL as static site
+- **Result:** Map displays but marker positioning remains problematic
+- **Note:** This is a known issue from July 2025 (see docs/dev-notes). Static site has same URL and works fine, suggesting it may be a CSS/container interaction issue.
+
+#### 12. Footer Map Container
+- Added proper container styling to footer map: `rounded-xl shadow-lg overflow-hidden`
+- Matches the contact page map styling
+
+### Files Modified (Session 3)
+- `src/app/contact/page.tsx` - Complete rewrite with all sections
+- `src/components/features/ContactForm.tsx` - Updated form styling for modern look
+- `src/components/layout/Footer.tsx` - Updated map container styling
+
+### 🚧 Unresolved Issues
+- **Google Maps Marker Position:** Marker appears at edge of iframe in both contact page and footer. This is a long-standing issue that needs deeper investigation. The static site uses identical embed URL and works correctly.
+
+### 📝 Technical Notes
+- Used inline `style` attribute for world map background (Tailwind `bg-[url()]` wasn't working reliably)
+- Contact form integrates with Firebase + EmailJS (existing implementation)
+- Responsive breakpoints tested: 320px, 375px, 414px, 768px, 1024px, 1440px, 1920px
 - Create product pages inside `/[lang]/products/` for international markets as needed.
 - Add real phone numbers and addresses to city data file.
 - Connect contact forms to city-specific email addresses.
