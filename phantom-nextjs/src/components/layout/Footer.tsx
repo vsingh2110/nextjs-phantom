@@ -53,14 +53,8 @@
  * <Footer />
  */
 
-'use client'
-
 import Link from 'next/link'
 import Image from 'next/image'
-import dynamic from 'next/dynamic'
-
-// Dynamically import GMap to ensure it only runs in the browser
-const GMap = dynamic(() => import('../features/GMap'), { ssr: false })
 
 export default function Footer() {
   return (
@@ -99,11 +93,18 @@ export default function Footer() {
         </div>
 
         {/* Map & Social */}
-        <div className="w-full md:w-1/3 px-0 py-4 flex flex-col items-center">
-          {/* Map container - vertical rectangle like original site - hidden on very small screens to prevent overlap */}
-          <div className="relative w-full h-48 sm:h-64 md:h-80 rounded-xl overflow-hidden bg-white shadow-2xl ring-2 ring-white/30 mb-4">
-            {/* Interactive Google Map with controlled center/marker */}
-            <GMap />
+        <div className="w-full md:w-1/3 px-4 py-4 flex flex-col items-center">
+          {/* Map container - responsive box with proper containment */}
+          <div className="relative w-full rounded-xl overflow-hidden bg-white shadow-2xl ring-2 ring-white/30 mb-4" style={{ height: 'clamp(180px, 25vh, 280px)' }}>
+            {/* Google Maps iframe - simpler and more reliable than GMap component */}
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.5!2d77.3163!3d28.4688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce746b47731c5%3A0x696a695f7e4c3ded!2sPhantom%20Healthcare%20Pvt%20Ltd.!5e0!3m2!1sen!2sin!4v1663418936010!5m2!1sen!2sin"
+              className="w-full h-full border-0"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Phantom Healthcare Location"
+            />
           </div>
           <div className="flex gap-2 sm:gap-3 flex-wrap justify-center">
             {[
