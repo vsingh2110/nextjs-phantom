@@ -15,9 +15,62 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
  */
 
 export const metadata: Metadata = {
-  title: 'Phantom Healthcare - MRI,CT Scanner, PET-CT, Cath-Lab, Gamma Camera SPECT, Bone Densitometer DXA',
-  description: 'Leading provider of MRI, CT scanners, and medical imaging equipment. New and refurbished solutions with professional installation and support services.',
-  keywords: 'MRI, CT scanner, medical imaging, healthcare equipment, phantom healthcare',
+  metadataBase: new URL('https://phantomhealthcare.com'),
+  title: {
+    default: 'Phantom Healthcare - MRI, CT Scanner, PET-CT, Cath-Lab, Gamma Camera, Bone Densitometer',
+    template: '%s | Phantom Healthcare'
+  },
+  description: 'India\'s leading provider of refurbished MRI, CT Scanners, PET-CT, Cath-Lab, Gamma Camera SPECT & Bone Densitometer. 170+ installations, 150+ satisfied clients. Quality medical imaging equipment since 2011.',
+  keywords: ['MRI machines India', 'CT scanner', 'PET-CT', 'Cath-Lab', 'Gamma Camera SPECT', 'Bone Densitometer DXA', 'refurbished medical equipment', 'medical imaging equipment', 'Phantom Healthcare', 'GE MRI', 'Siemens MRI', 'healthcare equipment India'],
+  authors: [{ name: 'Phantom Healthcare IND Private Limited' }],
+  creator: 'Phantom Healthcare',
+  publisher: 'Phantom Healthcare IND Private Limited',
+  formatDetection: {
+    email: true,
+    address: true,
+    telephone: true,
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_IN',
+    url: 'https://phantomhealthcare.com',
+    siteName: 'Phantom Healthcare',
+    title: 'Phantom Healthcare - MRI, CT Scanner, PET-CT, Cath-Lab & Medical Imaging Equipment',
+    description: 'India\'s leading provider of refurbished MRI, CT Scanners, PET-CT, Cath-Lab, Gamma Camera SPECT & Bone Densitometer. 170+ installations since 2011.',
+    images: [
+      {
+        url: '/images/phantom-building.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Phantom Healthcare Building - Medical Imaging Equipment Provider',
+      }
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Phantom Healthcare - Medical Imaging Equipment',
+    description: 'India\'s leading provider of refurbished MRI, CT Scanners, PET-CT, Cath-Lab & more. 170+ installations since 2011.',
+    creator: '@Phantomhealthc',
+    images: ['/images/phantom-building.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'G-WKQZP6J4CR', // Google Analytics ID as verification
+  },
+  alternates: {
+    canonical: 'https://phantomhealthcare.com',
+  },
+  category: 'Medical Equipment',
 }
 
 export default function RootLayout({

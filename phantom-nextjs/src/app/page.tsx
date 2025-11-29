@@ -4,7 +4,7 @@
  * 
  * PURPOSE: Main landing page for Phantom Healthcare website
  * CREATED: Initial development (date unknown)
- * LAST MODIFIED: July 12, 2025 (testimonials carousel integration)
+ * LAST MODIFIED: November 29, 2025 (SEO metadata and JSON-LD added)
  * 
  * FEATURES:
  * - Hero slider with multiple slides and call-to-action buttons
@@ -16,6 +16,11 @@
  * - Process workflow section explaining company approach
  * - Customer testimonials carousel (newly implemented)
  * - Global contact modal that can be triggered from any component
+ * 
+ * SEO:
+ * - Complete metadata with Open Graph and Twitter cards
+ * - JSON-LD structured data (Organization, LocalBusiness, WebSite)
+ * - Proper heading hierarchy and semantic HTML
  * 
  * COMPONENTS USED:
  * - HeroSlider: Main banner with rotating slides
@@ -46,6 +51,7 @@
  * - Client-side rendering for interactive components
  * 
  * RECENT CHANGES:
+ * - November 29, 2025: Added complete SEO metadata and JSON-LD structured data
  * - July 12, 2025: Integrated new TestimonialsCarousel component
  * - Replaced previous custom carousel with Swiper.js implementation
  * - Added proper responsive behavior for testimonials section
@@ -61,6 +67,7 @@
  * - Descriptive alt text for images
  * - Semantic content organization
  * - Fast loading with optimized images
+ * - JSON-LD structured data for rich snippets
  * 
  * KNOWN ISSUES:
  * - Some images use unoptimized flag (performance impact)
@@ -85,6 +92,7 @@
  * This is the default export for the root page route (/)
  */
 
+import type { Metadata } from 'next';
 import HeroSlider from '@/components/home/HeroSlider'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -95,10 +103,48 @@ import RegionalOffices from '@/components/home/RegionalOffices'
 import CounterSection from '@/components/home/CounterSection';
 import FeaturedProductsCarousel from '@/components/home/FeaturedProductsCarousel';
 import AboutSection from '@/components/home/AboutSection';
+import { OrganizationJsonLd, LocalBusinessJsonLd, WebSiteJsonLd } from '@/components/seo/JsonLd';
+
+export const metadata: Metadata = {
+  title: 'Phantom Healthcare - MRI, CT Scanner, PET-CT, Cath-Lab, Gamma Camera, Bone Densitometer',
+  description: 'India\'s leading provider of refurbished MRI, CT Scanners, PET-CT, Cath-Lab, Gamma Camera SPECT & Bone Densitometer DXA. 170+ installations, 150+ satisfied clients. Quality medical imaging equipment since 2011. Offices in India, USA & UAE.',
+  keywords: ['MRI machines India', 'CT scanner Faridabad', 'PET-CT India', 'Cath-Lab', 'Gamma Camera SPECT', 'Bone Densitometer DXA', 'refurbished medical equipment', 'GE MRI', 'Siemens MRI', 'medical imaging equipment India', 'Phantom Healthcare'],
+  openGraph: {
+    title: 'Phantom Healthcare - India\'s Leading Medical Imaging Equipment Provider',
+    description: '170+ MRI installations, 150+ satisfied clients. Refurbished MRI, CT Scanner, PET-CT, Cath-Lab & more since 2011.',
+    url: 'https://phantomhealthcare.com',
+    siteName: 'Phantom Healthcare',
+    images: [
+      {
+        url: '/images/phantom-building.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Phantom Healthcare - Medical Imaging Equipment',
+      }
+    ],
+    locale: 'en_IN',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Phantom Healthcare - Medical Imaging Equipment',
+    description: '170+ MRI installations, 150+ satisfied clients. India\'s leading medical imaging equipment provider.',
+    images: ['/images/phantom-building.jpg'],
+    creator: '@Phantomhealthc',
+  },
+  alternates: {
+    canonical: 'https://phantomhealthcare.com',
+  },
+};
 
 export default function Home() {
   return (
     <main className="min-h-screen">
+      {/* JSON-LD Structured Data for SEO */}
+      <OrganizationJsonLd />
+      <LocalBusinessJsonLd />
+      <WebSiteJsonLd />
+      
       {/* Global Contact Modal (can be triggered from anywhere) */}
       <ContactFormModalWrapper />
       {/* Hero Slider */}

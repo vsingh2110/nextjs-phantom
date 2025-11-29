@@ -1,12 +1,23 @@
 # Phantom Medical Imaging — Current Status
 
-**Last Updated:** November 27, 2025  
+**Last Updated:** November 29, 2025  
 **Phase:** Active Migration - Static to Next.js  
-**Priority:** Structure Refactor & Internationalization Prep
+**Priority:** SEO Enhancement & Content Migration
 
 ---
 
 ## 🎯 CURRENT FOCUS
+
+### **SEO Enhancement & JSON-LD Implementation**
+**Status:** ✅ **COMPLETED** (Nov 29, 2025)
+**Date:** November 29, 2025
+
+**Recent Achievements:**
+- **Complete SEO for Home Page:** Added comprehensive metadata (openGraph, twitter, alternates, keywords), plus JSON-LD (OrganizationJsonLd, LocalBusinessJsonLd, WebSiteJsonLd)
+- **Complete SEO for Contact Page:** Enhanced metadata with full openGraph/twitter, plus JSON-LD (LocalBusinessJsonLd, BreadcrumbJsonLd, ContactPageJsonLd with multiple contact points)
+- **Complete About Page Rewrite:** Full content migration from static site, leadership section (Rochi Nargotra CEO, Brijesh Suneja MD), achievements section, core values, plus JSON-LD (OrganizationJsonLd, BreadcrumbJsonLd, AboutPageJsonLd)
+- **JSON-LD Component Library:** Created `src/components/seo/JsonLd.tsx` with reusable components: OrganizationJsonLd, WebSiteJsonLd, LocalBusinessJsonLd, BreadcrumbJsonLd, ProductJsonLd, ServiceJsonLd
+- **Global SEO in Layout:** Updated `src/app/layout.tsx` with comprehensive metadata including robots, verification placeholders, icons, manifest
 
 ### **Project Structure & Internationalization Readiness**
 **Status:** ✅ **COMPLETED** (Refactor done, pending content migration)
@@ -80,7 +91,7 @@
 
 ### **Enhancements:**
 - [ ] Image optimization (convert to Next.js Image component)
-- [ ] Advanced SEO (JSON-LD structured data)
+- [x] **Advanced SEO (JSON-LD structured data)** ✅ COMPLETED Nov 29, 2025
 - [ ] Accessibility audit (WCAG 2.1 compliance)
 - [ ] Performance optimization (lazy loading, code splitting)
 - [ ] Cross-browser testing
@@ -91,6 +102,13 @@
 
 ### **Critical Issues:** *(None currently)*
 
+### **Long-Standing Issue - Google Maps:**
+- ⚠️ **Google Maps marker positioning issue** — Marker appears at edge/bottom of iframe instead of centered
+- **Status:** Unresolved since May 2024 (~15+ hours invested across sessions)
+- **Documentation:** See `docs/GOOGLE-MAPS-ISSUE-COMPLETE-HISTORY.md` for complete history
+- **Key Finding:** Same URL works perfectly on static site, issue is CSS/container related in Next.js
+- **DO NOT:** Spend hours changing embed URLs — the URL is correct
+
 ### **Minor Issues:**
 - ⚠️ Some legacy CSS from static site still present (needs cleanup)
 - ⚠️ Product/Service pages are empty placeholders
@@ -98,7 +116,9 @@
 - ⚠️ Font Awesome loading could be optimized (bundle vs CDN)
 
 ### **Recently Resolved:**
-- ✅ **Deep Product Structure:** Created spec-level folders (16/32/64/128-slice CT, 1.5T/3.0T MRI) with individual model pages (Nov 27, 2025)
+- ✅ **Complete SEO Implementation:** Home, Contact, About pages with full metadata + JSON-LD (Nov 29, 2025)
+- ✅ **About Page Rewrite:** Full content migration with leadership team and achievements (Nov 29, 2025)
+- ✅ **JSON-LD Component Library:** Created reusable structured data components (Nov 29, 2025)
 - ✅ **Deep Service Structure:** Created brand-specific AMC pages (GE/Siemens MRI/CT AMC) (Nov 27, 2025)
 - ✅ **Missing Pages:** Created privacy-policy, terms, faqs, customer-feedback, events-news, sell-equipment, spare-parts, sitemap (Nov 27, 2025)
 - ✅ **SEO Files:** Created robots.txt and sitemap.xml in public/ folder (Nov 27, 2025)
@@ -226,6 +246,28 @@
 ---
 
 ## 📝 RECENT ACTIVITY LOG
+
+### **November 29, 2025:**
+- ✅ **SEO Complete - Home Page:** Added comprehensive metadata (title, description, keywords, openGraph, twitter, alternates), plus JSON-LD (OrganizationJsonLd, LocalBusinessJsonLd, WebSiteJsonLd)
+- ✅ **SEO Complete - Contact Page:** Enhanced metadata with full openGraph/twitter cards, plus JSON-LD (LocalBusinessJsonLd, BreadcrumbJsonLd, ContactPageJsonLd with 4 contact points for India/USA/UAE)
+- ✅ **About Page Complete Rewrite:** Full content migration from static site including:
+  - Hero section with company tagline
+  - IRIA 2024 hero image
+  - Who We Are section with company history (since 2011)
+  - Achievements section (170+ MRI installations, 150+ clients, 10+ 3.0T MRIs, 13+ years)
+  - Leadership team (Rochi Nargotra - CEO, Brijesh Suneja - MD) with quotes
+  - Core values (Quality, Trust, Customer Focus, Innovation)
+  - What We Offer section (all 6 product categories)
+  - CTA section with contact/products links
+- ✅ **JSON-LD Component Library Created:** `src/components/seo/JsonLd.tsx` with:
+  - OrganizationJsonLd (company info, social profiles, contact points)
+  - WebSiteJsonLd (site search, organization reference)
+  - LocalBusinessJsonLd (address, hours, geo coordinates)
+  - BreadcrumbJsonLd (navigation structure)
+  - ProductJsonLd (for product pages)
+  - ServiceJsonLd (for service pages)
+- ✅ **Global SEO in Layout:** Updated `src/app/layout.tsx` with robots config, verification placeholders, icons, manifest
+- ✅ **Google Maps Issue Documented:** Created comprehensive `docs/GOOGLE-MAPS-ISSUE-COMPLETE-HISTORY.md` (400+ lines)
 
 ### **November 27, 2025:**
 - ✅ **Contact Page:** Complete rebuild of Contact Us page with modern design, responsive from 320px to 1920px+

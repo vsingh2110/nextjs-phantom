@@ -1,17 +1,146 @@
+/**
+ * CONTACT PAGE COMPONENT
+ * ======================
+ * 
+ * PURPOSE: Contact page with company contact information, enquiry form, and global offices
+ * CREATED: Initial development
+ * LAST MODIFIED: November 29, 2025 (Complete SEO metadata and JSON-LD added)
+ * 
+ * FEATURES:
+ * - Hero section with page title
+ * - Contact details card with address, phone, emails
+ * - Social media links (WhatsApp, Facebook, Instagram, LinkedIn, YouTube, Twitter)
+ * - Contact enquiry form (Firebase integration)
+ * - Regional offices section (India, USA, UAE)
+ * - Google Maps embed
+ * 
+ * SEO:
+ * - Complete metadata with Open Graph and Twitter cards
+ * - JSON-LD structured data (LocalBusiness, BreadcrumbList, ContactPage)
+ * - Proper heading hierarchy (h1, h2, h3)
+ * 
+ * RELATED FILES:
+ * - src/components/features/ContactForm.tsx
+ * - src/components/seo/JsonLd.tsx
+ */
+
 import ContactForm from '@/components/features/ContactForm';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
+import { LocalBusinessJsonLd, BreadcrumbJsonLd } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Contact Us - Phantom Healthcare | MRI, CT Scanner Sales & Service',
-  description: 'Contact Phantom Healthcare for MRI, CT Scanner, PET-CT, Cath-Lab equipment sales, service, and spare parts. Offices in India, USA, and UAE.',
-  keywords: 'contact phantom healthcare, medical imaging equipment, MRI service India, CT scanner support',
+  description: 'Contact Phantom Healthcare for MRI, CT Scanner, PET-CT, Cath-Lab equipment sales, service, and spare parts. Plot 51, Sector 27C, Faridabad. Offices in India, USA & UAE. Call +91 9899963601 or email info@phantomhealthcare.com.',
+  keywords: ['contact phantom healthcare', 'medical imaging equipment', 'MRI service India', 'CT scanner support', 'Phantom Healthcare address', 'Phantom Healthcare phone', 'medical equipment supplier Faridabad'],
+  openGraph: {
+    title: 'Contact Phantom Healthcare - MRI, CT Scanner Sales & Service',
+    description: 'Reach out to India\'s leading medical imaging equipment provider. Global offices in India, USA & UAE. 24/7 support for MRI, CT Scanner, PET-CT, Cath-Lab.',
+    url: 'https://phantomhealthcare.com/contact',
+    siteName: 'Phantom Healthcare',
+    images: [
+      {
+        url: '/images/phantom-building.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Phantom Healthcare Office - Faridabad, India',
+      }
+    ],
+    locale: 'en_IN',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact Phantom Healthcare',
+    description: 'Contact India\'s leading medical imaging equipment provider. Offices in India, USA & UAE.',
+    images: ['/images/phantom-building.jpg'],
+    creator: '@Phantomhealthc',
+  },
+  alternates: {
+    canonical: 'https://phantomhealthcare.com/contact',
+  },
 };
 
+// Contact Page JSON-LD Schema
+function ContactPageJsonLd() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Phantom Healthcare",
+    "description": "Contact page for Phantom Healthcare - Medical Imaging Equipment Provider",
+    "url": "https://phantomhealthcare.com/contact",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Phantom Healthcare IND Pvt Ltd",
+      "telephone": ["+91-9899963601", "+91-129-4312423", "+91-8545815483"],
+      "email": ["info@phantomhealthcare.com", "biz@phantomhealthcare.com", "hr@phantomhealthcare.com"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Plot No. 51, Sector 27C, Near NHPC Chowk, Main Mathura Road",
+        "addressLocality": "Faridabad",
+        "addressRegion": "Haryana",
+        "postalCode": "121003",
+        "addressCountry": "IN"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+91-9899963601",
+          "contactType": "sales",
+          "email": "biz@phantomhealthcare.com",
+          "areaServed": ["IN", "US", "AE"],
+          "availableLanguage": ["en", "hi"]
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+91-129-4312423",
+          "contactType": "customer service",
+          "email": "info@phantomhealthcare.com",
+          "areaServed": "IN",
+          "availableLanguage": ["en", "hi"]
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+1-630-720-6801",
+          "contactType": "sales",
+          "email": "biz@phantomhealthcare.com",
+          "areaServed": "US",
+          "availableLanguage": "en"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+971-522-208-819",
+          "contactType": "sales",
+          "email": "sachin.rawat@phantomhealthcare.com",
+          "areaServed": ["AE", "SA", "KW", "QA", "BH", "OM"],
+          "availableLanguage": ["en", "ar"]
+        }
+      ]
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
 export default function Contact() {
+  // Breadcrumb data for the contact page
+  const breadcrumbItems = [
+    { name: 'Home', url: 'https://phantomhealthcare.com' },
+    { name: 'Contact Us', url: 'https://phantomhealthcare.com/contact' }
+  ];
+
   return (
     <main className="min-h-screen">
+      {/* JSON-LD Structured Data for SEO */}
+      <LocalBusinessJsonLd />
+      <BreadcrumbJsonLd items={breadcrumbItems} />
+      <ContactPageJsonLd />
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary-600 via-primary-500 to-primary-700 py-12 sm:py-16 md:py-20 lg:py-24">

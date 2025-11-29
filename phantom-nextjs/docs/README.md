@@ -64,6 +64,7 @@
 | **development-roadmap.md** | Future plans & milestones | Planning new features |
 | **tech-stack-reference.md** | All technologies & configurations | Working with specific tech |
 | **FINAL-ARCHITECTURE.md** | Three-layer site structure explanation | Understanding site structure |
+| **GOOGLE-MAPS-ISSUE-COMPLETE-HISTORY.md** | 🗺️ Map marker positioning issue history | Before ANY map-related work |
 
 ### **💻 Development Guides**
 
