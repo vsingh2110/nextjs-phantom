@@ -146,7 +146,7 @@ export default function HeroSlider() {
                 )}
               </div>
               <div className={slide.textClass}>
-                <h1>{slide.title}</h1>
+                <h2>{slide.title}</h2>
                 <p>{slide.description}</p>
               </div>
             </div>
@@ -218,7 +218,7 @@ export default function HeroSlider() {
                 )}
               </div>
               <div className={slide.textClass + ' text-white drop-shadow-lg text-2xl md:text-4xl font-bold'}>
-                <h1>{slide.title}</h1>
+                <h2>{slide.title}</h2>
                 <p className="text-lg md:text-xl font-medium mt-2">{slide.description}</p>
               </div>
             </div>

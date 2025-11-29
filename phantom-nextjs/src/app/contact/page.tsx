@@ -31,12 +31,12 @@ import type { Metadata } from 'next';
 import { LocalBusinessJsonLd, BreadcrumbJsonLd } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Contact Us - Phantom Healthcare | MRI, CT Scanner Sales & Service',
-  description: 'Contact Phantom Healthcare for MRI, CT Scanner, PET-CT, Cath-Lab equipment sales, service, and spare parts. Plot 51, Sector 27C, Faridabad. Offices in India, USA & UAE. Call +91 9899963601 or email info@phantomhealthcare.com.',
-  keywords: ['contact phantom healthcare', 'medical imaging equipment', 'MRI service India', 'CT scanner support', 'Phantom Healthcare address', 'Phantom Healthcare phone', 'medical equipment supplier Faridabad'],
+  title: 'Contact Us | Phantom Healthcare - MRI, CT Scanner India',
+  description: 'Contact Phantom Healthcare. Plot 51, Sector 27C, Faridabad. Call +91 9899963601. Offices in India, USA & UAE.',
+  keywords: ['contact Phantom Healthcare', 'medical imaging Faridabad', 'MRI service India', 'CT scanner support'],
   openGraph: {
-    title: 'Contact Phantom Healthcare - MRI, CT Scanner Sales & Service',
-    description: 'Reach out to India\'s leading medical imaging equipment provider. Global offices in India, USA & UAE. 24/7 support for MRI, CT Scanner, PET-CT, Cath-Lab.',
+    title: 'Contact Phantom Healthcare - Sales & Service',
+    description: 'Reach India\'s leading medical imaging provider. Global offices in India, USA & UAE.',
     url: 'https://phantomhealthcare.com/contact',
     siteName: 'Phantom Healthcare',
     images: [
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Contact Phantom Healthcare',
-    description: 'Contact India\'s leading medical imaging equipment provider. Offices in India, USA & UAE.',
+    description: 'Contact India\'s leading medical imaging provider. Offices in India, USA & UAE.',
     images: ['/images/phantom-building.jpg'],
     creator: '@Phantomhealthc',
   },

@@ -103,15 +103,15 @@ import RegionalOffices from '@/components/home/RegionalOffices'
 import CounterSection from '@/components/home/CounterSection';
 import FeaturedProductsCarousel from '@/components/home/FeaturedProductsCarousel';
 import AboutSection from '@/components/home/AboutSection';
-import { OrganizationJsonLd, LocalBusinessJsonLd, WebSiteJsonLd } from '@/components/seo/JsonLd';
+import { OrganizationJsonLd, LocalBusinessJsonLd, WebSiteJsonLd, BreadcrumbJsonLd } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Phantom Healthcare - MRI, CT Scanner, PET-CT, Cath-Lab, Gamma Camera, Bone Densitometer',
-  description: 'India\'s leading provider of refurbished MRI, CT Scanners, PET-CT, Cath-Lab, Gamma Camera SPECT & Bone Densitometer DXA. 170+ installations, 150+ satisfied clients. Quality medical imaging equipment since 2011. Offices in India, USA & UAE.',
-  keywords: ['MRI machines India', 'CT scanner Faridabad', 'PET-CT India', 'Cath-Lab', 'Gamma Camera SPECT', 'Bone Densitometer DXA', 'refurbished medical equipment', 'GE MRI', 'Siemens MRI', 'medical imaging equipment India', 'Phantom Healthcare'],
+  title: 'Phantom Healthcare | MRI, CT Scanner, PET-CT, Cath-Lab India',
+  description: 'India\'s leading refurbished MRI, CT Scanner, PET-CT, Cath-Lab provider. 170+ installations, 150+ clients since 2011.',
+  keywords: ['MRI machines India', 'CT scanner Faridabad', 'PET-CT India', 'Cath-Lab', 'refurbished medical equipment', 'GE MRI', 'Siemens MRI', 'Phantom Healthcare'],
   openGraph: {
-    title: 'Phantom Healthcare - India\'s Leading Medical Imaging Equipment Provider',
-    description: '170+ MRI installations, 150+ satisfied clients. Refurbished MRI, CT Scanner, PET-CT, Cath-Lab & more since 2011.',
+    title: 'Phantom Healthcare - India\'s Leading Medical Imaging Provider',
+    description: '170+ MRI installations, 150+ clients. Refurbished MRI, CT Scanner, PET-CT, Cath-Lab since 2011.',
     url: 'https://phantomhealthcare.com',
     siteName: 'Phantom Healthcare',
     images: [
@@ -128,7 +128,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Phantom Healthcare - Medical Imaging Equipment',
-    description: '170+ MRI installations, 150+ satisfied clients. India\'s leading medical imaging equipment provider.',
+    description: '170+ MRI installations, 150+ clients. India\'s leading medical imaging provider.',
     images: ['/images/phantom-building.jpg'],
     creator: '@Phantomhealthc',
   },
@@ -137,6 +137,11 @@ export const metadata: Metadata = {
   },
 };
 
+// Home page breadcrumb (just home)
+const homeBreadcrumb = [
+  { name: 'Home', url: 'https://phantomhealthcare.com' }
+];
+
 export default function Home() {
   return (
     <main className="min-h-screen">
@@ -144,6 +149,7 @@ export default function Home() {
       <OrganizationJsonLd />
       <LocalBusinessJsonLd />
       <WebSiteJsonLd />
+      <BreadcrumbJsonLd items={homeBreadcrumb} />
       
       {/* Global Contact Modal (can be triggered from anywhere) */}
       <ContactFormModalWrapper />
