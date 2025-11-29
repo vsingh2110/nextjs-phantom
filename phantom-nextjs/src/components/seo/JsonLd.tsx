@@ -627,12 +627,6 @@ export function MedicalDeviceJsonLd() {
       "url": "https://phantomhealthcare.com/product-pages/refurbished-bone-densitometer-dexa"
     }
   ];
-      },
-      "category": "Bone Densitometer",
-      "isRelatedTo": "Diagnostic Equipment",
-      "url": "https://phantomhealthcare.com/product-pages/refurbished-bone-densitometer-dexa"
-    }
-  ];
 
   return (
     <>
