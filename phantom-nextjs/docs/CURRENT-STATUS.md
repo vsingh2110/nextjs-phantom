@@ -1,19 +1,39 @@
 # Phantom Medical Imaging — Current Status
 
-**Last Updated:** November 29, 2025 (End of Day)  
+**Last Updated:** November 30, 2025  
 **Phase:** Active Migration - Static to Next.js  
-**Priority:** SEO Enhancement & Content Migration  
+**Priority:** SEO Enhancement & Bug Fixes  
 **Git Status:** ⚠️ Changes pending push - verify and push to repository
 
 ---
 
 ## 🎯 CURRENT FOCUS
 
+### **Bug Fixes & SEO Improvements**
+**Status:** ✅ **COMPLETED** (Nov 30, 2025)
+**Date:** November 30, 2025
+
+**Today's Fixes (Nov 30):**
+- **HeroSlider Text Fixed:** CSS updated to target both h1 and h2 in slider text classes after SEO changes
+- **About Page Counter Animation:** Fixed to run every time user scrolls to section (like home page)
+- **About Page Hero:** Stronger blue gradient, center-aligned heading and description
+- **MedicalDevice Schema Added:** New schema type for products (MRI, CT, PET-CT, Cath-Lab, etc.)
+- **About Page Schemas Restored:** Added AboutPageFullJsonLd with comprehensive AboutPage + Organization schemas
+- **Home Page Updated:** Now includes MedicalDeviceJsonLd in addition to existing schemas
+
+**Files Changed:**
+- `src/app/globals.css` - Added h2 selectors for slider text
+- `src/components/home/HeroSlider.tsx` - Removed conflicting inline styles  
+- `src/components/about/AboutCounterSection.tsx` - Fixed counter animation logic
+- `src/app/about/page.tsx` - Updated hero gradient, centered content, new schema imports
+- `src/components/seo/JsonLd.tsx` - Added MedicalDeviceJsonLd, AboutPageFullJsonLd
+- `src/app/page.tsx` - Added MedicalDeviceJsonLd
+
 ### **SEO Enhancement & JSON-LD Implementation**
 **Status:** ✅ **COMPLETED** (Nov 29, 2025)
 **Date:** November 29, 2025
 
-**Today's Achievements (Nov 29):**
+**Previous Achievements (Nov 29):**
 - **Complete SEO for Home Page:** Added comprehensive metadata (openGraph, twitter, alternates, keywords), plus JSON-LD (OrganizationJsonLd, LocalBusinessJsonLd, WebSiteJsonLd)
 - **Complete SEO for Contact Page:** Enhanced metadata with full openGraph/twitter, plus JSON-LD (LocalBusinessJsonLd, BreadcrumbJsonLd, ContactPageJsonLd with multiple contact points)
 - **Complete About Page Rewrite:** Full content migration from static site, leadership section (Rochi Nargotra CEO, Brijesh Suneja MD), achievements section with animated counters, core values, plus JSON-LD

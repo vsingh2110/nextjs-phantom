@@ -28,11 +28,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { BreadcrumbJsonLd } from '@/components/seo/JsonLd'
+import { BreadcrumbJsonLd, AboutPageFullJsonLd } from '@/components/seo/JsonLd'
 import AboutCounterSection from '@/components/about/AboutCounterSection'
 
 export const metadata: Metadata = {
-  title: 'About Us | Phantom Healthcare - Medical Imaging Since 2011',
+  title: 'About Us - Phantom Healthcare | Since 2011',
   description: 'Phantom Healthcare: 170+ MRI installations, 150+ clients since 2011. Leading refurbisher of MRI, CT, PET-CT equipment in India.',
   keywords: ['Phantom Healthcare', 'medical imaging India', 'MRI refurbishment', 'CT scanner provider', 'Faridabad'],
   openGraph: {
@@ -63,49 +63,6 @@ export const metadata: Metadata = {
   },
 };
 
-// About Page JSON-LD Schema
-function AboutPageJsonLd() {
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "AboutPage",
-    "name": "About Phantom Healthcare",
-    "description": "India's leading medical imaging equipment provider since 2011",
-    "url": "https://phantomhealthcare.com/about",
-    "mainEntity": {
-      "@type": "Corporation",
-      "name": "Phantom Healthcare IND Pvt Ltd",
-      "foundingDate": "2011",
-      "founder": [
-        {
-          "@type": "Person",
-          "name": "Rochi Nargotra",
-          "jobTitle": "Director & CEO",
-          "image": "https://phantomhealthcare.com/images/rochi-nargotra.jpg"
-        },
-        {
-          "@type": "Person",
-          "name": "Brijesh Suneja",
-          "jobTitle": "Managing Director",
-          "image": "https://phantomhealthcare.com/images/brijesh-suneja.jpg"
-        }
-      ],
-      "numberOfEmployees": {
-        "@type": "QuantitativeValue",
-        "minValue": 50,
-        "maxValue": 100
-      },
-      "slogan": "Quality Medical Imaging Equipment Since 2011"
-    }
-  };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
-  );
-}
-
 export default function About() {
   // Breadcrumb data for the about page
   const breadcrumbItems = [
@@ -115,28 +72,30 @@ export default function About() {
 
   return (
     <main className="min-h-screen">
-      {/* JSON-LD Structured Data for SEO */}
+      {/* JSON-LD Structured Data for SEO - Using comprehensive schemas */}
       <BreadcrumbJsonLd items={breadcrumbItems} />
-      <AboutPageJsonLd />
+      <AboutPageFullJsonLd />
 
-      {/* Compact Hero Section - Much lighter than before */}
-      <section className="bg-gradient-to-r from-primary-600 to-primary-700 py-6 sm:py-8 md:py-10">
+      {/* Compact Hero Section with strong gradient */}
+      <section className="bg-gradient-to-r from-[#2980b9] via-[#3498db] to-[#5dade2] py-8 sm:py-10 md:py-14">
         <div className="w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Breadcrumb */}
-          <nav className="mb-3 sm:mb-4" aria-label="Breadcrumb">
-            <ol className="flex items-center space-x-2 text-sm text-white/70">
+          {/* Breadcrumb - Left aligned */}
+          <nav className="mb-4 sm:mb-5" aria-label="Breadcrumb">
+            <ol className="flex items-center space-x-2 text-sm text-white/80">
               <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
               <li><span className="mx-1">/</span></li>
               <li className="text-white font-medium">About Us</li>
             </ol>
           </nav>
-          {/* Title */}
-          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl 2xl:text-5xl font-bold text-white">
-            About Phantom Healthcare
-          </h1>
-          <p className="text-sm sm:text-base md:text-lg 2xl:text-xl text-white/80 mt-2 max-w-3xl">
-            India&apos;s Leading Medical Imaging Equipment Provider Since 2011
-          </p>
+          {/* Title and Description - Center aligned */}
+          <div className="text-center">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl font-bold text-white drop-shadow-lg">
+              About Phantom Healthcare
+            </h1>
+            <p className="text-base sm:text-lg md:text-xl 2xl:text-2xl text-white/90 mt-3 max-w-3xl mx-auto">
+              India&apos;s Leading Medical Imaging Equipment Provider Since 2011
+            </p>
+          </div>
         </div>
       </section>
 

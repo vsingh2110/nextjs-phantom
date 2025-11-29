@@ -12,15 +12,14 @@ text/html
 canonical
 https://phantomhealthcare.com/contact
 head title
-Contact Us - Phantom Healthcare | MRI, CT Scanner Sales & Service | Phantom Healthcare
-(86 characters)
+Contact Us | Phantom Healthcare - MRI, CT Scanner India | Phantom Healthcare
+(76 characters)
 description
-Contact Phantom Healthcare for MRI, CT Scanner, PET-CT, Cath-Lab equipment sales, service, and spare parts. Plot 51, Sector 27C, Faridabad. Offices in India, USA & UAE. Call +91 9899963601 or email info@phantomhealthcare.com.
-(225 characters)
-WARNING description too long (>170 characters)
+Contact Phantom Healthcare. Plot 51, Sector 27C, Faridabad. Call +91 9899963601. Offices in India, USA & UAE.
+(109 characters)
 keywords
-contact phantom healthcare,medical imaging equipment,MRI service India,CT scanner support,Phantom Healthcare address,Phantom Healthcare phone,medical equipment supplier Faridabad
-( 7 items )
+contact Phantom Healthcare,medical imaging Faridabad,MRI service India,CT scanner support
+( 4 items )
 INFO'keywords' meta tag is obsolete
 robots
 index, follow
@@ -30,10 +29,10 @@ SOCIAL
 
 property
 og:title
-Contact Phantom Healthcare - MRI, CT Scanner Sales & Service
+Contact Phantom Healthcare - Sales & Service
 property
 og:description
-Reach out to India's leading medical imaging equipment provider. Global offices in India, USA & UAE. 24/7 support for MRI, CT Scanner, PET-CT, Cath-Lab.
+Reach India's leading medical imaging provider. Global offices in India, USA & UAE.
 property
 og:url
 https://phantomhealthcare.com/contact
@@ -66,7 +65,7 @@ twitter:creator
 twitter:title
 Contact Phantom Healthcare
 twitter:description
-Contact India's leading medical imaging equipment provider. Offices in India, USA & UAE.
+Contact India's leading medical imaging provider. Offices in India, USA & UAE.
 twitter:image
 https://phantomhealthcare.com/images/phantom-building.jpg
 STRUCTURED DATA
@@ -76,7 +75,7 @@ Schema Markup Validator
 
 •
 Google Rich Results Test
-@type: MedicalBusiness name: Phantom Healthcare IND Private Limited
+@type: ProfessionalService name: Phantom Healthcare IND Private Limited
 @type: PostalAddress
 @type: GeoCoordinates
 @type: OpeningHoursSpecification
@@ -250,7 +249,7 @@ mailto:info@phantomhealthcare.com		info@phantomhealthcare.com
 tel:+971522208819		+971 522 208 819		
 mailto:sachin.rawat@phantomhealthcare.com		sachin.rawat@phantomhealthcare.com		
 INFO 9 images (out of 9) with missing TITLE attribute
-INFO 1 images (out of 9) are lazyloaded and above the fold
+INFO 2 images (out of 9) are lazyloaded and above the fold
 SRC	SIZE	LOADING	FETCH PR.	ALT	TITLE
 
 https://nextjs-phantom.vercel.app/images/logo.jpg
@@ -265,7 +264,7 @@ lazy	auto	Phantom Healthcare Logo
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Findia-flag.jpg&w=128&q=75
 SRCSET: available
-REAL	64x43
+REAL	64x42
 HTML	56x56
 lazy	auto	India	
 
@@ -277,7 +276,7 @@ lazy	auto	USA
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fuae-flag.jpg&w=128&q=75
 SRCSET: available
-REAL	64x43
+REAL	64x42
 HTML	56x56
 lazy	auto	UAE	
 
@@ -348,3 +347,17 @@ https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js
 preload
 (as script) (fetchpriority=auto)
 https://nextjs-phantom.vercel.app/scripts/init-external.js
+preload
+(as image) (fetchpriority=auto)
+Url
+COMMON
+SOCIAL
+STRUCTURED DATA
+MOBILE
+MARKUP
+EXTERNAL RESOURCES
+RESOURCE HINTS
+print
+
+
+

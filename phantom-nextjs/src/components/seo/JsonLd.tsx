@@ -4,14 +4,18 @@
  * 
  * PURPOSE: Provide structured data for better SEO and rich snippets
  * CREATED: November 29, 2025
- * UPDATED: November 29, 2025 - Fixed schema validation issues
+ * UPDATED: November 30, 2025 - Added MedicalDevice schema, fixed AboutPage, restored schemas
  * 
- * CHANGES:
+ * CHANGES (Nov 30, 2025):
+ * - Added MedicalDevice schema type for products (user preference)
+ * - Fixed AboutPage schema to be properly detected by Google
+ * - Added more comprehensive schemas to About page
+ * - Kept ProfessionalService for LocalBusiness (describes service aspect)
+ * 
+ * PREVIOUS CHANGES:
  * - Changed MedicalBusiness to ProfessionalService (MedicalBusiness is restricted on many platforms)
  * - FIXED: Removed geo from Corporation (geo is only valid on Place/LocalBusiness, not Organization)
  * - RESTORED: hasOfferCatalog with proper product catalog from static website
- * - Added proper product models: GE & Siemens MRI (1.5T/3.0T), CT Scanners (8/16/64/128 slice),
- *   PET-CT, Cath Lab FD10/FD20, Gamma Camera SPECT, Bone Densitometer DXA
  * 
  * USAGE:
  * Import and use these components in page files to add structured data
@@ -19,6 +23,7 @@
  * REFERENCES:
  * - https://schema.org/Organization
  * - https://schema.org/LocalBusiness
+ * - https://schema.org/MedicalDevice
  * - https://schema.org/ProfessionalService
  * - https://developers.google.com/search/docs/appearance/structured-data
  */
@@ -537,5 +542,219 @@ export function BreadcrumbJsonLd({ items }: { items: BreadcrumbItem[] }) {
       type="application/ld+json"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
     />
+  );
+}
+
+// MedicalDevice Schema - For products like MRI, CT Scanner, etc.
+// Using schema.org/MedicalDevice type as per user preference
+export function MedicalDeviceJsonLd() {
+  const medicalDevices = [
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalDevice",
+      "name": "GE Signa 3.0T MRI Scanner",
+      "description": "High-field 3.0T MRI Scanner with 32 Channel configurations, Gradient Amplitude 50mT/m, Slew Rate 200T/m/s. Ideal for advanced neurological and musculoskeletal imaging.",
+      "manufacturer": {
+        "@type": "Organization",
+        "name": "GE Healthcare"
+      },
+      "category": "MRI Scanner",
+      "isRelatedTo": "Medical Imaging Equipment",
+      "url": "https://phantomhealthcare.com/product-pages/refurbished-ge-mri-scanner-machines"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalDevice",
+      "name": "Siemens Magnetom 3.0T MRI Scanner",
+      "description": "Premium 3.0T MRI system with Tim (Total imaging matrix) technology for high-resolution diagnostic imaging.",
+      "manufacturer": {
+        "@type": "Organization",
+        "name": "Siemens Healthineers"
+      },
+      "category": "MRI Scanner",
+      "isRelatedTo": "Medical Imaging Equipment",
+      "url": "https://phantomhealthcare.com/product-pages/refurbished-siemens-mri-scanner-machines"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalDevice",
+      "name": "GE 1.5T MRI Scanner",
+      "description": "Versatile 1.5T MRI Scanner suitable for general diagnostic imaging including brain, spine, and body applications.",
+      "manufacturer": {
+        "@type": "Organization",
+        "name": "GE Healthcare"
+      },
+      "category": "MRI Scanner",
+      "isRelatedTo": "Medical Imaging Equipment",
+      "url": "https://phantomhealthcare.com/product-pages/refurbished-ge-mri-scanner-machines"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalDevice",
+      "name": "Multi-Slice CT Scanner",
+      "description": "Advanced CT Scanner available in 8, 16, 64, and 128 slice configurations for rapid, high-resolution diagnostic imaging.",
+      "manufacturer": {
+        "@type": "Organization",
+        "name": "GE Healthcare"
+      },
+      "category": "CT Scanner",
+      "isRelatedTo": "Medical Imaging Equipment",
+      "url": "https://phantomhealthcare.com/product-pages/refurbished-ct-scan-machines"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalDevice",
+      "name": "GE Discovery PET-CT Scanner",
+      "description": "Hybrid PET-CT imaging system for oncology, cardiology, and neurology applications with superior image quality.",
+      "manufacturer": {
+        "@type": "Organization",
+        "name": "GE Healthcare"
+      },
+      "category": "PET-CT Scanner",
+      "isRelatedTo": "Nuclear Medicine Equipment",
+      "url": "https://phantomhealthcare.com/product-pages/refurbished-pet-ct-scanner-machines"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalDevice",
+      "name": "Philips Allura Cath Lab",
+      "description": "Cardiovascular X-ray system for interventional cardiology procedures with advanced flat-panel detector technology.",
+      "manufacturer": {
+        "@type": "Organization",
+        "name": "Philips Healthcare"
+      },
+      "category": "Cath Lab",
+      "isRelatedTo": "Cardiovascular Equipment",
+      "url": "https://phantomhealthcare.com/product-pages/refurbished-cath-lab-machines"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalDevice",
+      "name": "Gamma Camera SPECT System",
+      "description": "Nuclear medicine imaging system for cardiac, oncology, and neurological SPECT studies.",
+      "manufacturer": {
+        "@type": "Organization",
+        "name": "GE Healthcare"
+      },
+      "category": "Gamma Camera",
+      "isRelatedTo": "Nuclear Medicine Equipment",
+      "url": "https://phantomhealthcare.com/product-pages/refurbished-gamma-camera-spect-system-machine"
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalDevice",
+      "name": "Bone Densitometer DXA System",
+      "description": "Dual-energy X-ray absorptiometry system for bone density measurement, body composition analysis, and fracture risk assessment.",
+      "manufacturer": {
+        "@type": "Organization",
+        "name": "GE Healthcare"
+      },
+      "category": "Bone Densitometer",
+      "isRelatedTo": "Diagnostic Equipment",
+      "url": "https://phantomhealthcare.com/product-pages/refurbished-bone-densitometer-dexa"
+    }
+  ];
+
+  return (
+    <>
+      {medicalDevices.map((device, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(device) }}
+        />
+      ))}
+    </>
+  );
+}
+
+// Comprehensive About Page Schema (separate scripts for better Google detection)
+export function AboutPageFullJsonLd() {
+  // AboutPage schema
+  const aboutPageSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Phantom Healthcare",
+    "description": "Learn about Phantom Healthcare - India's leading provider of refurbished medical imaging equipment since 2011. 170+ MRI installations, 150+ satisfied clients across India, USA, and UAE.",
+    "url": "https://phantomhealthcare.com/about",
+    "inLanguage": "en-IN",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Phantom Healthcare",
+      "url": "https://phantomhealthcare.com"
+    }
+  };
+
+  // Organization schema for About page
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Corporation",
+    "name": "Phantom Healthcare IND Private Limited",
+    "alternateName": "Phantom Healthcare",
+    "url": "https://phantomhealthcare.com",
+    "logo": "https://phantomhealthcare.com/images/logo.jpg",
+    "foundingDate": "2011",
+    "founder": [
+      {
+        "@type": "Person",
+        "name": "Rochi Nargotra",
+        "jobTitle": "Director & CEO",
+        "image": "https://phantomhealthcare.com/images/rochi-nargotra.jpg"
+      },
+      {
+        "@type": "Person",
+        "name": "Brijesh Suneja",
+        "jobTitle": "Managing Director",
+        "image": "https://phantomhealthcare.com/images/brijesh-suneja.jpg"
+      }
+    ],
+    "numberOfEmployees": {
+      "@type": "QuantitativeValue",
+      "minValue": 50,
+      "maxValue": 100
+    },
+    "slogan": "Your Trusted Partner in Medical Imaging",
+    "description": "India's leading provider of refurbished MRI, CT Scanner, PET-CT, Cath-Lab, and other medical imaging equipment since 2011.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Plot No. 51, Sector 27C, Near NHPC Chowk",
+      "addressLocality": "Faridabad",
+      "addressRegion": "Haryana",
+      "postalCode": "121003",
+      "addressCountry": "IN"
+    },
+    "telephone": "+91-9899963601",
+    "email": "info@phantomhealthcare.com",
+    "knowsAbout": [
+      "MRI Machines",
+      "CT Scanners",
+      "PET-CT Systems",
+      "Cath Lab Equipment",
+      "Gamma Camera SPECT",
+      "Bone Densitometer DXA",
+      "Medical Equipment Refurbishment",
+      "Medical Equipment Installation",
+      "AMC Services"
+    ],
+    "sameAs": [
+      "https://www.facebook.com/phantom.healthcare.ind",
+      "https://www.instagram.com/phantomhealthcare/",
+      "https://www.linkedin.com/company/phantom-healthcare-ind-private-limited-company",
+      "https://twitter.com/Phantomhealthc",
+      "https://www.youtube.com/@phantomhealthcare"
+    ]
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+    </>
   );
 }

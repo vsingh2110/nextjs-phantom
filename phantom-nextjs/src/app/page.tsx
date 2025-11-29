@@ -103,7 +103,7 @@ import RegionalOffices from '@/components/home/RegionalOffices'
 import CounterSection from '@/components/home/CounterSection';
 import FeaturedProductsCarousel from '@/components/home/FeaturedProductsCarousel';
 import AboutSection from '@/components/home/AboutSection';
-import { OrganizationJsonLd, LocalBusinessJsonLd, WebSiteJsonLd, BreadcrumbJsonLd } from '@/components/seo/JsonLd';
+import { OrganizationJsonLd, LocalBusinessJsonLd, WebSiteJsonLd, BreadcrumbJsonLd, MedicalDeviceJsonLd } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Phantom Healthcare | MRI, CT Scanner, PET-CT, Cath-Lab India',
@@ -149,10 +149,17 @@ export default function Home() {
       <OrganizationJsonLd />
       <LocalBusinessJsonLd />
       <WebSiteJsonLd />
+      <MedicalDeviceJsonLd />
       <BreadcrumbJsonLd items={homeBreadcrumb} />
       
       {/* Global Contact Modal (can be triggered from anywhere) */}
       <ContactFormModalWrapper />
+      
+      {/* Visually hidden H1 for SEO - Screen readers will read this */}
+      <h1 className="sr-only">
+        Phantom Healthcare - India&apos;s Leading Refurbished MRI, CT Scanner, PET-CT, Cath-Lab Provider
+      </h1>
+      
       {/* Hero Slider */}
       <HeroSlider />
       <TopBlock />

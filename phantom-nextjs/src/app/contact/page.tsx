@@ -31,7 +31,7 @@ import type { Metadata } from 'next';
 import { LocalBusinessJsonLd, BreadcrumbJsonLd } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'Contact Us | Phantom Healthcare - MRI, CT Scanner India',
+  title: 'Contact Us - Phantom Healthcare India',
   description: 'Contact Phantom Healthcare. Plot 51, Sector 27C, Faridabad. Call +91 9899963601. Offices in India, USA & UAE.',
   keywords: ['contact Phantom Healthcare', 'medical imaging Faridabad', 'MRI service India', 'CT scanner support'],
   openGraph: {
@@ -147,7 +147,7 @@ export default function Contact() {
         <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
         <div className="relative w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-3 sm:mb-4 md:mb-6 animate-fade-in">
-            Contact Us
+            Contact Phantom Healthcare
           </h1>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 max-w-3xl mx-auto">
             Get in touch with our team for all your medical imaging equipment needs

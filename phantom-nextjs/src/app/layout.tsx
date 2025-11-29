@@ -85,8 +85,72 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+        {/* Viewport without maximum-scale (SEO warning fix) */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        {/* Legacy/Additional Meta Tags for comprehensive SEO */}
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="format-detection" content="telephone=yes" />
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="MobileOptimized" content="width" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Phantom Healthcare" />
+        <meta name="application-name" content="Phantom Healthcare" />
+        <meta name="msapplication-TileColor" content="#59913d" />
+        <meta name="theme-color" content="#59913d" />
+        <meta name="color-scheme" content="light" />
+        
+        {/* Geographic/Location Meta Tags */}
+        <meta name="geo.region" content="IN-HR" />
+        <meta name="geo.placename" content="Faridabad, Haryana, India" />
+        <meta name="geo.position" content="28.46875;77.29099" />
+        <meta name="ICBM" content="28.46875, 77.29099" />
+        
+        {/* Business/Contact Meta Tags */}
+        <meta name="contact" content="info@phantomhealthcare.com" />
+        <meta name="reply-to" content="info@phantomhealthcare.com" />
+        <meta name="owner" content="Phantom Healthcare IND Private Limited" />
+        <meta name="url" content="https://phantomhealthcare.com" />
+        <meta name="identifier-URL" content="https://phantomhealthcare.com" />
+        
+        {/* Content/Classification Meta Tags */}
+        <meta name="coverage" content="Worldwide" />
+        <meta name="distribution" content="Global" />
+        <meta name="rating" content="General" />
+        <meta name="target" content="all" />
+        <meta name="audience" content="all" />
+        <meta name="copyright" content="Phantom Healthcare IND Private Limited" />
+        <meta name="language" content="EN" />
+        <meta name="Classification" content="Medical Equipment" />
+        <meta name="subject" content="Medical Imaging Equipment - MRI, CT Scanner, PET-CT, Cath-Lab" />
+        <meta name="topic" content="Medical Imaging Equipment Sales and Service" />
+        <meta name="summary" content="India's leading provider of refurbished MRI, CT Scanners, PET-CT, Cath-Lab equipment since 2011." />
+        <meta name="abstract" content="Phantom Healthcare provides refurbished medical imaging equipment including MRI machines, CT scanners, PET-CT, Cath-Lab, Gamma Camera SPECT, and Bone Densitometer across India, USA, and UAE." />
+        <meta name="pagename" content="Phantom Healthcare" />
+        <meta name="category" content="Medical Equipment, Healthcare" />
+        <meta name="cache-control" content="public" />
+        <meta name="expires" content="never" />
+        <meta name="revisit-after" content="7 days" />
+        
+        {/* Dublin Core Meta Tags */}
+        <meta name="DC.title" content="Phantom Healthcare - Medical Imaging Equipment" />
+        <meta name="DC.creator" content="Phantom Healthcare IND Private Limited" />
+        <meta name="DC.subject" content="Medical Imaging Equipment, MRI, CT Scanner, PET-CT" />
+        <meta name="DC.description" content="India's leading provider of refurbished medical imaging equipment since 2011." />
+        <meta name="DC.publisher" content="Phantom Healthcare IND Private Limited" />
+        <meta name="DC.contributor" content="Phantom Healthcare" />
+        <meta name="DC.date" content="2011" />
+        <meta name="DC.type" content="Service" />
+        <meta name="DC.format" content="text/html" />
+        <meta name="DC.identifier" content="https://phantomhealthcare.com" />
+        <meta name="DC.language" content="en" />
+        <meta name="DC.coverage" content="India, USA, UAE" />
+        
+        {/* Favicon */}
         <link rel="icon" href="/images/Fav-Icon.png" />
+        <link rel="apple-touch-icon" href="/images/Fav-Icon.png" />
+        <link rel="shortcut icon" href="/images/Fav-Icon.png" type="image/png" />
         {/* Font Awesome - Single reliable CDN source */}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
         

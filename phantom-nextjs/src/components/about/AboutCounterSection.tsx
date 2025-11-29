@@ -20,7 +20,7 @@ const counters = [
   { label: "Years of Excellence", value: 13 },
 ];
 
-function useCounterAnimation(visible: boolean, value: number) {
+function CounterCard({ label, value, visible }: { label: string; value: number; visible: boolean }) {
   const [count, setCount] = useState(0);
   
   useEffect(() => {
@@ -48,12 +48,6 @@ function useCounterAnimation(visible: boolean, value: number) {
     animate();
     return () => cancelAnimationFrame(frame);
   }, [visible, value]);
-  
-  return count;
-}
-
-function CounterCard({ label, value, visible }: { label: string; value: number; visible: boolean }) {
-  const count = useCounterAnimation(visible, value);
   
   return (
     <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 lg:p-8 text-center border border-white/20">

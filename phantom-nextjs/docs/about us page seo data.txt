@@ -12,15 +12,14 @@ text/html
 canonical
 https://phantomhealthcare.com/about
 head title
-About Us - Phantom Healthcare | India's Leading Medical Imaging Equipment Provider | Phantom Healthcare
-(103 characters)
+About Us | Phantom Healthcare - Medical Imaging Since 2011 | Phantom Healthcare
+(79 characters)
 description
-Phantom Healthcare, established in 2011, is India's leading refurbisher of MRI, CT Scanner, PET-CT & Cath-Lab equipment. 170+ installations, 150+ satisfied clients. Meet our leadership team: Rochi Nargotra (CEO) & Brijesh Suneja (MD).
-(234 characters)
-WARNING description too long (>170 characters)
+Phantom Healthcare: 170+ MRI installations, 150+ clients since 2011. Leading refurbisher of MRI, CT, PET-CT equipment in India.
+(127 characters)
 keywords
-Phantom Healthcare history,medical imaging company India,Rochi Nargotra,Brijesh Suneja,MRI refurbishment company,healthcare equipment provider Faridabad,medical imaging since 2011
-( 7 items )
+Phantom Healthcare,medical imaging India,MRI refurbishment,CT scanner provider,Faridabad
+( 5 items )
 INFO'keywords' meta tag is obsolete
 robots
 index, follow
@@ -30,10 +29,10 @@ SOCIAL
 
 property
 og:title
-About Phantom Healthcare - India's Trusted Medical Imaging Partner Since 2011
+About Phantom Healthcare - Medical Imaging Partner Since 2011
 property
 og:description
-170+ MRI installations, 150+ satisfied clients. Leading remarketers and refurbishers of pre-owned MRI, CT Scanner, PET-CT equipment in India.
+170+ MRI installations, 150+ clients. Leading medical imaging equipment provider.
 property
 og:url
 https://phantomhealthcare.com/about
@@ -57,19 +56,6 @@ property
 og:image:alt
 Phantom Healthcare Team at IRIA 2024
 property
-og:image
-
-https://phantomhealthcare.com/images/phantom-building.jpg
-property
-og:image:width
-1200
-property
-og:image:height
-630
-property
-og:image:alt
-Phantom Healthcare Headquarters - Faridabad, India
-property
 og:type
 website
 twitter:card
@@ -79,7 +65,7 @@ twitter:creator
 twitter:title
 About Phantom Healthcare
 twitter:description
-170+ MRI installations since 2011. India's leading medical imaging equipment provider.
+170+ MRI installations since 2011. India's leading medical imaging provider.
 twitter:image
 https://phantomhealthcare.com/images/iria%202024%201.jpg
 STRUCTURED DATA
@@ -89,46 +75,11 @@ Schema Markup Validator
 
 •
 Google Rich Results Test
-@type: Organization name: Phantom Healthcare IND Private Limited
-@type: Person name: Brijesh Suneja
-@type: Person name: Rochi Nargotra
-@type: PostalAddress
-@type: GeoCoordinates
-@type: ContactPoint
-@type: ContactPoint
-@type: Country name: India
-@type: Country name: United States
-@type: Country name: United Arab Emirates
-@type: OfferCatalog name: Medical Imaging Equipment
-@type: OfferCatalog name: MRI Machines
-@type: Offer
-@type: Product name: GE 1.5T MRI
-@type: Offer
-@type: Product name: GE 3.0T MRI
-@type: Offer
-@type: Product name: Siemens 1.5T MRI
-@type: Offer
-@type: Product name: Siemens 3.0T MRI
-@type: OfferCatalog name: CT Scanners
-@type: Offer
-@type: Product name: 16-Slice CT Scanner
-@type: Offer
-@type: Product name: 64-Slice CT Scanner
-@type: Offer
-@type: Product name: 128-Slice CT Scanner
-@type: Offer
-@type: Product name: PET-CT Scanner
-@type: Offer
-@type: Product name: Cath Lab
-@type: Offer
-@type: Product name: Gamma Camera SPECT
-@type: Offer
-@type: Product name: Bone Densitometer DXA
 @type: BreadcrumbList
 @type: ListItem name: Home
 @type: ListItem name: About Us
 @type: AboutPage name: About Phantom Healthcare
-@type: Organization name: Phantom Healthcare IND Pvt Ltd
+@type: Corporation name: Phantom Healthcare IND Pvt Ltd
 @type: Person name: Rochi Nargotra
 @type: Person name: Brijesh Suneja
 @type: QuantitativeValue
@@ -173,7 +124,7 @@ h4 Our Services (12 characters)
 WARNING 24 links without anchor text or image
 internal
  
-(44)
+(45)
 -
 external
  
@@ -207,6 +158,7 @@ https://nextjs-phantom.vercel.app/		Home
 https://nextjs-phantom.vercel.app/about		About Us		
 https://nextjs-phantom.vercel.app/blogs		Blogs		
 https://nextjs-phantom.vercel.app/contact		Contact		
+https://nextjs-phantom.vercel.app/		Home		
 https://nextjs-phantom.vercel.app/contact		Contact Us		
 https://nextjs-phantom.vercel.app/products		View Products		
 https://nextjs-phantom.vercel.app/				yes
@@ -294,10 +246,10 @@ REAL	1066x482
 HTML	- x -
 auto	Phantom Healthcare Team at IRIA 2024 Exhibition	
 
-https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fphantom-building.jpg&w=1200&q=75
+https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fphantom-building.jpg&w=1920&q=75
 SRCSET: available
-REAL	640x480
-HTML	600x400
+REAL	512x384
+HTML	800x600
 lazy	auto	Phantom Healthcare Building - Plot 51, Sector 27C, Faridabad	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Frochi-nargotra.jpg&w=3840&q=75
@@ -378,3 +330,14 @@ preload
 https://nextjs-phantom.vercel.app/scripts/init-external.js
 preload
 (as image) (fetchpriority=auto)
+Url
+COMMON
+SOCIAL
+STRUCTURED DATA
+MOBILE
+MARKUP
+EXTERNAL RESOURCES
+RESOURCE HINTS
+print
+
+
