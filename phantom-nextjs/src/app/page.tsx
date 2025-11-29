@@ -103,7 +103,7 @@ import RegionalOffices from '@/components/home/RegionalOffices'
 import CounterSection from '@/components/home/CounterSection';
 import FeaturedProductsCarousel from '@/components/home/FeaturedProductsCarousel';
 import AboutSection from '@/components/home/AboutSection';
-import { OrganizationJsonLd, LocalBusinessJsonLd, WebSiteJsonLd, BreadcrumbJsonLd, MedicalDeviceJsonLd } from '@/components/seo/JsonLd';
+import { OrganizationJsonLd, LocalBusinessJsonLd, WebSiteJsonLd, BreadcrumbJsonLd, MedicalDeviceJsonLd, MedicalBusinessJsonLd } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Phantom Healthcare | MRI, CT Scanner, PET-CT, Cath-Lab India',
@@ -150,6 +150,7 @@ export default function Home() {
       <LocalBusinessJsonLd />
       <WebSiteJsonLd />
       <MedicalDeviceJsonLd />
+      <MedicalBusinessJsonLd />
       <BreadcrumbJsonLd items={homeBreadcrumb} />
       
       {/* Global Contact Modal (can be triggered from anywhere) */}

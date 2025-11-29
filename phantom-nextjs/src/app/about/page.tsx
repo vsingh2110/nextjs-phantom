@@ -28,7 +28,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { BreadcrumbJsonLd, AboutPageFullJsonLd } from '@/components/seo/JsonLd'
+import { BreadcrumbJsonLd, AboutPageFullJsonLd, MedicalBusinessJsonLd } from '@/components/seo/JsonLd'
 import AboutCounterSection from '@/components/about/AboutCounterSection'
 
 export const metadata: Metadata = {
@@ -75,6 +75,7 @@ export default function About() {
       {/* JSON-LD Structured Data for SEO - Using comprehensive schemas */}
       <BreadcrumbJsonLd items={breadcrumbItems} />
       <AboutPageFullJsonLd />
+      <MedicalBusinessJsonLd />
 
       {/* Compact Hero Section with strong gradient */}
       <section className="bg-gradient-to-r from-[#2980b9] via-[#3498db] to-[#5dade2] py-8 sm:py-10 md:py-14">
@@ -83,7 +84,7 @@ export default function About() {
           <nav className="mb-4 sm:mb-5" aria-label="Breadcrumb">
             <ol className="flex items-center space-x-2 text-sm text-white/80">
               <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
-              <li><span className="mx-1">/</span></li>
+              <li><span className="mx-1">›</span></li>
               <li className="text-white font-medium">About Us</li>
             </ol>
           </nav>
