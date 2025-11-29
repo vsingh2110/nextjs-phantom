@@ -3,8 +3,32 @@
 ## Session Summary
 **Date:** November 30, 2025  
 **Session Type:** Bug Fixes and SEO Enhancements  
-**Focus Areas:** HeroSlider text styling, Counter animation, About page hero, JSON-LD schemas  
-**Status:** ✅ All issues resolved
+**Focus Areas:** HeroSlider text styling, Counter animation, Schema fixes, Meta tags  
+**Status:** ⚠️ PARTIAL - Product images still needed for schema validation
+**Session End:** ~3:15 AM IST
+
+---
+
+## 🚨 CRITICAL ISSUE LEFT FOR NEXT SESSION
+
+### Product Schema Missing "image" Field
+**20 products** in hasOfferCatalog are marked **INVALID** by Google Rich Results because they lack the `image` property.
+
+**Error Message:** "Missing field 'image'"
+
+**Products Affected:**
+- 8 MRI Scanners (GE Signa 3.0T/1.5T variants, Siemens Magnetom)
+- 4 CT Scanners (GE BrightSpeed, Optima, Revolution 64/128)
+- 2 PET-CT Scanners (GE Discovery 8/16 Slice)
+- 2 Cath Labs (Philips Allura Xper FD10/FD20)
+- 3 Gamma Cameras (GE Infinia, Millennium, Discovery NM)
+- 1 Bone Densitometer (GE Lunar iDXA)
+
+**File to Fix:** `src/components/seo/JsonLd.tsx` → `OrganizationJsonLd()` → `hasOfferCatalog`
+
+**Also Noted:**
+- ContactPage schema visible in schema.org but NOT detected by Google Rich Results
+- Merchant listings need optional shippingDetails and hasMerchantReturnPolicy
 
 ---
 
@@ -185,8 +209,38 @@ Applied to all responsive breakpoints: default, 800px, 520px, 1600px+
 
 ---
 
+## 📚 KEY SEO LEARNINGS
+
+### Why Test SEO Early?
+> "If we do SEO at the end, we'll have hundreds of pages to fix. If we do it now and successfully implement for initial pages, the rest of the website will be easy."
+
+### Schema.org vs Google Rich Results
+- Some schemas validate on schema.org but are NOT detected by Google
+- Example: ContactPage schema - visible on schema.org but not Google
+- Always test with BOTH tools
+
+### MedicalDevice Properties
+**Valid:** name, description, url, image, sameAs  
+**Invalid (will show warnings):** category, isRelatedTo, manufacturer
+
+### Product Schema Requirements
+- MUST have `image` for Google Rich Results eligibility
+- MUST have `offers` OR `review` OR `aggregateRating`
+- Without image = "Invalid item" error
+
+### Deprecated Meta Tags
+- ❌ `apple-mobile-web-app-capable` (deprecated)
+- ✅ `mobile-web-app-capable` (correct)
+
+### Refurbished Products
+- Always include "Refurbished" in product names for clarity
+- We are resellers, not original manufacturers
+
+---
+
 ## 🔗 RELATED DOCUMENTS
 
-- Previous session: `docs/daily-logs/2025-11-29-seo-jsonld-implementation.md`
-- SEO reports: `docs/*.txt` files for page analysis
-- Session handover: `docs/SESSION-HANDOVER-2025-11-29.md`
+- Previous session: `docs/SESSION-HANDOVER-2025-11-29.md`
+- New SEO reference: `docs/SEO-INDIA-REFERENCE.md`
+- Session handover: `docs/SESSION-HANDOVER-2025-11-30.md`
+- Current status: `docs/CURRENT-STATUS.md`

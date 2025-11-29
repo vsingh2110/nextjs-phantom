@@ -1,33 +1,64 @@
 # Phantom Medical Imaging — Current Status
 
-**Last Updated:** November 30, 2025  
+**Last Updated:** November 30, 2025 (3:15 AM)  
 **Phase:** Active Migration - Static to Next.js  
-**Priority:** SEO Enhancement & Bug Fixes  
-**Git Status:** ⚠️ Changes pending push - verify and push to repository
+**Priority:** SEO Schema Fixes (Product Images Missing)  
+**Git Status:** ⚠️ ALL CHANGES LOCAL - PENDING PUSH TO REPOSITORY
+
+---
+
+## 🚨 CRITICAL PENDING ISSUES
+
+### **Product Schema Missing "image" Field**
+**Status:** ❌ NOT FIXED  
+**Impact:** 20 Product items marked as "Invalid" by Google Rich Results
+
+All 20 products in `hasOfferCatalog` are missing the required `image` field:
+- 8 MRI Scanners
+- 4 CT Scanners  
+- 2 PET-CT Scanners
+- 2 Cath Labs
+- 3 Gamma Cameras
+- 1 Bone Densitometer
+
+**File to Fix:** `src/components/seo/JsonLd.tsx` → `OrganizationJsonLd()` → `hasOfferCatalog`
+
+**Solution:** Add `"image": "https://phantomhealthcare.com/images/products/[product].jpg"` to each Product
 
 ---
 
 ## 🎯 CURRENT FOCUS
 
-### **Bug Fixes & SEO Improvements**
-**Status:** ✅ **COMPLETED** (Nov 30, 2025)
+### **Bug Fixes & SEO Improvements - Phase 2**
+**Status:** ⚠️ **PARTIALLY COMPLETE** (Product images pending)
 **Date:** November 30, 2025
 
-**Today's Fixes (Nov 30):**
-- **HeroSlider Text Fixed:** CSS updated to target both h1 and h2 in slider text classes after SEO changes
-- **About Page Counter Animation:** Fixed to run every time user scrolls to section (like home page)
-- **About Page Hero:** Stronger blue gradient, center-aligned heading and description
-- **MedicalDevice Schema Added:** New schema type for products (MRI, CT, PET-CT, Cath-Lab, etc.)
-- **About Page Schemas Restored:** Added AboutPageFullJsonLd with comprehensive AboutPage + Organization schemas
-- **Home Page Updated:** Now includes MedicalDeviceJsonLd in addition to existing schemas
+**Completed Today (Nov 30):**
+- ✅ HeroSlider Text Fixed (h1/h2 CSS selectors)
+- ✅ About Page Counter Animation (runs every scroll)
+- ✅ About Page Hero (stronger gradient, centered)
+- ✅ MedicalDevice Schema Fixed (removed invalid properties)
+- ✅ Product Offers Added (availability, price, url)
+- ✅ MedicalBusinessJsonLd Added (secondary schema)
+- ✅ "Refurbished" Added to all product names
+- ✅ Meta Tags Fixed (mobile-web-app-capable, legacy tags)
+- ✅ Breadcrumb Separator (/ → ›)
+- ✅ Title/H1 Length Fixes
+- ✅ Viewport Warning Fixed
 
-**Files Changed:**
-- `src/app/globals.css` - Added h2 selectors for slider text
-- `src/components/home/HeroSlider.tsx` - Removed conflicting inline styles  
-- `src/components/about/AboutCounterSection.tsx` - Fixed counter animation logic
-- `src/app/about/page.tsx` - Updated hero gradient, centered content, new schema imports
-- `src/components/seo/JsonLd.tsx` - Added MedicalDeviceJsonLd, AboutPageFullJsonLd
-- `src/app/page.tsx` - Added MedicalDeviceJsonLd
+**Still Pending:**
+- ❌ Product images for schema validation
+- ❌ Merchant listing fields (optional: shippingDetails, hasMerchantReturnPolicy)
+
+**Files Changed Today:**
+- `src/app/layout.tsx` - Meta tags
+- `src/app/page.tsx` - MedicalBusinessJsonLd, sr-only H1
+- `src/app/about/page.tsx` - Breadcrumb, MedicalBusinessJsonLd
+- `src/app/contact/page.tsx` - Title/H1 lengths
+- `src/app/globals.css` - h1/h2 slider selectors
+- `src/components/home/HeroSlider.tsx` - Removed inline conflicts
+- `src/components/about/AboutCounterSection.tsx` - Counter animation
+- `src/components/seo/JsonLd.tsx` - Schema fixes, MedicalBusinessJsonLd
 
 ### **SEO Enhancement & JSON-LD Implementation**
 **Status:** ✅ **COMPLETED** (Nov 29, 2025)
