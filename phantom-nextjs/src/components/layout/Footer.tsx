@@ -68,27 +68,27 @@ export default function Footer() {
           </Link>
           <p className="font-semibold text-base md:text-lg mb-2 leading-tight">Phantom Healthcare IND Private Limited</p>
           <p className="text-xs md:text-sm leading-relaxed mb-4">Plot No. 51, Sector 27C, Near NHPC Chowk, Main Mathura Road, Faridabad, Haryana – 121003 (INDIA)</p>
-          <ul className="space-y-1 text-xs md:text-sm list-disc pl-5">
-            <li><a href="tel:+919899963601" className="hover:underline">+91&nbsp;9899963601</a></li>
-            <li><a href="tel:+918384037073" className="hover:underline">+91&nbsp;8384037073</a></li>
-            <li><a href="tel:+911294312423" className="hover:underline">+91&nbsp;129&nbsp;4312423</a></li>
-            <li><a href="mailto:info@phantomhealthcare.com" className="hover:underline">info@phantomhealthcare.com</a></li>
-            <li><a href="mailto:biz@phantomhealthcare.com" className="hover:underline">biz@phantomhealthcare.com</a></li>
+          <ul className="space-y-2 text-xs md:text-sm list-disc pl-5">
+            <li><a href="tel:+919899963601" className="hover:underline inline-block py-1">+91&nbsp;9899963601</a></li>
+            <li><a href="tel:+918384037073" className="hover:underline inline-block py-1">+91&nbsp;8384037073</a></li>
+            <li><a href="tel:+911294312423" className="hover:underline inline-block py-1">+91&nbsp;129&nbsp;4312423</a></li>
+            <li><a href="mailto:info@phantomhealthcare.com" className="hover:underline inline-block py-1">info@phantomhealthcare.com</a></li>
+            <li><a href="mailto:biz@phantomhealthcare.com" className="hover:underline inline-block py-1">biz@phantomhealthcare.com</a></li>
           </ul>
         </div>
 
         {/* Useful Links + Services */}
         <div className="w-full md:w-1/3 p-4">
           <h4 className="font-semibold text-lg mb-2 text-left">Useful Links</h4>
-          <ul className="space-y-1 text-xs tracking-tight text-left">
+          <ul className="space-y-1.5 text-xs tracking-tight text-left">
             {['1.5T MRI Scanner Machines','3.0T MRI Scanner Machines','Siemens MRI Scanner Machines','GE MRI Scanner Machines','CT Scanner Machines','PET-CT Scanner Machines','News and Events','Blogs'].map((item)=> (
-              <li key={item}><Link href="#" className="hover:underline">{item}</Link></li>
+              <li key={item}><Link href="#" className="hover:underline inline-block py-0.5">{item}</Link></li>
             ))}
           </ul>
 
           <h4 className="font-semibold text-lg mt-4 mb-2 text-left">Our Services</h4>
-          <ul className="space-y-1 text-xs tracking-tight text-left">
-            {['CMC/AMC Packages For CT','CMC/AMC Packages For MRI','Equipment Installation','Site Planning & Construction','MRI Helium Filling','MRI De-Installation & Re-Installation'].map(s=>(<li key={s}><Link href="#" className="hover:underline">{s}</Link></li>))}
+          <ul className="space-y-1.5 text-xs tracking-tight text-left">
+            {['CMC/AMC Packages For CT','CMC/AMC Packages For MRI','Equipment Installation','Site Planning & Construction','MRI Helium Filling','MRI De-Installation & Re-Installation'].map(s=>(<li key={s}><Link href="#" className="hover:underline inline-block py-0.5">{s}</Link></li>))}
           </ul>
         </div>
 
@@ -115,7 +115,7 @@ export default function Footer() {
               {href:'https://www.pinterest.com/phantomhealthcare/', icon:'fa-pinterest', label:'Pinterest'},
               {href:'https://in.linkedin.com/company/phantom-healthcare-ind-private-limited-company', icon:'fa-linkedin', label:'LinkedIn'}
             ].map(s=>(
-              <a key={s.icon} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={`Visit our ${s.label} page`} className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white bg-opacity-20 hover:bg-opacity-40 flex items-center justify-center text-[0.6rem] sm:text-[0.7rem]">
+              <a key={s.icon} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={`Visit our ${s.label} page`} className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white bg-opacity-20 hover:bg-opacity-40 flex items-center justify-center text-xs sm:text-sm">
                 <i className={`fa ${s.icon}`} aria-hidden="true"></i>
               </a>
             ))}
@@ -137,8 +137,8 @@ export default function Footer() {
             </div>
             <p className="font-semibold leading-tight mb-1">{off.company}</p>
             <p className="leading-tight mb-2">{off.address}</p>
-            {off.phones.map(p=>(<p key={p}><a href={`tel:${p.replace(/[^\d+]/g,'')}`} className="hover:underline">{p}</a></p>))}
-            {off.emails.map(e=>(<p key={e}><a href={`mailto:${e}`} className="hover:underline">{e}</a></p>))}
+            {off.phones.map(p=>(<p key={p} className="py-0.5"><a href={`tel:${p.replace(/[^\d+]/g,'')}`} className="hover:underline inline-block py-1">{p}</a></p>))}
+            {off.emails.map(e=>(<p key={e} className="py-0.5"><a href={`mailto:${e}`} className="hover:underline inline-block py-1">{e}</a></p>))}
           </div>
         ))}
       </div>

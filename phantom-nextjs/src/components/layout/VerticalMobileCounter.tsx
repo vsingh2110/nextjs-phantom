@@ -49,7 +49,7 @@ const VerticalMobileCounter = ({ visible }: { visible: boolean }) => {
             className="counter-box flex flex-col items-center justify-center w-full min-h-[80px] bg-white/10 rounded-2xl border border-white/30 shadow-xl py-4 px-2 text-center"
           >
             <div className="font-bold text-white" style={{fontSize:'clamp(1.1rem,4vw,1.3rem)', textShadow:'2px 2px 4px #000000'}}>{count}+</div>
-            <div className="font-normal text-white opacity-90 leading-tight" style={{fontSize:'clamp(0.65rem,1.8vw,0.85rem)', textShadow:'2px 2px 4px #000000'}}>{counter.label}</div>
+            <div className="font-normal text-white opacity-90 leading-tight" style={{fontSize:'clamp(0.75rem,2vw,0.875rem)', textShadow:'2px 2px 4px #000000'}}>{counter.label}</div>
           </div>
         );
       })}

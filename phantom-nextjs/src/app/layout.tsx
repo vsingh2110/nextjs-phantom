@@ -151,7 +151,8 @@ export default function RootLayout({
         <meta name="DC.coverage" content="India, USA, UAE" />
         
         {/* Preconnect hints for performance optimization (Lighthouse recommendation) */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+        {/* Note: fonts.googleapis.com should NOT have crossOrigin, fonts.gstatic.com should */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://yt3.ggpht.com" />
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />

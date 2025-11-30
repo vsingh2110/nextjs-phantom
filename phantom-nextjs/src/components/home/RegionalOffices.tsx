@@ -107,7 +107,7 @@ const RegionalOffices = () => {
                   <a
                     key={phone}
                     href={`tel:${phone}`}
-                    className="hover:underline"
+                    className="hover:underline inline-block py-1"
                   >
                     {phone}
                   </a>
@@ -122,7 +122,7 @@ const RegionalOffices = () => {
                   <a
                     key={email}
                     href={`mailto:${email}`}
-                    className="hover:underline break-all"
+                    className="hover:underline break-all inline-block py-1"
                   >
                     {email}
                   </a>

@@ -53,9 +53,8 @@ const MobileHorizontalCounterSection = ({ visible }: { visible: boolean }) => {
               <div
                 className="font-normal text-white opacity-90 leading-tight"
                 style={{
-                  fontSize: 'clamp(0.65rem,1.8vw,0.85rem)',
-                  textShadow: '2px 2px 4px #000000',
-                  ...(typeof window !== 'undefined' && window.innerWidth <= 320 ? { fontSize: '0.6rem' } : {})
+                  fontSize: 'clamp(0.75rem,2vw,0.875rem)',
+                  textShadow: '2px 2px 4px #000000'
                 }}
               >
                 {counter.label}

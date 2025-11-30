@@ -273,6 +273,8 @@ export default function Header() {
             <button 
               onClick={toggleMenu}
               className="flex flex-col justify-center items-center w-10 h-10 space-y-1.5 border-none bg-transparent"
+              aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isMenuOpen}
             >
               <span className={`block w-7 h-0.5 bg-black transition-all ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
               <span className={`block w-7 h-0.5 bg-black transition-all ${isMenuOpen ? 'opacity-0' : ''}`}></span>
@@ -498,8 +500,8 @@ export default function Header() {
           aria-label="Download brochure form"
           title="Download our brochure"
         >
-          <i className="fa fa-download text-xs md:text-lg mb-1" aria-hidden="true"></i>
-          <p className="text-xs text-center">Download<br />Brochure</p>
+          <i className="fa fa-download text-sm md:text-lg mb-1" aria-hidden="true"></i>
+          <p className="text-sm font-medium text-center">Download<br />Brochure</p>
         </button>
 
         {isModalOpen && (
