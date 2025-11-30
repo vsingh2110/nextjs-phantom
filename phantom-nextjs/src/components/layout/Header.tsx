@@ -279,9 +279,10 @@ export default function Header() {
             </button>
 
             {/* Logo for Mobile (from static: .logo) */}
+            {/* Logo dimensions: actual image is 260x94 (2.77 aspect ratio) */}
             <div className="flex-shrink-0">
               <Link href="/">
-                <Image src="/images/logo.jpg" alt="Phantom Healthcare Logo" width={220} height={70} className="w-auto h-16 md:h-20" priority />
+                <Image src="/images/logo.jpg" alt="Phantom Healthcare Logo" width={222} height={80} className="w-auto h-16 md:h-20" priority />
               </Link>
             </div>
           </div>
@@ -289,9 +290,10 @@ export default function Header() {
           {/* Desktop Layout (from static: .container, .menu) */}
           <div className="hidden md:flex md:justify-between md:items-center md:w-full">
             {/* Logo for Desktop (from static: .logo) */}
+            {/* Logo dimensions: actual image is 260x94 (2.77 aspect ratio) */}
             <div className="flex-shrink-0">
               <Link href="/">
-                <Image src="/images/logo.jpg" alt="Phantom Healthcare Logo" width={180} height={55} className="w-auto h-14" priority />
+                <Image src="/images/logo.jpg" alt="Phantom Healthcare Logo" width={155} height={56} className="w-auto h-14" priority />
               </Link>
             </div>
 

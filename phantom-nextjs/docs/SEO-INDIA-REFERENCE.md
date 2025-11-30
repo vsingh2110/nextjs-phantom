@@ -1,7 +1,7 @@
 # SEO Reference Guide - India Version
 
 **Created:** November 30, 2025  
-**Last Updated:** November 30, 2025  
+**Last Updated:** November 30, 2025 (Lighthouse Analysis Added)  
 **Purpose:** Complete SEO & Development Guidelines for Phantom Healthcare India website  
 **Why Now:** Fix SEO on initial pages before scaling to 100+ pages
 
@@ -25,6 +25,7 @@ This document captures all SEO learnings from the Nov 29-30, 2025 sessions so fu
 6. [Common Pitfalls & Mistakes](#-common-pitfalls--mistakes)
 7. [Validation Tools](#-validation-tools)
 8. [Non-Relevant Warnings](#-non-relevant-warnings-ignore-these)
+9. [Lighthouse Audit Results](#-lighthouse-audit-results-november-30-2025)
 
 ---
 
@@ -799,4 +800,120 @@ export default function PageName() {
 | H1 | 20-70 chars | ✅ Fixed: "Phantom Healthcare - Refurbished MRI & CT Scanner India" (60 chars) |
 | Title | 50-60 chars | ✅ OK |
 | Description | 150-160 chars | ✅ OK |
+
+---
+
+## 📊 LIGHTHOUSE AUDIT RESULTS (November 30, 2025)
+
+### Overview
+
+Lighthouse audits were run on the homepage (`https://nextjs-phantom.vercel.app/`) on November 30, 2025.
+
+**Lighthouse Version:** 12.8.2 (axe-core 4.10.3)
+
+### Category Scores
+
+| Category | Desktop | Mobile | Notes |
+|----------|---------|--------|-------|
+| **Performance** | 81 | 49 | Mobile needs significant work |
+| **Accessibility** | 89 | 83 | Good, minor issues |
+| **Best Practices** | 96 | 96 | Excellent |
+| **SEO** | 92 | 92 | Very good |
+
+### Performance Metrics
+
+| Metric | Desktop | Mobile | Target |
+|--------|---------|--------|--------|
+| First Contentful Paint (FCP) | 1.7s (45) | 7.8s (0) | < 1.8s |
+| Largest Contentful Paint (LCP) | 2.1s (60) | 9.0s (1) | < 2.5s |
+| Speed Index | 1.8s (69) | 7.8s | < 3.4s |
+| Cumulative Layout Shift (CLS) | 0.85 | ? | < 0.1 |
+| Main-thread Work | 1.8s ✅ | 5.4s ❌ | < 4.0s |
+| JavaScript Execution (bootup) | 0.6s ✅ | 2.0s ❌ | < 2.0s |
+
+**⚠️ CRITICAL:** Mobile performance needs urgent attention. FCP of 7.8s and LCP of 9.0s are very poor scores.
+
+### Failed Audits - Action Required
+
+#### 1. Image Aspect Ratio ✅ FIXED (Nov 30, 2025)
+**Issue:** Logo image displayed dimensions don't match actual aspect ratio
+- **File:** `src/components/layout/Header.tsx`
+- **Image:** `logo.jpg` (260px × 94px actual = 2.77 aspect ratio)
+- **Previous (Wrong):** 
+  - Desktop: `width={220} height={70}` (3.14 ratio)
+  - Mobile: `width={180} height={55}` (3.27 ratio)
+
+**Applied Fix:**
+```tsx
+// Mobile (matches h-16/h-20 target heights with correct 2.77 ratio):
+<Image src="/images/logo.jpg" width={222} height={80} />
+
+// Desktop (matches h-14 = 56px height with correct 2.77 ratio):
+<Image src="/images/logo.jpg" width={155} height={56} />
+```
+
+#### 2. Missing Preconnects ✅ FIXED (Nov 30, 2025)
+**Potential Savings:** Desktop 140ms, Mobile 320ms
+
+**Added to `layout.tsx`:**
+```tsx
+<link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+<link rel="dns-prefetch" href="https://yt3.ggpht.com" />
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
+```
+
+### Performance Optimizations Needed for Mobile
+
+#### 1. Reduce Main-thread Work (5.4s → target < 4.0s)
+- Current: 5.4s (FAILING)
+- Biggest contributors:
+  - Script Evaluation: 2.0s
+  - Other: 2.0s
+  - Style & Layout: 1.3s
+
+#### 2. Heavy Third-Party Scripts
+| Script | Mobile Time | Recommendation |
+|--------|-------------|----------------|
+| Google Tag Manager | 245ms | Consider loading defer |
+| Facebook SDK | 159ms | Consider loading defer |
+| Firebase Analytics | ~100ms | Consider lazy loading |
+| YouTube Embed | ~150ms | Use lite-youtube-embed |
+
+#### 3. Reduce JavaScript Execution
+- Mobile JS execution: 2.0s (at threshold)
+- Consider code splitting for non-critical JS
+
+### Recommendations Priority
+
+**High Priority (Fix First):**
+1. ✅ Fix logo aspect ratio in Header.tsx
+2. ✅ Add preconnect hints for font CDNs
+3. ⚠️ Consider YouTube lite embed for video performance
+
+**Medium Priority:**
+1. Defer non-critical third-party scripts (GTM, Facebook)
+2. Lazy-load components below the fold
+3. Reduce main-thread work
+
+**Low Priority:**
+1. Consider Service Worker for caching
+2. HTTP/2 push for critical resources
+3. Image format optimization (already using Next.js Image)
+
+### What's Working Well ✅
+
+- HTTPS enabled
+- Proper viewport meta tag
+- All images have alt text
+- Valid robots.txt and sitemap
+- Proper heading hierarchy
+- Crawlable URLs
+- Canonical URL set
+- Meta description present
+- Document title present
+- HTTP/2 being used
+- Text compression enabled
+
+---
 

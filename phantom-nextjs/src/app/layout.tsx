@@ -150,6 +150,12 @@ export default function RootLayout({
         <meta name="DC.language" content="en" />
         <meta name="DC.coverage" content="India, USA, UAE" />
         
+        {/* Preconnect hints for performance optimization (Lighthouse recommendation) */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://yt3.ggpht.com" />
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
+        
         {/* Favicon */}
         <link rel="icon" href="/images/Fav-Icon.png" />
         <link rel="apple-touch-icon" href="/images/Fav-Icon.png" />
