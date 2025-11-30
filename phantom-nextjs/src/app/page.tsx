@@ -237,6 +237,7 @@ export default function Home() {
                   src="/images/machines/spare parts/Brain coil.png"
                   alt="MRI Coils"
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-contain p-6"
                 />
                 <span style={{
@@ -286,6 +287,7 @@ export default function Home() {
                   src="/images/machines/spare parts/cold head.png"
                   alt="Cold Head MRI Machine"
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-contain p-6"
                 />
                 <span style={{
@@ -335,6 +337,7 @@ export default function Home() {
                   src="/images/machines/spare parts/MHU Tube.png"
                   alt="MHU Tube - CT Scanner"
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-contain p-6"
                 />
                 <span style={{

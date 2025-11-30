@@ -153,21 +153,24 @@ export default function HeroSlider() {
           ))}
           <button
             onClick={prevSlide}
+            aria-label="Previous slide"
             className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all duration-300 z-10"
           >
-            <i className="fas fa-chevron-left text-xl"></i>
+            <i className="fas fa-chevron-left text-xl" aria-hidden="true"></i>
           </button>
           <button
             onClick={nextSlide}
+            aria-label="Next slide"
             className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all duration-300 z-10"
           >
-            <i className="fas fa-chevron-right text-xl"></i>
+            <i className="fas fa-chevron-right text-xl" aria-hidden="true"></i>
           </button>
           <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
             {slides.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
+                aria-label={`Go to slide ${index + 1}`}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === currentSlide
                     ? 'bg-white scale-125'
@@ -178,9 +181,10 @@ export default function HeroSlider() {
           </div>
           <button
             onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+            aria-label={isAutoPlaying ? 'Pause slideshow' : 'Play slideshow'}
             className="absolute top-8 right-8 z-10 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm"
           >
-            <i className={`fas ${isAutoPlaying ? 'fa-pause' : 'fa-play'} text-xl`}></i>
+            <i className={`fas ${isAutoPlaying ? 'fa-pause' : 'fa-play'} text-xl`} aria-hidden="true"></i>
           </button>
         </div>
         <div className="bg-white py-4 px-0 w-full">
@@ -229,6 +233,7 @@ export default function HeroSlider() {
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
+                aria-label={`Go to slide ${index + 1}`}
                 className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none focus:ring-0 border-0 shadow-none p-0 m-0 ${
                   index === currentSlide
                     ? 'bg-white scale-125'
@@ -240,15 +245,17 @@ export default function HeroSlider() {
           {/* Navigation Arrows (desktop only) */}
           <button
             onClick={prevSlide}
+            aria-label="Previous slide"
             className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all duration-300 z-10"
           >
-            <i className="fas fa-chevron-left text-xl"></i>
+            <i className="fas fa-chevron-left text-xl" aria-hidden="true"></i>
           </button>
           <button
             onClick={nextSlide}
+            aria-label="Next slide"
             className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all duration-300 z-10"
           >
-            <i className="fas fa-chevron-right text-xl"></i>
+            <i className="fas fa-chevron-right text-xl" aria-hidden="true"></i>
           </button>
         </div>
         <div className="relative h-full w-[320px] flex-shrink-0 flex items-center justify-center overflow-hidden bg-white">

@@ -64,7 +64,7 @@ export default function Footer() {
         {/* Company Info */}
         <div className="w-full md:w-1/3 p-4 text-left">
           <Link href="/">
-            <Image src="/images/white-logo.png" alt="Phantom Healthcare" width={180} height={55} className="mb-4" unoptimized />
+            <Image src="/images/white-logo.png" alt="Phantom Healthcare" width={180} height={55} className="mb-4" />
           </Link>
           <p className="font-semibold text-base md:text-lg mb-2 leading-tight">Phantom Healthcare IND Private Limited</p>
           <p className="text-xs md:text-sm leading-relaxed mb-4">Plot No. 51, Sector 27C, Near NHPC Chowk, Main Mathura Road, Faridabad, Haryana – 121003 (INDIA)</p>
@@ -107,16 +107,16 @@ export default function Footer() {
           </div>
           <div className="flex gap-2 sm:gap-3 flex-wrap justify-center">
             {[
-              {href:'https://twitter.com/Phantomhealthc', icon:'fa-twitter'},
-              {href:'https://wa.me/919899963601', icon:'fa-whatsapp'},
-              {href:'https://www.youtube.com/@phantomhealthcare', icon:'fa-youtube'},
-              {href:'https://www.instagram.com/phantomhealthcare/', icon:'fa-instagram'},
-              {href:'https://www.facebook.com/phantom.healthcare.ind', icon:'fa-facebook'},
-              {href:'https://www.pinterest.com/phantomhealthcare/', icon:'fa-pinterest'},
-              {href:'https://in.linkedin.com/company/phantom-healthcare-ind-private-limited-company', icon:'fa-linkedin'}
+              {href:'https://twitter.com/Phantomhealthc', icon:'fa-twitter', label:'Twitter'},
+              {href:'https://wa.me/919899963601', icon:'fa-whatsapp', label:'WhatsApp'},
+              {href:'https://www.youtube.com/@phantomhealthcare', icon:'fa-youtube', label:'YouTube'},
+              {href:'https://www.instagram.com/phantomhealthcare/', icon:'fa-instagram', label:'Instagram'},
+              {href:'https://www.facebook.com/phantom.healthcare.ind', icon:'fa-facebook', label:'Facebook'},
+              {href:'https://www.pinterest.com/phantomhealthcare/', icon:'fa-pinterest', label:'Pinterest'},
+              {href:'https://in.linkedin.com/company/phantom-healthcare-ind-private-limited-company', icon:'fa-linkedin', label:'LinkedIn'}
             ].map(s=>(
-              <a key={s.icon} href={s.href} target="_blank" rel="noopener noreferrer" className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white bg-opacity-20 hover:bg-opacity-40 flex items-center justify-center text-[0.6rem] sm:text-[0.7rem]">
-                <i className={`fa ${s.icon}`}></i>
+              <a key={s.icon} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={`Visit our ${s.label} page`} className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white bg-opacity-20 hover:bg-opacity-40 flex items-center justify-center text-[0.6rem] sm:text-[0.7rem]">
+                <i className={`fa ${s.icon}`} aria-hidden="true"></i>
               </a>
             ))}
           </div>
@@ -132,7 +132,7 @@ export default function Footer() {
         ].map(off=>(
           <div key={off.region} className="bg-white bg-opacity-10 backdrop-blur-sm p-4 rounded-lg">
             <div className="flex items-center gap-2 mb-2">
-              <Image src={off.flag} alt="flag" width={24} height={16} className="rounded-sm" unoptimized />
+              <Image src={off.flag} alt={off.region} width={24} height={16} className="rounded-sm" />
               <p className="font-semibold">{off.region}</p>
             </div>
             <p className="font-semibold leading-tight mb-1">{off.company}</p>

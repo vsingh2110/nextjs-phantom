@@ -85,8 +85,8 @@ const RegionalOffices = () => {
                     src={office.flag}
                     alt={office.alt}
                     fill
+                    sizes="80px"
                     className="object-contain rounded"
-                    unoptimized
                   />
                 </div>
               </div>

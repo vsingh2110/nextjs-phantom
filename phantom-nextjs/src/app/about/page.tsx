@@ -181,6 +181,7 @@ export default function About() {
                   src="/images/rochi-nargotra.jpg" 
                   alt="Rochi Nargotra - Director & CEO of Phantom Healthcare"
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                   className="object-cover object-top group-hover:scale-105 transition-transform duration-300"
                 />
               </div>
@@ -202,6 +203,7 @@ export default function About() {
                   src="/images/brijesh-suneja.jpg" 
                   alt="Brijesh Suneja - Managing Director of Phantom Healthcare"
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                   className="object-cover object-top group-hover:scale-105 transition-transform duration-300"
                 />
               </div>

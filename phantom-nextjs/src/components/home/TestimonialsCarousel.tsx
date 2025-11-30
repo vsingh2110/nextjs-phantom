@@ -115,7 +115,6 @@ const TestimonialCard = React.memo(({ t }: { t: Testimonial }) => (
         width={80}
         height={80}
         className="w-16 h-16 lg:w-20 lg:h-20 mx-auto rounded-full object-cover border-4 border-primary-100"
-        unoptimized
       />
       <h4 className="text-base lg:text-lg font-bold text-gray-900 mt-3 leading-tight">
         {t.name}
