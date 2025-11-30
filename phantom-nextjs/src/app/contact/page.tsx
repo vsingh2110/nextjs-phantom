@@ -70,9 +70,12 @@ function ContactPageJsonLd() {
     "name": "Contact Phantom Healthcare",
     "description": "Contact page for Phantom Healthcare - Medical Imaging Equipment Provider",
     "url": "https://phantomhealthcare.com/contact",
+    "image": "https://phantomhealthcare.com/images/phantom-building.jpg",
     "mainEntity": {
       "@type": "Organization",
       "name": "Phantom Healthcare IND Pvt Ltd",
+      "image": "https://phantomhealthcare.com/images/phantom-building.jpg",
+      "logo": "https://phantomhealthcare.com/images/logo.jpg",
       "telephone": ["+91-9899963601", "+91-129-4312423", "+91-8545815483"],
       "email": ["info@phantomhealthcare.com", "biz@phantomhealthcare.com", "hr@phantomhealthcare.com"],
       "address": {
@@ -145,13 +148,24 @@ export default function Contact() {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary-600 via-primary-500 to-primary-700 py-12 sm:py-16 md:py-20 lg:py-24">
         <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-10"></div>
-        <div className="relative w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-3 sm:mb-4 md:mb-6 animate-fade-in">
-            Contact Phantom Healthcare
-          </h1>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 max-w-3xl mx-auto">
-            Get in touch with our team for all your medical imaging equipment needs
-          </p>
+        <div className="relative w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumb - Left aligned */}
+          <nav className="mb-4 sm:mb-5" aria-label="Breadcrumb">
+            <ol className="flex items-center space-x-2 text-sm text-white/80">
+              <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
+              <li><span className="mx-1">›</span></li>
+              <li className="text-white font-medium">Contact Us</li>
+            </ol>
+          </nav>
+          {/* Title and Description - Center aligned */}
+          <div className="text-center">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-3 sm:mb-4 md:mb-6 animate-fade-in">
+              Contact Phantom Healthcare
+            </h1>
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 max-w-3xl mx-auto">
+              Get in touch with our team for all your medical imaging equipment needs
+            </p>
+          </div>
         </div>
       </section>
 

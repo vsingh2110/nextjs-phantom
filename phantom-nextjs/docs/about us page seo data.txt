@@ -1,7 +1,6 @@
  META SEO Inspector page analysis
 https://nextjs-phantom.vercel.app/about
 COMMON
-INFO head TITLE too long (>65 characters)
 INFO Canonical and page URL are different
 doctype
 <!DOCTYPE html>
@@ -12,8 +11,8 @@ text/html
 canonical
 https://phantomhealthcare.com/about
 head title
-About Us | Phantom Healthcare - Medical Imaging Since 2011 | Phantom Healthcare
-(79 characters)
+About Us - Phantom Healthcare | Since 2011 | Phantom Healthcare
+(63 characters)
 description
 Phantom Healthcare: 170+ MRI installations, 150+ clients since 2011. Leading refurbisher of MRI, CT, PET-CT equipment in India.
 (127 characters)
@@ -79,14 +78,51 @@ Google Rich Results Test
 @type: ListItem name: Home
 @type: ListItem name: About Us
 @type: AboutPage name: About Phantom Healthcare
-@type: Corporation name: Phantom Healthcare IND Pvt Ltd
+@type: WebSite name: Phantom Healthcare
+@type: Corporation name: Phantom Healthcare IND Private Limited
 @type: Person name: Rochi Nargotra
 @type: Person name: Brijesh Suneja
 @type: QuantitativeValue
+@type: PostalAddress
+@type: MedicalBusiness name: Phantom Healthcare IND Private Limited
+@type: PostalAddress
+@type: GeoCoordinates
+@type: OpeningHoursSpecification
+dc.title
+Phantom Healthcare - Medical Imaging Equipment
+dc.creator
+Phantom Healthcare IND Private Limited
+dc.subject
+Medical Imaging Equipment, MRI, CT Scanner, PET-CT
+dc.description
+India's leading provider of refurbished medical imaging equipment since 2011.
+dc.publisher
+Phantom Healthcare IND Private Limited
+dc.contributor
+Phantom Healthcare
+dc.date
+2011
+dc.type
+Service
+dc.format
+text/html
+dc.identifier
+https://phantomhealthcare.com
+dc.language
+en
+dc.coverage
+India, USA, UAE
 MOBILE
-WARNING maximum-scale in viewport should not be set
 viewport
-width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes
+width=device-width, initial-scale=1.0
+handheldfriendly
+true
+mobileoptimized
+width
+mobile-web-app-capable
+yes
+apple-mobile-web-app-title
+Phantom Healthcare
 viewport
 width=device-width, initial-scale=1
 MARKUP
@@ -242,7 +278,7 @@ lazy	auto	Phantom Healthcare Logo
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Firia%202024%201.jpg&w=3840&q=75
 SRCSET: available
 SIZES: 100vw	
-REAL	1066x482
+REAL	533x241
 HTML	- x -
 auto	Phantom Healthcare Team at IRIA 2024 Exhibition	
 
@@ -339,5 +375,3 @@ MARKUP
 EXTERNAL RESOURCES
 RESOURCE HINTS
 print
-
-

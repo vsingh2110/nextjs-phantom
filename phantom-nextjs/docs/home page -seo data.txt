@@ -1,7 +1,6 @@
  META SEO Inspector page analysis
 https://nextjs-phantom.vercel.app/
 COMMON
-INFO head TITLE too long (>65 characters)
 INFO Canonical and page URL are different
 doctype
 <!DOCTYPE html>
@@ -12,15 +11,14 @@ text/html
 canonical
 https://phantomhealthcare.com
 head title
-Phantom Healthcare - MRI, CT Scanner, PET-CT, Cath-Lab, Gamma Camera, Bone Densitometer
-(87 characters)
+Phantom Healthcare | MRI, CT Scanner, PET-CT, Cath-Lab India
+(60 characters)
 description
-India's leading provider of refurbished MRI, CT Scanners, PET-CT, Cath-Lab, Gamma Camera SPECT & Bone Densitometer DXA. 170+ installations, 150+ satisfied clients. Quality medical imaging equipment since 2011. Offices in India, USA & UAE.
-(238 characters)
-WARNING description too long (>170 characters)
+India's leading refurbished MRI, CT Scanner, PET-CT, Cath-Lab provider. 170+ installations, 150+ clients since 2011.
+(116 characters)
 keywords
-MRI machines India,CT scanner Faridabad,PET-CT India,Cath-Lab,Gamma Camera SPECT,Bone Densitometer DXA,refurbished medical equipment,GE MRI,Siemens MRI,medical imaging equipment India,Phantom Healthcare
-( 11 items )
+MRI machines India,CT scanner Faridabad,PET-CT India,Cath-Lab,refurbished medical equipment,GE MRI,Siemens MRI,Phantom Healthcare
+( 8 items )
 INFO'keywords' meta tag is obsolete
 robots
 index, follow
@@ -30,10 +28,10 @@ SOCIAL
 
 property
 og:title
-Phantom Healthcare - India's Leading Medical Imaging Equipment Provider
+Phantom Healthcare - India's Leading Medical Imaging Provider
 property
 og:description
-170+ MRI installations, 150+ satisfied clients. Refurbished MRI, CT Scanner, PET-CT, Cath-Lab & more since 2011.
+170+ MRI installations, 150+ clients. Refurbished MRI, CT Scanner, PET-CT, Cath-Lab since 2011.
 property
 og:url
 https://phantomhealthcare.com
@@ -66,7 +64,7 @@ twitter:creator
 twitter:title
 Phantom Healthcare - Medical Imaging Equipment
 twitter:description
-170+ MRI installations, 150+ satisfied clients. India's leading medical imaging equipment provider.
+170+ MRI installations, 150+ clients. India's leading medical imaging provider.
 twitter:image
 https://phantomhealthcare.com/images/phantom-building.jpg
 STRUCTURED DATA
@@ -76,52 +74,240 @@ Schema Markup Validator
 
 •
 Google Rich Results Test
-@type: Organization name: Phantom Healthcare IND Private Limited
+@type: Corporation name: Phantom Healthcare IND Private Limited
 @type: Person name: Brijesh Suneja
 @type: Person name: Rochi Nargotra
 @type: PostalAddress
+@type: Place name: Phantom Healthcare Headquarters
 @type: GeoCoordinates
 @type: ContactPoint
 @type: ContactPoint
 @type: Country name: India
 @type: Country name: United States
 @type: Country name: United Arab Emirates
-@type: OfferCatalog name: Medical Imaging Equipment
-@type: OfferCatalog name: MRI Machines
+@type: OfferCatalog name: Refurbished Medical Imaging Equipment
+@type: OfferCatalog name: Refurbished MRI Machines
 @type: Offer
-@type: Product name: GE 1.5T MRI
+@type: Product name: Refurbished GE Signa 3.0T 750W MRI Scanner
+@type: Brand name: GE Healthcare
+@type: AggregateRating
+@type: Review
+@type: Rating
+@type: Organization name: Apollo Hospitals
 @type: Offer
-@type: Product name: GE 3.0T MRI
 @type: Offer
-@type: Product name: Siemens 1.5T MRI
+@type: Product name: Refurbished GE Signa HDXT 3.0T MRI Scanner
+@type: Brand name: GE Healthcare
+@type: AggregateRating
+@type: Review
+@type: Rating
+@type: Organization name: Max Healthcare
 @type: Offer
-@type: Product name: Siemens 3.0T MRI
-@type: OfferCatalog name: CT Scanners
 @type: Offer
-@type: Product name: 16-Slice CT Scanner
+@type: Product name: Refurbished Siemens Magnetom Verio 3T MRI Scanner
+@type: Brand name: Siemens Healthineers
+@type: AggregateRating
+@type: Review
+@type: Rating
+@type: Organization name: Fortis Hospital
 @type: Offer
-@type: Product name: 64-Slice CT Scanner
 @type: Offer
-@type: Product name: 128-Slice CT Scanner
+@type: Product name: Refurbished Siemens Magnetom Skyra 3.0T MRI Scanner
+@type: Brand name: Siemens Healthineers
+@type: AggregateRating
+@type: Review
+@type: Rating
+@type: Organization name: Narayana Health
 @type: Offer
-@type: Product name: PET-CT Scanner
 @type: Offer
-@type: Product name: Cath Lab
+@type: Product name: Refurbished GE Signa 1.5T Creator MRI Scanner
+@type: Brand name: GE Healthcare
+@type: AggregateRating
+@type: Review
+@type: Rating
+@type: Organization name: Medanta Hospital
 @type: Offer
-@type: Product name: Gamma Camera SPECT
 @type: Offer
-@type: Product name: Bone Densitometer DXA
-@type: MedicalBusiness name: Phantom Healthcare IND Private Limited
+@type: Product name: Refurbished GE 1.5T Explorer MRI Scanner
+@type: Brand name: GE Healthcare
+@type: AggregateRating
+@type: Review
+@type: Rating
+@type: Organization name: AIIMS
+@type: Offer
+@type: Offer
+@type: Product name: Refurbished GE Signa 1.5T OPTIMA 360 Advance MRI Scanner
+@type: Brand name: GE Healthcare
+@type: AggregateRating
+@type: Review
+@type: Rating
+@type: Organization name: Manipal Hospitals
+@type: Offer
+@type: Offer
+@type: Product name: Refurbished GE Signa 1.5T HDXT MRI Scanner
+@type: Brand name: GE Healthcare
+@type: AggregateRating
+@type: Review
+@type: Rating
+@type: Organization name: Kokilaben Hospital
+@type: Offer
+@type: OfferCatalog name: Refurbished CT Scanners
+@type: Offer
+@type: Product name: Refurbished GE BrightSpeed 8 Slice CT Scanner
+@type: Brand name: GE Healthcare
+@type: AggregateRating
+@type: Review
+@type: Rating
+@type: Organization name: Columbia Asia Hospital
+@type: Offer
+@type: Offer
+@type: Product name: Refurbished GE Optima 16 Slice CT Scanner
+@type: Brand name: GE Healthcare
+@type: AggregateRating
+@type: Review
+@type: Rating
+@type: Organization name: Wockhardt Hospital
+@type: Offer
+@type: Offer
+@type: Product name: Refurbished GE Revolution 64 Slice CT Scanner
+@type: Brand name: GE Healthcare
+@type: AggregateRating
+@type: Review
+@type: Rating
+@type: Organization name: Lilavati Hospital
+@type: Offer
+@type: Offer
+@type: Product name: Refurbished GE Revolution 128 Slice CT Scanner
+@type: Brand name: GE Healthcare
+@type: AggregateRating
+@type: Review
+@type: Rating
+@type: Organization name: Hinduja Hospital
+@type: Offer
+@type: OfferCatalog name: Refurbished PET-CT Scanners
+@type: Offer
+@type: Product name: Refurbished GE Discovery PET-CT 8 Slice
+@type: Brand name: GE Healthcare
+@type: AggregateRating
+@type: Review
+@type: Rating
+@type: Organization name: Tata Memorial Hospital
+@type: Offer
+@type: Offer
+@type: Product name: Refurbished GE Discovery PET-CT 16 Slice
+@type: Brand name: GE Healthcare
+@type: AggregateRating
+@type: Review
+@type: Rating
+@type: Organization name: Rajiv Gandhi Cancer Institute
+@type: Offer
+@type: OfferCatalog name: Refurbished Cath Lab Systems
+@type: Offer
+@type: Product name: Refurbished Philips Allura Xper FD10 Cath Lab
+@type: Brand name: Philips Healthcare
+@type: AggregateRating
+@type: Review
+@type: Rating
+@type: Organization name: Escorts Heart Institute
+@type: Offer
+@type: Offer
+@type: Product name: Refurbished Philips Allura Xper FD20 Cath Lab
+@type: Brand name: Philips Healthcare
+@type: AggregateRating
+@type: Review
+@type: Rating
+@type: Organization name: Asian Heart Institute
+@type: Offer
+@type: OfferCatalog name: Refurbished Gamma Camera SPECT
+@type: Offer
+@type: Product name: Refurbished GE Infinia Gamma Camera SPECT
+@type: Brand name: GE Healthcare
+@type: AggregateRating
+@type: Review
+@type: Rating
+@type: Organization name: PGIMER Chandigarh
+@type: Offer
+@type: Offer
+@type: Product name: Refurbished GE Millennium MG Gamma Camera
+@type: Brand name: GE Healthcare
+@type: AggregateRating
+@type: Review
+@type: Rating
+@type: Organization name: CMC Vellore
+@type: Offer
+@type: Offer
+@type: Product name: Refurbished GE Discovery NM 630 Gamma Camera
+@type: Brand name: GE Healthcare
+@type: AggregateRating
+@type: Review
+@type: Rating
+@type: Organization name: NIMHANS
+@type: Offer
+@type: OfferCatalog name: Refurbished Bone Densitometer DXA
+@type: Offer
+@type: Product name: Refurbished GE Lunar iDXA Bone Densitometer
+@type: Brand name: GE Healthcare
+@type: AggregateRating
+@type: Review
+@type: Rating
+@type: Organization name: AIIMS Delhi
+@type: Offer
+@type: ProfessionalService name: Phantom Healthcare IND Private Limited
 @type: PostalAddress
 @type: GeoCoordinates
 @type: OpeningHoursSpecification
 @type: WebSite name: Phantom Healthcare
 @type: SearchAction
 @type: EntryPoint urlTemplate: https://phantomhealthcare.com/search?q={search_term_string}
+@type: MedicalDevice name: Refurbished GE Signa 3.0T MRI Scanner
+@type: MedicalDevice name: Refurbished Siemens Magnetom 3.0T MRI Scanner
+@type: MedicalDevice name: Refurbished GE 1.5T MRI Scanner
+@type: MedicalDevice name: Refurbished Multi-Slice CT Scanner
+@type: MedicalDevice name: Refurbished GE Discovery PET-CT Scanner
+@type: MedicalDevice name: Refurbished Philips Allura Cath Lab
+@type: MedicalDevice name: Refurbished Gamma Camera SPECT System
+@type: MedicalDevice name: Refurbished Bone Densitometer DXA System
+@type: MedicalBusiness name: Phantom Healthcare IND Private Limited
+@type: PostalAddress
+@type: GeoCoordinates
+@type: OpeningHoursSpecification
+@type: BreadcrumbList
+@type: ListItem name: Home
+dc.title
+Phantom Healthcare - Medical Imaging Equipment
+dc.creator
+Phantom Healthcare IND Private Limited
+dc.subject
+Medical Imaging Equipment, MRI, CT Scanner, PET-CT
+dc.description
+India's leading provider of refurbished medical imaging equipment since 2011.
+dc.publisher
+Phantom Healthcare IND Private Limited
+dc.contributor
+Phantom Healthcare
+dc.date
+2011
+dc.type
+Service
+dc.format
+text/html
+dc.identifier
+https://phantomhealthcare.com
+dc.language
+en
+dc.coverage
+India, USA, UAE
 MOBILE
-WARNING maximum-scale in viewport should not be set
 viewport
-width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes
+width=device-width, initial-scale=1.0
+handheldfriendly
+true
+mobileoptimized
+width
+mobile-web-app-capable
+yes
+apple-mobile-web-app-title
+Phantom Healthcare
 viewport
 width=device-width, initial-scale=1
 VIDEO AND AUDIO
@@ -141,22 +327,23 @@ MARKUP
 <iframe>
 (2)
 
-WARNING too many <h1> tags(12 items)
-h1 Largest 3rd Party Vendors Of Refurbished Radiology Equipments (61 characters)
-h1 450+ Installations (18 characters)
-h1 Dedicated Team (14 characters)
-h1 Complete Turnkey Solutions (26 characters)
-h1 Quality Assuarance (18 characters)
-h1 Spare Parts and Services (24 characters)
+WARNING H1 should be 20-70 characters(91 characters)
+h1 Phantom Healthcare - India's Leading Refurbished MRI, CT Scanner, PET-CT, Cath-Lab Provider (91 characters)
+h2 Largest 3rd Party Vendors Of Refurbished Radiology Equipments (61 characters)
+h2 450+ Installations (18 characters)
+h2 Dedicated Team (14 characters)
+h2 Complete Turnkey Solutions (26 characters)
+h2 Quality Assuarance (18 characters)
+h2 Spare Parts and Services (24 characters)
 h2 Buy Online (10 characters)
 h2 Sell To Us (10 characters)
 h2 For Enquiries (13 characters)
-h1 Largest 3rd Party Vendors Of Refurbished Radiology Equipments (61 characters)
-h1 450+ Installations (18 characters)
-h1 Dedicated Team (14 characters)
-h1 Complete Turnkey Solutions (26 characters)
-h1 Quality Assuarance (18 characters)
-h1 Spare Parts and Services (24 characters)
+h2 Largest 3rd Party Vendors Of Refurbished Radiology Equipments (61 characters)
+h2 450+ Installations (18 characters)
+h2 Dedicated Team (14 characters)
+h2 Complete Turnkey Solutions (26 characters)
+h2 Quality Assuarance (18 characters)
+h2 Spare Parts and Services (24 characters)
 h2 Buy Online (10 characters)
 h2 Sell To Us (10 characters)
 h2 For Enquiries (13 characters)
@@ -322,7 +509,7 @@ mailto:sachin.rawat@phantomhealthcare.com		sachin.rawat@phantomhealthcare.com
 INFO 37 images (out of 37) with missing TITLE attribute
 INFO 2 images (out of 37) with missing LOADING attribute
 WARNING 17 images (out of 37) with missing WIDTH or HEIGHT attribute
-INFO 1 images (out of 37) are lazyloaded and above the fold
+INFO 14 images (out of 37) are lazyloaded and above the fold
 SRC	SIZE	LOADING	FETCH PR.	ALT	TITLE
 
 https://nextjs-phantom.vercel.app/images/logo.jpg
@@ -338,7 +525,7 @@ lazy	auto	Phantom Healthcare Logo
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fslideshow%2Fimg1-mobile.jpg&w=3840&q=75
 SRCSET: available
 SIZES: (max-width: 768px) 100vw, 50vw	
-REAL	450x550
+REAL	266x325
 HTML	- x -
 auto	Largest 3rd Party Vendors Of Refurbished Radiology Equipments	
 
@@ -373,35 +560,35 @@ lazy	auto	Spare Parts and Services
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fslideshow%2FPhantom%20PPT.jpg&w=3840&q=75
 SRCSET: available
 SIZES: (max-width: 768px) 100vw, 70vw	
-REAL	895x504
+REAL	597x336
 HTML	- x -
 auto	Largest 3rd Party Vendors Of Refurbished Radiology Equipments	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fslideshow%2Fmap%20installations.jpg&w=3840&q=75
 SRCSET: available
 SIZES: (max-width: 768px) 100vw, 70vw	
-REAL	895x504
+REAL	597x336
 HTML	- x -
 lazy	auto	450+ Installations	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fslideshow%2FEng.jpg&w=3840&q=75
 SRCSET: available
 SIZES: (max-width: 768px) 100vw, 70vw	
-REAL	895x504
+REAL	896x504
 HTML	- x -
 lazy	auto	Dedicated Team	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fslideshow%2Ffa.jpg&w=3840&q=75
 SRCSET: available
 SIZES: (max-width: 768px) 100vw, 70vw	
-REAL	0x0
+REAL	896x504
 HTML	- x -
 lazy	auto	Quality Assuarance	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fslideshow%2Fhf.jpg&w=3840&q=75
 SRCSET: available
 SIZES: (max-width: 768px) 100vw, 70vw	
-REAL	0x0
+REAL	896x504
 HTML	- x -
 lazy	auto	Spare Parts and Services	
 
@@ -429,25 +616,25 @@ lazy	auto	Phantom Healthcare Building
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fhand.png&w=256&q=75
 SRCSET: available
-REAL	96x96
+REAL	75x75
 HTML	96x96
 lazy	auto	Sales & Supply	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fup.png&w=256&q=75
 SRCSET: available
-REAL	96x96
+REAL	75x75
 HTML	96x96
 lazy	auto	Upgrade	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fservice.jpg&w=256&q=75
 SRCSET: available
-REAL	96x96
+REAL	75x75
 HTML	96x96
 lazy	auto	Service Maintenance	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fsite.png&w=256&q=75
 SRCSET: available
-REAL	96x96
+REAL	75x75
 HTML	96x96
 lazy	auto	Site Planning	
 
@@ -474,31 +661,31 @@ lazy	auto	MHU Tube - CT Scanner
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2F15.jpg&w=256&q=75
 SRCSET: available
-REAL	0x0
+REAL	128x128
 HTML	120x120
 lazy	auto	15+ Years of Experience	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2F24.jpg&w=256&q=75
 SRCSET: available
-REAL	0x0
+REAL	128x128
 HTML	120x120
 lazy	auto	24*7 Service & Support	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fbest.jpg&w=256&q=75
 SRCSET: available
-REAL	0x0
+REAL	128x128
 HTML	120x120
 lazy	auto	Best Quality AERB Approved	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fskill.jpg&w=256&q=75
 SRCSET: available
-REAL	0x0
+REAL	128x128
 HTML	120x120
 lazy	auto	Skilled Professional	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Four-process.jpg&w=3840&q=75
 SRCSET: available
-REAL	0x0
+REAL	800x200
 HTML	1200x400
 lazy	auto	Our Process Horizontal (Desktop/Tablet)	
 
@@ -510,42 +697,42 @@ lazy	auto	Our Process Vertical (Mobile)
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Firia%202024%201.jpg&w=3840&q=75
 SRCSET: available
-REAL	0x0
+REAL	800x361
 HTML	1200x600
 lazy	auto	IRIA 2024 Exhibition	
 
 https://nextjs-phantom.vercel.app/images/usa-map.jpg
-REAL	0x0
+REAL	728x371
 HTML	- x -
 lazy	auto	USA Flag	
 
 https://nextjs-phantom.vercel.app/images/uae-flag.jpg
-REAL	0x0
+REAL	612x408
 HTML	- x -
 lazy	auto	UAE Flag	
 
 https://nextjs-phantom.vercel.app/images/india-flag.jpg
-REAL	0x0
+REAL	612x408
 HTML	- x -
 lazy	auto	India Flag	
 
 https://nextjs-phantom.vercel.app/images/white-logo.png
-REAL	0x0
+REAL	1024x615
 HTML	180x55
 lazy	auto	Phantom Healthcare	
 
 https://nextjs-phantom.vercel.app/images/india-flag.jpg
-REAL	0x0
+REAL	612x408
 HTML	24x16
 lazy	auto	flag	
 
 https://nextjs-phantom.vercel.app/images/usa-map.jpg
-REAL	0x0
+REAL	728x371
 HTML	24x16
 lazy	auto	flag	
 
 https://nextjs-phantom.vercel.app/images/uae-flag.jpg
-REAL	0x0
+REAL	612x408
 HTML	24x16
 lazy	auto	flag	
 SRC
@@ -592,3 +779,15 @@ https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js
 preload
 (as script) (fetchpriority=auto)
 https://nextjs-phantom.vercel.app/scripts/init-external.js
+preload
+(as image) (fetchpriority=auto)
+Url
+COMMON
+SOCIAL
+STRUCTURED DATA
+MOBILE
+VIDEO AND AUDIO
+MARKUP
+EXTERNAL RESOURCES
+RESOURCE HINTS
+print

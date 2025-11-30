@@ -1,7 +1,6 @@
  META SEO Inspector page analysis
 https://nextjs-phantom.vercel.app/contact
 COMMON
-INFO head TITLE too long (>65 characters)
 INFO Canonical and page URL are different
 doctype
 <!DOCTYPE html>
@@ -12,8 +11,8 @@ text/html
 canonical
 https://phantomhealthcare.com/contact
 head title
-Contact Us | Phantom Healthcare - MRI, CT Scanner India | Phantom Healthcare
-(76 characters)
+Contact Us - Phantom Healthcare India | Phantom Healthcare
+(58 characters)
 description
 Contact Phantom Healthcare. Plot 51, Sector 27C, Faridabad. Call +91 9899963601. Offices in India, USA & UAE.
 (109 characters)
@@ -89,10 +88,41 @@ Google Rich Results Test
 @type: ContactPoint
 @type: ContactPoint
 @type: ContactPoint
+dc.title
+Phantom Healthcare - Medical Imaging Equipment
+dc.creator
+Phantom Healthcare IND Private Limited
+dc.subject
+Medical Imaging Equipment, MRI, CT Scanner, PET-CT
+dc.description
+India's leading provider of refurbished medical imaging equipment since 2011.
+dc.publisher
+Phantom Healthcare IND Private Limited
+dc.contributor
+Phantom Healthcare
+dc.date
+2011
+dc.type
+Service
+dc.format
+text/html
+dc.identifier
+https://phantomhealthcare.com
+dc.language
+en
+dc.coverage
+India, USA, UAE
 MOBILE
-WARNING maximum-scale in viewport should not be set
 viewport
-width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes
+width=device-width, initial-scale=1.0
+handheldfriendly
+true
+mobileoptimized
+width
+mobile-web-app-capable
+yes
+apple-mobile-web-app-title
+Phantom Healthcare
 viewport
 width=device-width, initial-scale=1
 MARKUP
@@ -109,8 +139,7 @@ MARKUP
 <form>
 (1)
 
-WARNING H1 should be 20-70 characters(10 characters)
-h1 Contact Us (10 characters)
+h1 Contact Phantom Healthcare (26 characters)
 h2 Visit Us (8 characters)
 h3 PHANTOM HEALTHCARE (18 characters)
 h3 Phone (5 characters)
@@ -358,6 +387,3 @@ MARKUP
 EXTERNAL RESOURCES
 RESOURCE HINTS
 print
-
-
-

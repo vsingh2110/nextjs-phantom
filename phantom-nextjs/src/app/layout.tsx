@@ -85,11 +85,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Viewport without maximum-scale (SEO warning fix) */}
+        {/* CRITICAL: charset must be first in head for proper encoding */}
+        <meta charSet="utf-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+        
+        {/* Viewport - must be early for mobile rendering */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         
         {/* Legacy/Additional Meta Tags for comprehensive SEO */}
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="format-detection" content="telephone=yes" />
         <meta name="HandheldFriendly" content="true" />
         <meta name="MobileOptimized" content="width" />

@@ -264,7 +264,153 @@ import {
 - [ ] Add openGraph and twitter metadata
 - [ ] Add canonical URL
 - [ ] Add BreadcrumbJsonLd
+- [ ] Add visible breadcrumb in hero section
 - [ ] Add relevant page-type schema (AboutPage, ContactPage, etc.)
 - [ ] Ensure single H1 (20-70 chars)
 - [ ] Test with Google Rich Results
 - [ ] Add page to sitemap.xml
+
+---
+
+## 🚫 NON-RELEVANT WARNINGS (IGNORE THESE)
+
+### 1. Canonical URL Warning
+- **Warning:** "Canonical and page URL are different"
+- **Why Ignore:** During development, we're on `nextjs-phantom.vercel.app` but canonical points to `phantomhealthcare.com` (production domain)
+- **Action:** This is intentional. Will resolve when deployed to production domain.
+
+### 2. Vercel Preview URL Warnings
+- **Warning:** Any warnings about `vercel.app` URLs
+- **Why Ignore:** Development/preview URLs, not production
+- **Action:** None needed. Production uses `phantomhealthcare.com`
+
+### 3. Anchor Links Without Text (# links)
+- **Warning:** "Links without anchor text" for `#products`, `#services`, etc.
+- **Why Ignore:** These are dropdown menu anchor links that trigger submenus
+- **Action:** These are intentional UX patterns for navigation dropdowns
+
+### 4. Image WIDTH/HEIGHT Missing (Next.js fill prop)
+- **Warning:** "17 images missing WIDTH or HEIGHT attribute"
+- **Why Ignore:** Next.js Image with `fill` prop + `sizes` attribute is the correct responsive image pattern
+- **Reality:** Images use: `<Image fill sizes="(max-width: 768px) 100vw, 50vw" />`
+- **Action:** None needed. This is Next.js best practice for responsive images.
+
+### 5. Hidden Content Warnings for line breaks
+- **Warning:** "Content seems to be hidden" for h3 elements
+- **Why Ignore:** These h3 elements use `<br/>` tags for text wrapping, not to hide content
+- **Example:** `24*7 Service & <br/> Support` shows as two lines, not hidden
+- **Action:** None needed. False positive from SEO checker.
+
+### 6. Image TITLE Attribute Missing
+- **Warning:** "37 images with missing TITLE attribute"
+- **Why Ignore:** TITLE is optional, ALT is required. All our images have ALT text.
+- **Action:** Optional - can add title for enhanced tooltips, but not SEO-critical
+
+### 7. META charset/httpEquiv Position
+- **Warning:** "This tag has to be placed above"
+- **Status:** ✅ FIXED - Moved charset and httpEquiv to top of head in layout.tsx
+- **Note:** charset, httpEquiv, viewport should always be first in head
+
+---
+
+## 🖼️ IMAGE WIDTH/HEIGHT GUIDANCE
+
+### When to use `fill` prop (NO width/height needed)
+```jsx
+// ✅ CORRECT - Hero images, full-width backgrounds
+<Image 
+  fill 
+  sizes="(max-width: 768px) 100vw, 50vw"
+  src="/images/hero.jpg" 
+  alt="..." 
+/>
+```
+
+### When to use explicit width/height
+```jsx
+// ✅ CORRECT - Icons, thumbnails, known-size images
+<Image 
+  src="/images/icon.png" 
+  alt="..." 
+  width={150} 
+  height={150} 
+/>
+
+// ❌ WRONG - Never use width={0} height={0}
+<Image 
+  src="/images/icon.png" 
+  width={0} 
+  height={0}  // This causes SEO warnings!
+/>
+```
+
+### Images Fixed (Nov 30, 2025)
+- `icons.png` - Changed from 0x0 to 150x150
+- `upd.png` - Changed from 0x0 to 150x150  
+- `ser.png` - Changed from 0x0 to 150x150
+
+---
+
+## 🔧 PRODUCT SCHEMA REQUIREMENTS (Google Rich Results)
+
+### Required Fields for Products
+```javascript
+{
+  "@type": "Product",
+  "name": "...",              // ✅ REQUIRED
+  "image": "...",             // ✅ REQUIRED - Google will reject without this!
+  "offers": {...}             // ✅ REQUIRED (or review/aggregateRating)
+}
+```
+
+### Recommended Fields for Better Rich Results
+```javascript
+{
+  "aggregateRating": {        // Highly recommended
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "45",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": {                 // Highly recommended
+    "@type": "Review",
+    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+    "author": { "@type": "Organization", "name": "Apollo Hospitals" },
+    "reviewBody": "Excellent refurbished MRI..."
+  }
+}
+```
+
+### Product URL Best Practice
+- ❌ WRONG: `"url": "https://phantomhealthcare.com/contact"`
+- ✅ RIGHT: `"url": "https://phantomhealthcare.com/product-pages/mri-scanner-machines/3.0t-mri-scanner-machines"`
+- Each product's URL should point to its actual product page, not the contact page
+
+---
+
+## 📊 CURRENT PRODUCT COUNT IN SCHEMA
+
+| Category | Count | Schema Location |
+|----------|-------|-----------------|
+| MRI Machines (3.0T) | 4 | hasOfferCatalog |
+| MRI Machines (1.5T) | 4 | hasOfferCatalog |
+| CT Scanners | 4 | hasOfferCatalog |
+| PET-CT Scanners | 2 | hasOfferCatalog |
+| Cath Lab Systems | 2 | hasOfferCatalog |
+| Gamma Camera SPECT | 3 | hasOfferCatalog |
+| Bone Densitometer | 1 | hasOfferCatalog |
+| **TOTAL** | **20** | OrganizationJsonLd |
+
+All products have: name, description, image, brand, category, aggregateRating, review, offers with proper URLs
+
+---
+
+## 🎯 SEO LENGTH LIMITS (REMINDER)
+
+| Element | Ideal | Current Status |
+|---------|-------|----------------|
+| H1 | 20-70 chars | ✅ Fixed: "Phantom Healthcare - Refurbished MRI & CT Scanner India" (60 chars) |
+| Title | 50-60 chars | ✅ OK |
+| Description | 150-160 chars | ✅ OK |
+

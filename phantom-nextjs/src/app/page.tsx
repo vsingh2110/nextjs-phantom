@@ -157,8 +157,9 @@ export default function Home() {
       <ContactFormModalWrapper />
       
       {/* Visually hidden H1 for SEO - Screen readers will read this */}
+      {/* H1 should be 20-70 chars (this is 60 chars) */}
       <h1 className="sr-only">
-        Phantom Healthcare - India&apos;s Leading Refurbished MRI, CT Scanner, PET-CT, Cath-Lab Provider
+        Phantom Healthcare - Refurbished MRI &amp; CT Scanner India
       </h1>
       
       {/* Hero Slider */}
