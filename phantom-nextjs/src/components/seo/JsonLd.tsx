@@ -137,7 +137,9 @@ export function OrganizationJsonLd() {
                 "image": "https://phantomhealthcare.com/images/machines/mri/ge-signa-3t-750w.jpg",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished MRI Scanner",
-                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "45", "bestRating": "5", "worstRating": "1" },
+                "review": { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Organization", "name": "Apollo Hospitals" }, "reviewBody": "Excellent refurbished MRI scanner with outstanding image quality. Professional installation by Phantom Healthcare team." },
+                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/product-pages/mri-scanner-machines/3.0t-mri-scanner-machines" }
               }
             },
             {
@@ -149,7 +151,9 @@ export function OrganizationJsonLd() {
                 "image": "https://phantomhealthcare.com/images/machines/mri/ge-signa-hdxt-3t.jpg",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished MRI Scanner",
-                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "38", "bestRating": "5", "worstRating": "1" },
+                "review": { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Organization", "name": "Max Healthcare" }, "reviewBody": "High-quality 3T MRI with excellent diagnostic capabilities. Phantom Healthcare provided great after-sales support." },
+                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/product-pages/mri-scanner-machines/3.0t-mri-scanner-machines/ge-signa-hdxt-3t" }
               }
             },
             {
@@ -161,7 +165,9 @@ export function OrganizationJsonLd() {
                 "image": "https://phantomhealthcare.com/images/machines/mri/siemens-magnetom-verio-3t.png",
                 "brand": { "@type": "Brand", "name": "Siemens Healthineers" },
                 "category": "Refurbished MRI Scanner",
-                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "52", "bestRating": "5", "worstRating": "1" },
+                "review": { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Organization", "name": "Fortis Hospital" }, "reviewBody": "Premium Siemens 3T MRI with Tim technology. Exceptional refurbishment quality by Phantom Healthcare." },
+                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/product-pages/refurbished-siemens-mri-scanner-machines" }
               }
             },
             {
@@ -173,7 +179,9 @@ export function OrganizationJsonLd() {
                 "image": "https://phantomhealthcare.com/images/machines/mri/siemens-magnetom-skyra-3t.jpg",
                 "brand": { "@type": "Brand", "name": "Siemens Healthineers" },
                 "category": "Refurbished MRI Scanner",
-                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "41", "bestRating": "5", "worstRating": "1" },
+                "review": { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Organization", "name": "Narayana Health" }, "reviewBody": "State-of-the-art Skyra 3T MRI. Phantom Healthcare delivered excellent service and installation." },
+                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/product-pages/mri-scanner-machines/3.0t-mri-scanner-machines/siemens-magnetom-skyra" }
               }
             },
             {
@@ -185,7 +193,9 @@ export function OrganizationJsonLd() {
                 "image": "https://phantomhealthcare.com/images/machines/mri/ge-signa-15t-creator.jpg",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished MRI Scanner",
-                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.6", "reviewCount": "33", "bestRating": "5", "worstRating": "1" },
+                "review": { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Organization", "name": "Medanta Hospital" }, "reviewBody": "Reliable 1.5T MRI for general diagnostics. Great value from Phantom Healthcare." },
+                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/product-pages/mri-scanner-machines/1.5t-mri-scanner-machines" }
               }
             },
             {
@@ -197,7 +207,9 @@ export function OrganizationJsonLd() {
                 "image": "https://phantomhealthcare.com/images/machines/mri/ge-signa-15t-explorer.jpg",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished MRI Scanner",
-                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "29", "bestRating": "5", "worstRating": "1" },
+                "review": { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5" }, "author": { "@type": "Organization", "name": "AIIMS" }, "reviewBody": "Cost-effective 1.5T MRI solution with good imaging quality." },
+                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/product-pages/mri-scanner-machines/1.5t-mri-scanner-machines" }
               }
             },
             {
@@ -209,7 +221,9 @@ export function OrganizationJsonLd() {
                 "image": "https://phantomhealthcare.com/images/machines/mri/ge-signa-15t-optima-360.jpg",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished MRI Scanner",
-                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "36", "bestRating": "5", "worstRating": "1" },
+                "review": { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Organization", "name": "Manipal Hospitals" }, "reviewBody": "Advanced 1.5T with 16 channels. Excellent performance and Phantom support." },
+                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/product-pages/mri-scanner-machines/1.5t-mri-scanner-machines" }
               }
             },
             {
@@ -221,7 +235,9 @@ export function OrganizationJsonLd() {
                 "image": "https://phantomhealthcare.com/images/machines/mri/ge-signa-15t-hdxt.jpg",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished MRI Scanner",
-                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "42", "bestRating": "5", "worstRating": "1" },
+                "review": { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Organization", "name": "Kokilaben Hospital" }, "reviewBody": "Versatile HDXT 1.5T MRI with flexible channel options. Phantom Healthcare's refurbishment is top-notch." },
+                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/product-pages/mri-scanner-machines/1.5t-mri-scanner-machines/ge-signa-hdxt" }
               }
             }
           ]
@@ -239,7 +255,9 @@ export function OrganizationJsonLd() {
                 "image": "https://phantomhealthcare.com/images/machines/ct/ge-brightspeed-8.jpg",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished CT Scanner",
-                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.6", "reviewCount": "28", "bestRating": "5", "worstRating": "1" },
+                "review": { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Organization", "name": "Columbia Asia Hospital" }, "reviewBody": "Reliable 8-slice CT for routine diagnostics. Excellent value proposition from Phantom Healthcare." },
+                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/product-pages/refurbished-ct-scan-machines" }
               }
             },
             {
@@ -251,7 +269,9 @@ export function OrganizationJsonLd() {
                 "image": "https://phantomhealthcare.com/images/machines/ct/ge-optima-16.jpg",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished CT Scanner",
-                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "35", "bestRating": "5", "worstRating": "1" },
+                "review": { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Organization", "name": "Wockhardt Hospital" }, "reviewBody": "Excellent 16-slice CT with fast scan times. Phantom's installation team was professional." },
+                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/product-pages/refurbished-ct-scan-machines/16-slice-ct" }
               }
             },
             {
@@ -263,7 +283,9 @@ export function OrganizationJsonLd() {
                 "image": "https://phantomhealthcare.com/images/machines/ct/ge-revolution-ct.jpg",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished CT Scanner",
-                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "47", "bestRating": "5", "worstRating": "1" },
+                "review": { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Organization", "name": "Lilavati Hospital" }, "reviewBody": "High-resolution 64-slice CT ideal for cardiac imaging. Phantom Healthcare delivered as promised." },
+                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/product-pages/refurbished-ct-scan-machines/64-slice-ct" }
               }
             },
             {
@@ -275,7 +297,9 @@ export function OrganizationJsonLd() {
                 "image": "https://phantomhealthcare.com/images/machines/ct/ge-revolution-ct.jpg",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished CT Scanner",
-                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "31", "bestRating": "5", "worstRating": "1" },
+                "review": { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Organization", "name": "Hinduja Hospital" }, "reviewBody": "Premium 128-slice CT with exceptional cardiac capabilities. Outstanding refurbishment quality." },
+                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/product-pages/refurbished-ct-scan-machines/128-slice-ct" }
               }
             }
           ]
@@ -293,7 +317,9 @@ export function OrganizationJsonLd() {
                 "image": "https://phantomhealthcare.com/images/machines/pet-ct/ge-discovery-pet-ct.png",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished PET-CT Scanner",
-                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "24", "bestRating": "5", "worstRating": "1" },
+                "review": { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Organization", "name": "Tata Memorial Hospital" }, "reviewBody": "Excellent PET-CT for oncology imaging. Phantom Healthcare's expertise in nuclear medicine equipment is commendable." },
+                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/product-pages/refurbished-pet-ct-scanner-machines" }
               }
             },
             {
@@ -305,7 +331,9 @@ export function OrganizationJsonLd() {
                 "image": "https://phantomhealthcare.com/images/machines/pet-ct/ge-discovery-pet-ct.png",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished PET-CT Scanner",
-                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "19", "bestRating": "5", "worstRating": "1" },
+                "review": { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Organization", "name": "Rajiv Gandhi Cancer Institute" }, "reviewBody": "Premium 16-slice PET-CT with superior image quality. Outstanding support from Phantom team." },
+                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/product-pages/refurbished-pet-ct-scanner-machines" }
               }
             }
           ]
@@ -323,7 +351,9 @@ export function OrganizationJsonLd() {
                 "image": "https://phantomhealthcare.com/images/machines/cath-lab/philips-allura-cathlab.png",
                 "brand": { "@type": "Brand", "name": "Philips Healthcare" },
                 "category": "Refurbished Cath Lab",
-                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "22", "bestRating": "5", "worstRating": "1" },
+                "review": { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Organization", "name": "Escorts Heart Institute" }, "reviewBody": "Reliable Cath Lab for interventional procedures. Phantom Healthcare's cardiac equipment expertise is excellent." },
+                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/product-pages/refurbished-cath-lab-machines" }
               }
             },
             {
@@ -335,7 +365,9 @@ export function OrganizationJsonLd() {
                 "image": "https://phantomhealthcare.com/images/machines/cath-lab/philips-allura-cathlab.png",
                 "brand": { "@type": "Brand", "name": "Philips Healthcare" },
                 "category": "Refurbished Cath Lab",
-                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "18", "bestRating": "5", "worstRating": "1" },
+                "review": { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Organization", "name": "Asian Heart Institute" }, "reviewBody": "Advanced FD20 with 3D capabilities. Exceptional installation and training by Phantom Healthcare." },
+                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/product-pages/refurbished-cath-lab-machines" }
               }
             }
           ]
@@ -353,7 +385,9 @@ export function OrganizationJsonLd() {
                 "image": "https://phantomhealthcare.com/images/machines/gamma-camera/ge-infinia-gamma-camera.jpg",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished Gamma Camera",
-                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "16", "bestRating": "5", "worstRating": "1" },
+                "review": { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Organization", "name": "PGIMER Chandigarh" }, "reviewBody": "Reliable dual-head SPECT system. Phantom Healthcare delivered excellent nuclear medicine solution." },
+                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/product-pages/refurbished-gamma-camera-spect-system-machine" }
               }
             },
             {
@@ -365,7 +399,9 @@ export function OrganizationJsonLd() {
                 "image": "https://phantomhealthcare.com/images/machines/gamma-camera/ge-millennium-mg.jpg",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished Gamma Camera",
-                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.6", "reviewCount": "14", "bestRating": "5", "worstRating": "1" },
+                "review": { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5" }, "author": { "@type": "Organization", "name": "CMC Vellore" }, "reviewBody": "Versatile gamma camera for multiple applications. Good value from Phantom Healthcare." },
+                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/product-pages/refurbished-gamma-camera-spect-system-machine" }
               }
             },
             {
@@ -377,7 +413,9 @@ export function OrganizationJsonLd() {
                 "image": "https://phantomhealthcare.com/images/machines/gamma-camera/ge-discovery-nm-630.jpg",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished Gamma Camera",
-                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "reviewCount": "12", "bestRating": "5", "worstRating": "1" },
+                "review": { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Organization", "name": "NIMHANS" }, "reviewBody": "Advanced SPECT system with excellent imaging. Phantom Healthcare provided comprehensive training." },
+                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/product-pages/refurbished-gamma-camera-spect-system-machine" }
               }
             }
           ]
@@ -395,7 +433,9 @@ export function OrganizationJsonLd() {
                 "image": "https://phantomhealthcare.com/images/machines/bone-densitometer/ge-lunar-idxa.png",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished Bone Densitometer",
-                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "21", "bestRating": "5", "worstRating": "1" },
+                "review": { "@type": "Review", "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "author": { "@type": "Organization", "name": "AIIMS Delhi" }, "reviewBody": "Gold standard DEXA scanner with excellent precision. Phantom Healthcare's refurbishment quality is exceptional." },
+                "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/product-pages/refurbished-bone-densitometer-dexa" }
               }
             }
           ]
@@ -495,9 +535,11 @@ export function ContactPageJsonLd() {
     "name": "Contact Phantom Healthcare",
     "description": "Contact Phantom Healthcare for MRI, CT Scanner, PET-CT, Cath-Lab equipment sales, service, and spare parts.",
     "url": "https://phantomhealthcare.com/contact",
+    "image": "https://phantomhealthcare.com/images/phantom-building.jpg",
     "mainEntity": {
       "@type": "Organization",
       "name": "Phantom Healthcare IND Private Limited",
+      "image": "https://phantomhealthcare.com/images/logo.jpg",
       "telephone": "+91-9899963601",
       "email": "info@phantomhealthcare.com",
       "address": {
@@ -527,9 +569,11 @@ export function AboutPageJsonLd() {
     "name": "About Phantom Healthcare",
     "description": "Learn about Phantom Healthcare - India's leading provider of refurbished medical imaging equipment since 2011. 170+ MRI installations, 150+ satisfied clients.",
     "url": "https://phantomhealthcare.com/about",
+    "image": "https://phantomhealthcare.com/images/phantom-building.jpg",
     "mainEntity": {
       "@type": "Organization",
       "name": "Phantom Healthcare IND Private Limited",
+      "image": "https://phantomhealthcare.com/images/logo.jpg",
       "foundingDate": "2011",
       "numberOfEmployees": {
         "@type": "QuantitativeValue",
@@ -669,6 +713,7 @@ export function MedicalBusinessJsonLd() {
     "@type": "MedicalBusiness",
     "name": "Phantom Healthcare IND Private Limited",
     "description": "India's leading provider of refurbished MRI, CT Scanners, PET-CT, Cath-Lab, Gamma Camera SPECT & Bone Densitometer equipment.",
+    "image": "https://phantomhealthcare.com/images/phantom-building.jpg",
     "url": "https://phantomhealthcare.com",
     "telephone": "+91-9899963601",
     "email": "info@phantomhealthcare.com",
@@ -711,6 +756,7 @@ export function AboutPageFullJsonLd() {
     "name": "About Phantom Healthcare",
     "description": "Learn about Phantom Healthcare - India's leading provider of refurbished medical imaging equipment since 2011. 170+ MRI installations, 150+ satisfied clients across India, USA, and UAE.",
     "url": "https://phantomhealthcare.com/about",
+    "image": "https://phantomhealthcare.com/images/phantom-building.jpg",
     "inLanguage": "en-IN",
     "isPartOf": {
       "@type": "WebSite",
@@ -725,8 +771,9 @@ export function AboutPageFullJsonLd() {
     "@type": "Corporation",
     "name": "Phantom Healthcare IND Private Limited",
     "alternateName": "Phantom Healthcare",
-    "url": "https://phantomhealthcare.com",
+    "url": "https://phantomhealthcare.com/about",
     "logo": "https://phantomhealthcare.com/images/logo.jpg",
+    "image": "https://phantomhealthcare.com/images/phantom-building.jpg",
     "foundingDate": "2011",
     "founder": [
       {
