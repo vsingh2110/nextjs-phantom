@@ -134,6 +134,7 @@ export function OrganizationJsonLd() {
                 "@type": "Product",
                 "name": "Refurbished GE Signa 3.0T 750W MRI Scanner",
                 "description": "Refurbished 32 Channel configurations, Gradient Amplitude 50mT/m, Slew Rate 200T/m/s",
+                "image": "https://phantomhealthcare.com/images/machines/mri/ge-signa-3t-750w.jpg",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished MRI Scanner",
                 "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
@@ -145,6 +146,7 @@ export function OrganizationJsonLd() {
                 "@type": "Product",
                 "name": "Refurbished GE Signa HDXT 3.0T MRI Scanner",
                 "description": "Refurbished 16/32 Channel configurations, Gradient Amplitude 50mT/m, Slew Rate 150T/m/s",
+                "image": "https://phantomhealthcare.com/images/machines/mri/ge-signa-hdxt-3t.jpg",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished MRI Scanner",
                 "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
@@ -156,6 +158,7 @@ export function OrganizationJsonLd() {
                 "@type": "Product",
                 "name": "Refurbished Siemens Magnetom Verio 3T MRI Scanner",
                 "description": "Refurbished 32 Channel configurations, Gradient Amplitude 50mT/m, Slew Rate 200T/m/s",
+                "image": "https://phantomhealthcare.com/images/machines/mri/siemens-magnetom-verio-3t.png",
                 "brand": { "@type": "Brand", "name": "Siemens Healthineers" },
                 "category": "Refurbished MRI Scanner",
                 "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
@@ -167,6 +170,7 @@ export function OrganizationJsonLd() {
                 "@type": "Product",
                 "name": "Refurbished Siemens Magnetom Skyra 3.0T MRI Scanner",
                 "description": "Refurbished 32 Channel configurations, Gradient Amplitude 50mT/m, Slew Rate 200T/m/s",
+                "image": "https://phantomhealthcare.com/images/machines/mri/siemens-magnetom-skyra-3t.jpg",
                 "brand": { "@type": "Brand", "name": "Siemens Healthineers" },
                 "category": "Refurbished MRI Scanner",
                 "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
@@ -178,6 +182,7 @@ export function OrganizationJsonLd() {
                 "@type": "Product",
                 "name": "Refurbished GE Signa 1.5T Creator MRI Scanner",
                 "description": "Refurbished 8 Channel configurations, Gradient Amplitude 33mT/m, Slew Rate 120T/m/s",
+                "image": "https://phantomhealthcare.com/images/machines/mri/ge-signa-15t-creator.jpg",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished MRI Scanner",
                 "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
@@ -189,6 +194,7 @@ export function OrganizationJsonLd() {
                 "@type": "Product",
                 "name": "Refurbished GE 1.5T Explorer MRI Scanner",
                 "description": "Refurbished 8 Channel configurations, Gradient Amplitude 33mT/m, Slew Rate 120T/m/s",
+                "image": "https://phantomhealthcare.com/images/machines/mri/ge-signa-15t-explorer.jpg",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished MRI Scanner",
                 "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
@@ -200,6 +206,7 @@ export function OrganizationJsonLd() {
                 "@type": "Product",
                 "name": "Refurbished GE Signa 1.5T OPTIMA 360 Advance MRI Scanner",
                 "description": "Refurbished 16 Channel configurations, Gradient Amplitude 33mT/m, Slew Rate 120T/m/s",
+                "image": "https://phantomhealthcare.com/images/machines/mri/ge-signa-15t-optima-360.jpg",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished MRI Scanner",
                 "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
@@ -211,6 +218,7 @@ export function OrganizationJsonLd() {
                 "@type": "Product",
                 "name": "Refurbished GE Signa 1.5T HDXT MRI Scanner",
                 "description": "Refurbished 8/16 Channel configurations, Gradient Amplitude 33mT/m, Slew Rate 120T/m/s",
+                "image": "https://phantomhealthcare.com/images/machines/mri/ge-signa-15t-hdxt.jpg",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished MRI Scanner",
                 "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
@@ -228,6 +236,7 @@ export function OrganizationJsonLd() {
                 "@type": "Product",
                 "name": "Refurbished GE BrightSpeed 8 Slice CT Scanner",
                 "description": "Refurbished 8 Slice CT Scanner for diagnostic imaging",
+                "image": "https://phantomhealthcare.com/images/machines/ct/ge-brightspeed-8.jpg",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished CT Scanner",
                 "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
@@ -239,6 +248,7 @@ export function OrganizationJsonLd() {
                 "@type": "Product",
                 "name": "Refurbished GE Optima 16 Slice CT Scanner",
                 "description": "Refurbished 16 Slice CT Scanner with advanced imaging capabilities",
+                "image": "https://phantomhealthcare.com/images/machines/ct/ge-optima-16.jpg",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished CT Scanner",
                 "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
@@ -250,6 +260,7 @@ export function OrganizationJsonLd() {
                 "@type": "Product",
                 "name": "Refurbished GE Revolution 64 Slice CT Scanner",
                 "description": "Refurbished 64 Slice CT Scanner for high-resolution imaging",
+                "image": "https://phantomhealthcare.com/images/machines/ct/ge-revolution-ct.jpg",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished CT Scanner",
                 "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
@@ -261,6 +272,7 @@ export function OrganizationJsonLd() {
                 "@type": "Product",
                 "name": "Refurbished GE Revolution 128 Slice CT Scanner",
                 "description": "Refurbished 128 Slice CT Scanner for advanced cardiac and body imaging",
+                "image": "https://phantomhealthcare.com/images/machines/ct/ge-revolution-ct.jpg",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished CT Scanner",
                 "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
@@ -278,6 +290,7 @@ export function OrganizationJsonLd() {
                 "@type": "Product",
                 "name": "Refurbished GE Discovery PET-CT 8 Slice",
                 "description": "Refurbished high-resolution oncology and cardiac imaging with 8 slice CT",
+                "image": "https://phantomhealthcare.com/images/machines/pet-ct/ge-discovery-pet-ct.png",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished PET-CT Scanner",
                 "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
@@ -289,6 +302,7 @@ export function OrganizationJsonLd() {
                 "@type": "Product",
                 "name": "Refurbished GE Discovery PET-CT 16 Slice",
                 "description": "Refurbished advanced hybrid imaging for oncology, cardiology, and neurology",
+                "image": "https://phantomhealthcare.com/images/machines/pet-ct/ge-discovery-pet-ct.png",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished PET-CT Scanner",
                 "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
@@ -306,6 +320,7 @@ export function OrganizationJsonLd() {
                 "@type": "Product",
                 "name": "Refurbished Philips Allura Xper FD10 Cath Lab",
                 "description": "Refurbished cardiovascular X-ray system for interventional cardiology with superb image quality",
+                "image": "https://phantomhealthcare.com/images/machines/cath-lab/philips-allura-cathlab.png",
                 "brand": { "@type": "Brand", "name": "Philips Healthcare" },
                 "category": "Refurbished Cath Lab",
                 "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
@@ -317,6 +332,7 @@ export function OrganizationJsonLd() {
                 "@type": "Product",
                 "name": "Refurbished Philips Allura Xper FD20 Cath Lab",
                 "description": "Refurbished advanced cardiovascular X-ray system with 3D guidance and low X-ray dose",
+                "image": "https://phantomhealthcare.com/images/machines/cath-lab/philips-allura-cathlab.png",
                 "brand": { "@type": "Brand", "name": "Philips Healthcare" },
                 "category": "Refurbished Cath Lab",
                 "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
@@ -334,6 +350,7 @@ export function OrganizationJsonLd() {
                 "@type": "Product",
                 "name": "Refurbished GE Infinia Gamma Camera SPECT",
                 "description": "Refurbished high sensitivity dual-head gamma camera for nuclear medicine imaging",
+                "image": "https://phantomhealthcare.com/images/machines/gamma-camera/ge-infinia-gamma-camera.jpg",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished Gamma Camera",
                 "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
@@ -345,6 +362,7 @@ export function OrganizationJsonLd() {
                 "@type": "Product",
                 "name": "Refurbished GE Millennium MG Gamma Camera",
                 "description": "Refurbished versatile gamma camera for cardiology, oncology, and neurology imaging",
+                "image": "https://phantomhealthcare.com/images/machines/gamma-camera/ge-millennium-mg.jpg",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished Gamma Camera",
                 "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
@@ -356,6 +374,7 @@ export function OrganizationJsonLd() {
                 "@type": "Product",
                 "name": "Refurbished GE Discovery NM 630 Gamma Camera",
                 "description": "Refurbished advanced SPECT imaging for comprehensive nuclear medicine diagnostics",
+                "image": "https://phantomhealthcare.com/images/machines/gamma-camera/ge-discovery-nm-630.jpg",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished Gamma Camera",
                 "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
@@ -373,6 +392,7 @@ export function OrganizationJsonLd() {
                 "@type": "Product",
                 "name": "Refurbished GE Lunar iDXA Bone Densitometer",
                 "description": "Refurbished dual-energy X-ray absorptiometry for bone density, body composition, and fracture risk assessment",
+                "image": "https://phantomhealthcare.com/images/machines/bone-densitometer/ge-lunar-idxa.png",
                 "brand": { "@type": "Brand", "name": "GE Healthcare" },
                 "category": "Refurbished Bone Densitometer",
                 "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "INR", "price": "0", "priceValidUntil": "2026-12-31", "url": "https://phantomhealthcare.com/contact" }
