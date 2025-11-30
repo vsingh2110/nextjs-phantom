@@ -1,8 +1,21 @@
 # Best Practices & Coding Standards
 
 **Project:** Phantom Medical Imaging - Next.js Migration  
-**Last Updated:** November 22, 2025  
+**Last Updated:** November 30, 2025  
 **Purpose:** Coding standards, conventions, and best practices for consistent development
+
+---
+
+## 📋 TABLE OF CONTENTS
+
+1. [UI/UX Best Practices](#-uiux-best-practices)
+2. [Code Style & Conventions](#-code-style--conventions)
+3. [Tailwind CSS Best Practices](#-tailwind-css-best-practices)
+4. [SEO Best Practices](#-seo-best-practices) ← NEW
+5. [Next.js Image Best Practices](#-nextjs-image-best-practices) ← NEW
+6. [Schema.org JSON-LD Best Practices](#-schemaorg-json-ld-best-practices) ← NEW
+7. [Accessibility Best Practices](#-accessibility-best-practices) ← NEW
+8. [Performance Best Practices](#-performance-best-practices) ← NEW
 
 ---
 
@@ -703,13 +716,17 @@ docs/update-guidelines
 - [ ] Use TypeScript types
 - [ ] Follow Tailwind conventions
 - [ ] Keep mobile/desktop separate
+- [ ] Add proper `alt` text to all images
+- [ ] Add `aria-label` to icon-only buttons/links
 - [ ] Document as you code
 - [ ] Test incrementally
 
 ### **Before Committing:**
 - [ ] Remove console.logs
 - [ ] Check for errors
-- [ ] Test on mobile
+- [ ] Test on mobile (real device)
+- [ ] Run Lighthouse audit
+- [ ] Test with Google Rich Results Test
 - [ ] Update documentation
 - [ ] Write clear commit message
 
@@ -718,3 +735,146 @@ docs/update-guidelines
 **For project guidelines, see:** `AI-AGENT-CRITICAL-GUIDELINES.md`  
 **For restrictions, see:** `precautions-and-guardrails.md`  
 **For tech details, see:** `tech-stack-reference.md`
+**For SEO details, see:** `SEO-INDIA-REFERENCE.md`
+
+---
+
+## 🔍 SEO BEST PRACTICES (ADDED NOV 30, 2025)
+
+### **Meta Tags**
+
+#### **Title Tag (CRITICAL)**
+```tsx
+// In page.tsx metadata export
+export const metadata: Metadata = {
+  title: 'About Phantom Healthcare - Medical Imaging Equipment Since 2011',
+  // Length: 50-60 characters ideal, max 65
+}
+```
+
+#### **Meta Description**
+```tsx
+description: 'Phantom Healthcare is India\'s leading provider of refurbished MRI, CT scanners since 2011. 170+ installations, 150+ clients.',
+// Length: 150-160 characters ideal, max 165
+```
+
+### **Heading Structure**
+
+| Rule | Requirement |
+|------|-------------|
+| H1 count | Exactly ONE per page |
+| H1 length | 20-70 characters |
+| Hierarchy | H1 → H2 → H3 (no skipping) |
+
+**If visual H1 is too long:**
+```tsx
+<h1 className="sr-only">Phantom Healthcare - About Us</h1>
+<p className="text-4xl font-bold">Longer visual heading text</p>
+```
+
+### **Breadcrumbs**
+Every page needs:
+1. **JSON-LD BreadcrumbList** (for SEO)
+2. **Visible breadcrumb** (for UX)
+
+---
+
+## 🖼️ NEXT.JS IMAGE BEST PRACTICES (ADDED NOV 30, 2025)
+
+### **Pattern 1: Fixed Size Images**
+```tsx
+<Image 
+  src="/images/icon.png" 
+  alt="Icon description" 
+  width={150} 
+  height={150}
+/>
+```
+
+### **Pattern 2: Responsive Images**
+```tsx
+<div className="relative h-[400px] w-full">
+  <Image 
+    fill 
+    sizes="(max-width: 768px) 100vw, 50vw"
+    src="/images/hero.jpg" 
+    alt="Hero image" 
+    className="object-cover"
+  />
+</div>
+```
+
+### **Aspect Ratio Calculation**
+```
+Actual image: 260px × 94px = 2.77 ratio
+Desired height: 56px
+Required width: 56 × 2.77 = 155px
+```
+
+### **NEVER DO**
+- ❌ `width={0} height={0}` - Causes SEO warnings
+- ❌ Mismatched aspect ratios
+- ❌ Missing `alt` text
+
+---
+
+## 📊 SCHEMA.ORG JSON-LD BEST PRACTICES (ADDED NOV 30, 2025)
+
+### **Product Schema Requirements (Google)**
+```tsx
+{
+  "@type": "Product",
+  "name": "Refurbished GE Signa 3.0T MRI Scanner",
+  "image": "https://...",  // REQUIRED by Google!
+  "offers": { ... }
+}
+```
+
+### **Invalid Properties to Avoid**
+| Schema Type | Invalid Properties |
+|-------------|-------------------|
+| MedicalDevice | ❌ category, manufacturer |
+| Organization | ❌ geo (use location.Place) |
+
+### **Testing**
+1. [Google Rich Results Test](https://search.google.com/test/rich-results)
+2. [Schema.org Validator](https://validator.schema.org/)
+
+---
+
+## ♿ ACCESSIBILITY BEST PRACTICES (ADDED NOV 30, 2025)
+
+### **Interactive Elements Need Names**
+```tsx
+// ✅ Icon-only button
+<button aria-label="Open menu">
+  <MenuIcon aria-hidden="true" />
+</button>
+
+// ✅ Icon-only link
+<a href="tel:..." aria-label="Call us">
+  <PhoneIcon aria-hidden="true" />
+</a>
+```
+
+### **Screen Reader Only Text**
+```tsx
+<span className="sr-only">Text for screen readers</span>
+```
+
+---
+
+## ⚡ PERFORMANCE BEST PRACTICES (ADDED NOV 30, 2025)
+
+### **Preconnect Hints**
+```tsx
+<link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+```
+
+### **Lighthouse Targets**
+| Metric | Desktop | Mobile |
+|--------|---------|--------|
+| Performance | >80 | >50 |
+| Accessibility | >90 | >90 |
+| SEO | >90 | >90 |

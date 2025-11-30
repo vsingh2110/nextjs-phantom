@@ -1,9 +1,51 @@
 # Phantom Medical Imaging — Current Status
 
-**Last Updated:** November 30, 2025 (6:15 PM)  
+**Last Updated:** November 30, 2025 (10:30 PM)  
 **Phase:** Active Migration - Static to Next.js  
 **Priority:** Content Migration (Product & Service Pages)  
 **Git Status:** ⚠️ ALL CHANGES LOCAL - PENDING PUSH TO REPOSITORY
+
+---
+
+## ✅ LIGHTHOUSE FIXES APPLIED (Nov 30, 2025 - Evening)
+
+### **Homepage Lighthouse Audit Results**
+**Note:** Lighthouse tests ONE page at a time. These results are for HOMEPAGE ONLY.
+
+| Category | Desktop | Mobile |
+|----------|---------|--------|
+| Performance | 81 | 49 |
+| Accessibility | 89 | 83 |
+| Best Practices | 96 | 96 |
+| SEO | 92 | 92 |
+
+### **Issues Fixed:**
+1. ✅ **Logo Aspect Ratio** - Fixed in `Header.tsx`
+   - Mobile: Changed `220×70` to `222×80` (correct 2.77 ratio)
+   - Desktop: Changed `180×55` to `155×56` (correct 2.77 ratio)
+
+2. ✅ **Preconnect Hints** - Added to `layout.tsx`
+   - `fonts.googleapis.com`
+   - `fonts.gstatic.com`
+   - `yt3.ggpht.com` (dns-prefetch)
+   - `cdnjs.cloudflare.com`
+
+### **Still Needed:**
+- [ ] Run Lighthouse on `/about` page
+- [ ] Run Lighthouse on `/contact` page
+- [ ] Address mobile performance (FCP 7.8s, LCP 9.0s)
+- [ ] Consider YouTube lite-embed for better performance
+
+---
+
+## ✅ DOCUMENTATION UPDATES (Nov 30, 2025 - Evening)
+
+All documentation files updated with SEO/Accessibility learnings:
+- ✅ `AI-AGENT-CRITICAL-GUIDELINES.md` - Added sections 8-12 for SEO/Accessibility
+- ✅ `best-practices.md` - Added SEO, Image, Schema, Accessibility sections
+- ✅ `precautions-and-guardrails.md` - Added sections 6-10 for new guardrails
+- ✅ `SEO-INDIA-REFERENCE.md` - Complete SEO reference (created Nov 30)
+- ✅ `CURRENT-STATUS.md` - This file, updated
 
 ---
 
@@ -21,7 +63,7 @@ All 20 products in `hasOfferCatalog` now have proper image URLs:
 - 3 Gamma Cameras ✅
 - 1 Bone Densitometer ✅
 
-**Images Copied To:** `public/images/machines/` (organized by category: mri/, ct/, pet-ct/, cath-lab/, gamma-camera/, bone-densitometer/)
+**Images Copied To:** `public/images/machines/` (organized by category)
 
 ---
 

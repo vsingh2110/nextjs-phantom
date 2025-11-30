@@ -155,6 +155,17 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://yt3.ggpht.com" />
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://img.youtube.com" />
+        
+        {/* Preload LCP image for faster initial paint (mobile hero image) */}
+        <link 
+          rel="preload" 
+          as="image" 
+          href="/images/slideshow/img1-mobile.jpg"
+          imageSrcSet="/_next/image?url=%2Fimages%2Fslideshow%2Fimg1-mobile.jpg&w=384&q=75 384w, /_next/image?url=%2Fimages%2Fslideshow%2Fimg1-mobile.jpg&w=640&q=75 640w, /_next/image?url=%2Fimages%2Fslideshow%2Fimg1-mobile.jpg&w=750&q=75 750w"
+          imageSizes="100vw"
+          fetchPriority="high"
+        />
         
         {/* Favicon */}
         <link rel="icon" href="/images/Fav-Icon.png" />

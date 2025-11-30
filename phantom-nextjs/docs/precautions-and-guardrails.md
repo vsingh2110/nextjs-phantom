@@ -1,8 +1,166 @@
 # Precautions, Guardrails, and Critical Rules
 
 **Project:** Phantom Medical Imaging - Next.js Migration  
-**Last Updated:** November 22, 2025  
+**Last Updated:** November 30, 2025  
 **Audience:** All developers and AI agents working on this project
+
+---
+
+## 🆕 NEW SECTION: SEO & ACCESSIBILITY GUARDRAILS (NOV 30, 2025)
+
+### **6. IMAGE GUARDRAILS (CRITICAL)**
+
+**The Rule:**
+> All images MUST have proper dimensions, alt text, and aspect ratios.
+
+**What This Means:**
+- ❌ **NEVER** use `width={0} height={0}` - causes SEO tool warnings
+- ❌ **NEVER** skip `alt` text - accessibility violation
+- ❌ **NEVER** use wrong aspect ratio - causes image distortion
+- ✅ **ALWAYS** calculate correct dimensions from actual image size
+- ✅ **ALWAYS** use `priority` for above-fold images
+- ✅ **ALWAYS** use `fill` + `sizes` for responsive images
+
+**Aspect Ratio Formula:**
+```
+Actual image: 260 × 94 (ratio = 260/94 = 2.77)
+For display height 56px: width = 56 × 2.77 = 155px
+```
+
+**Why This Rule Exists:**
+- Lighthouse fails "image-aspect-ratio" audit with wrong dimensions
+- SEO tools flag 0×0 images as errors
+- Distorted images look unprofessional
+
+---
+
+### **7. SCHEMA.ORG GUARDRAILS (CRITICAL)**
+
+**The Rule:**
+> Use only valid schema properties. Test with Google Rich Results, not just schema.org validator.
+
+**Invalid Properties That WILL Cause Errors:**
+
+| Schema Type | ❌ Invalid Properties |
+|-------------|----------------------|
+| MedicalDevice | category, manufacturer, isRelatedTo |
+| Organization/Corporation | geo (put in location.Place instead) |
+| Product | missing image (Google REQUIRES image!) |
+
+**Correct Patterns:**
+```tsx
+// ✅ CORRECT: geo inside location.Place
+{
+  "@type": "Corporation",
+  "location": {
+    "@type": "Place",
+    "geo": { "@type": "GeoCoordinates", ... }
+  }
+}
+
+// ✅ CORRECT: geo directly on LocalBusiness
+{
+  "@type": "ProfessionalService",
+  "geo": { "@type": "GeoCoordinates", ... }
+}
+
+// ✅ CORRECT: Product with image
+{
+  "@type": "Product",
+  "name": "...",
+  "image": "https://...",  // REQUIRED!
+  "offers": { ... }
+}
+```
+
+**Why This Rule Exists:**
+- Google Rich Results is stricter than schema.org validator
+- Invalid properties cause warnings/errors in structured data
+- Products without images won't qualify for rich results
+
+---
+
+### **8. META TAG GUARDRAILS**
+
+**The Rule:**
+> Never duplicate viewport meta tags. Use correct (non-deprecated) meta tags.
+
+**What This Means:**
+- ❌ **NEVER** add `<meta name="viewport">` in layout.tsx head (Next.js handles it)
+- ❌ **NEVER** use `apple-mobile-web-app-capable` (deprecated)
+- ✅ **ALWAYS** use `mobile-web-app-capable`
+- ✅ **ALWAYS** add preconnect hints for external resources
+
+**Why This Rule Exists:**
+- Duplicate viewport causes Lighthouse warnings
+- Deprecated meta tags are flagged by SEO tools
+- Missing preconnects slow down page load (300+ms penalty)
+
+---
+
+### **9. ACCESSIBILITY GUARDRAILS (CRITICAL)**
+
+**The Rule:**
+> All interactive elements MUST have accessible names.
+
+**What This Means:**
+- ❌ **NEVER** have icon-only buttons without aria-label
+- ❌ **NEVER** have icon-only links without aria-label
+- ❌ **NEVER** skip heading levels (H1 → H3, skipping H2)
+- ❌ **NEVER** have multiple H1 tags per page
+- ✅ **ALWAYS** add `aria-label` to icon-only interactive elements
+- ✅ **ALWAYS** use `sr-only` class for screen reader text
+- ✅ **ALWAYS** keep H1 between 20-70 characters
+
+**Correct Patterns:**
+```tsx
+// ✅ Icon button
+<button aria-label="Open mobile menu">
+  <span className="sr-only">Menu</span>
+  <MenuIcon aria-hidden="true" />
+</button>
+
+// ✅ Icon link
+<a href="tel:..." aria-label="Call us at +91 98765 43210">
+  <PhoneIcon aria-hidden="true" />
+</a>
+
+// ✅ Long visual heading with short H1
+<h1 className="sr-only">Phantom Healthcare - About Us</h1>
+<p className="text-4xl font-bold">India's Leading Provider...</p>
+```
+
+**Why This Rule Exists:**
+- Screen readers can't describe icon-only elements
+- Lighthouse Accessibility audit fails without aria-labels
+- Poor heading structure hurts SEO and accessibility
+
+---
+
+### **10. LIGHTHOUSE TESTING GUARDRAILS**
+
+**The Rule:**
+> Lighthouse tests ONE page at a time. Run for EACH completed page.
+
+**Testing Requirements:**
+| Page | URL to Test |
+|------|-------------|
+| Home | https://nextjs-phantom.vercel.app/ |
+| About | https://nextjs-phantom.vercel.app/about |
+| Contact | https://nextjs-phantom.vercel.app/contact |
+
+**Target Scores:**
+| Category | Desktop | Mobile |
+|----------|---------|--------|
+| Performance | >80 | >50 |
+| Accessibility | >90 | >90 |
+| Best Practices | >90 | >90 |
+| SEO | >90 | >90 |
+
+**Why This Rule Exists:**
+- Each page may have different issues
+- Can't assume fixing homepage fixes all pages
+- Mobile scores are typically lower than desktop
 
 ---
 

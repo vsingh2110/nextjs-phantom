@@ -142,6 +142,8 @@ export default function HeroSlider() {
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="img-slider object-cover"
                     priority={index === 0}
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    fetchPriority={index === 0 ? 'high' : 'auto'}
                   />
                 )}
               </div>
@@ -218,6 +220,8 @@ export default function HeroSlider() {
                     sizes="(max-width: 768px) 100vw, 70vw"
                     className="img-slider object-cover"
                     priority={index === 0}
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    fetchPriority={index === 0 ? 'high' : 'auto'}
                   />
                 )}
               </div>

@@ -2,7 +2,7 @@
 
 ## 🔴 READ THIS BEFORE ANYTHING ELSE - NO EXCEPTIONS 🔴
 
-**Last Updated:** November 27, 2025  
+**Last Updated:** November 30, 2025  
 **Priority:** ABSOLUTE HIGHEST - MANDATORY COMPLIANCE  
 **Project:** Phantom Medical Imaging - Static to Next.js Migration
 
@@ -20,6 +20,11 @@
 - **Goal:** Replicate and enhance static site functionality in Next.js
 - **Tech Stack:** Next.js 15.3.5, Firebase, EmailJS, Tailwind CSS, Swiper, React-YouTube
 
+**Completed Pages (as of Nov 30, 2025):**
+- ✅ Home page (with full SEO, JSON-LD, accessibility)
+- ✅ About page (with full SEO, JSON-LD, accessibility)
+- ✅ Contact page (with full SEO, JSON-LD, accessibility)
+
 ---
 
 ## 🔴 THE GOLDEN RULE: RESEARCH-FIRST METHODOLOGY
@@ -33,6 +38,7 @@ When user reports ANY issue or requests ANY feature:
    - Review `project-overview.md` for context
    - Check `daily-logs/` for recent work history
    - Review `precautions-and-guardrails.md` for restrictions
+   - **NEW:** Read `SEO-INDIA-REFERENCE.md` for SEO guidelines
 
 2. ✅ **Search official documentation** (15 min)
    - Next.js: https://nextjs.org/docs
@@ -40,6 +46,8 @@ When user reports ANY issue or requests ANY feature:
    - Firebase: https://firebase.google.com/docs
    - EmailJS: https://www.emailjs.com/docs/
    - Swiper: https://swiperjs.com/
+   - **NEW:** Schema.org: https://schema.org/
+   - **NEW:** Google Rich Results: https://search.google.com/test/rich-results
 
 3. ✅ **Search official repositories for examples** (15 min)
    - Look for production examples
@@ -51,6 +59,120 @@ When user reports ANY issue or requests ANY feature:
 5. ❌ **ONLY THEN propose and implement solution**
 
 **BANNED APPROACH**: Trial-and-error without research = IMMEDIATE FAILURE
+
+---
+
+## 🆕 SEO & ACCESSIBILITY RULES (CRITICAL - ADDED NOV 30, 2025)
+
+### 8. NEXT.JS IMAGE COMPONENT RULES
+
+**MANDATORY for all images:**
+
+| Scenario | Required Props | Example |
+|----------|---------------|---------|
+| Icons, thumbnails (known size) | `width`, `height` | `width={150} height={150}` |
+| Hero, backgrounds (responsive) | `fill`, `sizes` | `fill sizes="(max-width: 768px) 100vw, 50vw"` |
+| Above-fold images | Add `priority` | `priority` |
+
+**NEVER DO:**
+- ❌ `width={0} height={0}` - Causes SEO warnings
+- ❌ Mismatched aspect ratios (e.g., 220×70 for a 260×94 image)
+- ❌ Skip `alt` text on any image
+
+**Aspect Ratio Formula:**
+```
+If actual image = 260 × 94 (ratio 2.77)
+For display height 56px: width = 56 × 2.77 = 155px
+```
+
+---
+
+### 9. JSON-LD SCHEMA RULES
+
+**Valid Schema Types & Properties:**
+
+| Type | VALID Properties | INVALID Properties |
+|------|-----------------|-------------------|
+| `Organization/Corporation` | name, url, logo, foundingDate, address, contactPoint, sameAs | ❌ `geo` (put in location.Place) |
+| `LocalBusiness/ProfessionalService` | name, geo, openingHoursSpecification, priceRange | ✅ `geo` valid here |
+| `MedicalDevice` | name, description, url, image, sameAs | ❌ `category`, `manufacturer`, `isRelatedTo` |
+| `Product` | name, description, image (REQUIRED!), offers, aggregateRating, review | |
+
+**CRITICAL RULES:**
+- ✅ Use `ProfessionalService` instead of `MedicalBusiness` (ad platform restrictions)
+- ✅ Always include `image` on Product schemas (Google requires it)
+- ✅ Always test with Google Rich Results Test, not just schema.org validator
+- ✅ Include "Refurbished" in all product names (we're resellers)
+
+---
+
+### 10. META TAGS RULES
+
+**Do NOT duplicate viewport:**
+```tsx
+// Next.js handles viewport via metadata API
+// ❌ NEVER add manual <meta name="viewport"> in layout.tsx head
+```
+
+**Use correct meta tags:**
+```tsx
+// ✅ CORRECT
+<meta name="mobile-web-app-capable" content="yes" />
+
+// ❌ DEPRECATED
+<meta name="apple-mobile-web-app-capable" content="yes" />
+```
+
+**Preconnect for performance (add to layout.tsx):**
+```tsx
+<link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+```
+
+---
+
+### 11. ACCESSIBILITY RULES
+
+**All interactive elements need accessible names:**
+```tsx
+// ✅ Icon-only buttons MUST have aria-label
+<button aria-label="Open mobile menu">
+  <span className="sr-only">Menu</span>
+  <MenuIcon />
+</button>
+
+// ✅ Icon-only links MUST have aria-label  
+<a href="tel:..." aria-label="Call us at +91...">
+  <PhoneIcon />
+</a>
+```
+
+**Heading hierarchy:**
+- ✅ One `<h1>` per page (20-70 characters)
+- ✅ H1 → H2 → H3 in order (no skipping levels)
+- ✅ If visual H1 is too long, use `sr-only` H1 + visual `<p>` with heading styles
+
+**Screen reader only text:**
+```tsx
+<span className="sr-only">Descriptive text for screen readers</span>
+```
+
+---
+
+### 12. LIGHTHOUSE TESTING
+
+**Lighthouse tests ONE page at a time. Run for each completed page:**
+- Homepage: `https://nextjs-phantom.vercel.app/`
+- About: `https://nextjs-phantom.vercel.app/about`
+- Contact: `https://nextjs-phantom.vercel.app/contact`
+
+**Target Scores:**
+| Category | Target | Priority |
+|----------|--------|----------|
+| Performance | >80 (desktop), >50 (mobile) | High |
+| Accessibility | >90 | Critical |
+| Best Practices | >90 | High |
+| SEO | >90 | Critical |
 
 ---
 
