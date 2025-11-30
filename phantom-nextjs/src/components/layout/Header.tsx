@@ -316,7 +316,7 @@ export default function Header() {
               <div className="hidden group-hover:block absolute bg-white text-black min-w-[200px] p-4 text-sm leading-6 font-light left-0 top-full z-10 rounded-b-lg shadow-lg border">
                 {/* MRI Scanner with submenu (from static: .submenu) */}
                 <div className="relative group/mri">
-                  <a href="#" className="text-black no-underline hover:text-[#1a6fb3] block py-1 flex items-center group-hover/mri:bg-gray-100">
+                  <a href="#" className="text-black no-underline hover:text-[#1a6fb3] py-1 flex items-center group-hover/mri:bg-gray-100">
                     MRI Scanner
                     <span className="arrow ml-1">▶</span>
                   </a>
@@ -411,7 +411,7 @@ export default function Header() {
                 <div className="relative">
                   <button 
                     onClick={() => setIsMRIOpen(!isMRIOpen)}
-                    className="w-full text-left text-black no-underline hover:text-[#1a6fb3] block py-1 flex items-center justify-between"
+                    className="w-full text-left text-black no-underline hover:text-[#1a6fb3] py-1 flex items-center justify-between"
                   >
                     MRI Scanner
                     <span className={`arrow ml-1 transition-transform ${isMRIOpen ? 'rotate-90' : ''}`}>▶</span>
