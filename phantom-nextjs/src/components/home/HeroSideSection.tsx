@@ -17,16 +17,15 @@ export default function HeroSideSection() {
             <p className="text-xs lg:text-sm text-gray-600 mb-2 leading-tight">
               Buy parts and services, We have one of the largest inventory of spare parts deliverable all over India.
             </p>
-            <button>
-              <Link 
-                href="http://phantomhealthcare.shop/" 
-                className="inline-block bg-primary-600 hover:bg-primary-700 text-white font-semibold py-1 px-3 lg:px-4 rounded-lg transition-all duration-300 text-xs lg:text-sm"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Order Now
-              </Link>
-            </button>
+            {/* Removed button wrapper - nesting interactive elements causes touch target issues */}
+            <Link 
+              href="http://phantomhealthcare.shop/" 
+              className="inline-block bg-primary-600 hover:bg-primary-700 text-white font-semibold py-2 px-4 lg:px-5 rounded-lg transition-all duration-300 text-xs lg:text-sm min-h-[44px] min-w-[44px]"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Order Now
+            </Link>
           </div>
 
           {/* Sell To Us - EXACT TEXT */}
@@ -51,15 +50,14 @@ export default function HeroSideSection() {
           {/* For Enquiries - EXACT TEXT */}
           <div className="hero-call-us text-center p-4 lg:p-2 bg-gradient-to-r from-gray-50 to-gray-100 rounded-none lg:rounded-lg">
             <h2 className="text-sm lg:text-lg font-bold text-gray-700 mb-1">For Enquiries</h2>
-            <button>
-              <Link 
-                href="tel:+919899963601"
-                className="inline-flex items-center bg-gray-600 hover:bg-gray-700 text-white font-semibold py-1 px-3 lg:px-4 rounded-lg transition-all duration-300 text-xs lg:text-sm"
-              >
-                <i className="fa fa-phone mr-1 text-xs lg:text-sm"></i>
-                +91-9899963601
-              </Link>
-            </button>
+            {/* Removed button wrapper - nesting interactive elements causes touch target issues */}
+            <Link 
+              href="tel:+919899963601"
+              className="inline-flex items-center bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-4 lg:px-5 rounded-lg transition-all duration-300 text-xs lg:text-sm min-h-[44px]"
+            >
+              <i className="fa fa-phone mr-2 text-xs lg:text-sm" aria-hidden="true"></i>
+              +91-9899963601
+            </Link>
           </div>
         </div>
       </section>
