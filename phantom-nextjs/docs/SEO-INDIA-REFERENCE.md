@@ -1,7 +1,8 @@
 # SEO Reference Guide - India Version
 
 **Created:** November 30, 2025  
-**Purpose:** Document SEO learnings for Phantom Healthcare India website  
+**Last Updated:** November 30, 2025  
+**Purpose:** Complete SEO & Development Guidelines for Phantom Healthcare India website  
 **Why Now:** Fix SEO on initial pages before scaling to 100+ pages
 
 ---
@@ -11,6 +12,19 @@
 > "If we do SEO at the end, we'll have hundreds of pages to fix. If we do it now and successfully implement for initial pages, the rest of the website will be easy."
 
 This document captures all SEO learnings from the Nov 29-30, 2025 sessions so future pages can be built correctly from the start.
+
+---
+
+## 📚 TABLE OF CONTENTS
+
+1. [Schema.org Types Used](#-schemaorg-types-used)
+2. [Meta Tags Reference](#-meta-tags-reference)
+3. [Next.js Image Best Practices](#-nextjs-image-best-practices)
+4. [Accessibility Guidelines](#-accessibility-guidelines)
+5. [New Page Development Checklist](#-new-page-development-checklist)
+6. [Common Pitfalls & Mistakes](#-common-pitfalls--mistakes)
+7. [Validation Tools](#-validation-tools)
+8. [Non-Relevant Warnings](#-non-relevant-warnings-ignore-these)
 
 ---
 
@@ -403,6 +417,378 @@ import {
 | **TOTAL** | **20** | OrganizationJsonLd |
 
 All products have: name, description, image, brand, category, aggregateRating, review, offers with proper URLs
+
+---
+
+## 🖼️ NEXT.JS IMAGE BEST PRACTICES
+
+### Understanding Image Sizing in Next.js
+
+Next.js `<Image>` component has two main patterns:
+
+#### Pattern 1: Explicit Width/Height (for known-size images)
+```jsx
+// ✅ CORRECT - Icons, thumbnails, logos with known dimensions
+<Image 
+  src="/images/icon.png" 
+  alt="Icon description" 
+  width={150} 
+  height={150}
+  className="w-28 h-28 object-contain"
+/>
+```
+
+**When to use:**
+- Icons and small graphics
+- Thumbnails with fixed sizes
+- Logos with known dimensions
+- Any image where you know the exact size
+
+#### Pattern 2: Fill + Sizes (for responsive images)
+```jsx
+// ✅ CORRECT - Hero images, backgrounds, full-width images
+<div className="relative h-[400px] w-full">
+  <Image 
+    src="/images/hero.jpg" 
+    alt="Hero image"
+    fill
+    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+    className="object-cover"
+  />
+</div>
+```
+
+**When to use:**
+- Hero/banner images
+- Background images
+- Full-width responsive images
+- Images that should scale with container
+
+### SEO Tool Warning: Images with 0x0 or - x - dimensions
+
+**Understanding the Warning:**
+When SEO tools report images with `REAL 0x0` or `HTML - x -`, this often means:
+
+1. **For `fill` images:** This is EXPECTED behavior. Next.js `fill` uses CSS sizing, not HTML width/height attributes.
+2. **For lazy-loaded images:** SEO tools check dimensions before images load into viewport.
+
+**NOT a Problem If:**
+- Image has `fill` prop with proper `sizes` attribute
+- Image actually renders correctly on the page
+- Image has proper `alt` text
+
+**IS a Problem If:**
+- Image has explicit `width={0} height={0}` ← NEVER DO THIS
+- Image doesn't render visually
+- Image is missing entirely
+
+### ❌ NEVER DO THIS
+```jsx
+// ❌ WRONG - This causes real SEO issues
+<Image 
+  src="/images/icon.png"
+  width={0}
+  height={0}
+  className="w-auto h-auto"
+/>
+```
+
+### Priority Loading for Above-the-Fold Images
+
+```jsx
+// ✅ For images visible immediately on page load
+<Image 
+  src="/images/logo.jpg"
+  alt="Phantom Healthcare Logo"
+  width={220}
+  height={70}
+  priority  // Loads immediately, not lazy
+/>
+
+// For sliders/carousels - first slide gets priority
+{slides.map((slide, index) => (
+  <Image 
+    src={slide.image}
+    alt={slide.title}
+    fill
+    sizes="100vw"
+    priority={index === 0}  // Only first slide
+  />
+))}
+```
+
+### Images Fixed During Nov 30, 2025 Session
+
+| File | Issue | Fix Applied |
+|------|-------|-------------|
+| `TopBlock.tsx` | width={0} height={0} | Changed to width={150} height={150} |
+| `Footer.tsx` | `unoptimized` on white-logo | Removed `unoptimized` |
+| `Footer.tsx` | `unoptimized` on flags | Removed `unoptimized`, fixed alt text |
+| `RegionalOffices.tsx` | `unoptimized`, no sizes | Removed `unoptimized`, added `sizes="80px"` |
+| `TestimonialsCarousel.tsx` | `unoptimized` on doctor images | Removed `unoptimized` |
+| `page.tsx` (home) | Spare parts images missing sizes | Added responsive `sizes` attribute |
+| `Header.tsx` | Logo lazy loading above fold | Added `priority` prop |
+| `About page.tsx` | Founder images missing sizes | Added `sizes` attribute |
+
+---
+
+## ♿ ACCESSIBILITY GUIDELINES
+
+### Required for All Interactive Elements
+
+#### Buttons MUST have accessible names
+```jsx
+// ❌ WRONG - No accessible name
+<button onClick={prevSlide}>
+  <i className="fas fa-chevron-left"></i>
+</button>
+
+// ✅ CORRECT - Has aria-label
+<button onClick={prevSlide} aria-label="Previous slide">
+  <i className="fas fa-chevron-left" aria-hidden="true"></i>
+</button>
+```
+
+#### Links MUST have accessible names
+```jsx
+// ❌ WRONG - Icon-only link without aria-label
+<a href="https://twitter.com/...">
+  <i className="fa fa-twitter"></i>
+</a>
+
+// ✅ CORRECT - Has aria-label
+<a href="https://twitter.com/..." aria-label="Follow us on Twitter">
+  <i className="fa fa-twitter" aria-hidden="true"></i>
+</a>
+```
+
+### Icon Best Practices
+```jsx
+// For decorative icons (next to text)
+<i className="fa fa-phone" aria-hidden="true"></i>
+<span>+91 9899963601</span>
+
+// For icon-only buttons
+<button aria-label="Call us">
+  <i className="fa fa-phone" aria-hidden="true"></i>
+</button>
+```
+
+### Fixed During Nov 30, 2025 Session
+
+| Component | Issue | Fix |
+|-----------|-------|-----|
+| `HeroSlider.tsx` | 8 buttons without accessible names | Added `aria-label` to prev/next/dots/play-pause |
+| `Footer.tsx` | 7 social links without text | Added `aria-label` to all social links |
+| `Header.tsx` | Social links in top bar | Already had `aria-label` ✓ |
+
+---
+
+## 📱 META TAGS REFERENCE
+
+### Next.js Metadata API vs Manual Meta Tags
+
+**IMPORTANT:** Next.js adds some meta tags automatically through the metadata API. DO NOT duplicate these:
+
+```tsx
+// In metadata object (Next.js handles these):
+export const metadata: Metadata = {
+  title: '...',
+  description: '...',
+  viewport: { ... },  // Next.js adds viewport automatically
+  // ...
+}
+
+// In <head> - DO NOT add viewport manually
+// ❌ WRONG - Causes duplicate
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+// ✅ CORRECT - Let Next.js handle viewport
+{/* NOTE: viewport is handled by Next.js metadata API - do not duplicate */}
+```
+
+### Required Order in <head>
+
+```tsx
+<head>
+  {/* 1. FIRST: Character encoding */}
+  <meta charSet="utf-8" />
+  <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+  <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+  
+  {/* 2. Next.js adds viewport automatically */}
+  
+  {/* 3. Then other meta tags */}
+  <meta name="HandheldFriendly" content="true" />
+  ...
+</head>
+```
+
+### Deprecated Tags to Avoid
+
+| ❌ Deprecated | ✅ Use Instead |
+|--------------|---------------|
+| `apple-mobile-web-app-capable` | `mobile-web-app-capable` |
+| `maximum-scale=1` in viewport | Remove it (accessibility issue) |
+
+---
+
+## 📝 NEW PAGE DEVELOPMENT CHECKLIST
+
+### Before Creating a New Page
+
+```
+□ Identify page type (product, service, about, contact, etc.)
+□ Determine which Schema.org types to use
+□ Prepare all images with proper dimensions
+□ Write title (50-60 chars) and description (150-160 chars)
+□ Plan heading hierarchy (single H1, logical H2-H6)
+```
+
+### Page Structure Template
+
+```tsx
+// 1. Imports
+import type { Metadata } from 'next';
+import { BreadcrumbJsonLd } from '@/components/seo/JsonLd';
+import Image from 'next/image';
+import Link from 'next/link';
+
+// 2. Metadata (REQUIRED)
+export const metadata: Metadata = {
+  title: 'Page Title - Phantom Healthcare',  // 50-60 chars
+  description: 'Page description...',         // 150-160 chars
+  keywords: ['keyword1', 'keyword2'],
+  openGraph: {
+    title: '...',
+    description: '...',
+    url: 'https://phantomhealthcare.com/page-slug',
+    images: [{ url: '/images/page-image.jpg', width: 1200, height: 630, alt: '...' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '...',
+    description: '...',
+    images: ['/images/page-image.jpg'],
+  },
+  alternates: {
+    canonical: 'https://phantomhealthcare.com/page-slug',
+  },
+};
+
+// 3. Page Component
+export default function PageName() {
+  // Breadcrumb data
+  const breadcrumbItems = [
+    { name: 'Home', url: 'https://phantomhealthcare.com' },
+    { name: 'Current Page', url: 'https://phantomhealthcare.com/page-slug' }
+  ];
+
+  return (
+    <main className="min-h-screen">
+      {/* JSON-LD Structured Data */}
+      <BreadcrumbJsonLd items={breadcrumbItems} />
+      
+      {/* Hero Section with H1 */}
+      <section className="...">
+        {/* Visible Breadcrumb */}
+        <nav aria-label="Breadcrumb">
+          <ol className="flex items-center space-x-2">
+            <li><Link href="/">Home</Link></li>
+            <li><span>›</span></li>
+            <li>Current Page</li>
+          </ol>
+        </nav>
+        
+        {/* Single H1 - 20-70 characters */}
+        <h1>Page Main Heading</h1>
+      </section>
+      
+      {/* Page Content */}
+      <section>
+        <h2>Section Heading</h2>
+        {/* ... */}
+      </section>
+    </main>
+  );
+}
+```
+
+### Image Checklist for New Pages
+
+```
+□ All images have descriptive alt text
+□ Above-fold images use priority prop
+□ Large/responsive images use fill + sizes
+□ Small/icon images use explicit width/height
+□ NO width={0} height={0} anywhere
+□ NO unoptimized prop unless absolutely necessary
+```
+
+### Accessibility Checklist
+
+```
+□ All buttons have accessible names (aria-label or text)
+□ All icon-only links have aria-label
+□ Heading hierarchy is logical (H1 → H2 → H3, no skipping)
+□ Form inputs have associated labels
+□ Color contrast meets WCAG AA (4.5:1 for text)
+□ Interactive elements are keyboard accessible
+```
+
+### SEO Checklist
+
+```
+□ Page has unique title (50-60 chars)
+□ Page has unique description (150-160 chars)
+□ Single H1 per page (20-70 chars)
+□ Canonical URL set
+□ Open Graph meta tags present
+□ Twitter card meta tags present
+□ Breadcrumb JSON-LD added
+□ Visible breadcrumb in hero section
+□ Page added to sitemap.xml
+□ Tested with Google Rich Results Test
+```
+
+---
+
+## ⚠️ COMMON PITFALLS & MISTAKES
+
+### Schema.org Mistakes
+
+| Mistake | Why It's Wrong | Correct Approach |
+|---------|---------------|------------------|
+| `geo` on Organization | `geo` only valid on Place/LocalBusiness | Put inside `location: { "@type": "Place", "geo": {...} }` |
+| Product without image | Google REQUIRES image for eligibility | Always include `"image": "https://..."` |
+| MedicalDevice with category | `category` not valid on MedicalDevice | Remove, use only supported properties |
+| Product URL to contact page | URL should point to product page | Use actual product page URL |
+
+### Next.js Image Mistakes
+
+| Mistake | Effect | Fix |
+|---------|--------|-----|
+| `width={0} height={0}` | SEO tools report 0x0 dimensions | Use actual dimensions |
+| Missing `sizes` on fill images | Poor responsive behavior | Add proper sizes attribute |
+| `unoptimized` on all images | No Next.js optimization | Only use when absolutely necessary |
+| No `priority` on above-fold | Slow LCP, poor Core Web Vitals | Add `priority` to critical images |
+
+### Meta Tag Mistakes
+
+| Mistake | Effect | Fix |
+|---------|--------|-----|
+| Duplicate viewport | Conflicting viewport settings | Remove manual viewport, use Next.js metadata |
+| `apple-mobile-web-app-capable` | Deprecated | Use `mobile-web-app-capable` |
+| `maximum-scale=1` | Accessibility issue, prevents zoom | Remove from viewport |
+
+### Accessibility Mistakes
+
+| Mistake | Effect | Fix |
+|---------|--------|-----|
+| Icon button without aria-label | Screen readers can't describe action | Add `aria-label="Button purpose"` |
+| Icon link without aria-label | Screen readers can't describe link | Add `aria-label="Link destination"` |
+| Skipped heading levels | Poor document structure | Use H1→H2→H3 in order |
+| H1 too long | Poor SEO, truncated in search results | Keep 20-70 characters |
 
 ---
 
