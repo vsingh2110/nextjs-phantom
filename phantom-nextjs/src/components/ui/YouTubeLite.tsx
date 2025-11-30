@@ -4,44 +4,27 @@
  * YOUTUBE LITE FACADE COMPONENT
  * =============================
  * 
- * PURPOSE: Lightweight YouTube embed that defers iframe loading until user interaction
+ * PURPOSE: Lightweight YouTube embed that defers iframe loading until user clicks
  * CREATED: November 30, 2025
  * 
- * PERFORMANCE BENEFITS:
- * - Saves ~2+ seconds on initial page load
- * - Reduces main-thread work by not loading YouTube's heavy JavaScript
- * - Shows static thumbnail until user clicks to play
- * - Improves FCP, LCP, and TBT scores significantly
- * 
- * HOW IT WORKS:
- * 1. Initially renders only a thumbnail image (very lightweight)
- * 2. When user clicks play button, loads the actual YouTube iframe
- * 3. Uses Intersection Observer to preload thumbnail when in viewport
- * 
- * LIGHTHOUSE RECOMMENDATION:
- * "Facade" approach is the recommended way to embed third-party content
- * See: https://web.dev/articles/third-party-facades
+ * USES SAME CSS AS YouTubeEmbed.tsx:
+ * - scale-[1.5] to fill container properly
+ * - -translate-x-1/2 -translate-y-1/2 for centering
+ * - Same iframe params (no controls, no branding, loop)
  */
 
-import { useState, useCallback, useRef, useEffect } from 'react';
-import Image from 'next/image';
+import { useState, useRef, useEffect } from 'react';
 
 interface YouTubeLiteProps {
   videoId: string;
   title?: string;
-  /** If true, autoplay when loaded (muted) */
-  autoplayOnLoad?: boolean;
-  /** Background style when loading */
-  aspectRatio?: 'video' | '16:9' | '4:3';
 }
 
 export default function YouTubeLite({ 
   videoId, 
-  title = 'YouTube video player',
-  autoplayOnLoad = false,
-  aspectRatio = 'video'
+  title = 'YouTube video'
 }: YouTubeLiteProps) {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -54,10 +37,7 @@ export default function YouTubeLite({
           observer.disconnect();
         }
       },
-      { 
-        threshold: 0.1,
-        rootMargin: '100px' // Preload slightly before in view
-      }
+      { threshold: 0.1, rootMargin: '100px' }
     );
 
     if (containerRef.current) {
@@ -67,54 +47,36 @@ export default function YouTubeLite({
     return () => observer.disconnect();
   }, []);
 
-  const handleClick = useCallback(() => {
-    setIsLoaded(true);
-  }, []);
-
-  // High quality thumbnail from YouTube
+  // YouTube thumbnail URL (maxres if available, hq as fallback)
   const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-  // For higher quality (if available): maxresdefault.jpg
-
-  // Aspect ratio classes
-  const aspectClasses = {
-    'video': 'aspect-video',
-    '16:9': 'aspect-video',
-    '4:3': 'aspect-[4/3]'
-  };
 
   return (
     <div 
       ref={containerRef}
-      className={`relative w-full ${aspectClasses[aspectRatio]} bg-black overflow-hidden rounded-lg`}
-      role="button"
-      tabIndex={isLoaded ? -1 : 0}
-      onClick={!isLoaded ? handleClick : undefined}
-      onKeyDown={!isLoaded ? (e) => { if (e.key === 'Enter' || e.key === ' ') handleClick(); } : undefined}
-      aria-label={isLoaded ? undefined : `Play video: ${title}`}
+      className="relative w-full h-full bg-black overflow-hidden"
     >
-      {!isLoaded ? (
-        // Facade: Show thumbnail with play button
-        <>
+      {!isPlaying ? (
+        // Facade: Show thumbnail with small play button
+        <button
+          onClick={() => setIsPlaying(true)}
+          className="absolute inset-0 w-full h-full cursor-pointer group"
+          aria-label={`Play video: ${title}`}
+        >
           {/* Thumbnail */}
           {isInView && (
-            <Image
+            <img
               src={thumbnailUrl}
               alt={title}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
+              className="absolute inset-0 w-full h-full object-cover"
               loading="lazy"
             />
           )}
           
-          {/* Dark overlay for better play button visibility */}
-          <div className="absolute inset-0 bg-black/30 hover:bg-black/20 transition-colors duration-200" />
-          
-          {/* Play Button */}
+          {/* Small Play Button - centered */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-16 h-16 md:w-20 md:h-20 bg-red-600 rounded-full flex items-center justify-center shadow-lg transform transition-transform duration-200 hover:scale-110 cursor-pointer">
+            <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-200">
               <svg 
-                className="w-8 h-8 md:w-10 md:h-10 text-white ml-1" 
+                className="w-5 h-5 text-white ml-0.5" 
                 fill="currentColor" 
                 viewBox="0 0 24 24"
                 aria-hidden="true"
@@ -123,22 +85,17 @@ export default function YouTubeLite({
               </svg>
             </div>
           </div>
-          
-          {/* YouTube branding hint */}
-          <div className="absolute bottom-2 right-2 bg-black/60 text-white text-xs px-2 py-1 rounded">
-            <i className="fa-brands fa-youtube text-red-500 mr-1" aria-hidden="true"></i>
-            YouTube
-          </div>
-        </>
+        </button>
       ) : (
-        // Actual iframe (loaded after click)
+        // Actual iframe - EXACT SAME CSS as YouTubeEmbed.tsx
         <iframe
-          className="absolute inset-0 w-full h-full"
-          src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=${autoplayOnLoad ? '1' : '0'}&rel=0&modestbranding=1`}
+          className="absolute top-1/2 left-1/2 w-full h-full pointer-events-none -translate-x-1/2 -translate-y-1/2 scale-[1.5]"
+          src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&playsinline=1&rel=0&showinfo=0&modestbranding=1&iv_load_policy=3&disablekb=1&fs=0`}
           title={title}
           frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          tabIndex={-1}
+          aria-hidden="true"
         />
       )}
     </div>

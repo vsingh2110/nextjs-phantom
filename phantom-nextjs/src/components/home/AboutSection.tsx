@@ -4,16 +4,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import YouTubeLite from '../ui/YouTubeLite';
 
-/**
- * ABOUT SECTION COMPONENT
- * =======================
- * 
- * PERFORMANCE: Uses YouTubeLite facade instead of direct iframe embed.
- * This saves ~2+ seconds on initial page load by deferring YouTube's heavy JavaScript.
- * The actual video iframe only loads when user clicks the play button.
- * 
- * Updated: November 30, 2025 - Lighthouse mobile performance optimization
- */
 export default function AboutSection() {
   return (
     <section className="py-16 lg:py-24 antialiased relative overflow-hidden">
@@ -59,14 +49,10 @@ export default function AboutSection() {
             </div>
           </div>
 
-          {/* About Video - Uses Lite facade for performance */}
+          {/* About Video - YouTubeLite with same aspect-video container */}
           <div className="order-1 lg:order-2">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gray-900 border border-gray-800">
-              {/* YouTubeLite: Shows thumbnail until clicked, then loads iframe */}
-              <YouTubeLite 
-                videoId="xmB3MDYaOMU" 
-                title="Phantom Healthcare Company Overview"
-              />
+            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-900 border border-gray-800">
+              <YouTubeLite videoId="xmB3MDYaOMU" title="Phantom Healthcare Company Overview" />
             </div>
           </div>
         </div>
