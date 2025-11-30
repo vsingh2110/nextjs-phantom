@@ -1,12 +1,12 @@
 # Precautions, Guardrails, and Critical Rules
 
 **Project:** Phantom Medical Imaging - Next.js Migration  
-**Last Updated:** November 30, 2025  
+**Last Updated:** December 1, 2025  
 **Audience:** All developers and AI agents working on this project
 
 ---
 
-## 🆕 NEW SECTION: SEO & ACCESSIBILITY GUARDRAILS (NOV 30, 2025)
+## 🆕 NEW SECTION: SEO & ACCESSIBILITY GUARDRAILS (UPDATED DEC 1, 2025)
 
 ### **6. IMAGE GUARDRAILS (CRITICAL)**
 
@@ -98,31 +98,38 @@ For display height 56px: width = 56 × 2.77 = 155px
 
 ---
 
-### **9. ACCESSIBILITY GUARDRAILS (CRITICAL)**
+### **9. ACCESSIBILITY GUARDRAILS (UPDATED DEC 1, 2025)**
 
 **The Rule:**
-> All interactive elements MUST have accessible names.
+> All interactive elements MUST have accessible names. Touch targets MUST be at least 44x44px.
 
 **What This Means:**
 - ❌ **NEVER** have icon-only buttons without aria-label
 - ❌ **NEVER** have icon-only links without aria-label
 - ❌ **NEVER** skip heading levels (H1 → H3, skipping H2)
 - ❌ **NEVER** have multiple H1 tags per page
+- ❌ **NEVER** use conflicting CSS classes (`block` + `flex`)
+- ❌ **NEVER** have touch targets smaller than 44x44px
 - ✅ **ALWAYS** add `aria-label` to icon-only interactive elements
+- ✅ **ALWAYS** add `aria-expanded` to toggle buttons
 - ✅ **ALWAYS** use `sr-only` class for screen reader text
 - ✅ **ALWAYS** keep H1 between 20-70 characters
+- ✅ **ALWAYS** add `inline-block py-1` to links for touch targets
 
 **Correct Patterns:**
 ```tsx
-// ✅ Icon button
-<button aria-label="Open mobile menu">
+// ✅ Icon button with toggle state
+<button 
+  aria-label={isOpen ? "Close menu" : "Open menu"}
+  aria-expanded={isOpen}
+>
   <span className="sr-only">Menu</span>
   <MenuIcon aria-hidden="true" />
 </button>
 
-// ✅ Icon link
-<a href="tel:..." aria-label="Call us at +91 98765 43210">
-  <PhoneIcon aria-hidden="true" />
+// ✅ Touch-friendly link
+<a href="tel:..." className="hover:underline inline-block py-1">
+  +91 98765 43210
 </a>
 
 // ✅ Long visual heading with short H1
@@ -130,37 +137,94 @@ For display height 56px: width = 56 × 2.77 = 155px
 <p className="text-4xl font-bold">India's Leading Provider...</p>
 ```
 
+**CSS Class Conflict Rule (NEW DEC 1):**
+```tsx
+// ❌ WRONG - 'block' and 'flex' conflict
+className="block py-1 flex items-center"
+
+// ✅ CORRECT - One display class only
+className="py-1 flex items-center"
+```
+
 **Why This Rule Exists:**
 - Screen readers can't describe icon-only elements
 - Lighthouse Accessibility audit fails without aria-labels
-- Poor heading structure hurts SEO and accessibility
+- Small touch targets cause frustration on mobile
+- CSS conflicts cause unpredictable layouts
 
 ---
 
-### **10. LIGHTHOUSE TESTING GUARDRAILS**
+### **10. LIGHTHOUSE TESTING GUARDRAILS (UPDATED DEC 1, 2025)**
 
 **The Rule:**
-> Lighthouse tests ONE page at a time. Run for EACH completed page.
+> Lighthouse tests ONE page at a time. ALWAYS test in Incognito Mode. Check benchmarkIndex > 2000.
+
+**Critical Discovery (Dec 1, 2025):**
+> Lighthouse scores can vary 20-30% based on testing conditions, not actual code!
+
+**The `benchmarkIndex` Factor:**
+- Hidden in Lighthouse JSON reports
+- Measures machine's computational capacity
+- **Must be > 2000 for reliable results**
+
+| benchmarkIndex | Score Impact |
+|---------------|--------------|
+| < 1500 | 10-20% lower than actual |
+| 1500-2000 | 5-10% lower |
+| > 2000 | Accurate |
 
 **Testing Requirements:**
-| Page | URL to Test |
-|------|-------------|
-| Home | https://nextjs-phantom.vercel.app/ |
-| About | https://nextjs-phantom.vercel.app/about |
-| Contact | https://nextjs-phantom.vercel.app/contact |
+1. ✅ Use Incognito Mode (no extensions)
+2. ✅ Close other applications
+3. ✅ Check benchmarkIndex in JSON report
+4. ✅ Run 3-5 times, take median
 
 **Target Scores:**
 | Category | Desktop | Mobile |
 |----------|---------|--------|
-| Performance | >80 | >50 |
-| Accessibility | >90 | >90 |
+| Performance | >80 | >60 (varies) |
+| Accessibility | >95 | >95 |
 | Best Practices | >90 | >90 |
-| SEO | >90 | >90 |
+| SEO | >95 | >95 |
+
+**Why Mobile Scores Vary:**
+- 4x CPU throttling simulation
+- Slow 4G network simulation
+- Throttling affected by machine's base performance
 
 **Why This Rule Exists:**
-- Each page may have different issues
-- Can't assume fixing homepage fixes all pages
-- Mobile scores are typically lower than desktop
+- Scores without Incognito can be 20-30% lower due to extensions
+- Low benchmarkIndex gives artificially low scores
+- Can't diagnose real issues vs testing environment issues
+
+---
+
+### **11. PRECONNECT GUARDRAILS (NEW DEC 1, 2025)**
+
+**The Rule:**
+> Use correct crossorigin attribute based on resource type.
+
+**What This Means:**
+- ❌ **NEVER** use crossorigin on CSS resources (fonts.googleapis.com)
+- ✅ **ALWAYS** use crossorigin="anonymous" on font/asset resources
+- ✅ **ALWAYS** verify preconnects are being used
+
+**Correct Patterns:**
+```tsx
+// CSS files - NO crossorigin
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+
+// Font files - WITH crossorigin
+<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+// CDN assets - WITH crossorigin
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
+```
+
+**Why This Rule Exists:**
+- Mismatched crossorigin creates unused connections
+- Lighthouse warns about unused preconnects
+- Wastes browser connection slots
 
 ---
 

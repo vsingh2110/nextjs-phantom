@@ -1,7 +1,7 @@
 # Best Practices & Coding Standards
 
 **Project:** Phantom Medical Imaging - Next.js Migration  
-**Last Updated:** November 30, 2025  
+**Last Updated:** December 1, 2025  
 **Purpose:** Coding standards, conventions, and best practices for consistent development
 
 ---
@@ -11,11 +11,12 @@
 1. [UI/UX Best Practices](#-uiux-best-practices)
 2. [Code Style & Conventions](#-code-style--conventions)
 3. [Tailwind CSS Best Practices](#-tailwind-css-best-practices)
-4. [SEO Best Practices](#-seo-best-practices) ← NEW
-5. [Next.js Image Best Practices](#-nextjs-image-best-practices) ← NEW
-6. [Schema.org JSON-LD Best Practices](#-schemaorg-json-ld-best-practices) ← NEW
-7. [Accessibility Best Practices](#-accessibility-best-practices) ← NEW
-8. [Performance Best Practices](#-performance-best-practices) ← NEW
+4. [SEO Best Practices](#-seo-best-practices)
+5. [Next.js Image Best Practices](#-nextjs-image-best-practices)
+6. [Schema.org JSON-LD Best Practices](#-schemaorg-json-ld-best-practices)
+7. [Accessibility Best Practices](#-accessibility-best-practices)
+8. [Performance Best Practices](#-performance-best-practices)
+9. [Lighthouse Testing Best Practices](#-lighthouse-testing-best-practices) ← NEW Dec 1
 
 ---
 
@@ -842,12 +843,20 @@ Required width: 56 × 2.77 = 155px
 
 ---
 
-## ♿ ACCESSIBILITY BEST PRACTICES (ADDED NOV 30, 2025)
+## ♿ ACCESSIBILITY BEST PRACTICES (UPDATED DEC 1, 2025)
 
 ### **Interactive Elements Need Names**
 ```tsx
 // ✅ Icon-only button
 <button aria-label="Open menu">
+  <MenuIcon aria-hidden="true" />
+</button>
+
+// ✅ Toggle button with dynamic label
+<button 
+  aria-label={isOpen ? "Close menu" : "Open menu"}
+  aria-expanded={isOpen}
+>
   <MenuIcon aria-hidden="true" />
 </button>
 
@@ -857,24 +866,120 @@ Required width: 56 × 2.77 = 155px
 </a>
 ```
 
+### **Touch Target Sizing (ADDED DEC 1, 2025)**
+Minimum touch target: 44x44px (WCAG) or 48x48px (Apple)
+
+```tsx
+// ❌ WRONG - Link too small
+<a href="tel:..." className="hover:underline">Phone</a>
+
+// ✅ CORRECT - Added padding for tap area
+<a href="tel:..." className="hover:underline inline-block py-1">Phone</a>
+```
+
+**Pattern for link lists:**
+```tsx
+<ul className="space-y-2">  {/* Increased vertical spacing */}
+  <li>
+    <a href="..." className="inline-block py-1">Link text</a>
+  </li>
+</ul>
+```
+
 ### **Screen Reader Only Text**
 ```tsx
 <span className="sr-only">Text for screen readers</span>
 ```
 
----
+### **CSS Class Conflicts (ADDED DEC 1, 2025)**
+Tailwind display classes that conflict:
+- `block` vs `flex`
+- `block` vs `inline`
+- `flex` vs `grid`
 
-## ⚡ PERFORMANCE BEST PRACTICES (ADDED NOV 30, 2025)
-
-### **Preconnect Hints**
 ```tsx
-<link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+// ❌ WRONG - conflicting classes
+className="block flex items-center"
+
+// ✅ CORRECT - one display class only
+className="flex items-center"
 ```
 
-### **Lighthouse Targets**
-| Metric | Desktop | Mobile |
-|--------|---------|--------|
-| Performance | >80 | >50 |
-| Accessibility | >90 | >90 |
-| SEO | >90 | >90 |
+---
+
+## ⚡ PERFORMANCE BEST PRACTICES (UPDATED DEC 1, 2025)
+
+### **Preconnect Hints (CORRECTED DEC 1)**
+```tsx
+// CSS files - NO crossorigin
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+
+// Font files - WITH crossorigin  
+<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+// CDN assets - WITH crossorigin
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
+```
+
+**Why different?** Using crossorigin on non-CORS resource creates unused connection.
+
+### **Lighthouse Targets (UPDATED DEC 1)**
+| Metric | Desktop | Mobile | Notes |
+|--------|---------|--------|-------|
+| Performance | >80 | >60 | Mobile varies 20-30% |
+| Accessibility | >95 | >95 | Critical |
+| Best Practices | >90 | >90 | |
+| SEO | >95 | >95 | Critical |
+
+---
+
+## 🔬 LIGHTHOUSE TESTING BEST PRACTICES (ADDED DEC 1, 2025)
+
+### **Why Scores Vary**
+The same code can produce scores from 49 to 89 based on testing conditions!
+
+**The `benchmarkIndex` Factor:**
+- Hidden in Lighthouse JSON reports
+- Measures machine's computational capacity at test time
+- Should be > 2000 for reliable results
+
+| benchmarkIndex | Meaning | Score Impact |
+|---------------|---------|--------------|
+| < 1500 | Slow/loaded machine | 10-20% lower |
+| 1500-2000 | Average | 5-10% lower |
+| > 2000 | Good | Accurate |
+
+### **How to Get Accurate Results**
+
+1. **Always use Incognito Mode**
+   - No browser extensions
+   - No cached data
+
+2. **Check benchmarkIndex**
+   - Download JSON report
+   - Search for "benchmarkIndex"
+   - Should be > 2000
+
+3. **Close other applications**
+   - Reduce CPU load
+   - Close unused tabs
+
+4. **Run multiple tests**
+   - Run 3-5 times
+   - Take median score
+
+### **Chrome Extensions Impact**
+Extensions inject JavaScript into every page:
+```
+Example from real test:
+- Video Downloader PLUS: 86.3 KiB jQuery
+- Unknown extension: 28.8 KiB jQuery
+- Total: 115 KiB extra JavaScript!
+```
+
+### **Mobile Throttling**
+Lighthouse simulates mobile with:
+- 4x CPU slowdown
+- Slow 4G network (1.6 Mbps)
+
+This throttling is affected by base machine performance.

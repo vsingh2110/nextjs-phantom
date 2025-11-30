@@ -1,9 +1,53 @@
 # Phantom Medical Imaging — Current Status
 
-**Last Updated:** November 30, 2025 (10:30 PM)  
+**Last Updated:** December 1, 2025 (1:30 AM IST)  
 **Phase:** Active Migration - Static to Next.js  
-**Priority:** Content Migration (Product & Service Pages)  
+**Priority:** Accessibility & Performance Optimization  
 **Git Status:** ⚠️ ALL CHANGES LOCAL - PENDING PUSH TO REPOSITORY
+
+---
+
+## ✅ LIGHTHOUSE ACCESSIBILITY FIXES (Dec 1, 2025)
+
+### **Deep Dive: Why Lighthouse Scores Fluctuate**
+
+**Critical Discovery:** Lighthouse mobile performance scores varied from 49 to 89 on SAME code!
+
+**Root Cause:** The `benchmarkIndex` metric in Lighthouse JSON reports
+
+| benchmarkIndex | Meaning | Score Impact |
+|---------------|---------|--------------|
+| < 1500 | Slow/loaded machine | Scores 10-20% lower |
+| 1500-2000 | Average | Normal scores |
+| > 2000 | Good machine | Accurate scores |
+
+**Our Tests:**
+- Test 1 (score 49): benchmarkIndex ~1100 (machine under load)
+- Test 2 (score 89): benchmarkIndex 2363 (clean incognito mode)
+
+**Chrome Extensions Warning:** Extensions injected 115 KiB of JavaScript into tests!
+
+> **ALWAYS test Lighthouse in Incognito Mode with benchmarkIndex > 2000**
+
+---
+
+### **Accessibility Fixes Applied:**
+
+1. ✅ **Hamburger Menu Button** - Added `aria-label` and `aria-expanded`
+   - Dynamic label: "Open/Close navigation menu"
+
+2. ✅ **Download Brochure Contrast** - Improved text visibility
+   - Changed `text-xs` → `text-sm font-medium`
+
+3. ✅ **Touch Targets Too Small** - Increased tap areas in Footer
+   - Added `inline-block py-1` to phone/email links
+   - Increased `space-y` values for vertical spacing
+
+4. ✅ **Preconnect Crossorigin Fix** - Fixed fonts.googleapis.com
+   - Removed crossorigin (not needed for CSS requests)
+
+5. ✅ **CSS Class Conflict** - Fixed Header.tsx
+   - Removed conflicting `block` class (was conflicting with `flex`)
 
 ---
 

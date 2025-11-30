@@ -203,10 +203,33 @@ import {
 - [ ] No TypeScript errors
 - [ ] Test on desktop browser
 - [ ] Test on mobile browser (REAL device, not just DevTools)
-- [ ] Run Lighthouse audit
+- [ ] Run Lighthouse audit (IN INCOGNITO MODE!)
+- [ ] Check benchmarkIndex > 2000 in Lighthouse JSON
 - [ ] Run Google Rich Results Test
 - [ ] Add page to `sitemap.xml`
 - [ ] Update `CURRENT-STATUS.md`
+
+---
+
+## ♿ ACCESSIBILITY CHECKLIST (Added Dec 1, 2025)
+
+### Buttons
+- [ ] All buttons have `aria-label` (especially icon-only buttons)
+- [ ] Toggle buttons have `aria-expanded`
+- [ ] No empty buttons
+
+### Touch Targets (Mobile)
+- [ ] All clickable elements are at least 44x44px
+- [ ] Links have `inline-block py-1` for padding
+- [ ] Adequate spacing between touch targets (`space-y-2`)
+
+### Contrast
+- [ ] Text on colored backgrounds meets 4.5:1 ratio
+- [ ] Use `font-medium` on smaller text for better visibility
+
+### CSS Classes
+- [ ] No conflicting display classes (`block` vs `flex`)
+- [ ] Run ESLint to catch Tailwind conflicts
 
 ---
 
@@ -214,10 +237,22 @@ import {
 
 | Category | Desktop | Mobile |
 |----------|---------|--------|
-| Performance | >80 | >50 |
-| Accessibility | >90 | >90 |
+| Performance | >80 | >60 (variable due to throttling) |
+| Accessibility | >95 | >95 |
 | Best Practices | >90 | >90 |
-| SEO | >90 | >90 |
+| SEO | >95 | >95 |
+
+**Note:** Mobile performance varies 20-30% based on testing conditions. Always test in Incognito Mode and check `benchmarkIndex` in JSON report (should be > 2000).
+
+---
+
+## 🔬 LIGHTHOUSE TESTING TIPS
+
+1. **Always use Incognito Mode** - No extensions
+2. **Check benchmarkIndex** - Should be > 2000 for accurate results
+3. **Run 3-5 times** - Take median score
+4. **Close other apps** - Reduce CPU load
+5. **Use wired network** - More consistent than WiFi
 
 ---
 

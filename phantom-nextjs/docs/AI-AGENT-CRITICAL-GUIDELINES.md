@@ -2,7 +2,7 @@
 
 ## 🔴 READ THIS BEFORE ANYTHING ELSE - NO EXCEPTIONS 🔴
 
-**Last Updated:** November 30, 2025  
+**Last Updated:** December 1, 2025  
 **Priority:** ABSOLUTE HIGHEST - MANDATORY COMPLIANCE  
 **Project:** Phantom Medical Imaging - Static to Next.js Migration
 
@@ -145,6 +145,30 @@ For display height 56px: width = 56 × 2.77 = 155px
 <a href="tel:..." aria-label="Call us at +91...">
   <PhoneIcon />
 </a>
+
+// ✅ Toggle buttons need aria-expanded
+<button 
+  aria-label={isOpen ? "Close menu" : "Open menu"}
+  aria-expanded={isOpen}
+>
+```
+
+**Touch Targets (ADDED Dec 1, 2025):**
+```tsx
+// ❌ WRONG - Link too small for mobile tap
+<a href="tel:..." className="hover:underline">Phone</a>
+
+// ✅ CORRECT - Minimum 44x44px tap area
+<a href="tel:..." className="hover:underline inline-block py-1">Phone</a>
+```
+
+**CSS Class Conflicts (ADDED Dec 1, 2025):**
+```tsx
+// ❌ WRONG - 'block' and 'flex' conflict
+className="block py-1 flex items-center"
+
+// ✅ CORRECT - Use only one display class
+className="py-1 flex items-center"
 ```
 
 **Heading hierarchy:**
@@ -159,20 +183,53 @@ For display height 56px: width = 56 × 2.77 = 155px
 
 ---
 
-### 12. LIGHTHOUSE TESTING
+### 12. LIGHTHOUSE TESTING (UPDATED Dec 1, 2025)
 
-**Lighthouse tests ONE page at a time. Run for each completed page:**
-- Homepage: `https://nextjs-phantom.vercel.app/`
-- About: `https://nextjs-phantom.vercel.app/about`
-- Contact: `https://nextjs-phantom.vercel.app/contact`
+**⚠️ CRITICAL: Lighthouse scores vary 20-30% based on testing conditions!**
+
+**The `benchmarkIndex` Factor:**
+- Hidden in Lighthouse JSON reports
+- Measures machine's computational capacity
+- Should be > 2000 for reliable results
+- < 1500 = scores are artificially low
+
+**Always Test:**
+1. ✅ In Incognito Mode (no extensions)
+2. ✅ With other apps closed
+3. ✅ Check benchmarkIndex in JSON report
+4. ✅ Run 3-5 times, take median
 
 **Target Scores:**
-| Category | Target | Priority |
-|----------|--------|----------|
-| Performance | >80 (desktop), >50 (mobile) | High |
-| Accessibility | >90 | Critical |
-| Best Practices | >90 | High |
-| SEO | >90 | Critical |
+| Category | Desktop | Mobile | Notes |
+|----------|---------|--------|-------|
+| Performance | >80 | >60 | Mobile varies due to throttling |
+| Accessibility | >95 | >95 | Critical |
+| Best Practices | >90 | >90 | High |
+| SEO | >95 | >95 | Critical |
+
+**Why Mobile Scores Vary:**
+- Simulated 4x CPU throttling
+- Simulated slow 4G network
+- Throttling affected by base machine performance
+
+---
+
+### 13. PRECONNECT RULES (ADDED Dec 1, 2025)
+
+**Different origins need different crossorigin settings:**
+
+```tsx
+// CSS files (no CORS needed) - NO crossorigin
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+
+// Font files (CORS needed) - WITH crossorigin
+<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+// CDN assets (CORS needed) - WITH crossorigin
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
+```
+
+**Why?** Using crossorigin on non-CORS resource creates unused connection.
 
 ---
 
