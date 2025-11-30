@@ -160,7 +160,7 @@ h4 Our Services (12 characters)
 WARNING 31 links without anchor text or image
 internal
  
-(42)
+(43)
 -
 external
  
@@ -194,6 +194,7 @@ https://nextjs-phantom.vercel.app/		Home
 https://nextjs-phantom.vercel.app/about		About Us		
 https://nextjs-phantom.vercel.app/blogs		Blogs		
 https://nextjs-phantom.vercel.app/contact		Contact		
+https://nextjs-phantom.vercel.app/		Home		
 https://nextjs-phantom.vercel.app/				yes
 https://nextjs-phantom.vercel.app/contact#		1.5T MRI Scanner Machines		
 https://nextjs-phantom.vercel.app/contact#		3.0T MRI Scanner Machines		
@@ -278,18 +279,20 @@ mailto:info@phantomhealthcare.com		info@phantomhealthcare.com
 tel:+971522208819		+971 522 208 819		
 mailto:sachin.rawat@phantomhealthcare.com		sachin.rawat@phantomhealthcare.com		
 INFO 9 images (out of 9) with missing TITLE attribute
-INFO 2 images (out of 9) are lazyloaded and above the fold
+INFO 2 images (out of 9) with missing LOADING attribute
 SRC	SIZE	LOADING	FETCH PR.	ALT	TITLE
 
-https://nextjs-phantom.vercel.app/images/logo.jpg
-REAL	260x94
+https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Flogo.jpg&w=640&q=75
+SRCSET: available
+REAL	130x47
 HTML	220x70
-lazy	auto	Phantom Healthcare Logo	
+auto	Phantom Healthcare Logo	
 
-https://nextjs-phantom.vercel.app/images/logo.jpg
-REAL	260x94
+https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Flogo.jpg&w=384&q=75
+SRCSET: available
+REAL	130x47
 HTML	180x55
-lazy	auto	Phantom Healthcare Logo	
+auto	Phantom Healthcare Logo	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Findia-flag.jpg&w=128&q=75
 SRCSET: available
@@ -309,25 +312,29 @@ REAL	64x42
 HTML	56x56
 lazy	auto	UAE	
 
-https://nextjs-phantom.vercel.app/images/white-logo.png
-REAL	1024x615
+https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fwhite-logo.png&w=384&q=75
+SRCSET: available
+REAL	0x0
 HTML	180x55
 lazy	auto	Phantom Healthcare	
 
-https://nextjs-phantom.vercel.app/images/india-flag.jpg
-REAL	612x408
+https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Findia-flag.jpg&w=48&q=75
+SRCSET: available
+REAL	0x0
 HTML	24x16
-lazy	auto	flag	
+lazy	auto	India & Sub-Continent	
 
-https://nextjs-phantom.vercel.app/images/usa-map.jpg
-REAL	728x371
+https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fusa-map.jpg&w=48&q=75
+SRCSET: available
+REAL	0x0
 HTML	24x16
-lazy	auto	flag	
+lazy	auto	USA & Western	
 
-https://nextjs-phantom.vercel.app/images/uae-flag.jpg
-REAL	612x408
+https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fuae-flag.jpg&w=48&q=75
+SRCSET: available
+REAL	0x0
 HTML	24x16
-lazy	auto	flag	
+lazy	auto	Gulf-Arab & African	
 ACTION
 METHOD
 FIELDS
@@ -359,6 +366,8 @@ preload
 preload
 (as image) (fetchpriority=auto)
 preload
+(as image) (fetchpriority=auto)
+preload
 (as script) (fetchpriority=low)
 https://nextjs-phantom.vercel.app/_next/static/chunks/webpack-3d3f6375c24bce94.js
 preload
@@ -376,6 +385,11 @@ https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js
 preload
 (as script) (fetchpriority=auto)
 https://nextjs-phantom.vercel.app/scripts/init-external.js
+preload
+(as style) (fetchpriority=auto)
+https://nextjs-phantom.vercel.app/_next/static/css/772f6661360af590.css
+preload
+(as image) (fetchpriority=auto)
 preload
 (as image) (fetchpriority=auto)
 Url

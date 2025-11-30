@@ -327,8 +327,7 @@ MARKUP
 <iframe>
 (2)
 
-WARNING H1 should be 20-70 characters(91 characters)
-h1 Phantom Healthcare - India's Leading Refurbished MRI, CT Scanner, PET-CT, Cath-Lab Provider (91 characters)
+h1 Phantom Healthcare - Refurbished MRI & CT Scanner India (55 characters)
 h2 Largest 3rd Party Vendors Of Refurbished Radiology Equipments (61 characters)
 h2 450+ Installations (18 characters)
 h2 Dedicated Team (14 characters)
@@ -507,20 +506,22 @@ mailto:info@phantomhealthcare.com		info@phantomhealthcare.com
 tel:+971522208819		+971 522 208 819		
 mailto:sachin.rawat@phantomhealthcare.com		sachin.rawat@phantomhealthcare.com		
 INFO 37 images (out of 37) with missing TITLE attribute
-INFO 2 images (out of 37) with missing LOADING attribute
+INFO 4 images (out of 37) with missing LOADING attribute
 WARNING 17 images (out of 37) with missing WIDTH or HEIGHT attribute
-INFO 14 images (out of 37) are lazyloaded and above the fold
+INFO 12 images (out of 37) are lazyloaded and above the fold
 SRC	SIZE	LOADING	FETCH PR.	ALT	TITLE
 
-https://nextjs-phantom.vercel.app/images/logo.jpg
-REAL	260x94
+https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Flogo.jpg&w=640&q=75
+SRCSET: available
+REAL	130x47
 HTML	220x70
-lazy	auto	Phantom Healthcare Logo	
+auto	Phantom Healthcare Logo	
 
-https://nextjs-phantom.vercel.app/images/logo.jpg
-REAL	260x94
+https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Flogo.jpg&w=384&q=75
+SRCSET: available
+REAL	130x47
 HTML	180x55
-lazy	auto	Phantom Healthcare Logo	
+auto	Phantom Healthcare Logo	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fslideshow%2Fimg1-mobile.jpg&w=3840&q=75
 SRCSET: available
@@ -567,44 +568,47 @@ auto	Largest 3rd Party Vendors Of Refurbished Radiology Equipments
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fslideshow%2Fmap%20installations.jpg&w=3840&q=75
 SRCSET: available
 SIZES: (max-width: 768px) 100vw, 70vw	
-REAL	597x336
+REAL	0x0
 HTML	- x -
 lazy	auto	450+ Installations	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fslideshow%2FEng.jpg&w=3840&q=75
 SRCSET: available
 SIZES: (max-width: 768px) 100vw, 70vw	
-REAL	896x504
+REAL	0x0
 HTML	- x -
 lazy	auto	Dedicated Team	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fslideshow%2Ffa.jpg&w=3840&q=75
 SRCSET: available
 SIZES: (max-width: 768px) 100vw, 70vw	
-REAL	896x504
+REAL	0x0
 HTML	- x -
 lazy	auto	Quality Assuarance	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fslideshow%2Fhf.jpg&w=3840&q=75
 SRCSET: available
 SIZES: (max-width: 768px) 100vw, 70vw	
-REAL	896x504
+REAL	0x0
 HTML	- x -
 lazy	auto	Spare Parts and Services	
 
-https://nextjs-phantom.vercel.app/images/icons.png
-REAL	150x150
-HTML	0x0
+https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Ficons.png&w=384&q=75
+SRCSET: available
+REAL	75x75
+HTML	150x150
 lazy	auto	Buy/Sell MRI Machines, CT Scanner, PET-CT, Cath-Lab Machines	
 
-https://nextjs-phantom.vercel.app/images/upd.png
-REAL	150x150
-HTML	0x0
+https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fupd.png&w=384&q=75
+SRCSET: available
+REAL	75x75
+HTML	150x150
 lazy	auto	Inventory of Spare Parts also Available	
 
-https://nextjs-phantom.vercel.app/images/ser.png
-REAL	150x150
-HTML	0x0
+https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fser.png&w=384&q=75
+SRCSET: available
+REAL	75x75
+HTML	150x150
 lazy	auto	Services and Repairs for Your Equipment	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fphantom-building.jpg&w=3840&q=75
@@ -640,52 +644,52 @@ lazy	auto	Site Planning
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fmachines%2Fspare%20parts%2FBrain%20coil.png&w=3840&q=75
 SRCSET: available
-SIZES: 100vw	
-REAL	533x533
+SIZES: (max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw	
+REAL	0x0
 HTML	- x -
 lazy	auto	MRI Coils	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fmachines%2Fspare%20parts%2Fcold%20head.png&w=3840&q=75
 SRCSET: available
-SIZES: 100vw	
-REAL	533x533
+SIZES: (max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw	
+REAL	0x0
 HTML	- x -
 lazy	auto	Cold Head MRI Machine	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fmachines%2Fspare%20parts%2FMHU%20Tube.png&w=3840&q=75
 SRCSET: available
-SIZES: 100vw	
-REAL	533x533
+SIZES: (max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw	
+REAL	0x0
 HTML	- x -
 lazy	auto	MHU Tube - CT Scanner	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2F15.jpg&w=256&q=75
 SRCSET: available
-REAL	128x128
+REAL	0x0
 HTML	120x120
 lazy	auto	15+ Years of Experience	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2F24.jpg&w=256&q=75
 SRCSET: available
-REAL	128x128
+REAL	0x0
 HTML	120x120
 lazy	auto	24*7 Service & Support	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fbest.jpg&w=256&q=75
 SRCSET: available
-REAL	128x128
+REAL	0x0
 HTML	120x120
 lazy	auto	Best Quality AERB Approved	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fskill.jpg&w=256&q=75
 SRCSET: available
-REAL	128x128
+REAL	0x0
 HTML	120x120
 lazy	auto	Skilled Professional	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Four-process.jpg&w=3840&q=75
 SRCSET: available
-REAL	800x200
+REAL	0x0
 HTML	1200x400
 lazy	auto	Our Process Horizontal (Desktop/Tablet)	
 
@@ -697,44 +701,54 @@ lazy	auto	Our Process Vertical (Mobile)
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Firia%202024%201.jpg&w=3840&q=75
 SRCSET: available
-REAL	800x361
+REAL	0x0
 HTML	1200x600
 lazy	auto	IRIA 2024 Exhibition	
 
-https://nextjs-phantom.vercel.app/images/usa-map.jpg
-REAL	728x371
+https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fusa-map.jpg&w=3840&q=75
+SRCSET: available
+SIZES: 80px	
+REAL	0x0
 HTML	- x -
 lazy	auto	USA Flag	
 
-https://nextjs-phantom.vercel.app/images/uae-flag.jpg
-REAL	612x408
+https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fuae-flag.jpg&w=3840&q=75
+SRCSET: available
+SIZES: 80px	
+REAL	0x0
 HTML	- x -
 lazy	auto	UAE Flag	
 
-https://nextjs-phantom.vercel.app/images/india-flag.jpg
-REAL	612x408
+https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Findia-flag.jpg&w=3840&q=75
+SRCSET: available
+SIZES: 80px	
+REAL	0x0
 HTML	- x -
 lazy	auto	India Flag	
 
-https://nextjs-phantom.vercel.app/images/white-logo.png
-REAL	1024x615
+https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fwhite-logo.png&w=384&q=75
+SRCSET: available
+REAL	0x0
 HTML	180x55
 lazy	auto	Phantom Healthcare	
 
-https://nextjs-phantom.vercel.app/images/india-flag.jpg
-REAL	612x408
+https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Findia-flag.jpg&w=48&q=75
+SRCSET: available
+REAL	0x0
 HTML	24x16
-lazy	auto	flag	
+lazy	auto	India & Sub-Continent	
 
-https://nextjs-phantom.vercel.app/images/usa-map.jpg
-REAL	728x371
+https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fusa-map.jpg&w=48&q=75
+SRCSET: available
+REAL	0x0
 HTML	24x16
-lazy	auto	flag	
+lazy	auto	USA & Western	
 
-https://nextjs-phantom.vercel.app/images/uae-flag.jpg
-REAL	612x408
+https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fuae-flag.jpg&w=48&q=75
+SRCSET: available
+REAL	0x0
 HTML	24x16
-lazy	auto	flag	
+lazy	auto	Gulf-Arab & African	
 SRC
 WIDTH
 HEIGHT
@@ -762,6 +776,8 @@ preload
 preload
 (as image) (fetchpriority=auto)
 preload
+(as image) (fetchpriority=auto)
+preload
 (as script) (fetchpriority=low)
 https://nextjs-phantom.vercel.app/_next/static/chunks/webpack-3d3f6375c24bce94.js
 preload
@@ -779,6 +795,11 @@ https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js
 preload
 (as script) (fetchpriority=auto)
 https://nextjs-phantom.vercel.app/scripts/init-external.js
+preload
+(as style) (fetchpriority=auto)
+https://nextjs-phantom.vercel.app/_next/static/css/772f6661360af590.css
+preload
+(as image) (fetchpriority=auto)
 preload
 (as image) (fetchpriority=auto)
 Url

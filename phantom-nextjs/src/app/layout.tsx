@@ -90,8 +90,7 @@ export default function RootLayout({
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         
-        {/* Viewport - must be early for mobile rendering */}
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {/* NOTE: viewport is handled by Next.js metadata API - do not duplicate */}
         
         {/* Legacy/Additional Meta Tags for comprehensive SEO */}
         <meta name="format-detection" content="telephone=yes" />
