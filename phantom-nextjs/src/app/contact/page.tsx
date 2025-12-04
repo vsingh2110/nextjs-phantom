@@ -28,7 +28,8 @@ import ContactForm from '@/components/features/ContactForm';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { LocalBusinessJsonLd, BreadcrumbJsonLd } from '@/components/seo/JsonLd';
+import { LocalBusinessJsonLd, BreadcrumbJsonLd, ContactFAQJsonLd } from '@/components/seo/JsonLd';
+import FAQSection from '@/components/ui/FAQSection';
 
 export const metadata: Metadata = {
   title: 'Contact Us - Phantom Healthcare India',
@@ -138,12 +139,41 @@ export default function Contact() {
     { name: 'Contact Us', url: 'https://phantomhealthcare.com/contact' }
   ];
 
+  // Contact page FAQ data for AI SEO (GEO/AEO)
+  const contactFaqs = [
+    {
+      question: "How can I contact Phantom Healthcare for a quote?",
+      answer: "You can contact Phantom Healthcare for a quote by: Phone: +91 9899963601 (Sales) or +91 129-4312423 (Office), Email: biz@phantomhealthcare.com, WhatsApp: +91 9899963601, or fill out the contact form on our website. We typically respond within 24 hours on business days."
+    },
+    {
+      question: "Where is Phantom Healthcare's head office located?",
+      answer: "Phantom Healthcare's head office is located at Plot No. 51, Sector 27C, Near NHPC Chowk, Main Mathura Road, Faridabad, Haryana 121003, India. We are about 30 minutes from Delhi NCR and easily accessible from the Faridabad-Delhi highway."
+    },
+    {
+      question: "Does Phantom Healthcare have international offices?",
+      answer: "Yes, Phantom Healthcare has international offices in: USA - 620 Progress Dr, Glendale Heights, Illinois 60139 (Phone: +1 630-720-6801), and UAE - LV 63-C, Al Hamriyah Freezone, Sharjah (Phone: +971 522 208 819). These offices serve customers in North America and the Middle East/Africa regions."
+    },
+    {
+      question: "What are Phantom Healthcare's business hours?",
+      answer: "Phantom Healthcare's India office operates Monday to Saturday, 9:00 AM to 6:00 PM IST. For urgent service requests, our 24/7 emergency helpline is available at +91 8545815483. US and UAE offices operate in their respective local business hours."
+    },
+    {
+      question: "How quickly does Phantom Healthcare respond to service requests?",
+      answer: "Phantom Healthcare provides service response within 24-48 hours across India through our service centers in Faridabad, Mumbai, Chennai, and Kolkata. For AMC customers, we offer priority response and remote diagnostic support for faster resolution."
+    },
+    {
+      question: "Can I schedule a site visit from Phantom Healthcare?",
+      answer: "Yes, Phantom Healthcare offers free site visits for serious inquiries. Our technical team will visit your facility to assess site requirements, provide recommendations for equipment selection, and prepare a detailed quotation. Contact us at biz@phantomhealthcare.com to schedule a visit."
+    }
+  ];
+
   return (
     <main className="min-h-screen">
       {/* JSON-LD Structured Data for SEO */}
       <LocalBusinessJsonLd />
       <BreadcrumbJsonLd items={breadcrumbItems} />
       <ContactPageJsonLd />
+      <ContactFAQJsonLd />
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary-600 via-primary-500 to-primary-700 py-12 sm:py-16 md:py-20 lg:py-24">
@@ -468,6 +498,14 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section - For AI SEO (GEO/AEO) */}
+      <FAQSection 
+        title="Contact & Support FAQs"
+        subtitle="How to reach us and what to expect"
+        faqs={contactFaqs}
+        variant="light"
+      />
 
       {/* Google Map Section - Simple box with margins */}
       <section className="py-8 sm:py-10 md:py-12 px-4 sm:px-6 lg:px-8 bg-white">

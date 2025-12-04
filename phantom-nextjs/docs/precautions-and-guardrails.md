@@ -1,12 +1,12 @@
 # Precautions, Guardrails, and Critical Rules
 
 **Project:** Phantom Medical Imaging - Next.js Migration  
-**Last Updated:** December 1, 2025  
+**Last Updated:** December 4, 2025  
 **Audience:** All developers and AI agents working on this project
 
 ---
 
-## 🆕 NEW SECTION: SEO & ACCESSIBILITY GUARDRAILS (UPDATED DEC 1, 2025)
+## 🆕 NEW SECTION: SEO & ACCESSIBILITY GUARDRAILS (UPDATED DEC 4, 2025)
 
 ### **6. IMAGE GUARDRAILS (CRITICAL)**
 
@@ -225,6 +225,65 @@ className="py-1 flex items-center"
 - Mismatched crossorigin creates unused connections
 - Lighthouse warns about unused preconnects
 - Wastes browser connection slots
+
+---
+
+### **12. AI SEO / GEO / AEO GUARDRAILS (NEW DEC 4, 2025)**
+
+**The Rule:**
+> Content must be structured for AI extraction. Avoid vague marketing language. Include specific, quotable data.
+
+**Terminology:**
+- **GEO** = Generative Engine Optimization (for ChatGPT, Perplexity, etc.)
+- **AEO** = Answer Engine Optimization (for voice assistants, AI search)
+- **AI SEO** = Umbrella term for GEO + AEO
+
+**What This Means:**
+- ❌ **NEVER** write vague marketing copy ("world-class solutions")
+- ❌ **NEVER** hide key information in paragraphs of fluff
+- ❌ **NEVER** use "contact us for pricing" without ANY specifics
+- ❌ **NEVER** skip FAQ sections on product/service pages
+- ✅ **ALWAYS** lead with key information (price, warranty, specs)
+- ✅ **ALWAYS** use declarative, quotable sentences
+- ✅ **ALWAYS** include specific numbers and data
+- ✅ **ALWAYS** add FAQ sections with FAQPage schema
+- ✅ **ALWAYS** structure content with clear headings and lists
+
+**Content Examples:**
+```markdown
+<!-- ❌ WRONG - AI can't extract useful info -->
+"We are a leading provider of world-class medical imaging solutions 
+with decades of experience serving India's finest hospitals."
+
+<!-- ✅ CORRECT - AI can quote this directly -->
+"Phantom Healthcare has installed over 150 refurbished MRI and CT 
+scanners across India since 2011. Our 12-month warranty covers 
+all parts and labor."
+```
+
+**Schema Requirements:**
+```tsx
+// ✅ Add FAQPage schema to all product/service pages
+{
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What warranty does Phantom Healthcare offer?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "12-month comprehensive warranty covering parts and labor."
+    }
+  }]
+}
+```
+
+**Why This Rule Exists:**
+- AI systems extract and cite clear, structured content
+- Vague marketing copy is ignored by AI answer engines
+- Being mentioned in AI answers = 24/7 brand exposure
+- FAQPage schema directly feeds AI answer systems
+
+**Reference:** `docs/SEO-INDIA-REFERENCE.md` → AI SEO / GEO / AEO section
 
 ---
 

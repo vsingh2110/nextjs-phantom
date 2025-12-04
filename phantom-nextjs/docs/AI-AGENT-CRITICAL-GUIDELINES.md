@@ -2,7 +2,7 @@
 
 ## 🔴 READ THIS BEFORE ANYTHING ELSE - NO EXCEPTIONS 🔴
 
-**Last Updated:** December 1, 2025  
+**Last Updated:** December 4, 2025  
 **Priority:** ABSOLUTE HIGHEST - MANDATORY COMPLIANCE  
 **Project:** Phantom Medical Imaging - Static to Next.js Migration
 
@@ -230,6 +230,64 @@ className="py-1 flex items-center"
 ```
 
 **Why?** Using crossorigin on non-CORS resource creates unused connection.
+
+---
+
+### 14. AI SEO / GEO / AEO RULES (ADDED Dec 4, 2025)
+
+**What is this?** Optimizing content to appear in AI-generated search answers (ChatGPT, Google AI Overviews, Perplexity, Claude, Gemini).
+
+**📖 TERMINOLOGY:**
+| Term | Full Name | Meaning |
+|------|-----------|---------|
+| **GEO** | Generative Engine Optimization | Optimizing for AI-powered search engines |
+| **AEO** | Answer Engine Optimization | Making content visible to AI systems that deliver direct answers |
+| **AI SEO** | AI-focused SEO | Umbrella term for GEO + AEO + traditional SEO |
+
+**RULES FOR AI VISIBILITY:**
+
+1. **Content Structure:**
+   - ✅ Lead with key information (don't bury the lede)
+   - ✅ Use declarative, quotable sentences
+   - ✅ Include specific data, numbers, specifications
+   - ✅ Add FAQ sections with common questions
+   - ❌ Don't use vague marketing language
+
+2. **Schema Implementation:**
+   - ✅ Add FAQPage schema for Q&A content
+   - ✅ Consider Speakable schema for voice search
+   - ✅ Implement HowTo schema for process content
+
+3. **Technical Requirements:**
+   - ✅ SSR/SSG is CRITICAL (Next.js already handles this)
+   - ❌ Heavy JavaScript-only content may be invisible to AI crawlers
+
+**Content Format Examples:**
+```markdown
+<!-- ❌ WRONG - AI can't extract useful info -->
+"We offer world-class solutions with decades of experience."
+
+<!-- ✅ CORRECT - AI can quote this directly -->
+"Phantom Healthcare provides 12-month warranty on all refurbished 
+MRI machines. We have installed 150+ systems across India since 2011."
+```
+
+**FAQPage Schema Example:**
+```tsx
+{
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "What warranty does Phantom Healthcare offer on refurbished MRI?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Phantom Healthcare provides a 12-month comprehensive warranty on all refurbished MRI machines, covering parts and labor."
+    }
+  }]
+}
+```
+
+**📚 Full Details:** See `docs/SEO-INDIA-REFERENCE.md` → AI SEO / GEO / AEO section
 
 ---
 

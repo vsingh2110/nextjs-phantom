@@ -1,6 +1,7 @@
 # 📋 NEW PAGE CHECKLIST
 
 **Created:** November 30, 2025  
+**Last Updated:** December 4, 2025 (AI SEO / GEO / AEO Section Added)  
 **Purpose:** Quick reference for creating new pages with proper SEO & Accessibility  
 **Use This:** Before creating ANY new page in the Next.js site
 
@@ -8,10 +9,11 @@
 
 ## ✅ PRE-DEVELOPMENT
 
-- [ ] Read `SEO-INDIA-REFERENCE.md` for SEO guidelines
+- [ ] Read `SEO-INDIA-REFERENCE.md` for SEO guidelines (including AI SEO section!)
 - [ ] Check existing similar pages for patterns
 - [ ] Identify page type (product, service, location, etc.)
 - [ ] Plan schema types needed
+- [ ] Plan FAQ section for AI visibility
 
 ---
 
@@ -197,6 +199,66 @@ import {
 
 ---
 
+## 🤖 AI SEO / GEO / AEO CHECKLIST (Added Dec 4, 2025)
+
+**Purpose:** Optimize content to appear in AI-generated answers (ChatGPT, Google AI Overviews, Perplexity, Claude)
+
+### Content Structure for AI
+- [ ] Lead with key information (don't bury the lede)
+- [ ] Use declarative, quotable sentences with specific data
+- [ ] Include actual numbers, specifications, prices (avoid "contact us")
+- [ ] Add FAQ section with common questions about the topic
+
+### FAQ Section Example
+```tsx
+// Add visible FAQ section on page
+<section>
+  <h2>Frequently Asked Questions</h2>
+  
+  <h3>What warranty does Phantom Healthcare offer?</h3>
+  <p>Phantom Healthcare provides a 12-month comprehensive warranty 
+  on all refurbished medical imaging equipment.</p>
+  
+  <h3>Where are your service centers located?</h3>
+  <p>We have service centers in Faridabad (HQ), Mumbai, Chennai, 
+  and Kolkata for pan-India support.</p>
+</section>
+```
+
+### FAQPage Schema
+```tsx
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What warranty does Phantom Healthcare offer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Phantom Healthcare provides a 12-month comprehensive warranty on all refurbished medical imaging equipment, covering parts and labor."
+      }
+    }
+  ]
+}
+</script>
+```
+
+### AI Content Quality Checklist
+- [ ] Avoid vague marketing language ("world-class", "best-in-class")
+- [ ] Include specific data that AI can cite ("150+ installations since 2011")
+- [ ] Use tables and bullet points for specifications
+- [ ] Add expert quotes or testimonials with attribution
+- [ ] Include clear answer to "what, when, where, how much" questions
+
+### Testing for AI Visibility
+- [ ] Test queries in ChatGPT: "Best refurbished MRI machines in India"
+- [ ] Test queries in Perplexity: "Phantom Healthcare reviews"
+- [ ] Check if your brand is mentioned in AI responses
+
+---
+
 ## ✅ FINAL CHECKS
 
 - [ ] Page builds without errors: `npm run build`
@@ -258,7 +320,16 @@ import {
 
 ## 📚 REFERENCE DOCUMENTS
 
-- `SEO-INDIA-REFERENCE.md` - Complete SEO guide
+- `SEO-INDIA-REFERENCE.md` - Complete SEO guide (includes AI SEO / GEO / AEO section)
 - `AI-AGENT-CRITICAL-GUIDELINES.md` - Critical rules
 - `best-practices.md` - Coding standards
 - `precautions-and-guardrails.md` - What NOT to do
+
+---
+
+## 🔗 EXTERNAL RESOURCES (AI SEO)
+
+- [Semrush: Generative Engine Optimization](https://www.semrush.com/blog/generative-engine-optimization/)
+- [Ahrefs: Answer Engine Optimization](https://ahrefs.com/blog/answer-engine-optimization/)
+- [Google: Speakable Structured Data](https://developers.google.com/search/docs/appearance/structured-data/speakable)
+- [Schema.org: FAQPage](https://schema.org/FAQPage)

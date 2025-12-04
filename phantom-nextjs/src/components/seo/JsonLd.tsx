@@ -4,7 +4,13 @@
  * 
  * PURPOSE: Provide structured data for better SEO and rich snippets
  * CREATED: November 29, 2025
- * UPDATED: November 30, 2025 - Added MedicalDevice schema, fixed AboutPage, restored schemas
+ * UPDATED: December 4, 2025 - Added FAQPage schemas for AI SEO (GEO/AEO)
+ * 
+ * CHANGES (Dec 4, 2025):
+ * - Added HomeFAQJsonLd for home page FAQs (AI SEO optimization)
+ * - Added AboutFAQJsonLd for about page FAQs
+ * - Added ContactFAQJsonLd for contact page FAQs
+ * - FAQPage schema helps AI systems (ChatGPT, Google AI, Perplexity) cite our content
  * 
  * CHANGES (Nov 30, 2025):
  * - Added MedicalDevice schema type for products (user preference)
@@ -25,6 +31,7 @@
  * - https://schema.org/LocalBusiness
  * - https://schema.org/MedicalDevice
  * - https://schema.org/ProfessionalService
+ * - https://schema.org/FAQPage
  * - https://developers.google.com/search/docs/appearance/structured-data
  */
 
@@ -839,3 +846,226 @@ export function AboutPageFullJsonLd() {
     </>
   );
 }
+
+// ============================================================================
+// FAQ PAGE SCHEMAS FOR AI SEO (GEO/AEO) - Added December 4, 2025
+// ============================================================================
+// These schemas help AI systems (ChatGPT, Google AI Overviews, Perplexity, etc.)
+// extract and cite our content in their responses.
+// Each page has specific FAQs relevant to that page's content.
+
+/**
+ * HOME PAGE FAQ Schema
+ * Focus: Products, services, general company info
+ * Use on: Home page (page.tsx)
+ */
+export function HomeFAQJsonLd() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What medical imaging equipment does Phantom Healthcare provide?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Phantom Healthcare provides refurbished MRI Scanners (1.5T and 3.0T), CT Scanners, PET-CT systems, Cath Labs, Gamma Camera SPECT, and Bone Densitometers (DXA). We work with top brands including GE Healthcare, Siemens Healthineers, Philips, Canon, and Toshiba."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What warranty does Phantom Healthcare offer on refurbished MRI machines?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Phantom Healthcare provides a 12-month comprehensive warranty on all refurbished MRI machines and CT scanners. The warranty covers parts and labor, with optional extended AMC (Annual Maintenance Contract) packages available for continued support."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many MRI and CT installations has Phantom Healthcare completed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Since 2011, Phantom Healthcare has completed over 170 successful medical imaging equipment installations across India, serving more than 150 satisfied clients including major hospital chains like Apollo, Fortis, Max Healthcare, and Narayana Health."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why choose refurbished medical imaging equipment from Phantom Healthcare?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Refurbished medical imaging equipment from Phantom Healthcare offers 40-60% cost savings compared to new equipment, with the same diagnostic quality. All equipment undergoes rigorous 150-point inspection, complete reconditioning, and comes with warranty. This makes advanced diagnostics accessible for tier-2/tier-3 cities and smaller healthcare facilities."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Phantom Healthcare provide installation and after-sales service?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Phantom Healthcare provides complete turnkey solutions including site planning, installation, commissioning, operator training, and ongoing technical support. We have service centers in Faridabad (HQ), Mumbai, Chennai, and Kolkata, enabling pan-India service response within 24-48 hours."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What brands of MRI and CT scanners does Phantom Healthcare refurbish?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Phantom Healthcare refurbishes and supplies equipment from leading manufacturers: GE Healthcare (Signa series), Siemens Healthineers (Magnetom, Somatom series), Philips (Achieva, Ingenia), Canon/Toshiba (Vantage, Aquilion), and Hitachi. We specialize in systems from 2015 onwards for optimal technology and spare parts availability."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where is Phantom Healthcare located and which regions do they serve?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Phantom Healthcare is headquartered in Faridabad, Haryana, India (near Delhi NCR). We serve clients across India, USA (Illinois office), and UAE/Middle East (Sharjah office). Our pan-India service network ensures support for clients in all states."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the typical cost of a refurbished MRI scanner in India?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Refurbished MRI scanner prices in India vary based on field strength and brand. 1.5T MRI scanners typically range from ₹1.5 to ₹3 crore, while 3.0T MRI scanners range from ₹3 to ₹6 crore. Contact Phantom Healthcare for specific quotes as prices depend on model year, configuration, and current inventory."
+        }
+      }
+    ]
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+    />
+  );
+}
+
+/**
+ * ABOUT PAGE FAQ Schema
+ * Focus: Company history, leadership, values, expertise
+ * Use on: About page (about/page.tsx)
+ */
+export function AboutFAQJsonLd() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "When was Phantom Healthcare established?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Phantom Healthcare was established in 2011 in Faridabad, Haryana, India. Over the past 13+ years, we have grown to become one of India's leading providers of refurbished medical imaging equipment with 170+ installations and 150+ satisfied clients."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who are the founders of Phantom Healthcare?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Phantom Healthcare was founded by Rochi Nargotra (Director & CEO) and Brijesh Suneja (Managing Director). Both founders bring decades of experience in the medical imaging industry and continue to lead the company's growth and innovation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Phantom Healthcare's refurbishment process?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Phantom Healthcare's refurbishment process includes: 150-point quality inspection, complete cosmetic restoration, replacement of worn components, software updates and calibration, rigorous testing protocols, and quality certification. Each machine is restored to near-original specifications before delivery."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What certifications does Phantom Healthcare have?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Phantom Healthcare maintains ISO certifications for quality management and follows international standards for medical equipment refurbishment. All equipment meets AERB (Atomic Energy Regulatory Board) requirements for radiation equipment in India."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many employees does Phantom Healthcare have?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Phantom Healthcare employs 50-100 professionals including certified biomedical engineers, service technicians, sales specialists, and support staff across our offices in India, USA, and UAE."
+        }
+      }
+    ]
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+    />
+  );
+}
+
+/**
+ * CONTACT PAGE FAQ Schema
+ * Focus: How to reach us, office locations, response times
+ * Use on: Contact page (contact/page.tsx)
+ */
+export function ContactFAQJsonLd() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How can I contact Phantom Healthcare for a quote?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can contact Phantom Healthcare for a quote by: Phone: +91 9899963601 (Sales) or +91 129-4312423 (Office), Email: biz@phantomhealthcare.com, WhatsApp: +91 9899963601, or fill out the contact form on our website. We typically respond within 24 hours on business days."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where is Phantom Healthcare's head office located?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Phantom Healthcare's head office is located at Plot No. 51, Sector 27C, Near NHPC Chowk, Main Mathura Road, Faridabad, Haryana 121003, India. We are about 30 minutes from Delhi NCR and easily accessible from the Faridabad-Delhi highway."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Phantom Healthcare have international offices?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Phantom Healthcare has international offices in: USA - 620 Progress Dr, Glendale Heights, Illinois 60139 (Phone: +1 630-720-6801), and UAE - LV 63-C, Al Hamriyah Freezone, Sharjah (Phone: +971 522 208 819). These offices serve customers in North America and the Middle East/Africa regions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are Phantom Healthcare's business hours?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Phantom Healthcare's India office operates Monday to Saturday, 9:00 AM to 6:00 PM IST. For urgent service requests, our 24/7 emergency helpline is available at +91 8545815483. US and UAE offices operate in their respective local business hours."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How quickly does Phantom Healthcare respond to service requests?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Phantom Healthcare provides service response within 24-48 hours across India through our service centers in Faridabad, Mumbai, Chennai, and Kolkata. For AMC customers, we offer priority response and remote diagnostic support for faster resolution."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I schedule a site visit from Phantom Healthcare?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Phantom Healthcare offers free site visits for serious inquiries. Our technical team will visit your facility to assess site requirements, provide recommendations for equipment selection, and prepare a detailed quotation. Contact us at biz@phantomhealthcare.com to schedule a visit."
+        }
+      }
+    ]
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+    />
+  );
+}
+

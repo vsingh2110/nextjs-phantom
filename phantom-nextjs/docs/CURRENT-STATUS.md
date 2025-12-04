@@ -1,9 +1,41 @@
 # Phantom Medical Imaging — Current Status
 
-**Last Updated:** December 1, 2025 (1:30 AM IST)  
+**Last Updated:** December 4, 2025  
 **Phase:** Active Migration - Static to Next.js  
-**Priority:** Accessibility & Performance Optimization  
+**Priority:** AI SEO / GEO / AEO Implementation + Accessibility  
 **Git Status:** ⚠️ ALL CHANGES LOCAL - PENDING PUSH TO REPOSITORY
+
+---
+
+## 📖 NEW: AI SEO / GEO / AEO DOCUMENTATION (Dec 4, 2025)
+
+### **What Was Added**
+
+Comprehensive documentation for AI-related search optimization was added across all relevant docs:
+
+| File | Section Added |
+|------|---------------|
+| `SEO-INDIA-REFERENCE.md` | Full GEO/AEO guide (~300 lines) with terminology, implementation, examples |
+| `AI-AGENT-CRITICAL-GUIDELINES.md` | Section 14: AI SEO / GEO / AEO Rules |
+| `NEW-PAGE-CHECKLIST.md` | AI SEO / GEO / AEO Checklist |
+| `precautions-and-guardrails.md` | Section 12: AI SEO / GEO / AEO Guardrails |
+| `SESSION-HANDOVER-2025-12-04.md` | Full session handover |
+
+### **Key Terminology**
+
+| Term | Full Name | Meaning |
+|------|-----------|---------|
+| **GEO** | Generative Engine Optimization | Optimizing for AI-powered search (ChatGPT, Perplexity, Gemini) |
+| **AEO** | Answer Engine Optimization | Making content visible to AI systems that give direct answers |
+| **AI SEO** | AI-focused SEO | Umbrella term covering GEO + AEO + traditional SEO |
+
+### **Next Steps for AI SEO**
+
+1. [ ] Implement FAQPage schema in JsonLd.tsx
+2. [ ] Add visible FAQ sections to Home, About, Contact pages
+3. [ ] Review existing content for AI-friendly structure
+4. [ ] Consider Speakable schema for voice search
+5. [ ] Test brand visibility in ChatGPT/Perplexity
 
 ---
 

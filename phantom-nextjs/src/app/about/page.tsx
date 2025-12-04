@@ -28,8 +28,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { BreadcrumbJsonLd, AboutPageFullJsonLd, MedicalBusinessJsonLd } from '@/components/seo/JsonLd'
+import { BreadcrumbJsonLd, AboutPageFullJsonLd, MedicalBusinessJsonLd, AboutFAQJsonLd } from '@/components/seo/JsonLd'
 import AboutCounterSection from '@/components/about/AboutCounterSection'
+import FAQSection from '@/components/ui/FAQSection'
 
 export const metadata: Metadata = {
   title: 'About Us - Phantom Healthcare | Since 2011',
@@ -70,12 +71,37 @@ export default function About() {
     { name: 'About Us', url: 'https://phantomhealthcare.com/about' }
   ];
 
+  // About page FAQ data for AI SEO (GEO/AEO)
+  const aboutFaqs = [
+    {
+      question: "When was Phantom Healthcare established?",
+      answer: "Phantom Healthcare was established in 2011 in Faridabad, Haryana, India. Over the past 13+ years, we have grown to become one of India's leading providers of refurbished medical imaging equipment with 170+ installations and 150+ satisfied clients."
+    },
+    {
+      question: "Who are the founders of Phantom Healthcare?",
+      answer: "Phantom Healthcare was founded by Rochi Nargotra (Director & CEO) and Brijesh Suneja (Managing Director). Both founders bring decades of experience in the medical imaging industry and continue to lead the company's growth and innovation."
+    },
+    {
+      question: "What is Phantom Healthcare's refurbishment process?",
+      answer: "Our refurbishment process includes: 150-point quality inspection, complete cosmetic restoration, replacement of worn components, software updates and calibration, rigorous testing protocols, and quality certification. Each machine is restored to near-original specifications before delivery."
+    },
+    {
+      question: "What certifications does Phantom Healthcare have?",
+      answer: "Phantom Healthcare maintains ISO certifications for quality management and follows international standards for medical equipment refurbishment. All equipment meets AERB (Atomic Energy Regulatory Board) requirements for radiation equipment in India."
+    },
+    {
+      question: "How many employees does Phantom Healthcare have?",
+      answer: "Phantom Healthcare employs 50-100 professionals including certified biomedical engineers, service technicians, sales specialists, and support staff across our offices in India, USA, and UAE."
+    }
+  ];
+
   return (
     <main className="min-h-screen">
       {/* JSON-LD Structured Data for SEO - Using comprehensive schemas */}
       <BreadcrumbJsonLd items={breadcrumbItems} />
       <AboutPageFullJsonLd />
       <MedicalBusinessJsonLd />
+      <AboutFAQJsonLd />
 
       {/* Compact Hero Section with strong gradient */}
       <section className="bg-gradient-to-r from-[#2980b9] via-[#3498db] to-[#5dade2] py-8 sm:py-10 md:py-14">
@@ -312,6 +338,14 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section - For AI SEO (GEO/AEO) */}
+      <FAQSection 
+        title="About Phantom Healthcare"
+        subtitle="Common questions about our company, history, and expertise"
+        faqs={aboutFaqs}
+        variant="white"
+      />
 
       {/* CTA Section */}
       <section className="py-12 sm:py-16 bg-gradient-to-r from-primary-600 to-secondary-600">

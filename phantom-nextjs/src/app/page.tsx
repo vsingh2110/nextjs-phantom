@@ -103,7 +103,8 @@ import RegionalOffices from '@/components/home/RegionalOffices'
 import CounterSection from '@/components/home/CounterSection';
 import FeaturedProductsCarousel from '@/components/home/FeaturedProductsCarousel';
 import AboutSection from '@/components/home/AboutSection';
-import { OrganizationJsonLd, LocalBusinessJsonLd, WebSiteJsonLd, BreadcrumbJsonLd, MedicalDeviceJsonLd, MedicalBusinessJsonLd } from '@/components/seo/JsonLd';
+import FAQSection from '@/components/ui/FAQSection';
+import { OrganizationJsonLd, LocalBusinessJsonLd, WebSiteJsonLd, BreadcrumbJsonLd, MedicalDeviceJsonLd, MedicalBusinessJsonLd, HomeFAQJsonLd } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Phantom Healthcare | MRI, CT Scanner, PET-CT, Cath-Lab India',
@@ -142,6 +143,34 @@ const homeBreadcrumb = [
   { name: 'Home', url: 'https://phantomhealthcare.com' }
 ];
 
+// Home page FAQ data for AI SEO (GEO/AEO)
+const homeFaqs = [
+  {
+    question: "What medical imaging equipment does Phantom Healthcare provide?",
+    answer: "Phantom Healthcare provides refurbished MRI Scanners (1.5T and 3.0T), CT Scanners, PET-CT systems, Cath Labs, Gamma Camera SPECT, and Bone Densitometers (DXA). We work with top brands including GE Healthcare, Siemens Healthineers, Philips, Canon, and Toshiba."
+  },
+  {
+    question: "What warranty does Phantom Healthcare offer on refurbished MRI machines?",
+    answer: "Phantom Healthcare provides a 12-month comprehensive warranty on all refurbished MRI machines and CT scanners. The warranty covers parts and labor, with optional extended AMC (Annual Maintenance Contract) packages available for continued support."
+  },
+  {
+    question: "How many MRI and CT installations has Phantom Healthcare completed?",
+    answer: "Since 2011, Phantom Healthcare has completed over 170 successful medical imaging equipment installations across India, serving more than 150 satisfied clients including major hospital chains like Apollo, Fortis, Max Healthcare, and Narayana Health."
+  },
+  {
+    question: "Why choose refurbished medical imaging equipment?",
+    answer: "Refurbished medical imaging equipment offers 40-60% cost savings compared to new equipment, with the same diagnostic quality. All equipment undergoes rigorous 150-point inspection, complete reconditioning, and comes with warranty. This makes advanced diagnostics accessible for tier-2/tier-3 cities and smaller healthcare facilities."
+  },
+  {
+    question: "Does Phantom Healthcare provide installation and after-sales service?",
+    answer: "Yes, Phantom Healthcare provides complete turnkey solutions including site planning, installation, commissioning, operator training, and ongoing technical support. We have service centers in Faridabad (HQ), Mumbai, Chennai, and Kolkata, enabling pan-India service response within 24-48 hours."
+  },
+  {
+    question: "What is the typical cost of a refurbished MRI scanner in India?",
+    answer: "Refurbished MRI scanner prices in India vary based on field strength and brand. 1.5T MRI scanners typically range from ₹1.5 to ₹3 crore, while 3.0T MRI scanners range from ₹3 to ₹6 crore. Contact us for specific quotes as prices depend on model year, configuration, and current inventory."
+  }
+];
+
 export default function Home() {
   return (
     <main className="min-h-screen">
@@ -152,6 +181,7 @@ export default function Home() {
       <MedicalDeviceJsonLd />
       <MedicalBusinessJsonLd />
       <BreadcrumbJsonLd items={homeBreadcrumb} />
+      <HomeFAQJsonLd />
       
       {/* Global Contact Modal (can be triggered from anywhere) */}
       <ContactFormModalWrapper />
@@ -657,6 +687,14 @@ export default function Home() {
           <TestimonialsCarousel />
         </div>
       </section>
+
+      {/* FAQ Section - For AI SEO (GEO/AEO) */}
+      <FAQSection 
+        title="Frequently Asked Questions"
+        subtitle="Everything you need to know about our refurbished medical imaging equipment"
+        faqs={homeFaqs}
+        variant="white"
+      />
 
       {/* Regional Offices Section */}
       <RegionalOffices />
