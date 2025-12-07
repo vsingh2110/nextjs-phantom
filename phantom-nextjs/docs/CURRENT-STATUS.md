@@ -1,14 +1,36 @@
 # Phantom Medical Imaging — Current Status
 
-**Last Updated:** December 7, 2025 (Night)  
+**Last Updated:** December 7, 2025 (Night - SEO Fixes Complete)  
 **Phase:** Active Migration - Static to Next.js  
 **Priority:** Continue AI SEO Implementation + Product Pages  
-**Git Status:** ⚠️ Changes pending commit
+**Git Status:** ⚠️ Changes pending commit (Privacy, Terms, FAQs SEO fixes)
 **Next.js Version:** 15.3.6 (Security patched for CVE-2025-55182)
 
 ---
 
 ## ✅ NEW PAGES CREATED (Dec 7, 2025 - Evening Session)
+
+### **SEO Fixes Applied (Night Session)**
+
+**Issues Found After Deployment:**
+1. **FAQs Page:** Duplicate FAQPage schema error
+2. **All 3 Pages:** Missing og:image
+3. **All 3 Pages:** Title tags too long (>65 chars)
+4. **Privacy & Terms:** H1 tags too short (<20 chars)
+
+**Fixes Completed:**
+1. **FAQsSpeakableJsonLd:** Changed `@type` from "FAQPage" to "WebPage" ✅
+2. **Organization URLs:** Fixed all speakable schemas - `mainEntity.url` now points to `https://phantomhealthcare.com` (not page URLs) ✅
+3. **og:image Added:** All 3 pages now have `/images/phantom-building.jpg` (1200x630) ✅
+4. **Title Shortened:** 
+   - FAQs: 84 → 55 chars ✅
+   - Privacy: 74 → 37 chars ✅
+   - Terms: 80 → 41 chars ✅
+5. **H1 Extended:**
+   - Privacy: "Privacy Policy" (14) → "Privacy Policy - Phantom Healthcare" (37 chars) ✅
+   - Terms: "Terms & Conditions" (18) → "Terms & Conditions - Phantom Healthcare" (41 chars) ✅
+
+**Note:** Previous AI agent (Claude Opus 4.5 Preview) created the 3 pages but made schema errors despite having SEO-INDIA-REFERENCE.md and NEW-PAGE-CHECKLIST.md available. Current agent (Sonnet 4.5) identified and fixed all issues.
 
 ### **Pages Created**
 
@@ -21,19 +43,22 @@
 ### **Privacy Policy Page Features**
 - **File:** `src/app/privacy-policy/page.tsx`
 - **Sections:** Introduction, Information Collection, Data Use, Cookies, Third-Party Services, Data Security, International Transfers, Data Retention, User Rights, Children's Privacy
-- **JSON-LD:** BreadcrumbJsonLd, PrivacyPolicySpeakableJsonLd (new)
+- **JSON-LD:** BreadcrumbJsonLd, PrivacyPolicySpeakableJsonLd
+- **SEO:** Title 37 chars ✅, og:image added ✅, H1 37 chars ✅
 
 ### **Terms & Conditions Page Features**
 - **File:** `src/app/terms-and-conditions/page.tsx`
 - **Sections:** Definitions, Equipment Sales, Delivery & Installation, Warranty Terms (12-month), AMC/CMC Services, Customer Responsibilities, Limitation of Liability, Dispute Resolution
-- **JSON-LD:** BreadcrumbJsonLd, TermsSpeakableJsonLd (new)
+- **JSON-LD:** BreadcrumbJsonLd, TermsSpeakableJsonLd
+- **SEO:** Title 41 chars ✅, og:image added ✅, H1 41 chars ✅
 
 ### **FAQs Page Features**
 - **File:** `src/app/faqs/page.tsx`
 - **Categories:** Products & Equipment (4 FAQs), Pricing & Warranty (3 FAQs), Services (4 FAQs), Company (4 FAQs), Contact & Location (4 FAQs)
 - **Total FAQs:** 18 comprehensive questions
-- **JSON-LD:** BreadcrumbJsonLd, FAQsPageJsonLd (17 FAQs), FAQsSpeakableJsonLd (new)
+- **JSON-LD:** BreadcrumbJsonLd, FAQsPageJsonLd (17 FAQs), FAQsSpeakableJsonLd (WebPage type)
 - **Quick Jump Navigation:** Category links for easy navigation
+- **SEO:** Title 55 chars ✅, og:image added ✅, H1 26 chars ✅
 
 ### **New JSON-LD Components Added**
 Added to `src/components/seo/JsonLd.tsx`:

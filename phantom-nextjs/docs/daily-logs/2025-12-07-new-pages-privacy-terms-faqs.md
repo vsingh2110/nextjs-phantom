@@ -253,12 +253,66 @@ All 3 pages still have Speakable schema for voice assistants:
 
 ---
 
+## 🔄 SECOND ROUND OF SEO FIXES (Dec 7, 2025 - Night)
+
+### Additional Issues Found After Deployment
+
+User deployed to Vercel and tested with META SEO Inspector:
+
+| Issue | All 3 Pages |
+|-------|-------------|
+| og:image missing | ❌ WARNING |
+| Title too long (>65 chars) | ❌ INFO |
+| H1 too short (<20 chars) | ❌ WARNING (Privacy: 14, Terms: 18) |
+
+### Final Fixes Applied
+
+**Files Modified:**
+- `src/app/faqs/page.tsx`
+- `src/app/privacy-policy/page.tsx`
+- `src/app/terms-and-conditions/page.tsx`
+
+**1. Added og:image to All 3 Pages:**
+```tsx
+openGraph: {
+  images: [
+    {
+      url: '/images/phantom-building.jpg',
+      width: 1200,
+      height: 630,
+      alt: 'Phantom Healthcare - [Page Name]',
+    }
+  ],
+}
+twitter: {
+  card: 'summary_large_image',  // Changed from 'summary'
+  images: ['/images/phantom-building.jpg'],
+}
+```
+
+**2. Shortened Title Tags (<65 chars):**
+- FAQs: `FAQs - Phantom Healthcare | Medical Imaging Equipment Questions` (84) → `FAQs - Phantom Healthcare | MRI & CT Scanner Questions` (55) ✅
+- Privacy: `Privacy Policy - Phantom Healthcare | Data Protection` (74) → `Privacy Policy - Phantom Healthcare` (37) ✅
+- Terms: `Terms & Conditions - Phantom Healthcare | Service Agreement` (80) → `Terms & Conditions - Phantom Healthcare` (41) ✅
+
+**3. Extended H1 Tags (20-70 chars):**
+- Privacy: `Privacy Policy` (14) → `Privacy Policy - Phantom Healthcare` (37) ✅
+- Terms: `Terms & Conditions` (18) → `Terms & Conditions - Phantom Healthcare` (41) ✅
+- FAQs: `Frequently Asked Questions` (26) - Already OK ✅
+
+**4. Shortened Meta Descriptions:**
+- Privacy: 156 chars → 120 chars ✅
+- Terms: 151 chars → 113 chars ✅
+- FAQs: 150 chars → 133 chars ✅
+
+---
+
 ## 📝 NOTES
 
+- **Image Paths:** Using relative paths (`/images/...`) works on any domain - will resolve correctly on Hostinger after deployment
+- **Previous AI Agent (Opus 4.5 Preview):** Created pages but made schema errors despite having SEO documentation
+- **Current AI Agent (Sonnet 4.5):** Fixed all schema errors, og:image, title/H1 lengths
 - Product/Service pages remain placeholders with dummy data (no edits today)
-- Next action: Push to GitHub, verify Vercel deploy, rerun Google Rich Results
-- H1 length warnings (14-18 chars) are acceptable for legal pages per SEO-INDIA-REFERENCE.md
-- og:image missing is optional - legal pages don't need social sharing images
 
 ---
 
@@ -267,7 +321,7 @@ All 3 pages still have Speakable schema for voice assistants:
 ```
 Total Pages: 312
 New Pages Added: 3 (privacy-policy, terms-and-conditions, faqs)
-Build Time: ~5.0s
+Build Time: ~5-6s
 Errors: 0
 Warnings: 0 (just browserslist update reminder)
 ```
@@ -276,10 +330,12 @@ Warnings: 0 (just browserslist update reminder)
 
 ## 💡 LESSONS LEARNED
 
-1. **Legal pages need comprehensive content** - Static site had only placeholder text
-2. **Terms should cover all business operations** - Equipment sales, warranty, AMC, liability
-3. **FAQs page consolidates existing FAQs** - Pulled from Home (8), About (5), Contact (6)
-4. **Speakable schema on all new pages** - Voice search optimization continues
+1. **Always check SEO after deployment** - Local build passes but live site reveals SEO issues
+2. **og:image is critical** - Even legal pages need social sharing images
+3. **Title length matters** - Keep under 65 chars for best display in search results
+4. **H1 length matters** - Must be 20-70 chars for SEO best practices
+5. **Speakable mainEntity.url** - Organization's URL should point to main site, not current page
+6. **Duplicate schema types** - Can't have two @type: "FAQPage" on same page (use WebPage for secondary)
 
 ---
 
