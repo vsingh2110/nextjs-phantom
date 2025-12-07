@@ -19,21 +19,30 @@ import type { Metadata } from 'next'
 import { BreadcrumbJsonLd, TermsSpeakableJsonLd } from '@/components/seo/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Terms & Conditions - Phantom Healthcare | Service Agreement',
-  description: 'Terms and Conditions for Phantom Healthcare. Read our policies on equipment sales, warranty, installation, AMC services, and customer responsibilities.',
+  title: 'Terms & Conditions - Phantom Healthcare',
+  description: 'Terms and Conditions for Phantom Healthcare. Our policies on equipment sales, warranty, installation, AMC services.',
   keywords: ['terms and conditions', 'service agreement', 'Phantom Healthcare', 'warranty terms', 'AMC terms'],
   openGraph: {
     title: 'Terms & Conditions - Phantom Healthcare',
     description: 'Terms and conditions for Phantom Healthcare medical imaging equipment and services.',
     url: 'https://phantomhealthcare.com/terms-and-conditions',
     siteName: 'Phantom Healthcare',
+    images: [
+      {
+        url: '/images/phantom-building.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Phantom Healthcare - Terms & Conditions',
+      }
+    ],
     locale: 'en_IN',
     type: 'website',
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: 'Terms & Conditions - Phantom Healthcare',
     description: 'Service agreement and policies for Phantom Healthcare.',
+    images: ['/images/phantom-building.jpg'],
     creator: '@Phantomhealthc',
   },
   alternates: {

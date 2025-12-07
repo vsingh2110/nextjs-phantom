@@ -19,21 +19,30 @@ import type { Metadata } from 'next'
 import { BreadcrumbJsonLd, PrivacyPolicySpeakableJsonLd } from '@/components/seo/JsonLd'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy - Phantom Healthcare | Data Protection',
-  description: 'Privacy Policy for Phantom Healthcare. Learn how we collect, use, and protect your personal information when using our website and medical imaging services.',
+  title: 'Privacy Policy - Phantom Healthcare',
+  description: 'Privacy Policy for Phantom Healthcare. Learn how we collect, use, and protect your personal information when using our website.',
   keywords: ['privacy policy', 'data protection', 'Phantom Healthcare', 'personal information', 'cookies'],
   openGraph: {
     title: 'Privacy Policy - Phantom Healthcare',
     description: 'Learn how Phantom Healthcare protects your personal information and data.',
     url: 'https://phantomhealthcare.com/privacy-policy',
     siteName: 'Phantom Healthcare',
+    images: [
+      {
+        url: '/images/phantom-building.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Phantom Healthcare - Privacy Policy',
+      }
+    ],
     locale: 'en_IN',
     type: 'website',
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: 'Privacy Policy - Phantom Healthcare',
     description: 'How Phantom Healthcare protects your personal information.',
+    images: ['/images/phantom-building.jpg'],
     creator: '@Phantomhealthc',
   },
   alternates: {

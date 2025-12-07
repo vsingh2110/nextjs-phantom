@@ -27,21 +27,30 @@ import { BreadcrumbJsonLd, FAQsPageJsonLd, FAQsSpeakableJsonLd } from '@/compone
 import FAQSection from '@/components/ui/FAQSection'
 
 export const metadata: Metadata = {
-  title: 'FAQs - Phantom Healthcare | Medical Imaging Equipment Questions',
-  description: 'Frequently asked questions about refurbished MRI, CT scanners, pricing, warranty, installation, and services from Phantom Healthcare. Get answers now.',
+  title: 'FAQs - Phantom Healthcare | MRI & CT Scanner Questions',
+  description: 'Frequently asked questions about refurbished MRI, CT scanners, pricing, warranty, installation, and services from Phantom Healthcare.',
   keywords: ['FAQ', 'refurbished MRI questions', 'CT scanner pricing', 'medical equipment warranty', 'Phantom Healthcare', 'MRI cost India'],
   openGraph: {
-    title: 'FAQs - Phantom Healthcare | Medical Imaging Equipment',
+    title: 'FAQs - Phantom Healthcare | MRI & CT Scanner Questions',
     description: 'Get answers to common questions about refurbished MRI, CT scanners, warranty, and services.',
     url: 'https://phantomhealthcare.com/faqs',
     siteName: 'Phantom Healthcare',
+    images: [
+      {
+        url: '/images/phantom-building.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Phantom Healthcare - FAQs',
+      }
+    ],
     locale: 'en_IN',
     type: 'website',
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     title: 'FAQs - Phantom Healthcare',
     description: 'Answers to questions about refurbished medical imaging equipment.',
+    images: ['/images/phantom-building.jpg'],
     creator: '@Phantomhealthc',
   },
   alternates: {

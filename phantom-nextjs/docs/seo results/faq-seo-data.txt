@@ -99,7 +99,7 @@ Google Rich Results Test
 @type: Answer
 @type: Question name: What are Phantom Healthcare's business hours?
 @type: Answer
-@type: FAQPage name: Frequently Asked Questions - Phantom Healthcare
+@type: WebPage name: Frequently Asked Questions - Phantom Healthcare
 @type: SpeakableSpecification
 @type: Organization name: Phantom Healthcare IND Private Limited
 dc.title
@@ -343,6 +343,16 @@ www.gstatic.com	(2)		CDN
 cdn.jsdelivr.net			DEV TOOLS
 connect.facebook.net	(2)		SOCIAL
 RESOURCE HINTS
+preload
+(as image) (fetchpriority=auto)
+preload
+(as image) (fetchpriority=auto)
+preload
+(as script) (fetchpriority=low)
+https://nextjs-phantom.vercel.app/_next/static/chunks/webpack-f0cd9998a051b730.js
+preload
+(as script) (fetchpriority=auto)
+https://www.googletagmanager.com/gtag/js?id=G-WKQZP6J4CR
 preconnect
 (fetchpriority=auto)
 https://fonts.googleapis.com/
