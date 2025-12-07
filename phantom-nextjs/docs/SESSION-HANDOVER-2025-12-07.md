@@ -1,9 +1,9 @@
 # Session Handover - December 7, 2025
 
 **Session Start Time:** Evening IST  
-**Focus:** Security Patch + Speakable Schema + Lighthouse Verification  
-**Build Status:** ✅ Passing (312 pages)  
-**Git Status:** ✅ All changes committed and deployed to Vercel
+**Focus:** Security Patch + Speakable Schema + New Pages (Privacy, Terms, FAQs)  
+**Build Status:** ✅ Passing (313+ pages)  
+**Git Status:** ⚠️ Changes pending commit
 **Next.js Version:** 15.3.6 (Security patched)
 
 ---
@@ -16,6 +16,7 @@ This session focused on:
 3. **Speakable Schema Implementation:** Voice search optimization for AI assistants
 4. **Schema Error Fixes:** CSS selectors and missing address field
 5. **Lighthouse/Rich Results Testing:** All 3 pages validated on Vercel deployment
+6. **NEW PAGES CREATED:** Privacy Policy, Terms & Conditions, FAQs page
 
 ---
 
@@ -123,6 +124,42 @@ docs/SESSION-HANDOVER-2025-12-07.md
 
 ---
 
+## ✅ NEW PAGES CREATED (Evening Session)
+
+### Privacy Policy Page (`/privacy-policy`)
+- **File:** `src/app/privacy-policy/page.tsx`
+- **Content:** Full privacy policy covering data collection, cookies, third-party services, data security, international transfers, user rights
+- **JSON-LD:** BreadcrumbJsonLd, PrivacyPolicySpeakableJsonLd (new)
+- **Metadata:** Title, description, OpenGraph, Twitter, canonical URL
+
+### Terms & Conditions Page (`/terms-and-conditions`)
+- **File:** `src/app/terms-and-conditions/page.tsx`
+- **Content:** Complete T&C covering equipment sales, quotations, payment terms, delivery, installation, 12-month warranty, AMC/CMC services, customer responsibilities, liability, dispute resolution
+- **JSON-LD:** BreadcrumbJsonLd, TermsSpeakableJsonLd (new)
+- **Metadata:** Title, description, OpenGraph, Twitter, canonical URL
+
+### FAQs Page (`/faqs`)
+- **File:** `src/app/faqs/page.tsx`
+- **Content:** 18 FAQs organized in 5 categories with quick jump navigation
+- **Categories:**
+  - Products & Equipment (4 FAQs)
+  - Pricing & Warranty (3 FAQs)
+  - Services & Support (4 FAQs)
+  - About Phantom Healthcare (4 FAQs)
+  - Contact & Location (4 FAQs)
+- **JSON-LD:** BreadcrumbJsonLd, FAQsPageJsonLd (17 Q&A), FAQsSpeakableJsonLd (new)
+- **Metadata:** Title, description, OpenGraph, Twitter, canonical URL
+- **Uses:** FAQSection component for accordion behavior
+
+### New JSON-LD Components Added
+Added to `src/components/seo/JsonLd.tsx`:
+- `PrivacyPolicySpeakableJsonLd` - Speakable for privacy page (~30 lines)
+- `TermsSpeakableJsonLd` - Speakable for terms page (~30 lines)
+- `FAQsPageJsonLd` - Comprehensive FAQPage schema with 17 questions (~200 lines)
+- `FAQsSpeakableJsonLd` - Speakable for FAQs page (~30 lines)
+
+---
+
 ## 🔧 NEXT PRIORITIES
 
 ### Immediate Tasks
@@ -131,22 +168,30 @@ docs/SESSION-HANDOVER-2025-12-07.md
 3. [x] Schema errors fixed ✅
 4. [x] Rich Results Test passed ✅
 5. [x] Lighthouse tested ✅
+6. [x] Privacy Policy page created ✅
+7. [x] Terms & Conditions page created ✅
+8. [x] FAQs page created ✅
 
 ### Future Development
-1. [ ] Add FAQs to product pages
-2. [ ] Add FAQs to service pages
-3. [ ] Add Speakable to product/service pages
-4. [ ] Continue building out product/service pages
-5. [ ] Test brand visibility in ChatGPT/Perplexity
+1. [ ] Commit new pages to Git
+2. [ ] Test new pages on Google Rich Results Test
+3. [ ] Add FAQs to product pages
+4. [ ] Add FAQs to service pages
+5. [ ] Add Speakable to product/service pages
+6. [ ] Continue building out product/service pages
+7. [ ] Test brand visibility in ChatGPT/Perplexity
 
 ---
 
 ## 📊 PROJECT STATUS OVERVIEW
 
-### Completed Pages (with full SEO, JSON-LD, Accessibility, FAQs, Speakable)
+### Completed Pages (with full SEO, JSON-LD, Accessibility)
 - ✅ Home page (`/`) - 8 FAQs + Speakable
 - ✅ About page (`/about`) - 5 FAQs + Speakable
 - ✅ Contact page (`/contact`) - 6 FAQs + Speakable
+- ✅ Privacy Policy (`/privacy-policy`) - Speakable (NEW)
+- ✅ Terms & Conditions (`/terms-and-conditions`) - Speakable (NEW)
+- ✅ FAQs (`/faqs`) - 18 FAQs + Speakable (NEW)
 
 ### Pages Needing Work
 - Product category pages (multiple)

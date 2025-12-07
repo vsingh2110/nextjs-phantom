@@ -1,10 +1,46 @@
 # Phantom Medical Imaging — Current Status
 
-**Last Updated:** December 7, 2025 (Evening)  
+**Last Updated:** December 7, 2025 (Night)  
 **Phase:** Active Migration - Static to Next.js  
 **Priority:** Continue AI SEO Implementation + Product Pages  
-**Git Status:** ✅ All changes committed
+**Git Status:** ⚠️ Changes pending commit
 **Next.js Version:** 15.3.6 (Security patched for CVE-2025-55182)
+
+---
+
+## ✅ NEW PAGES CREATED (Dec 7, 2025 - Evening Session)
+
+### **Pages Created**
+
+| Page | Path | Status | Description |
+|------|------|--------|-------------|
+| Privacy Policy | `/privacy-policy` | ✅ Complete | Full privacy policy with data protection info |
+| Terms & Conditions | `/terms-and-conditions` | ✅ Complete | Complete T&C covering sales, warranty, AMC, liability |
+| FAQs | `/faqs` | ✅ Complete | 18 FAQs organized in 5 categories |
+
+### **Privacy Policy Page Features**
+- **File:** `src/app/privacy-policy/page.tsx`
+- **Sections:** Introduction, Information Collection, Data Use, Cookies, Third-Party Services, Data Security, International Transfers, Data Retention, User Rights, Children's Privacy
+- **JSON-LD:** BreadcrumbJsonLd, PrivacyPolicySpeakableJsonLd (new)
+
+### **Terms & Conditions Page Features**
+- **File:** `src/app/terms-and-conditions/page.tsx`
+- **Sections:** Definitions, Equipment Sales, Delivery & Installation, Warranty Terms (12-month), AMC/CMC Services, Customer Responsibilities, Limitation of Liability, Dispute Resolution
+- **JSON-LD:** BreadcrumbJsonLd, TermsSpeakableJsonLd (new)
+
+### **FAQs Page Features**
+- **File:** `src/app/faqs/page.tsx`
+- **Categories:** Products & Equipment (4 FAQs), Pricing & Warranty (3 FAQs), Services (4 FAQs), Company (4 FAQs), Contact & Location (4 FAQs)
+- **Total FAQs:** 18 comprehensive questions
+- **JSON-LD:** BreadcrumbJsonLd, FAQsPageJsonLd (17 FAQs), FAQsSpeakableJsonLd (new)
+- **Quick Jump Navigation:** Category links for easy navigation
+
+### **New JSON-LD Components Added**
+Added to `src/components/seo/JsonLd.tsx`:
+- `PrivacyPolicySpeakableJsonLd` - Speakable schema for privacy page
+- `TermsSpeakableJsonLd` - Speakable schema for terms page
+- `FAQsPageJsonLd` - Comprehensive FAQPage schema (17 questions)
+- `FAQsSpeakableJsonLd` - Speakable schema for FAQs page
 
 ---
 

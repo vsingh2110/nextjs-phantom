@@ -1,9 +1,23 @@
 # 📋 NEW PAGE CHECKLIST
 
 **Created:** November 30, 2025  
-**Last Updated:** December 7, 2025 (Speakable Schema Added)  
+**Last Updated:** December 7, 2025 (New Pages Added)  
 **Purpose:** Quick reference for creating new pages with proper SEO & Accessibility  
 **Use This:** Before creating ANY new page in the Next.js site
+
+---
+
+## 📄 COMPLETED PAGE EXAMPLES
+
+Use these as reference templates when creating new pages:
+
+| Page | Path | Template For | Key Features |
+|------|------|--------------|--------------|
+| About | `src/app/about/page.tsx` | Content pages | FAQs, leadership, counters |
+| Contact | `src/app/contact/page.tsx` | Contact pages | Form, map, office cards |
+| Privacy Policy | `src/app/privacy-policy/page.tsx` | Legal pages | Prose content, sections |
+| Terms & Conditions | `src/app/terms-and-conditions/page.tsx` | Legal pages | Lists, definitions |
+| FAQs | `src/app/faqs/page.tsx` | FAQ pages | Categorized FAQs, navigation |
 
 ---
 

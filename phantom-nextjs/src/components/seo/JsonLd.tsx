@@ -1206,3 +1206,269 @@ export function ContactSpeakableJsonLd() {
     />
   );
 }
+
+/**
+ * PRIVACY POLICY PAGE Speakable Schema
+ * Highlights privacy information for voice assistants
+ * Use on: Privacy Policy page (privacy-policy/page.tsx)
+ */
+export function PrivacyPolicySpeakableJsonLd() {
+  const speakableSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Privacy Policy - Phantom Healthcare",
+    "url": "https://phantomhealthcare.com/privacy-policy",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [
+        "h1",
+        "h2"
+      ]
+    },
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Phantom Healthcare IND Private Limited",
+      "description": "Phantom Healthcare is committed to protecting your privacy. We collect personal information when you contact us or request quotes for medical imaging equipment. We implement security measures including SSL encryption and access controls to protect your data.",
+      "url": "https://phantomhealthcare.com",
+      "email": "info@phantomhealthcare.com"
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
+    />
+  );
+}
+
+/**
+ * TERMS & CONDITIONS PAGE Speakable Schema
+ * Highlights terms information for voice assistants
+ * Use on: Terms & Conditions page (terms-and-conditions/page.tsx)
+ */
+export function TermsSpeakableJsonLd() {
+  const speakableSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Terms & Conditions - Phantom Healthcare",
+    "url": "https://phantomhealthcare.com/terms-and-conditions",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [
+        "h1",
+        "h2"
+      ]
+    },
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Phantom Healthcare IND Private Limited",
+      "description": "Phantom Healthcare provides refurbished medical imaging equipment with 12-month warranty. Our terms cover equipment sales, installation, AMC services, and customer responsibilities.",
+      "url": "https://phantomhealthcare.com"
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
+    />
+  );
+}
+
+/**
+ * FAQS PAGE FAQ Schema (Comprehensive)
+ * Combines all FAQs from Home, About, and Contact pages
+ * Use on: FAQs page (faqs/page.tsx)
+ */
+export function FAQsPageJsonLd() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      // Products & Equipment FAQs
+      {
+        "@type": "Question",
+        "name": "What medical imaging equipment does Phantom Healthcare provide?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Phantom Healthcare provides refurbished MRI Scanners (1.5T and 3.0T), CT Scanners, PET-CT systems, Cath Labs, Gamma Camera SPECT, and Bone Densitometers (DXA). We work with top brands including GE Healthcare, Siemens Healthineers, Philips, Canon, and Toshiba."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What brands of MRI and CT scanners does Phantom Healthcare refurbish?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Phantom Healthcare refurbishes and supplies equipment from leading manufacturers: GE Healthcare (Signa series), Siemens Healthineers (Magnetom, Somatom series), Philips (Achieva, Ingenia), Canon/Toshiba (Vantage, Aquilion), and Hitachi. We specialize in systems from 2015 onwards for optimal technology and spare parts availability."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Phantom Healthcare's refurbishment process?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our refurbishment process includes: 150-point quality inspection, complete cosmetic restoration, replacement of worn components, software updates and calibration, rigorous testing protocols, and quality certification. Each machine is restored to near-original specifications before delivery."
+        }
+      },
+      // Pricing & Warranty FAQs
+      {
+        "@type": "Question",
+        "name": "What is the typical cost of a refurbished MRI scanner in India?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Refurbished MRI scanner prices in India vary based on field strength and brand. 1.5T MRI scanners typically range from ₹1.5 to ₹3 crore, while 3.0T MRI scanners range from ₹3 to ₹6 crore. Contact Phantom Healthcare for specific quotes as prices depend on model year, configuration, and current inventory."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What warranty does Phantom Healthcare offer on refurbished MRI machines?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Phantom Healthcare provides a 12-month comprehensive warranty on all refurbished MRI machines and CT scanners. The warranty covers parts and labor, with optional extended AMC (Annual Maintenance Contract) packages available for continued support."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why choose refurbished medical imaging equipment from Phantom Healthcare?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Refurbished medical imaging equipment from Phantom Healthcare offers 40-60% cost savings compared to new equipment, with the same diagnostic quality. All equipment undergoes rigorous 150-point inspection, complete reconditioning, and comes with warranty. This makes advanced diagnostics accessible for tier-2/tier-3 cities and smaller healthcare facilities."
+        }
+      },
+      // Services FAQs
+      {
+        "@type": "Question",
+        "name": "Does Phantom Healthcare provide installation and after-sales service?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Phantom Healthcare provides complete turnkey solutions including site planning, installation, commissioning, operator training, and ongoing technical support. We have service centers in Faridabad (HQ), Mumbai, Chennai, and Kolkata, enabling pan-India service response within 24-48 hours."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How quickly does Phantom Healthcare respond to service requests?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Phantom Healthcare provides service response within 24-48 hours across India through our service centers in Faridabad, Mumbai, Chennai, and Kolkata. For AMC customers, we offer priority response and remote diagnostic support for faster resolution."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I schedule a site visit from Phantom Healthcare?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Phantom Healthcare offers free site visits for serious inquiries. Our technical team will visit your facility to assess site requirements, provide recommendations for equipment selection, and prepare a detailed quotation. Contact us at biz@phantomhealthcare.com to schedule a visit."
+        }
+      },
+      // Company FAQs
+      {
+        "@type": "Question",
+        "name": "When was Phantom Healthcare established?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Phantom Healthcare was established in 2011 in Faridabad, Haryana, India. Over the past 13+ years, we have grown to become one of India's leading providers of refurbished medical imaging equipment with 170+ installations and 150+ satisfied clients."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many MRI and CT installations has Phantom Healthcare completed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Since 2011, Phantom Healthcare has completed over 170 successful medical imaging equipment installations across India, serving more than 150 satisfied clients including major hospital chains like Apollo, Fortis, Max Healthcare, and Narayana Health."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who are the founders of Phantom Healthcare?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Phantom Healthcare was founded by Rochi Nargotra (Director & CEO) and Brijesh Suneja (Managing Director). Both founders bring decades of experience in the medical imaging industry and continue to lead the company's growth and innovation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What certifications does Phantom Healthcare have?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Phantom Healthcare maintains ISO certifications for quality management and follows international standards for medical equipment refurbishment. All equipment meets AERB (Atomic Energy Regulatory Board) requirements for radiation equipment in India."
+        }
+      },
+      // Contact & Location FAQs
+      {
+        "@type": "Question",
+        "name": "Where is Phantom Healthcare located and which regions do they serve?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Phantom Healthcare is headquartered in Faridabad, Haryana, India (near Delhi NCR). We serve clients across India, USA (Illinois office), and UAE/Middle East (Sharjah office). Our pan-India service network ensures support for clients in all states."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I contact Phantom Healthcare for a quote?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can contact Phantom Healthcare for a quote by: Phone: +91 9899963601 (Sales) or +91 129-4312423 (Office), Email: biz@phantomhealthcare.com, WhatsApp: +91 9899963601, or fill out the contact form on our website. We typically respond within 24 hours on business days."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Phantom Healthcare have international offices?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Phantom Healthcare has international offices in: USA - 620 Progress Dr, Glendale Heights, Illinois 60139 (Phone: +1 630-720-6801), and UAE - LV 63-C, Al Hamriyah Freezone, Sharjah (Phone: +971 522 208 819). These offices serve customers in North America and the Middle East/Africa regions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are Phantom Healthcare's business hours?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Phantom Healthcare's India office operates Monday to Saturday, 9:00 AM to 6:00 PM IST. For urgent service requests, our 24/7 emergency helpline is available at +91 8545815483. US and UAE offices operate in their respective local business hours."
+        }
+      }
+    ]
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+    />
+  );
+}
+
+/**
+ * FAQS PAGE Speakable Schema
+ * Highlights FAQ content for voice assistants
+ * Use on: FAQs page (faqs/page.tsx)
+ */
+export function FAQsSpeakableJsonLd() {
+  const speakableSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "name": "Frequently Asked Questions - Phantom Healthcare",
+    "url": "https://phantomhealthcare.com/faqs",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [
+        "h1",
+        "h2",
+        "h3"
+      ]
+    },
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Phantom Healthcare IND Private Limited",
+      "description": "Find answers to frequently asked questions about Phantom Healthcare's refurbished MRI scanners, CT scanners, pricing, warranty, installation services, and company information.",
+      "url": "https://phantomhealthcare.com"
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
+    />
+  );
+}
