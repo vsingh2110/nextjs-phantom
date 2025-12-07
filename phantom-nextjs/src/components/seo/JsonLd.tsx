@@ -1230,8 +1230,9 @@ export function PrivacyPolicySpeakableJsonLd() {
       "@type": "Organization",
       "name": "Phantom Healthcare IND Private Limited",
       "description": "Phantom Healthcare is committed to protecting your privacy. We collect personal information when you contact us or request quotes for medical imaging equipment. We implement security measures including SSL encryption and access controls to protect your data.",
-      "url": "https://phantomhealthcare.com/privacy-policy",
-      "email": "info@phantomhealthcare.com"
+      "url": "https://phantomhealthcare.com",
+      "telephone": "+91-9899963601",
+      "email": "biz@phantomhealthcare.com"
     }
   };
 
@@ -1266,7 +1267,9 @@ export function TermsSpeakableJsonLd() {
       "@type": "Organization",
       "name": "Phantom Healthcare IND Private Limited",
       "description": "Phantom Healthcare provides refurbished medical imaging equipment with 12-month warranty. Our terms cover equipment sales, installation, AMC services, and customer responsibilities.",
-      "url": "https://phantomhealthcare.com/terms-and-conditions"
+      "url": "https://phantomhealthcare.com",
+      "telephone": "+91-9899963601",
+      "email": "biz@phantomhealthcare.com"
     }
   };
 
@@ -1465,7 +1468,9 @@ export function FAQsSpeakableJsonLd() {
       "@type": "Organization",
       "name": "Phantom Healthcare IND Private Limited",
       "description": "Find answers to frequently asked questions about Phantom Healthcare's refurbished MRI scanners, CT scanners, pricing, warranty, installation services, and company information.",
-      "url": "https://phantomhealthcare.com/faqs"
+      "url": "https://phantomhealthcare.com",
+      "telephone": "+91-9899963601",
+      "email": "biz@phantomhealthcare.com"
     }
   };
 

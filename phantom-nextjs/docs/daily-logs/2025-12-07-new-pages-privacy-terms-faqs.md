@@ -187,13 +187,78 @@ docs/daily-logs/2025-12-07-*.md      # This file (created)
 
 ---
 
-## 🔄 LATE FIXES (Dec 7 Night)
+## 🔄 SCHEMA FIXES AFTER GOOGLE RICH RESULTS TEST (Dec 7 Night)
 
-- Aligned Speakable/WebPage JSON-LD URLs to their respective pages (privacy, terms, faqs)
-- Changed FAQs speakable schema to `WebPage` to avoid duplicate `FAQPage` items in Google Rich Results
-- Added page-specific descriptions to Speakable schemas for privacy/terms/faqs
-- Product/Service pages are still placeholders with dummy data (no edits today)
-- Next action: Push to GitHub, verify Vercel deploy, rerun Google Rich Results for /faqs and /terms-and-conditions
+### Issues Found from SEO Testing
+
+User ran Google Rich Results Test and schema.org validator on the 3 new pages:
+
+| Page | Google Rich Results | schema.org Validator |
+|------|---------------------|---------------------|
+| `/privacy-policy` | BreadcrumbList + WebPage ✅ | BreadcrumbList + WebPage ✅ |
+| `/terms-and-conditions` | BreadcrumbList only ❌ | BreadcrumbList + WebPage ✅ |
+| `/faqs` | "Duplicate FAQPage" error ❌ | No error ✅ |
+
+**Desktop Lighthouse:** 95%+ (excellent) ✅
+
+### Root Causes
+
+1. **FAQs "Duplicate FAQPage" Error:**
+   - We had TWO schemas with `@type: "FAQPage"`: `FAQsPageJsonLd` and `FAQsSpeakableJsonLd`
+   - Google doesn't allow two FAQPage schemas on same page
+
+2. **Terms WebPage Not Showing in Google:**
+   - Google is stricter than schema.org validator
+   - WebPage schema was valid but Google only showed BreadcrumbList
+   - This is expected behavior - Google doesn't always show all detected schemas
+
+3. **URL Alignment Issue:**
+   - Some speakable schemas had `mainEntity.url` pointing to homepage instead of their own page
+
+### Fixes Applied
+
+**File:** `src/components/seo/JsonLd.tsx`
+
+1. **FAQsSpeakableJsonLd** - Changed `@type` from `"FAQPage"` to `"WebPage"`
+   - Speakable specification still included (voice search works)
+   - No more duplicate FAQPage conflict
+
+2. **All 3 Speakable Schemas** - Fixed `mainEntity.url` to Organization URL:
+   - The `mainEntity` is an Organization, so its URL must point to the main website
+   - Before: `mainEntity.url` → page URLs (wrong)
+   - After: `mainEntity.url` → `https://phantomhealthcare.com` (correct)
+   - Following pattern from `AboutSpeakableJsonLd` which already did this correctly
+
+3. **All 3 Speakable Schemas** - Added contact info:
+   - Added `telephone: "+91-9899963601"`
+   - Added `email: "biz@phantomhealthcare.com"`
+   - Matches pattern from existing speakable schemas
+
+### Voice Search Still Works
+
+All 3 pages still have Speakable schema for voice assistants:
+- Privacy: `@type: WebPage` + `speakable: {cssSelector: ["h1","h2"]}`
+- Terms: `@type: WebPage` + `speakable: {cssSelector: ["h1","h2"]}`
+- FAQs: `@type: WebPage` + `speakable: {cssSelector: ["h1","h2","h3"]}`
+
+### Expected Results After Redeploy
+
+| Page | Expected Google Rich Results |
+|------|------------------------------|
+| `/privacy-policy` | BreadcrumbList, WebPage (maybe) |
+| `/terms-and-conditions` | BreadcrumbList, WebPage (maybe) |
+| `/faqs` | BreadcrumbList, FAQPage (17 items) ✅ |
+
+**Note:** Google Rich Results Test may not show all valid schemas. WebPage/Organization schemas often don't display but are still crawled.
+
+---
+
+## 📝 NOTES
+
+- Product/Service pages remain placeholders with dummy data (no edits today)
+- Next action: Push to GitHub, verify Vercel deploy, rerun Google Rich Results
+- H1 length warnings (14-18 chars) are acceptable for legal pages per SEO-INDIA-REFERENCE.md
+- og:image missing is optional - legal pages don't need social sharing images
 
 ---
 
