@@ -77,7 +77,7 @@ export default function TermsAndConditionsPage() {
           {/* Title and Description - Center aligned */}
           <div className="text-center">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl font-bold text-white drop-shadow-lg">
-              Terms &amp; Conditions
+              Terms &amp; Conditions - Phantom Healthcare
             </h1>
             <p className="text-base sm:text-lg md:text-xl 2xl:text-2xl text-white/90 mt-3 max-w-3xl mx-auto">
               Service agreement and policies for Phantom Healthcare
