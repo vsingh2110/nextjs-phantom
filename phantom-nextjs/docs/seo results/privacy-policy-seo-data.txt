@@ -1,6 +1,7 @@
  META SEO Inspector page analysis
-https://nextjs-phantom.vercel.app/contact
+https://nextjs-phantom.vercel.app/privacy-policy
 COMMON
+INFO head TITLE too long (>65 characters)
 INFO Canonical and page URL are different
 doctype
 <!DOCTYPE html>
@@ -9,16 +10,16 @@ en
 content type
 text/html
 canonical
-https://phantomhealthcare.com/contact
+https://phantomhealthcare.com/privacy-policy
 head title
-Contact Us - Phantom Healthcare India | Phantom Healthcare
-(58 characters)
+Privacy Policy - Phantom Healthcare | Data Protection | Phantom Healthcare
+(74 characters)
 description
-Contact Phantom Healthcare. Plot 51, Sector 27C, Faridabad. Call +91 9899963601. Offices in India, USA & UAE.
-(109 characters)
+Privacy Policy for Phantom Healthcare. Learn how we collect, use, and protect your personal information when using our website and medical imaging services.
+(156 characters)
 keywords
-contact Phantom Healthcare,medical imaging Faridabad,MRI service India,CT scanner support
-( 4 items )
+privacy policy,data protection,Phantom Healthcare,personal information,cookies
+( 5 items )
 INFO'keywords' meta tag is obsolete
 robots
 index, follow
@@ -26,15 +27,16 @@ googlebot
 index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1
 SOCIAL
 
+WARNING og:image missing
 property
 og:title
-Contact Phantom Healthcare - Sales & Service
+Privacy Policy - Phantom Healthcare
 property
 og:description
-Reach India's leading medical imaging provider. Global offices in India, USA & UAE.
+Learn how Phantom Healthcare protects your personal information and data.
 property
 og:url
-https://phantomhealthcare.com/contact
+https://phantomhealthcare.com/privacy-policy
 property
 og:site_name
 Phantom Healthcare
@@ -42,31 +44,16 @@ property
 og:locale
 en_IN
 property
-og:image
-
-https://phantomhealthcare.com/images/phantom-building.jpg
-property
-og:image:width
-1200
-property
-og:image:height
-630
-property
-og:image:alt
-Phantom Healthcare Office - Faridabad, India
-property
 og:type
 website
 twitter:card
-summary_large_image
+summary
 twitter:creator
 @Phantomhealthc
 twitter:title
-Contact Phantom Healthcare
+Privacy Policy - Phantom Healthcare
 twitter:description
-Contact India's leading medical imaging provider. Offices in India, USA & UAE.
-twitter:image
-https://phantomhealthcare.com/images/phantom-building.jpg
+How Phantom Healthcare protects your personal information.
 STRUCTURED DATA
 The following is a rough representation of the found structured data, for more insights please test here:
 •
@@ -74,20 +61,12 @@ Schema Markup Validator
 
 •
 Google Rich Results Test
-@type: ProfessionalService name: Phantom Healthcare IND Private Limited
-@type: PostalAddress
-@type: GeoCoordinates
-@type: OpeningHoursSpecification
 @type: BreadcrumbList
 @type: ListItem name: Home
-@type: ListItem name: Contact Us
-@type: ContactPage name: Contact Phantom Healthcare
-@type: Organization name: Phantom Healthcare IND Pvt Ltd
-@type: PostalAddress
-@type: ContactPoint
-@type: ContactPoint
-@type: ContactPoint
-@type: ContactPoint
+@type: ListItem name: Privacy Policy
+@type: WebPage name: Privacy Policy - Phantom Healthcare
+@type: SpeakableSpecification
+@type: Organization name: Phantom Healthcare IND Private Limited
 dc.title
 Phantom Healthcare - Medical Imaging Equipment
 dc.creator
@@ -113,8 +92,6 @@ en
 dc.coverage
 India, USA, UAE
 MOBILE
-viewport
-width=device-width, initial-scale=1.0
 handheldfriendly
 true
 mobileoptimized
@@ -131,52 +108,50 @@ MARKUP
 (1)
 
 <img>
-(9)
+(6)
 
 <iframe>
-(2)
-
-<form>
 (1)
 
-h1 Contact Phantom Healthcare (26 characters)
-h2 Visit Us (8 characters)
-h3 PHANTOM HEALTHCARE (18 characters)
-h3 Phone (5 characters)
-h3 Business Enquiry (16 characters)
-h3 Recruitment (11 characters)
-h3 General Info (12 characters)
-h3 Follow Us (9 characters)
-h2 Send Enquiry (12 characters)
-h2 Our Global Presence (19 characters)
-h3 India & Sub-Continent (21 characters)
-h4 Phantom Healthcare IND Pvt Ltd (30 characters)
-h3 USA & Western Region (20 characters)
-h4 Phantom Healthcare US LLC (25 characters)
-h3 Gulf-Arab & Africa (18 characters)
-h4 Phantom Healthcare AE FZC (25 characters)
-h4 Useful Links (12 characters)
+WARNING H1 should be 20-70 characters(14 characters)
+h1 Privacy Policy (14 characters)
+h2 Introduction (12 characters)
+h2 Information We Collect (22 characters)
+h3 Personal Information (20 characters)
+h3 Automatically Collected Information (35 characters)
+h2 How We Use Your Information (27 characters)
+h2 Cookies and Tracking Technologies (33 characters)
+h2 Third-Party Services (20 characters)
+h2 Data Security (13 characters)
+h2 International Data Transfers (28 characters)
+h2 Data Retention (14 characters)
+h2 Your Rights (11 characters)
+h2 Children's Privacy (18 characters)
+h2 Changes to This Privacy Policy (30 characters)
+h2 Contact Us (10 characters)
+h2 Have Questions About Our Privacy Practices? (43 characters)
+h4 Useful Links (12 characters) INFOfound h4, h3 expected
 h4 Our Services (12 characters)
-WARNING 31 links without anchor text or image
+WARNING 24 links without anchor text or image
 internal
  
-(43)
+(44)
 -
 external
  
-(33)
+(26)
 -
 other
  
-(27)
+(15)
 internal
 URL	REL	TEXT	TITLE	IMG
 https://nextjs-phantom.vercel.app/				yes
 https://nextjs-phantom.vercel.app/				yes
 https://nextjs-phantom.vercel.app/		Home		
 https://nextjs-phantom.vercel.app/about		About Us		
-https://nextjs-phantom.vercel.app/contact#		Products		
-https://nextjs-phantom.vercel.app/contact#		MRI Scanner▶		
+https://nextjs-phantom.vercel.app/privacy-policy#		Products		
+https://nextjs-phantom.vercel.app/privacy-policy#		MRI Scanner▶		
 https://nextjs-phantom.vercel.app/product-pages/refurbished-ge-mri-scanner-machines		GE MRI		
 https://nextjs-phantom.vercel.app/product-pages/refurbished-siemens-mri-scanner-machines		Siemens MRI		
 https://nextjs-phantom.vercel.app/product-pages/refurbished-ct-scan-machines		CT Scanner		
@@ -184,7 +159,7 @@ https://nextjs-phantom.vercel.app/product-pages/refurbished-pet-ct-scanner-machi
 https://nextjs-phantom.vercel.app/product-pages/refurbished-cath-lab-machines		Cath-Lab		
 https://nextjs-phantom.vercel.app/product-pages/refurbished-gamma-camera-spect-system-machine		Gamma Camera-SPECT		
 https://nextjs-phantom.vercel.app/product-pages/refurbished-bone-densitometer-dexa		Bone Desnsitometer-DEXA		
-https://nextjs-phantom.vercel.app/contact#		Services		
+https://nextjs-phantom.vercel.app/privacy-policy#		Services		
 https://nextjs-phantom.vercel.app/services#service-packages		Service Packages		
 https://nextjs-phantom.vercel.app/services#repairs-and-upgrdaes		Repairs and Upgrades		
 https://nextjs-phantom.vercel.app/spare-parts-and-inventory		Spare Parts and Inventory		
@@ -195,21 +170,22 @@ https://nextjs-phantom.vercel.app/about		About Us
 https://nextjs-phantom.vercel.app/blogs		Blogs		
 https://nextjs-phantom.vercel.app/contact		Contact		
 https://nextjs-phantom.vercel.app/		Home		
+https://nextjs-phantom.vercel.app/contact		Contact Us		
 https://nextjs-phantom.vercel.app/				yes
-https://nextjs-phantom.vercel.app/contact#		1.5T MRI Scanner Machines		
-https://nextjs-phantom.vercel.app/contact#		3.0T MRI Scanner Machines		
-https://nextjs-phantom.vercel.app/contact#		Siemens MRI Scanner Machines		
-https://nextjs-phantom.vercel.app/contact#		GE MRI Scanner Machines		
-https://nextjs-phantom.vercel.app/contact#		CT Scanner Machines		
-https://nextjs-phantom.vercel.app/contact#		PET-CT Scanner Machines		
-https://nextjs-phantom.vercel.app/contact#		News and Events		
-https://nextjs-phantom.vercel.app/contact#		Blogs		
-https://nextjs-phantom.vercel.app/contact#		CMC/AMC Packages For CT		
-https://nextjs-phantom.vercel.app/contact#		CMC/AMC Packages For MRI		
-https://nextjs-phantom.vercel.app/contact#		Equipment Installation		
-https://nextjs-phantom.vercel.app/contact#		Site Planning & Construction		
-https://nextjs-phantom.vercel.app/contact#		MRI Helium Filling		
-https://nextjs-phantom.vercel.app/contact#		MRI De-Installation & Re-Installation		
+https://nextjs-phantom.vercel.app/privacy-policy#		1.5T MRI Scanner Machines		
+https://nextjs-phantom.vercel.app/privacy-policy#		3.0T MRI Scanner Machines		
+https://nextjs-phantom.vercel.app/privacy-policy#		Siemens MRI Scanner Machines		
+https://nextjs-phantom.vercel.app/privacy-policy#		GE MRI Scanner Machines		
+https://nextjs-phantom.vercel.app/privacy-policy#		CT Scanner Machines		
+https://nextjs-phantom.vercel.app/privacy-policy#		PET-CT Scanner Machines		
+https://nextjs-phantom.vercel.app/privacy-policy#		News and Events		
+https://nextjs-phantom.vercel.app/privacy-policy#		Blogs		
+https://nextjs-phantom.vercel.app/privacy-policy#		CMC/AMC Packages For CT		
+https://nextjs-phantom.vercel.app/privacy-policy#		CMC/AMC Packages For MRI		
+https://nextjs-phantom.vercel.app/privacy-policy#		Equipment Installation		
+https://nextjs-phantom.vercel.app/privacy-policy#		Site Planning & Construction		
+https://nextjs-phantom.vercel.app/privacy-policy#		MRI Helium Filling		
+https://nextjs-phantom.vercel.app/privacy-policy#		MRI De-Installation & Re-Installation		
 https://nextjs-phantom.vercel.app/privacy-policy		Privacy Policy		
 https://nextjs-phantom.vercel.app/faqs		FAQs		
 https://nextjs-phantom.vercel.app/terms-and-conditions		Terms & Conditions		
@@ -234,14 +210,7 @@ https://www.facebook.com/phantom.healthcare.ind
 https://www.pinterest.com/phantomhealthcare/				
 https://in.linkedin.com/company/phantom-healthcare-ind-private-limited-company				
 https://www.phantomis.co.in/		Employee Login		
-https://wa.me/919899963601				
-https://wa.me/+919899963601	noopener noreferrer			
-https://www.facebook.com/phantom.healthcare.ind	noopener noreferrer			
-https://www.instagram.com/phantomhealthcare/	noopener noreferrer			
-https://in.linkedin.com/company/phantom-healthcare-ind-private-limited-company	noopener noreferrer			
-https://www.youtube.com/@phantomhealthcare	noopener noreferrer			
-https://twitter.com/Phantomhealthc	noopener noreferrer			
-https://goo.gl/maps/2fdRZT8hEBVK4cni9	noopener noreferrer			
+https://wa.me/919899963601			Chat with us on WhatsApp	
 https://twitter.com/Phantomhealthc	noopener noreferrer			
 https://wa.me/919899963601	noopener noreferrer			
 https://www.youtube.com/@phantomhealthcare	noopener noreferrer			
@@ -253,20 +222,8 @@ other
 URL	REL	TEXT	TITLE	IMG
 mailto:info@phantomhealthcare.com		info@phantomhealthcare.com		
 mailto:info@phantomhealthcare.com		info@phantomhealthcare.com		
-tel:+911294312423		+91 129 4312423		
-tel:+918545815483		+91 8545815483		
-tel:+919899963601		+91 9899963601		
-mailto:biz@phantomhealthcare.com		biz@phantomhealthcare.com		
-mailto:hr@phantomhealthcare.com		hr@phantomhealthcare.com		
 mailto:info@phantomhealthcare.com		info@phantomhealthcare.com		
 tel:+919899963601		+91 9899963601		
-tel:+911294312423		+91 129 4312423		
-mailto:info@phantomhealthcare.com		info@phantomhealthcare.com		
-tel:+16307206801		+1 630 720 6801		
-mailto:biz@phantomhealthcare.com		biz@phantomhealthcare.com		
-tel:+971522208819		+971 522 208 819		
-tel:+971556357700		+971 556 357 700		
-mailto:sachin.rawat@phantomhealthcare.com		sachin.rawat@phantomhealthcare.com		
 tel:+919899963601		+91 9899963601		
 tel:+918384037073		+91 8384037073		
 tel:+911294312423		+91 129 4312423		
@@ -278,73 +235,50 @@ tel:+16307206801		+1 630 720 6801
 mailto:info@phantomhealthcare.com		info@phantomhealthcare.com		
 tel:+971522208819		+971 522 208 819		
 mailto:sachin.rawat@phantomhealthcare.com		sachin.rawat@phantomhealthcare.com		
-INFO 9 images (out of 9) with missing TITLE attribute
-INFO 2 images (out of 9) with missing LOADING attribute
+INFO 6 images (out of 6) with missing TITLE attribute
+INFO 2 images (out of 6) with missing LOADING attribute
 SRC	SIZE	LOADING	FETCH PR.	ALT	TITLE
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Flogo.jpg&w=640&q=75
 SRCSET: available
 REAL	130x47
-HTML	220x70
+HTML	222x80
 auto	Phantom Healthcare Logo	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Flogo.jpg&w=384&q=75
 SRCSET: available
 REAL	130x47
-HTML	180x55
+HTML	155x56
 auto	Phantom Healthcare Logo	
-
-https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Findia-flag.jpg&w=128&q=75
-SRCSET: available
-REAL	64x42
-HTML	56x56
-lazy	auto	India	
-
-https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fusa-map.jpg&w=128&q=75
-SRCSET: available
-REAL	64x32
-HTML	56x56
-lazy	auto	USA	
-
-https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fuae-flag.jpg&w=128&q=75
-SRCSET: available
-REAL	64x42
-HTML	56x56
-lazy	auto	UAE	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fwhite-logo.png&w=384&q=75
 SRCSET: available
-REAL	0x0
+REAL	192x115
 HTML	180x55
 lazy	auto	Phantom Healthcare	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Findia-flag.jpg&w=48&q=75
 SRCSET: available
-REAL	0x0
+REAL	24x16
 HTML	24x16
 lazy	auto	India & Sub-Continent	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fusa-map.jpg&w=48&q=75
 SRCSET: available
-REAL	0x0
+REAL	24x12
 HTML	24x16
 lazy	auto	USA & Western	
 
 https://nextjs-phantom.vercel.app/_next/image?url=%2Fimages%2Fuae-flag.jpg&w=48&q=75
 SRCSET: available
-REAL	0x0
+REAL	24x16
 HTML	24x16
 lazy	auto	Gulf-Arab & African	
-ACTION
-METHOD
-FIELDS
-https://nextjs-phantom.vercel.app/contact	get	8
 SRC
 WIDTH
 HEIGHT
 LOADING
 ALLOWFULLSCREEN
-https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23594.600297204677!2d77.29099839249344!3d28.46875377374462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce746b47731c5%3A0x696a695f7e4c3ded!2sPhantom%20Healthcare%20Pvt%20Ltd.!5e0!3m2!1sen!2sin!4v1663418936010!5m2!1sen!2sin			lazy	true
 https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d23594.600297204677!2d77.29099839249344!3d28.46875377374462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce746b47731c5%3A0x696a695f7e4c3ded!2sPhantom%20Healthcare%20Pvt%20Ltd.!5e0!3m2!1sen!2sin!4v1663418936010!5m2!1sen!2sin			lazy	true
 Doctype is HTML5, there are HTML5 tags and no obsolete HTML tags were found.
 ★
@@ -361,37 +295,27 @@ www.gstatic.com	(2)		CDN
 cdn.jsdelivr.net			DEV TOOLS
 connect.facebook.net	(2)		SOCIAL
 RESOURCE HINTS
+preconnect
+(fetchpriority=auto)
+https://fonts.googleapis.com/
+preconnect
+(fetchpriority=auto)
+https://fonts.gstatic.com/
+dns-prefetch
+(fetchpriority=auto)
+https://yt3.ggpht.com/
+preconnect
+(fetchpriority=auto)
+https://cdnjs.cloudflare.com/
+dns-prefetch
+(fetchpriority=auto)
+https://img.youtube.com/
 preload
-(as image) (fetchpriority=auto)
-preload
-(as image) (fetchpriority=auto)
-preload
-(as image) (fetchpriority=auto)
-preload
-(as script) (fetchpriority=low)
-https://nextjs-phantom.vercel.app/_next/static/chunks/webpack-3d3f6375c24bce94.js
-preload
-(as script) (fetchpriority=auto)
-https://www.googletagmanager.com/gtag/js?id=G-WKQZP6J4CR
-preload
-(as script) (fetchpriority=auto)
-https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js
-preload
-(as script) (fetchpriority=auto)
-https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js
-preload
-(as script) (fetchpriority=auto)
-https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js
-preload
-(as script) (fetchpriority=auto)
-https://nextjs-phantom.vercel.app/scripts/init-external.js
+(as image) (fetchpriority=high)
+https://nextjs-phantom.vercel.app/images/slideshow/img1-mobile.jpg
 preload
 (as style) (fetchpriority=auto)
 https://nextjs-phantom.vercel.app/_next/static/css/772f6661360af590.css
-preload
-(as image) (fetchpriority=auto)
-preload
-(as image) (fetchpriority=auto)
 Url
 COMMON
 SOCIAL

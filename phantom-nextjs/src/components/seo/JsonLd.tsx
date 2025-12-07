@@ -1218,6 +1218,7 @@ export function PrivacyPolicySpeakableJsonLd() {
     "@type": "WebPage",
     "name": "Privacy Policy - Phantom Healthcare",
     "url": "https://phantomhealthcare.com/privacy-policy",
+    "description": "Privacy Policy for Phantom Healthcare covering data collection, cookies, third-party services, security, and user rights.",
     "speakable": {
       "@type": "SpeakableSpecification",
       "cssSelector": [
@@ -1229,7 +1230,7 @@ export function PrivacyPolicySpeakableJsonLd() {
       "@type": "Organization",
       "name": "Phantom Healthcare IND Private Limited",
       "description": "Phantom Healthcare is committed to protecting your privacy. We collect personal information when you contact us or request quotes for medical imaging equipment. We implement security measures including SSL encryption and access controls to protect your data.",
-      "url": "https://phantomhealthcare.com",
+      "url": "https://phantomhealthcare.com/privacy-policy",
       "email": "info@phantomhealthcare.com"
     }
   };
@@ -1253,6 +1254,7 @@ export function TermsSpeakableJsonLd() {
     "@type": "WebPage",
     "name": "Terms & Conditions - Phantom Healthcare",
     "url": "https://phantomhealthcare.com/terms-and-conditions",
+    "description": "Terms & Conditions for Phantom Healthcare covering equipment sales, installation, warranty, AMC/CMC services, liability, and dispute resolution.",
     "speakable": {
       "@type": "SpeakableSpecification",
       "cssSelector": [
@@ -1264,7 +1266,7 @@ export function TermsSpeakableJsonLd() {
       "@type": "Organization",
       "name": "Phantom Healthcare IND Private Limited",
       "description": "Phantom Healthcare provides refurbished medical imaging equipment with 12-month warranty. Our terms cover equipment sales, installation, AMC services, and customer responsibilities.",
-      "url": "https://phantomhealthcare.com"
+      "url": "https://phantomhealthcare.com/terms-and-conditions"
     }
   };
 
@@ -1285,6 +1287,7 @@ export function FAQsPageJsonLd() {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    "url": "https://phantomhealthcare.com/faqs",
     "mainEntity": [
       // Products & Equipment FAQs
       {
@@ -1446,9 +1449,10 @@ export function FAQsPageJsonLd() {
 export function FAQsSpeakableJsonLd() {
   const speakableSchema = {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
+    "@type": "WebPage",
     "name": "Frequently Asked Questions - Phantom Healthcare",
     "url": "https://phantomhealthcare.com/faqs",
+    "description": "Frequently Asked Questions about Phantom Healthcare's refurbished MRI, CT, pricing, warranty, services, company, and contact details.",
     "speakable": {
       "@type": "SpeakableSpecification",
       "cssSelector": [
@@ -1461,7 +1465,7 @@ export function FAQsSpeakableJsonLd() {
       "@type": "Organization",
       "name": "Phantom Healthcare IND Private Limited",
       "description": "Find answers to frequently asked questions about Phantom Healthcare's refurbished MRI scanners, CT scanners, pricing, warranty, installation services, and company information.",
-      "url": "https://phantomhealthcare.com"
+      "url": "https://phantomhealthcare.com/faqs"
     }
   };
 

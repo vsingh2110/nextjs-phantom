@@ -187,6 +187,16 @@ docs/daily-logs/2025-12-07-*.md      # This file (created)
 
 ---
 
+## 🔄 LATE FIXES (Dec 7 Night)
+
+- Aligned Speakable/WebPage JSON-LD URLs to their respective pages (privacy, terms, faqs)
+- Changed FAQs speakable schema to `WebPage` to avoid duplicate `FAQPage` items in Google Rich Results
+- Added page-specific descriptions to Speakable schemas for privacy/terms/faqs
+- Product/Service pages are still placeholders with dummy data (no edits today)
+- Next action: Push to GitHub, verify Vercel deploy, rerun Google Rich Results for /faqs and /terms-and-conditions
+
+---
+
 ## 📊 BUILD STATUS
 
 ```
