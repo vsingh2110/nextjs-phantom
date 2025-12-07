@@ -28,7 +28,7 @@ import ContactForm from '@/components/features/ContactForm';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { LocalBusinessJsonLd, BreadcrumbJsonLd, ContactFAQJsonLd } from '@/components/seo/JsonLd';
+import { LocalBusinessJsonLd, BreadcrumbJsonLd, ContactFAQJsonLd, ContactSpeakableJsonLd } from '@/components/seo/JsonLd';
 import FAQSection from '@/components/ui/FAQSection';
 
 export const metadata: Metadata = {
@@ -174,6 +174,7 @@ export default function Contact() {
       <BreadcrumbJsonLd items={breadcrumbItems} />
       <ContactPageJsonLd />
       <ContactFAQJsonLd />
+      <ContactSpeakableJsonLd />
       
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-primary-600 via-primary-500 to-primary-700 py-12 sm:py-16 md:py-20 lg:py-24">

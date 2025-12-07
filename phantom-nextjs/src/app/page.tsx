@@ -104,7 +104,7 @@ import CounterSection from '@/components/home/CounterSection';
 import FeaturedProductsCarousel from '@/components/home/FeaturedProductsCarousel';
 import AboutSection from '@/components/home/AboutSection';
 import FAQSection from '@/components/ui/FAQSection';
-import { OrganizationJsonLd, LocalBusinessJsonLd, WebSiteJsonLd, BreadcrumbJsonLd, MedicalDeviceJsonLd, MedicalBusinessJsonLd, HomeFAQJsonLd } from '@/components/seo/JsonLd';
+import { OrganizationJsonLd, LocalBusinessJsonLd, WebSiteJsonLd, BreadcrumbJsonLd, MedicalDeviceJsonLd, MedicalBusinessJsonLd, HomeFAQJsonLd, HomeSpeakableJsonLd } from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
   title: 'Phantom Healthcare | MRI, CT Scanner, PET-CT, Cath-Lab India',
@@ -168,6 +168,14 @@ const homeFaqs = [
   {
     question: "What is the typical cost of a refurbished MRI scanner in India?",
     answer: "Refurbished MRI scanner prices in India vary based on field strength and brand. 1.5T MRI scanners typically range from ₹1.5 to ₹3 crore, while 3.0T MRI scanners range from ₹3 to ₹6 crore. Contact us for specific quotes as prices depend on model year, configuration, and current inventory."
+  },
+  {
+    question: "What brands of MRI and CT scanners does Phantom Healthcare refurbish?",
+    answer: "Phantom Healthcare refurbishes and supplies equipment from leading manufacturers: GE Healthcare (Signa series), Siemens Healthineers (Magnetom, Somatom series), Philips (Achieva, Ingenia), Canon/Toshiba (Vantage, Aquilion), and Hitachi. We specialize in systems from 2015 onwards for optimal technology and spare parts availability."
+  },
+  {
+    question: "Where is Phantom Healthcare located and which regions do they serve?",
+    answer: "Phantom Healthcare is headquartered in Faridabad, Haryana, India (near Delhi NCR). We serve clients across India, USA (Illinois office), and UAE/Middle East (Sharjah office). Our pan-India service network ensures support for clients in all states."
   }
 ];
 
@@ -182,6 +190,7 @@ export default function Home() {
       <MedicalBusinessJsonLd />
       <BreadcrumbJsonLd items={homeBreadcrumb} />
       <HomeFAQJsonLd />
+      <HomeSpeakableJsonLd />
       
       {/* Global Contact Modal (can be triggered from anywhere) */}
       <ContactFormModalWrapper />

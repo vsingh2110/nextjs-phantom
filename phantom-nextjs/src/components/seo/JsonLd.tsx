@@ -4,7 +4,11 @@
  * 
  * PURPOSE: Provide structured data for better SEO and rich snippets
  * CREATED: November 29, 2025
- * UPDATED: December 4, 2025 - Added FAQPage schemas for AI SEO (GEO/AEO)
+ * UPDATED: December 7, 2025 - Added Speakable Schema for voice search (AI SEO)
+ * 
+ * CHANGES (Dec 7, 2025):
+ * - Added SpeakableJsonLd for voice search optimization (Google Assistant, Alexa, Siri)
+ * - Speakable schema tells voice assistants which content is suitable for audio playback
  * 
  * CHANGES (Dec 4, 2025):
  * - Added HomeFAQJsonLd for home page FAQs (AI SEO optimization)
@@ -32,6 +36,7 @@
  * - https://schema.org/MedicalDevice
  * - https://schema.org/ProfessionalService
  * - https://schema.org/FAQPage
+ * - https://schema.org/speakable
  * - https://developers.google.com/search/docs/appearance/structured-data
  */
 
@@ -1069,3 +1074,124 @@ export function ContactFAQJsonLd() {
   );
 }
 
+// ============================================================================
+// SPEAKABLE SCHEMA FOR VOICE SEARCH (AI SEO) - Added December 7, 2025
+// ============================================================================
+// Speakable schema helps voice assistants (Google Assistant, Alexa, Siri)
+// identify which parts of your page are most suitable for audio playback.
+// This is critical for voice search optimization and AI assistants.
+
+/**
+ * HOME PAGE Speakable Schema
+ * Identifies key content for voice assistants to read aloud
+ * Use on: Home page (page.tsx)
+ */
+export function HomeSpeakableJsonLd() {
+  const speakableSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Phantom Healthcare - Refurbished MRI & CT Scanner India",
+    "url": "https://phantomhealthcare.com",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [
+        ".sr-only",
+        "h1",
+        "h2",
+        ".hero-text",
+        ".about-summary"
+      ]
+    },
+    "mainEntity": {
+      "@type": "MedicalBusiness",
+      "name": "Phantom Healthcare",
+      "description": "Phantom Healthcare is India's leading provider of refurbished MRI scanners, CT scanners, and medical imaging equipment. Established in 2011, we have completed over 170 installations across India with a 12-month comprehensive warranty on all equipment."
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
+    />
+  );
+}
+
+/**
+ * ABOUT PAGE Speakable Schema
+ * Identifies company history and leadership content for voice
+ * Use on: About page (about/page.tsx)
+ */
+export function AboutSpeakableJsonLd() {
+  const speakableSchema = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Phantom Healthcare - Company History & Leadership",
+    "url": "https://phantomhealthcare.com/about",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [
+        "h1",
+        ".company-intro",
+        ".leadership-section",
+        ".mission-statement"
+      ]
+    },
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Phantom Healthcare IND Private Limited",
+      "description": "Phantom Healthcare was founded in 2011 by Rochi Nargotra and Brijesh Suneja. We are India's premier provider of refurbished medical imaging equipment with 170+ installations, 150+ clients, and offices in India, USA, and UAE."
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
+    />
+  );
+}
+
+/**
+ * CONTACT PAGE Speakable Schema
+ * Highlights contact information for voice assistants
+ * Use on: Contact page (contact/page.tsx)
+ */
+export function ContactSpeakableJsonLd() {
+  const speakableSchema = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Phantom Healthcare - Get a Quote",
+    "url": "https://phantomhealthcare.com/contact",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": [
+        "h1",
+        ".contact-info",
+        ".phone-numbers",
+        ".office-address"
+      ]
+    },
+    "mainEntity": {
+      "@type": "LocalBusiness",
+      "name": "Phantom Healthcare",
+      "telephone": "+91-9899963601",
+      "email": "biz@phantomhealthcare.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Plot No. 51, Sector 27C, Near NHPC Chowk",
+        "addressLocality": "Faridabad",
+        "addressRegion": "Haryana",
+        "postalCode": "121003",
+        "addressCountry": "IN"
+      }
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
+    />
+  );
+}

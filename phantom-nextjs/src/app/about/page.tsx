@@ -28,7 +28,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Metadata } from 'next'
-import { BreadcrumbJsonLd, AboutPageFullJsonLd, MedicalBusinessJsonLd, AboutFAQJsonLd } from '@/components/seo/JsonLd'
+import { BreadcrumbJsonLd, AboutPageFullJsonLd, MedicalBusinessJsonLd, AboutFAQJsonLd, AboutSpeakableJsonLd } from '@/components/seo/JsonLd'
 import AboutCounterSection from '@/components/about/AboutCounterSection'
 import FAQSection from '@/components/ui/FAQSection'
 
@@ -102,6 +102,7 @@ export default function About() {
       <AboutPageFullJsonLd />
       <MedicalBusinessJsonLd />
       <AboutFAQJsonLd />
+      <AboutSpeakableJsonLd />
 
       {/* Compact Hero Section with strong gradient */}
       <section className="bg-gradient-to-r from-[#2980b9] via-[#3498db] to-[#5dade2] py-8 sm:py-10 md:py-14">
