@@ -1,7 +1,7 @@
 # 📋 NEW PAGE CHECKLIST
 
 **Created:** November 30, 2025  
-**Last Updated:** December 4, 2025 (AI SEO / GEO / AEO Section Added)  
+**Last Updated:** December 7, 2025 (Speakable Schema Added)  
 **Purpose:** Quick reference for creating new pages with proper SEO & Accessibility  
 **Use This:** Before creating ANY new page in the Next.js site
 
@@ -176,12 +176,12 @@ Display height 56px → width = 56 × 2.77 = 155px
 
 | Page Type | Primary Schema | Additional Schemas |
 |-----------|---------------|-------------------|
-| Home | OrganizationJsonLd, LocalBusinessJsonLd | WebSiteJsonLd, MedicalDeviceJsonLd |
-| About | AboutPageFullJsonLd | BreadcrumbJsonLd, MedicalBusinessJsonLd |
-| Contact | LocalBusinessJsonLd | BreadcrumbJsonLd, ContactPageJsonLd |
-| Product Category | ItemListJsonLd | BreadcrumbJsonLd |
-| Product Detail | ProductJsonLd | BreadcrumbJsonLd |
-| Service | ServiceJsonLd | BreadcrumbJsonLd |
+| Home | OrganizationJsonLd, LocalBusinessJsonLd | WebSiteJsonLd, MedicalDeviceJsonLd, **HomeSpeakableJsonLd**, **HomeFAQJsonLd** |
+| About | AboutPageFullJsonLd | BreadcrumbJsonLd, MedicalBusinessJsonLd, **AboutSpeakableJsonLd**, **AboutFAQJsonLd** |
+| Contact | LocalBusinessJsonLd | BreadcrumbJsonLd, ContactPageJsonLd, **ContactSpeakableJsonLd**, **ContactFAQJsonLd** |
+| Product Category | ItemListJsonLd | BreadcrumbJsonLd, **SpeakableJsonLd**, **FAQJsonLd** |
+| Product Detail | ProductJsonLd | BreadcrumbJsonLd, **FAQJsonLd** |
+| Service | ServiceJsonLd | BreadcrumbJsonLd, **SpeakableJsonLd**, **FAQJsonLd** |
 
 ### Import from
 ```tsx
@@ -189,13 +189,21 @@ import {
   BreadcrumbJsonLd,
   OrganizationJsonLd,
   LocalBusinessJsonLd,
+  HomeSpeakableJsonLd,     // Voice search - Home
+  AboutSpeakableJsonLd,    // Voice search - About
+  ContactSpeakableJsonLd,  // Voice search - Contact
+  HomeFAQJsonLd,           // FAQ schema - Home (8 FAQs)
+  AboutFAQJsonLd,          // FAQ schema - About (5 FAQs)
+  ContactFAQJsonLd,        // FAQ schema - Contact (6 FAQs)
   // ... etc
 } from '@/components/seo/JsonLd';
 ```
 
-- [ ] Appropriate schemas added ✅
-- [ ] Product schemas have `image` (REQUIRED!) ✅
-- [ ] Tested with Google Rich Results Test ✅
+- [x] Appropriate schemas added ✅
+- [x] Product schemas have `image` (REQUIRED!) ✅
+- [x] FAQPage schema added ✅ (Dec 5)
+- [x] Speakable schema added ✅ (Dec 7)
+- [x] Tested with Google Rich Results Test ✅
 
 ---
 
@@ -209,41 +217,85 @@ import {
 - [ ] Include actual numbers, specifications, prices (avoid "contact us")
 - [ ] Add FAQ section with common questions about the topic
 
-### FAQ Section Example
+### FAQ Section Example ✅ IMPLEMENTED Dec 5, 2025
+
+We have a reusable FAQ component. Import and use it:
+
 ```tsx
-// Add visible FAQ section on page
-<section>
-  <h2>Frequently Asked Questions</h2>
-  
-  <h3>What warranty does Phantom Healthcare offer?</h3>
-  <p>Phantom Healthcare provides a 12-month comprehensive warranty 
-  on all refurbished medical imaging equipment.</p>
-  
-  <h3>Where are your service centers located?</h3>
-  <p>We have service centers in Faridabad (HQ), Mumbai, Chennai, 
-  and Kolkata for pan-India support.</p>
-</section>
+// Import the reusable FAQ component
+import FAQSection from '@/components/ui/FAQSection';
+
+// Define your FAQs
+const pageFaqs = [
+  {
+    question: "What warranty does Phantom Healthcare offer?",
+    answer: "Phantom Healthcare provides a 12-month comprehensive warranty on all refurbished medical imaging equipment, covering parts and labor."
+  },
+  {
+    question: "Where are your service centers located?",
+    answer: "We have service centers in Faridabad (HQ), Mumbai, Chennai, and Kolkata for pan-India support."
+  }
+];
+
+// Use in your page component
+<FAQSection
+  title="Frequently Asked Questions"
+  subtitle="Common questions about our products and services"
+  faqs={pageFaqs}
+/>
 ```
 
-### FAQPage Schema
+### FAQPage JSON-LD Schema ✅ IMPLEMENTED Dec 5, 2025
+
+Import the appropriate FAQ JSON-LD component:
+
 ```tsx
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What warranty does Phantom Healthcare offer?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Phantom Healthcare provides a 12-month comprehensive warranty on all refurbished medical imaging equipment, covering parts and labor."
-      }
-    }
-  ]
-}
-</script>
+// For existing pages, we have pre-built components:
+import { 
+  HomeFAQJsonLd,      // Home page - 8 FAQs about products/warranty
+  AboutFAQJsonLd,     // About page - 5 FAQs about company/leadership
+  ContactFAQJsonLd    // Contact page - 6 FAQs about contact/demos
+} from '@/components/seo/JsonLd';
+
+// Add to your page:
+<HomeFAQJsonLd />
 ```
+
+**For NEW pages**, create a new FAQ schema in `JsonLd.tsx`:
+
+```tsx
+export function YourPageFAQJsonLd() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Your question here?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Your answer here with specific data."
+        }
+      }
+      // Add more questions...
+    ]
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+    />
+  );
+}
+```
+
+### FAQ Implementation Checklist
+- [x] Import `FAQSection` component ✅
+- [x] Define FAQs with specific, quotable answers ✅
+- [x] Add FAQPage JSON-LD schema ✅
+- [x] Sync visible FAQs with JSON-LD FAQs ✅
+- [x] Test with Google Rich Results Test ✅
 
 ### AI Content Quality Checklist
 - [ ] Avoid vague marketing language ("world-class", "best-in-class")
@@ -256,6 +308,69 @@ import {
 - [ ] Test queries in ChatGPT: "Best refurbished MRI machines in India"
 - [ ] Test queries in Perplexity: "Phantom Healthcare reviews"
 - [ ] Check if your brand is mentioned in AI responses
+
+---
+
+## 🎤 SPEAKABLE SCHEMA FOR VOICE SEARCH (Added Dec 7, 2025)
+
+**Purpose:** Optimize content for voice assistants (Google Assistant, Alexa, Siri)
+
+### When to Add Speakable Schema
+- ✅ Key landing pages (Home, About, Contact)
+- ✅ Product category pages
+- ✅ Service pages
+- ✅ Any page with important audio-friendly content
+
+### Speakable Schema Example
+```tsx
+import { HomeSpeakableJsonLd } from '@/components/seo/JsonLd';
+
+// In your page component:
+<HomeSpeakableJsonLd />
+```
+
+### Creating New Speakable Schema
+```tsx
+export function YourPageSpeakableJsonLd() {
+  const speakableSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",  // or AboutPage, ContactPage, etc.
+    "name": "Page Title for Voice Assistants",
+    "url": "https://phantomhealthcare.com/your-page-url",  // ⚠️ MUST match actual page URL!
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["h1", "h2"]  // Use ONLY selectors that exist on the page
+    },
+    "mainEntity": {
+      "@type": "Organization",  // or LocalBusiness, MedicalBusiness, etc.
+      "name": "Phantom Healthcare",
+      "description": "Clear, quotable description for voice assistants to read aloud.",
+      "telephone": "+91-9899963601",
+      "email": "biz@phantomhealthcare.com",
+      "url": "https://phantomhealthcare.com"
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
+    />
+  );
+}
+```
+
+### ⚠️ CRITICAL: Speakable Schema Rules
+1. **URL MUST match page URL** - Home = `/`, About = `/about`, NOT cross-page URLs!
+2. **cssSelector must exist** - Only use `["h1", "h2"]` unless you have specific selectors
+3. **Avoid custom classes** - `.hero-text`, `.about-summary` will fail if not present
+4. **Include address** - MedicalBusiness/LocalBusiness entities need PostalAddress
+
+### Speakable Checklist
+- [ ] URL matches the actual page URL ✅
+- [ ] cssSelector uses existing elements (`h1`, `h2`) ✅
+- [ ] mainEntity includes business description ✅
+- [ ] Tested with Google Rich Results Test ✅
 
 ---
 

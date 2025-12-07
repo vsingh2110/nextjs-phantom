@@ -1,6 +1,7 @@
 # International SEO Implementation Guide
 
 **Date:** July 25, 2025  
+**Last Updated:** December 7, 2025 (AI SEO / Speakable Schema Added)  
 **Purpose:** Technical implementation guide for multi-country website structure  
 **Project:** Phantom Medical Equipment International Expansion
 
@@ -215,6 +216,48 @@ export function ProductStructuredData({ product, location }: Props) {
     />
   );
 }
+```
+
+#### Speakable Schema for Voice Search (AI SEO) ✅ IMPLEMENTED Dec 7, 2025
+```typescript
+// src/components/seo/JsonLd.tsx - Example for international pages
+export function LocationSpeakableJsonLd({ country, city }: Props) {
+  const speakableSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": `Phantom Healthcare ${city} - Medical Imaging Equipment`,
+    "url": `https://phantomhealthcare.com/${country}/${city}`,  // ⚠️ MUST match actual page URL!
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["h1", "h2"]  // Use ONLY universal selectors
+    },
+    "mainEntity": {
+      "@type": "LocalBusiness",
+      "name": "Phantom Healthcare",
+      "description": `Phantom Healthcare provides refurbished MRI and CT scanners in ${city}. 12-month warranty, installation included.`,
+      "telephone": "+91-9899963601",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": city,
+        "addressCountry": country
+      }
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
+    />
+  );
+}
+```
+
+**⚠️ CRITICAL Speakable Rules:**
+1. **URL must match page** - Each international page gets its own URL
+2. **cssSelector must exist** - Only use `["h1", "h2"]` not custom classes
+3. **Include address** - LocalBusiness entities need PostalAddress
+4. **Test with Rich Results** - Google validates the schema
 ```
 
 #### Dynamic Meta Tags
@@ -436,11 +479,12 @@ export const trackProductView = (product: string, location: string) => {
 - [ ] Implement basic SEO meta tags
 
 ### Phase 2: Content Structure (Week 3-4)
-- [ ] Create product category pages
+- [x] Create product category pages ✅
 - [ ] Implement location-based product pages
-- [ ] Set up structured data (JSON-LD)
-- [ ] Create FAQ sections for AI search
-- [ ] Implement breadcrumb navigation
+- [x] Set up structured data (JSON-LD) ✅ (Dec 7 - Complete for Home/About/Contact)
+- [x] Create FAQ sections for AI search ✅ (Dec 5)
+- [x] Implement breadcrumb navigation ✅
+- [x] Implement Speakable schema for voice search ✅ (Dec 7)
 
 ### Phase 3: Location Pages (Week 5-8)
 - [ ] Create India city pages (8 cities)
@@ -450,11 +494,11 @@ export const trackProductView = (product: string, location: string) => {
 - [ ] Create Australia city pages (3 cities)
 
 ### Phase 4: Advanced Features (Week 9-12)
-- [ ] Implement AI search optimization
+- [x] Implement AI search optimization ✅ (Dec 5-7: FAQPage + Speakable schemas)
 - [ ] Set up advanced analytics
 - [ ] Performance optimization
-- [ ] Security hardening
-- [ ] Testing and quality assurance
+- [ ] Security hardening ✅ (CVE-2025-55182 patched Dec 7)
+- [ ] Testing and quality assurance ✅ (Lighthouse + Rich Results Dec 7)
 
 ---
 
@@ -467,10 +511,10 @@ export const trackProductView = (product: string, location: string) => {
 - **Top 3 rankings** for target keywords
 
 ### AI Search Visibility
-- **Featured in ChatGPT responses** for medical equipment queries
-- **Claude AI integration** for business research
-- **Voice search optimization** for natural language queries
-- **Rich snippets** in search results
+- [ ] **Featured in ChatGPT responses** for medical equipment queries
+- [ ] **Claude AI integration** for business research
+- [x] **Voice search optimization** for natural language queries ✅ (Speakable schema Dec 7)
+- [x] **Rich snippets** in search results ✅ (FAQPage, Organization, LocalBusiness verified)
 
 ### Business Impact
 - **Market expansion** to 5+ countries
@@ -482,4 +526,16 @@ export const trackProductView = (product: string, location: string) => {
 
 **Technical Lead:** Development Team  
 **Next Review:** February 15, 2025  
-**Status:** Implementation Planning 
+**Status:** Implementation In Progress
+
+---
+
+## 📋 UPDATE LOG
+
+| Date | Update |
+|------|--------|
+| July 25, 2025 | Initial document created |
+| Dec 5, 2025 | FAQPage schema implemented on Home/About/Contact |
+| Dec 7, 2025 | Speakable schema for voice search implemented |
+| Dec 7, 2025 | CVE-2025-55182 security patch (Next.js 15.3.6) |
+| Dec 7, 2025 | Lighthouse & Rich Results testing complete |

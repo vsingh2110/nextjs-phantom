@@ -1,9 +1,55 @@
 # Phantom Medical Imaging — Current Status
 
-**Last Updated:** December 7, 2025  
+**Last Updated:** December 7, 2025 (Evening)  
 **Phase:** Active Migration - Static to Next.js  
-**Priority:** Continue AI SEO / GEO / AEO Implementation + Product Pages  
+**Priority:** Continue AI SEO Implementation + Product Pages  
 **Git Status:** ✅ All changes committed
+**Next.js Version:** 15.3.6 (Security patched for CVE-2025-55182)
+
+---
+
+## ✅ SPEAKABLE SCHEMA & SECURITY PATCH (Dec 7, 2025)
+
+### **Security Patch Applied**
+
+**CVE-2025-55182 (React2Shell RCE Vulnerability)**
+- Updated Next.js from 15.3.5 → 15.3.6
+- Updated eslint-config-next to 15.3.6
+- Updated @next/bundle-analyzer to 15.3.6
+
+### **Speakable Schema for Voice Search (AI SEO)**
+
+Added Speakable schema to all 3 pages for voice assistant optimization:
+
+| Page | Component | URL | Status |
+|------|-----------|-----|--------|
+| Home | `HomeSpeakableJsonLd` | `https://phantomhealthcare.com` | ✅ Verified |
+| About | `AboutSpeakableJsonLd` | `https://phantomhealthcare.com/about` | ✅ Verified |
+| Contact | `ContactSpeakableJsonLd` | `https://phantomhealthcare.com/contact` | ✅ Verified |
+
+**What Speakable Does:**
+- Tells voice assistants (Google Assistant, Alexa, Siri) which content is suitable for audio playback
+- Uses CSS selectors `["h1", "h2"]` to identify speakable content
+- Includes mainEntity with business description for context
+
+### **Lighthouse Results (Dec 7, 2025 - Vercel Deployment)**
+
+| Page | Performance | Accessibility | Best Practices | SEO |
+|------|-------------|---------------|----------------|-----|
+| Home (Mobile) | 69-81* | 92 | 100 | 92 |
+| About (Mobile) | 90 | 94 | 100 | 92+ |
+| Contact (Mobile) | 72** | 96 | 96 | 92+ |
+| All (Desktop) | 95%+ | 95%+ | 95%+ | 95%+ |
+
+*Performance varies due to benchmarkIndex  
+**Contact lower due to Google Maps iframe (third-party resource)
+
+### **Google Rich Results Test - All Passed**
+
+All pages validated with no errors:
+- Home: WebPage, SpeakableSpecification, MedicalBusiness, FAQPage (8 FAQs)
+- About: AboutPage, SpeakableSpecification, Organization, FAQPage (5 FAQs)
+- Contact: ContactPage, SpeakableSpecification, LocalBusiness, FAQPage (6 FAQs)
 
 ---
 
@@ -34,10 +80,11 @@ FAQ sections and JSON-LD schemas were added to all 3 completed pages:
 
 1. [x] Implement FAQPage schema in JsonLd.tsx ✅
 2. [x] Add visible FAQ sections to Home, About, Contact pages ✅
-3. [ ] Review existing content for AI-friendly structure
-4. [ ] Consider Speakable schema for voice search
-5. [ ] Test brand visibility in ChatGPT/Perplexity
-6. [ ] Add FAQs to product and service pages
+3. [x] Speakable schema for voice search ✅ (Dec 7, 2025)
+4. [x] Google Rich Results Test - All passed ✅ (Dec 7, 2025)
+5. [x] Lighthouse Accessibility 92-96 ✅ (Dec 7, 2025)
+6. [ ] Test brand visibility in ChatGPT/Perplexity
+7. [ ] Add FAQs to product and service pages
 
 ---
 
@@ -396,7 +443,7 @@ All 20 products in `hasOfferCatalog` now have proper image URLs:
 ### **Dependencies:**
 ```json
 {
-  "next": "15.3.5",
+  "next": "15.3.6",
   "react": "^18",
   "typescript": "^5",
   "tailwindcss": "^3.4.0",
@@ -407,8 +454,8 @@ All 20 products in `hasOfferCatalog` now have proper image URLs:
 }
 ```
 
-**Status:** ✅ All up to date
-**Vulnerabilities:** ✅ None (resolved via overrides)
+**Status:** ✅ All up to date (Next.js 15.3.6 - Security patched Dec 7, 2025)
+**Vulnerabilities:** ✅ None (CVE-2025-55182 patched)
 
 ### **Build Status:**
 - **Development Server:** ✅ Running (`npm run dev --turbo`)

@@ -1,7 +1,7 @@
 # SEO Reference Guide - India Version
 
 **Created:** November 30, 2025  
-**Last Updated:** December 4, 2025 (AI SEO / GEO / AEO Section Added)  
+**Last Updated:** December 7, 2025 (Speakable Schema Implementation Complete)  
 **Purpose:** Complete SEO & Development Guidelines for Phantom Healthcare India website  
 **Why Now:** Fix SEO on initial pages before scaling to 100+ pages
 
@@ -89,48 +89,110 @@ scanners across India since 2011. Our 12-month warranty covers
 all parts and labor."
 ```
 
-#### 2. FAQ Schema for AI Answers
+#### 2. FAQ Schema for AI Answers ✅ IMPLEMENTED Dec 5, 2025
 
-AI systems LOVE FAQ content. Implement on every page:
+AI systems LOVE FAQ content. We have implemented FAQ schemas on all 3 main pages:
 
+**Existing FAQ Components (in `src/components/seo/JsonLd.tsx`):**
 ```tsx
-// src/components/seo/JsonLd.tsx - Add FAQPage schema
-{
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is the warranty on refurbished MRI machines from Phantom Healthcare?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Phantom Healthcare provides a 12-month comprehensive warranty on all refurbished MRI machines, covering parts and labor."
+import { 
+  HomeFAQJsonLd,     // 8 FAQs - products, warranty, services
+  AboutFAQJsonLd,    // 5 FAQs - company, leadership, certifications
+  ContactFAQJsonLd   // 6 FAQs - contact, demos, support
+} from '@/components/seo/JsonLd';
+
+// Usage in page:
+<HomeFAQJsonLd />
+```
+
+**Visible FAQ Component (in `src/components/ui/FAQSection.tsx`):**
+```tsx
+import FAQSection from '@/components/ui/FAQSection';
+
+<FAQSection
+  title="Frequently Asked Questions"
+  subtitle="Common questions about our products"
+  faqs={[
+    { question: "...", answer: "..." }
+  ]}
+/>
+```
+
+**For NEW pages, create a new FAQ schema:**
+```tsx
+export function YourPageFAQJsonLd() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the warranty on refurbished MRI machines from Phantom Healthcare?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Phantom Healthcare provides a 12-month comprehensive warranty on all refurbished MRI machines, covering parts and labor."
+        }
       }
-    },
-    {
-      "@type": "Question", 
-      "name": "Where are Phantom Healthcare's service centers located?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Phantom Healthcare has service centers in Faridabad (HQ), Mumbai, Chennai, and Kolkata, enabling pan-India support within 24-48 hours."
-      }
-    }
-  ]
+    ]
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+    />
+  );
 }
 ```
 
-#### 3. Speakable Schema (Voice Assistants)
+**⚠️ CRITICAL: Sync visible FAQs with JSON-LD FAQs!**
+- Home: 8 visible FAQs = 8 in JSON-LD ✅
+- About: 5 visible FAQs = 5 in JSON-LD ✅
+- Contact: 6 visible FAQs = 6 in JSON-LD ✅
+
+#### 3. Speakable Schema (Voice Assistants) ✅ IMPLEMENTED Dec 7, 2025
 
 For voice search (Alexa, Google Assistant, Siri):
 
 ```tsx
+// src/components/seo/JsonLd.tsx - HomeSpeakableJsonLd, AboutSpeakableJsonLd, ContactSpeakableJsonLd
 {
+  "@context": "https://schema.org",
   "@type": "WebPage",
+  "name": "Page Title for Voice Assistants",
+  "url": "https://phantomhealthcare.com/page-url",  // ⚠️ MUST match actual page URL!
   "speakable": {
     "@type": "SpeakableSpecification",
-    "cssSelector": [".hero-text", ".company-intro", ".product-description"]
+    "cssSelector": ["h1", "h2"]  // Use ONLY universal selectors that exist on all pages
+  },
+  "mainEntity": {
+    "@type": "MedicalBusiness",  // or Organization, LocalBusiness
+    "name": "Phantom Healthcare",
+    "description": "Clear, quotable description for voice assistants.",
+    "telephone": "+91-9899963601",
+    "email": "biz@phantomhealthcare.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Plot No. 51, Sector 27C",
+      "addressLocality": "Faridabad",
+      "addressRegion": "Haryana",
+      "postalCode": "121003",
+      "addressCountry": "IN"
+    }
   }
 }
 ```
+
+**⚠️ CRITICAL Speakable Rules (Learned Dec 7, 2025):**
+1. **URL must match page** - Don't cross-reference URLs between pages!
+2. **cssSelector must exist** - Only use `["h1", "h2"]` not custom classes like `.hero-text`
+3. **Include address** - MedicalBusiness/LocalBusiness require PostalAddress
+4. **Test with Rich Results** - Google validates the schema
+
+**Currently Implemented On:**
+- ✅ Home: `HomeSpeakableJsonLd` → `https://phantomhealthcare.com`
+- ✅ About: `AboutSpeakableJsonLd` → `https://phantomhealthcare.com/about`
+- ✅ Contact: `ContactSpeakableJsonLd` → `https://phantomhealthcare.com/contact`
 
 #### 4. Server-Side Rendering (Already Done ✅)
 
@@ -250,15 +312,15 @@ Track whether Phantom Healthcare is mentioned in responses.
 
 ### ✅ AI SEO CHECKLIST FOR NEW PAGES
 
-- [ ] **Lead with key information** (don't bury the lede)
-- [ ] **Add FAQ section** with common questions about the topic
-- [ ] **Include specific data** (numbers, dates, specs, prices)
-- [ ] **Use declarative sentences** that can be quoted directly
-- [ ] **Add FAQPage schema** for question-answer content
-- [ ] **Use tables and lists** for specifications and comparisons
+- [x] **Lead with key information** (don't bury the lede) ✅
+- [x] **Add FAQ section** with common questions about the topic ✅ (Dec 5)
+- [x] **Include specific data** (numbers, dates, specs, prices) ✅
+- [x] **Use declarative sentences** that can be quoted directly ✅
+- [x] **Add FAQPage schema** for question-answer content ✅ (Dec 5)
+- [x] **Use tables and lists** for specifications and comparisons ✅
 - [ ] **Include expert quotes** or testimonials with attribution
-- [ ] **Ensure SSR/SSG** (Next.js handles this automatically)
-- [ ] **Implement Speakable schema** for voice search
+- [x] **Ensure SSR/SSG** (Next.js handles this automatically) ✅
+- [x] **Implement Speakable schema** for voice search ✅ (Dec 7)
 - [ ] **Test in Incognito** with ChatGPT/Perplexity
 
 ---
