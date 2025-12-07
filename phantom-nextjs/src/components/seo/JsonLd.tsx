@@ -1085,6 +1085,7 @@ export function ContactFAQJsonLd() {
  * HOME PAGE Speakable Schema
  * Identifies key content for voice assistants to read aloud
  * Use on: Home page (page.tsx)
+ * NOTE: Only use CSS selectors that actually exist on the page!
  */
 export function HomeSpeakableJsonLd() {
   const speakableSchema = {
@@ -1095,17 +1096,25 @@ export function HomeSpeakableJsonLd() {
     "speakable": {
       "@type": "SpeakableSpecification",
       "cssSelector": [
-        ".sr-only",
         "h1",
-        "h2",
-        ".hero-text",
-        ".about-summary"
+        "h2"
       ]
     },
     "mainEntity": {
       "@type": "MedicalBusiness",
       "name": "Phantom Healthcare",
-      "description": "Phantom Healthcare is India's leading provider of refurbished MRI scanners, CT scanners, and medical imaging equipment. Established in 2011, we have completed over 170 installations across India with a 12-month comprehensive warranty on all equipment."
+      "description": "Phantom Healthcare is India's leading provider of refurbished MRI scanners, CT scanners, and medical imaging equipment. Established in 2011, we have completed over 170 installations across India with a 12-month comprehensive warranty on all equipment.",
+      "telephone": "+91-9899963601",
+      "email": "biz@phantomhealthcare.com",
+      "url": "https://phantomhealthcare.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Plot No. 51, Sector 27C, Near NHPC Chowk, Main Mathura Road",
+        "addressLocality": "Faridabad",
+        "addressRegion": "Haryana",
+        "postalCode": "121003",
+        "addressCountry": "IN"
+      }
     }
   };
 
@@ -1121,6 +1130,7 @@ export function HomeSpeakableJsonLd() {
  * ABOUT PAGE Speakable Schema
  * Identifies company history and leadership content for voice
  * Use on: About page (about/page.tsx)
+ * NOTE: Only use CSS selectors that actually exist on the page!
  */
 export function AboutSpeakableJsonLd() {
   const speakableSchema = {
@@ -1132,15 +1142,16 @@ export function AboutSpeakableJsonLd() {
       "@type": "SpeakableSpecification",
       "cssSelector": [
         "h1",
-        ".company-intro",
-        ".leadership-section",
-        ".mission-statement"
+        "h2"
       ]
     },
     "mainEntity": {
       "@type": "Organization",
       "name": "Phantom Healthcare IND Private Limited",
-      "description": "Phantom Healthcare was founded in 2011 by Rochi Nargotra and Brijesh Suneja. We are India's premier provider of refurbished medical imaging equipment with 170+ installations, 150+ clients, and offices in India, USA, and UAE."
+      "description": "Phantom Healthcare was founded in 2011 by Rochi Nargotra and Brijesh Suneja. We are India's premier provider of refurbished medical imaging equipment with 170+ installations, 150+ clients, and offices in India, USA, and UAE.",
+      "url": "https://phantomhealthcare.com",
+      "telephone": "+91-9899963601",
+      "email": "biz@phantomhealthcare.com"
     }
   };
 
@@ -1156,6 +1167,7 @@ export function AboutSpeakableJsonLd() {
  * CONTACT PAGE Speakable Schema
  * Highlights contact information for voice assistants
  * Use on: Contact page (contact/page.tsx)
+ * NOTE: Only use CSS selectors that actually exist on the page!
  */
 export function ContactSpeakableJsonLd() {
   const speakableSchema = {
@@ -1167,9 +1179,7 @@ export function ContactSpeakableJsonLd() {
       "@type": "SpeakableSpecification",
       "cssSelector": [
         "h1",
-        ".contact-info",
-        ".phone-numbers",
-        ".office-address"
+        "h2"
       ]
     },
     "mainEntity": {
@@ -1177,9 +1187,10 @@ export function ContactSpeakableJsonLd() {
       "name": "Phantom Healthcare",
       "telephone": "+91-9899963601",
       "email": "biz@phantomhealthcare.com",
+      "url": "https://phantomhealthcare.com/contact",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Plot No. 51, Sector 27C, Near NHPC Chowk",
+        "streetAddress": "Plot No. 51, Sector 27C, Near NHPC Chowk, Main Mathura Road",
         "addressLocality": "Faridabad",
         "addressRegion": "Haryana",
         "postalCode": "121003",
