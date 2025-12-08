@@ -2,12 +2,12 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import ContactForm from '@/components/features/ContactForm';
-import { BreadcrumbJsonLd } from '@/components/seo/JsonLd';
+import { BreadcrumbJsonLd, SparePartsSpeakableJsonLd, SparePartsFAQJsonLd } from '@/components/seo/JsonLd';
 import FAQSection from '@/components/ui/FAQSection';
 
 export const metadata: Metadata = {
-  title: 'Medical Imaging Spare Parts & Inventory - Phantom Healthcare',
-  description: 'Largest inventory of genuine spare parts for MRI, CT, PET-CT, Cath Lab machines. 5000+ SKUs in stock. Same-day dispatch across India. RF coils, gradient coils, detectors, boards & more.',
+  title: 'Medical Imaging Spare Parts - Phantom Healthcare',
+  description: '5000+ SKUs of MRI, CT, PET-CT, Cath Lab spare parts. Same-day dispatch across India. RF coils, detectors, boards, tubes in stock.',
   
   openGraph: {
     type: 'website',
@@ -66,11 +66,13 @@ const sparePartsFaqs = [
 export default function SparePartsPage() {
   return (
     <>
-      {/* JSON-LD Breadcrumb */}
+      {/* JSON-LD Schemas */}
       <BreadcrumbJsonLd items={[
         { name: 'Home', url: 'https://phantomhealthcare.com' },
         { name: 'Spare Parts & Inventory', url: 'https://phantomhealthcare.com/spare-parts-and-inventory' }
       ]} />
+      <SparePartsSpeakableJsonLd />
+      <SparePartsFAQJsonLd />
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-[#255a0a] text-white py-16 md:py-24">

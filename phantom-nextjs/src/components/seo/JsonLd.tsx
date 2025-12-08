@@ -1481,3 +1481,193 @@ export function FAQsSpeakableJsonLd() {
     />
   );
 }
+
+// Sell Equipment Page - Speakable Schema
+export function SellEquipmentSpeakableJsonLd() {
+  const speakableSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Sell Your Medical Imaging Equipment - Phantom Healthcare",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["h1", "h2", ".text-gray-700"]
+    },
+    "mainEntity": {
+      "@type": "Service",
+      "name": "Medical Equipment Buying Service",
+      "provider": {
+        "@type": "Organization",
+        "name": "Phantom Healthcare"
+      },
+      "description": "We purchase used medical imaging equipment including MRI, CT, PET-CT, and Cath Lab machines. Quick payment within 3-5 days, free de-installation service, and competitive market valuations.",
+      "url": "https://phantomhealthcare.com/sell-your-medical-imaging-equipment",
+      "telephone": "+91-9899963601",
+      "email": "biz@phantomhealthcare.com"
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
+    />
+  );
+}
+
+// Sell Equipment Page - FAQ Schema
+export function SellEquipmentFAQJsonLd() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What types of medical imaging equipment do you purchase?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We purchase all major medical imaging equipment including MRI scanners (1.5T and 3.0T), CT scanners (16-slice to 128-slice), PET-CT systems, Cath Labs, Gamma Cameras, and Bone Densitometers (DEXA). We accept equipment from leading manufacturers like GE, Siemens, Philips, and Toshiba."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How quickly can I receive payment?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Once we inspect and agree on the price, payment is processed within 3-5 business days. We offer multiple payment options including bank transfer, cheque, or cash (for smaller amounts) as per your preference."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you provide de-installation services?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, absolutely! We provide complete de-installation services at no extra cost. Our experienced engineers will safely disconnect, dismantle, and remove the equipment from your facility. We handle all aspects including cryogen recovery for MRI systems."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What condition should my equipment be in?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We purchase equipment in various conditions - working, non-working, or partially functional. However, working equipment with proper maintenance history and complete documentation fetches better valuations. Even non-functional equipment has value for spare parts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you determine the valuation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our valuation is based on multiple factors: equipment age, model, manufacturer, working condition, maintenance history, market demand, and current spare parts value. We provide transparent, fair market valuations backed by our 14+ years of industry experience."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you purchase equipment from outside India?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we purchase equipment from hospitals and imaging centers worldwide, including UAE, USA, UK, and other countries. We handle all logistics, customs clearance, and international shipping documentation."
+        }
+      }
+    ]
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+    />
+  );
+}
+
+// Spare Parts Page - Speakable Schema
+export function SparePartsSpeakableJsonLd() {
+  const speakableSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Medical Imaging Spare Parts & Inventory - Phantom Healthcare",
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["h1", "h2", ".text-gray-700"]
+    },
+    "mainEntity": {
+      "@type": "Store",
+      "name": "Phantom Healthcare Spare Parts Warehouse",
+      "description": "India's largest inventory of medical imaging spare parts with over 5000+ SKUs covering MRI, CT, PET-CT, and Cath Lab equipment. Climate-controlled warehouses across India with same-day dispatch.",
+      "url": "https://phantomhealthcare.com/spare-parts-and-inventory",
+      "telephone": "+91-9899963601",
+      "email": "spareparts@phantomhealthcare.com"
+    }
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
+    />
+  );
+}
+
+// Spare Parts Page - FAQ Schema
+export function SparePartsFAQJsonLd() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What types of spare parts do you stock?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We maintain a comprehensive inventory of over 5000+ SKUs covering all major medical imaging modalities - MRI (RF coils, gradient coils, patient tables), CT (X-ray tubes, detectors, slip rings), PET-CT (detectors, electronics), Cath Lab (image intensifiers, X-ray tubes, generators), and general components like monitors, computers, UPS systems, and cables."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Are the spare parts genuine or compatible?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We stock both OEM (Original Equipment Manufacturer) genuine parts and high-quality compatible alternatives. All parts are thoroughly tested and come with quality assurance. We clearly specify the part type (OEM/compatible) in product descriptions and can help you choose based on your budget and requirements."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How quickly can you dispatch parts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Parts in stock are dispatched the same day or next business day. We ship via reliable couriers (Blue Dart, DHL, FedEx) to ensure quick delivery across India. International shipping is also available. Tracking details are provided immediately upon dispatch."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you provide warranty on spare parts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! All our spare parts come with warranty ranging from 90 days to 1 year depending on the part type and manufacturer. OEM parts typically carry longer warranties. We also offer replacement/refund for DOA (Dead on Arrival) parts within 7 days of delivery."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I return a part if it doesn't fit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we have a 7-day return policy for unused parts in original packaging. If you ordered the wrong part or it doesn't fit your system, you can return it for a refund or exchange. Return shipping charges may apply unless the error was from our side."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you provide installation support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "While most spare parts are field-replaceable, we offer technical guidance over phone/email. For complex installations (like RF coils, gradient coils, X-ray tubes), we can arrange field engineers on chargeable basis. Installation manuals and wiring diagrams are provided where available."
+        }
+      }
+    ]
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+    />
+  );
+}

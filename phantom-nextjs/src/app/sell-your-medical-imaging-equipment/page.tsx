@@ -2,12 +2,12 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import ContactForm from '@/components/features/ContactForm';
-import { BreadcrumbJsonLd } from '@/components/seo/JsonLd';
+import { BreadcrumbJsonLd, SellEquipmentSpeakableJsonLd, SellEquipmentFAQJsonLd } from '@/components/seo/JsonLd';
 import FAQSection from '@/components/ui/FAQSection';
 
 export const metadata: Metadata = {
-  title: 'Sell Your Medical Imaging Equipment - Phantom Healthcare',
-  description: 'Get the best value for your used MRI, CT, PET-CT, Cath Lab machines. Quick cash payment, free evaluation, nationwide pickup. Sell your medical equipment to Phantom Healthcare today.',
+  title: 'Sell Medical Imaging Equipment - Phantom Healthcare',
+  description: 'Get best value for used MRI, CT, PET-CT, Cath Lab. Quick payment in 3-5 days, free evaluation, nationwide pickup. Sell to Phantom Healthcare.',
   
   openGraph: {
     type: 'website',
@@ -66,11 +66,13 @@ const sellFaqs = [
 export default function SellYourEquipmentPage() {
   return (
     <>
-      {/* JSON-LD Breadcrumb */}
+      {/* JSON-LD Schemas */}
       <BreadcrumbJsonLd items={[
         { name: 'Home', url: 'https://phantomhealthcare.com' },
         { name: 'Sell Your Equipment', url: 'https://phantomhealthcare.com/sell-your-medical-imaging-equipment' }
       ]} />
+      <SellEquipmentSpeakableJsonLd />
+      <SellEquipmentFAQJsonLd />
 
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-[#255a0a] text-white py-16 md:py-24">
