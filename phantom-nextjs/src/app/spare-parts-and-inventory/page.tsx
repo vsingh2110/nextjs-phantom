@@ -165,8 +165,8 @@ export default function SparePartsPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Feature 1 */}
-            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-[#59913d] rounded-full flex items-center justify-center mb-6">
+            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow text-center md:text-left">
+              <div className="w-16 h-16 bg-[#59913d] rounded-full flex items-center justify-center mb-6 mx-auto md:mx-0">
                 <i className="fas fa-warehouse text-2xl text-white"></i>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Multiple Locations</h3>
@@ -176,8 +176,8 @@ export default function SparePartsPage() {
             </div>
 
             {/* Feature 2 */}
-            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-[#59913d] rounded-full flex items-center justify-center mb-6">
+            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow text-center md:text-left">
+              <div className="w-16 h-16 bg-[#59913d] rounded-full flex items-center justify-center mb-6 mx-auto md:mx-0">
                 <i className="fas fa-temperature-low text-2xl text-white"></i>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Climate Controlled</h3>
@@ -187,8 +187,8 @@ export default function SparePartsPage() {
             </div>
 
             {/* Feature 3 */}
-            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-[#59913d] rounded-full flex items-center justify-center mb-6">
+            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow text-center md:text-left">
+              <div className="w-16 h-16 bg-[#59913d] rounded-full flex items-center justify-center mb-6 mx-auto md:mx-0">
                 <i className="fas fa-barcode text-2xl text-white"></i>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Inventory Management</h3>
@@ -198,8 +198,8 @@ export default function SparePartsPage() {
             </div>
 
             {/* Feature 4 */}
-            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-[#59913d] rounded-full flex items-center justify-center mb-6">
+            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow text-center md:text-left">
+              <div className="w-16 h-16 bg-[#59913d] rounded-full flex items-center justify-center mb-6 mx-auto md:mx-0">
                 <i className="fas fa-shield-alt text-2xl text-white"></i>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Quality Tested</h3>
@@ -209,8 +209,8 @@ export default function SparePartsPage() {
             </div>
 
             {/* Feature 5 */}
-            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-[#59913d] rounded-full flex items-center justify-center mb-6">
+            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow text-center md:text-left">
+              <div className="w-16 h-16 bg-[#59913d] rounded-full flex items-center justify-center mb-6 mx-auto md:mx-0">
                 <i className="fas fa-boxes text-2xl text-white"></i>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Organized Storage</h3>
@@ -220,8 +220,8 @@ export default function SparePartsPage() {
             </div>
 
             {/* Feature 6 */}
-            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-[#59913d] rounded-full flex items-center justify-center mb-6">
+            <div className="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow text-center md:text-left">
+              <div className="w-16 h-16 bg-[#59913d] rounded-full flex items-center justify-center mb-6 mx-auto md:mx-0">
                 <i className="fas fa-shipping-fast text-2xl text-white"></i>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Fast Logistics</h3>
@@ -255,14 +255,14 @@ export default function SparePartsPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mt-2">MRI Spare Parts</h3>
               </div>
               <ul className="grid grid-cols-2 gap-3 text-gray-700">
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> RF Coils (Head, Body, Knee)</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> Gradient Coils</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> Patient Tables</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> Cryogen System Parts</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> RF Amplifiers</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> Shim Systems</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> Control Boards</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> Power Supplies</li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>RF Coils (Head, Body, Knee)</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>Gradient Coils</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>Patient Tables</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>Cryogen System Parts</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>RF Amplifiers</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>Shim Systems</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>Control Boards</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>Power Supplies</span></li>
               </ul>
             </div>
 
@@ -275,14 +275,14 @@ export default function SparePartsPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mt-2">CT Scanner Parts</h3>
               </div>
               <ul className="grid grid-cols-2 gap-3 text-gray-700">
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> X-Ray Tubes</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> Detectors (Solid State)</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> Slip Rings</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> Gantry Motors</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> High Voltage Generators</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> Patient Tables</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> Cooling Systems</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> DAS Boards</li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>X-Ray Tubes</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>Detectors (Solid State)</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>Slip Rings</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>Gantry Motors</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>High Voltage Generators</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>Patient Tables</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>Cooling Systems</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>DAS Boards</span></li>
               </ul>
             </div>
 
@@ -295,14 +295,14 @@ export default function SparePartsPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mt-2">PET-CT Parts</h3>
               </div>
               <ul className="grid grid-cols-2 gap-3 text-gray-700">
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> PET Detectors</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> PMT Modules</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> Scintillation Crystals</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> CT Components</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> Gantry Parts</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> Electronics Boards</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> Workstations</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> Software Licenses</li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>PET Detectors</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>PMT Modules</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>Scintillation Crystals</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>CT Components</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>Gantry Parts</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>Electronics Boards</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>Workstations</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>Software Licenses</span></li>
               </ul>
             </div>
 
@@ -315,14 +315,14 @@ export default function SparePartsPage() {
                 <h3 className="text-2xl font-bold text-gray-900 mt-2">Cath Lab Parts</h3>
               </div>
               <ul className="grid grid-cols-2 gap-3 text-gray-700">
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> Image Intensifiers</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> Flat Panel Detectors</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> C-arm Components</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> X-Ray Tubes</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> HV Generators</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> Patient Tables</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> Monitors & Displays</li>
-                <li className="flex items-center"><i className="fas fa-check-circle text-[#59913d] mr-2"></i> Control Panels</li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>Image Intensifiers</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>Flat Panel Detectors</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>C-arm Components</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>X-Ray Tubes</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>HV Generators</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>Patient Tables</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>Monitors & Displays</span></li>
+                <li className="flex items-start"><i className="fas fa-check-circle text-[#59913d] mr-2 mt-1 flex-shrink-0"></i><span>Control Panels</span></li>
               </ul>
             </div>
           </div>

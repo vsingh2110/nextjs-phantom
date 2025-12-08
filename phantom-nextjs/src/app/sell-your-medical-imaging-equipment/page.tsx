@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 const sellFaqs = [
   {
     question: "What types of medical imaging equipment do you purchase?",
-    answer: "We purchase all major medical imaging equipment including MRI scanners (1.5T and 3.0T), CT scanners (16-slice to 128-slice), PET-CT systems, Cath Labs, Gamma Cameras, and Bone Densitometers (DEXA). We accept equipment from leading manufacturers like GE, Siemens, Philips, Toshiba, and Hitachi."
+    answer: "We purchase all major medical imaging equipment including MRI scanners (1.5T and 3.0T), CT scanners (16-slice to 128-slice), PET-CT systems, Cath Labs, Gamma Cameras, and Bone Densitometers (DEXA). We accept equipment from leading manufacturers like GE, Siemens, Philips, and Toshiba."
   },
   {
     question: "How quickly can I receive payment?",
@@ -139,8 +139,8 @@ export default function SellYourEquipmentPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Benefit 1 */}
-            <div className="bg-gradient-to-br from-[#59913d]/10 to-[#255a0a]/10 p-8 rounded-xl border border-[#59913d]/20 hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 bg-[#59913d] rounded-full flex items-center justify-center mb-6">
+            <div className="bg-gradient-to-br from-[#59913d]/10 to-[#255a0a]/10 p-8 rounded-xl border border-[#59913d]/20 hover:shadow-lg transition-shadow text-center md:text-left">
+              <div className="w-16 h-16 bg-[#59913d] rounded-full flex items-center justify-center mb-6 mx-auto md:mx-0">
                 <i className="fas fa-dollar-sign text-2xl text-white"></i>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Best Market Price</h3>
@@ -150,8 +150,8 @@ export default function SellYourEquipmentPage() {
             </div>
 
             {/* Benefit 2 */}
-            <div className="bg-gradient-to-br from-[#59913d]/10 to-[#255a0a]/10 p-8 rounded-xl border border-[#59913d]/20 hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 bg-[#59913d] rounded-full flex items-center justify-center mb-6">
+            <div className="bg-gradient-to-br from-[#59913d]/10 to-[#255a0a]/10 p-8 rounded-xl border border-[#59913d]/20 hover:shadow-lg transition-shadow text-center md:text-left">
+              <div className="w-16 h-16 bg-[#59913d] rounded-full flex items-center justify-center mb-6 mx-auto md:mx-0">
                 <i className="fas fa-clock text-2xl text-white"></i>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Quick Payment</h3>
@@ -161,8 +161,8 @@ export default function SellYourEquipmentPage() {
             </div>
 
             {/* Benefit 3 */}
-            <div className="bg-gradient-to-br from-[#59913d]/10 to-[#255a0a]/10 p-8 rounded-xl border border-[#59913d]/20 hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 bg-[#59913d] rounded-full flex items-center justify-center mb-6">
+            <div className="bg-gradient-to-br from-[#59913d]/10 to-[#255a0a]/10 p-8 rounded-xl border border-[#59913d]/20 hover:shadow-lg transition-shadow text-center md:text-left">
+              <div className="w-16 h-16 bg-[#59913d] rounded-full flex items-center justify-center mb-6 mx-auto md:mx-0">
                 <i className="fas fa-truck text-2xl text-white"></i>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Free De-installation</h3>
@@ -172,8 +172,8 @@ export default function SellYourEquipmentPage() {
             </div>
 
             {/* Benefit 4 */}
-            <div className="bg-gradient-to-br from-[#59913d]/10 to-[#255a0a]/10 p-8 rounded-xl border border-[#59913d]/20 hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 bg-[#59913d] rounded-full flex items-center justify-center mb-6">
+            <div className="bg-gradient-to-br from-[#59913d]/10 to-[#255a0a]/10 p-8 rounded-xl border border-[#59913d]/20 hover:shadow-lg transition-shadow text-center md:text-left">
+              <div className="w-16 h-16 bg-[#59913d] rounded-full flex items-center justify-center mb-6 mx-auto md:mx-0">
                 <i className="fas fa-shield-alt text-2xl text-white"></i>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Confidential & Secure</h3>
@@ -183,8 +183,8 @@ export default function SellYourEquipmentPage() {
             </div>
 
             {/* Benefit 5 */}
-            <div className="bg-gradient-to-br from-[#59913d]/10 to-[#255a0a]/10 p-8 rounded-xl border border-[#59913d]/20 hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 bg-[#59913d] rounded-full flex items-center justify-center mb-6">
+            <div className="bg-gradient-to-br from-[#59913d]/10 to-[#255a0a]/10 p-8 rounded-xl border border-[#59913d]/20 hover:shadow-lg transition-shadow text-center md:text-left">
+              <div className="w-16 h-16 bg-[#59913d] rounded-full flex items-center justify-center mb-6 mx-auto md:mx-0">
                 <i className="fas fa-file-alt text-2xl text-white"></i>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Complete Documentation</h3>
@@ -194,8 +194,8 @@ export default function SellYourEquipmentPage() {
             </div>
 
             {/* Benefit 6 */}
-            <div className="bg-gradient-to-br from-[#59913d]/10 to-[#255a0a]/10 p-8 rounded-xl border border-[#59913d]/20 hover:shadow-lg transition-shadow">
-              <div className="w-16 h-16 bg-[#59913d] rounded-full flex items-center justify-center mb-6">
+            <div className="bg-gradient-to-br from-[#59913d]/10 to-[#255a0a]/10 p-8 rounded-xl border border-[#59913d]/20 hover:shadow-lg transition-shadow text-center md:text-left">
+              <div className="w-16 h-16 bg-[#59913d] rounded-full flex items-center justify-center mb-6 mx-auto md:mx-0">
                 <i className="fas fa-globe text-2xl text-white"></i>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Pan-India Presence</h3>
@@ -219,7 +219,7 @@ export default function SellYourEquipmentPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* MRI */}
             <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow">
               <div className="text-4xl text-[#59913d] mb-4">
@@ -295,19 +295,6 @@ export default function SellYourEquipmentPage() {
                 <li>• DEXA systems</li>
                 <li>• GE Lunar, Hologic</li>
                 <li>• All models</li>
-              </ul>
-            </div>
-
-            {/* X-Ray */}
-            <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-              <div className="text-4xl text-[#59913d] mb-4">
-                <i className="fas fa-x-ray"></i>
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">X-Ray Systems</h3>
-              <ul className="text-gray-700 space-y-1 text-sm">
-                <li>• Digital & CR systems</li>
-                <li>• Fixed & mobile units</li>
-                <li>• All configurations</li>
               </ul>
             </div>
 
