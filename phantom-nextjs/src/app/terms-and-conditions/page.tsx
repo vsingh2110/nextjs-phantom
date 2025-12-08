@@ -230,7 +230,7 @@ export default function TermsAndConditionsPage() {
               <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">Comprehensive Maintenance Contract (CMC)</h3>
               <ul className="list-disc pl-6 text-gray-600 space-y-2 mb-4">
                 <li>CMC includes all AMC coverage plus spare parts (excluding high-value items like X-ray tubes, magnets, RF coils).</li>
-                <li>CMC provides priority response times and dedicated support.</li></li>
+                <li>CMC provides priority response times and dedicated support.</li>
               </ul>
 
               <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">Service Response</h3>
