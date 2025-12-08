@@ -1497,12 +1497,12 @@ export function SellEquipmentSpeakableJsonLd() {
       "name": "Medical Equipment Buying Service",
       "provider": {
         "@type": "Organization",
-        "name": "Phantom Healthcare"
+        "name": "Phantom Healthcare",
+        "telephone": "+91-9899963601",
+        "email": "digital@phantomhealthcare.com"
       },
       "description": "We purchase used medical imaging equipment including MRI, CT, PET-CT, and Cath Lab machines. Quick payment within 3-5 days, free de-installation service, and competitive market valuations.",
-      "url": "https://phantomhealthcare.com/sell-your-medical-imaging-equipment",
-      "telephone": "+91-9899963601",
-      "email": "biz@phantomhealthcare.com"
+      "url": "https://phantomhealthcare.com/sell-your-medical-imaging-equipment"
     }
   };
 
@@ -1595,7 +1595,13 @@ export function SparePartsSpeakableJsonLd() {
       "description": "India's largest inventory of medical imaging spare parts with over 5000+ SKUs covering MRI, CT, PET-CT, and Cath Lab equipment. Climate-controlled warehouses across India with same-day dispatch.",
       "url": "https://phantomhealthcare.com/spare-parts-and-inventory",
       "telephone": "+91-9899963601",
-      "email": "spareparts@phantomhealthcare.com"
+      "email": "digital@phantomhealthcare.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Faridabad",
+        "addressRegion": "Haryana",
+        "addressCountry": "IN"
+      }
     }
   };
 

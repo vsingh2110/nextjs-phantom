@@ -248,6 +248,145 @@ User requested creation of two single-page content pages:
 - Primary: `#59913d` (brand green)
 - Dark: `#255a0a` (dark green)
 - Gradients: `from-[#59913d] to-[#255a0a]`
+
+---
+
+## 🔧 SCHEMA VALIDATION FIXES (Dec 8 - Evening)
+
+### Problem Discovery
+
+User tested deployed pages with:
+- Chrome SEO plugin
+- Google Rich Results Test
+- Schema.org validator
+
+**Errors Found:**
+
+1. **Sell Equipment Page (Schema.org):**
+   - ⚠️ WARNING: "The property telephone is not recognised by the schema for Service type"
+   - ⚠️ WARNING: "The property email is not recognised by the schema for Service type"
+   - Issue: `telephone` and `email` were directly on Service mainEntity
+
+2. **Spare Parts Page (Google Rich Results):**
+   - ❌ ERROR: "Missing field 'address'" for Store type
+   - Issue: Store type requires physical address with PostalAddress schema
+
+### Solutions Implemented
+
+**Fix 1: Sell Equipment Page - Service Schema**
+
+File: `src/components/seo/JsonLd.tsx` - `SellEquipmentSpeakableJsonLd()`
+
+**Before:**
+```json
+"mainEntity": {
+  "@type": "Service",
+  "telephone": "+91-9899963601",
+  "email": "biz@phantomhealthcare.com",
+  "provider": {
+    "@type": "Organization",
+    "name": "Phantom Healthcare"
+  }
+}
+```
+
+**After:**
+```json
+"mainEntity": {
+  "@type": "Service",
+  "provider": {
+    "@type": "Organization",
+    "name": "Phantom Healthcare",
+    "telephone": "+91-9899963601",
+    "email": "digital@phantomhealthcare.com"
+  }
+}
+```
+
+**Rationale:** Schema.org Service type doesn't support telephone/email directly. These properties belong to the provider Organization.
+
+**Result:** ✅ Schema.org validation - 0 errors, 0 warnings
+
+---
+
+**Fix 2: Spare Parts Page - Store Schema Address**
+
+File: `src/components/seo/JsonLd.tsx` - `SparePartsSpeakableJsonLd()`
+
+**Before:**
+```json
+"mainEntity": {
+  "@type": "Store",
+  "telephone": "+91-9899963601",
+  "email": "spareparts@phantomhealthcare.com"
+}
+```
+
+**After:**
+```json
+"mainEntity": {
+  "@type": "Store",
+  "telephone": "+91-9899963601",
+  "email": "digital@phantomhealthcare.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Faridabad",
+    "addressRegion": "Haryana",
+    "addressCountry": "IN"
+  }
+}
+```
+
+**Rationale:** Store type requires physical address. Currently using generic Faridabad location.
+
+**Result:** ✅ Google Rich Results passing, but needs actual warehouse address
+
+**⏳ PENDING TASK:** Get actual warehouse street address, area, postal code for complete Store schema
+
+---
+
+**Fix 3: Email Standardization**
+
+Changed all email addresses to `digital@phantomhealthcare.com` per user requirement:
+- Sell Equipment: `biz@phantomhealthcare.com` → `digital@phantomhealthcare.com`
+- Spare Parts: `spareparts@phantomhealthcare.com` → `digital@phantomhealthcare.com`
+
+**Global Rule:** Use `digital@phantomhealthcare.com` for all pages unless user specifies exact address
+
+---
+
+### Validation Results
+
+**Sell Equipment Page:**
+- ✅ Google Rich Results Test: Passed
+- ✅ Schema.org Validator: 0 errors, 0 warnings
+- ✅ All schemas properly structured
+
+**Spare Parts Page:**
+- ✅ Google Rich Results Test: Passed (with address)
+- ✅ Schema.org Validator: No errors
+- ⚠️ Address is temporary/generic (Faridabad only)
+- ⏳ Needs: Warehouse street address, area, postal code
+
+### Key Learnings
+
+1. **Schema Type Requirements:**
+   - Service type: telephone/email go in provider Organization, not on Service itself
+   - Store type: MUST have address field with PostalAddress schema
+   - Always check Schema.org documentation for required/supported properties
+
+2. **Testing Workflow:**
+   - Test with Google Rich Results Test (shows rich result eligibility)
+   - Validate with Schema.org validator (shows property errors)
+   - Use Chrome SEO plugins for quick checks
+   - Lighthouse for overall SEO score
+
+3. **Process Reminder:**
+   - ALWAYS follow NEW-PAGE-CHECKLIST.md from the start
+   - ALWAYS follow SEO-INDIA-REFERENCE.md for metadata limits
+   - Required schemas: BreadcrumbJsonLd, Speakable, FAQPage (if applicable)
+   - Title ≤65 chars, Description ≤170 chars
+   - Test schemas before deployment
 - Gray scale: `gray-50` to `gray-900`
 
 **Typography:**

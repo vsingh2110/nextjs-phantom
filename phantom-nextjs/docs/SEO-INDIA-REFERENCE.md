@@ -1,9 +1,48 @@
 # SEO Reference Guide - India Version
 
 **Created:** November 30, 2025  
-**Last Updated:** December 7, 2025 (Speakable Schema Implementation Complete)  
+**Last Updated:** December 8, 2025 (Schema Validation Rules Added)  
 **Purpose:** Complete SEO & Development Guidelines for Phantom Healthcare India website  
 **Why Now:** Fix SEO on initial pages before scaling to 100+ pages
+
+---
+
+## ⚠️ READ THIS FIRST - CRITICAL REMINDER FOR AI AGENTS
+
+**Why AI agents forget guidelines:** AI agents process each request in context but may not automatically reference documentation files. This leads to:
+- Creating pages without checking length limits
+- Missing required schemas (Speakable, FAQPage)
+- Using wrong schema properties
+- Inconsistent email addresses
+
+**SOLUTION:** ALWAYS check this file AND `NEW-PAGE-CHECKLIST.md` BEFORE creating any page.
+
+### 🚨 NON-NEGOTIABLE RULES (Updated Dec 8, 2025)
+
+```
+TITLE LENGTH:        ≤65 characters (HARD LIMIT)
+DESCRIPTION LENGTH:  ≤170 characters (HARD LIMIT)
+EMAIL ADDRESS:       digital@phantomhealthcare.com (unless specified otherwise)
+
+REQUIRED SCHEMAS:
+✅ BreadcrumbJsonLd  (every page)
+✅ Speakable         (every page for AI/voice search)
+✅ FAQPage           (if page has FAQs)
+
+SCHEMA PROPERTY RULES:
+- Service type: telephone/email go in provider Organization (NOT on Service)
+- Store type: MUST have address field with PostalAddress
+- Organization: Can have telephone/email directly
+- LocalBusiness: Requires address, telephone, email
+```
+
+**Validation Workflow:**
+1. Create page following this guide
+2. Check title ≤65 chars, description ≤170 chars
+3. Verify all required schemas present
+4. Test with Google Rich Results Test
+5. Test with Schema.org validator
+6. Build and deploy only after validation passes
 
 ---
 
@@ -17,16 +56,263 @@ This document captures all SEO learnings from the Nov 29-30, 2025 sessions so fu
 
 ## 📚 TABLE OF CONTENTS
 
-1. [🤖 AI SEO / GEO / AEO (NEW!)](#-ai-seo--geo--aeo-generative--answer-engine-optimization)
-2. [Schema.org Types Used](#-schemaorg-types-used)
-3. [Meta Tags Reference](#-meta-tags-reference)
-4. [Next.js Image Best Practices](#-nextjs-image-best-practices)
-5. [Accessibility Guidelines](#-accessibility-guidelines)
-6. [New Page Development Checklist](#-new-page-development-checklist)
-7. [Common Pitfalls & Mistakes](#-common-pitfalls--mistakes)
-8. [Validation Tools](#-validation-tools)
-9. [Non-Relevant Warnings](#-non-relevant-warnings-ignore-these)
-10. [Lighthouse Audit Results](#-lighthouse-audit-results-november-30-2025)
+1. [⚠️ Critical Reminder for AI Agents](#️-read-this-first---critical-reminder-for-ai-agents)
+2. [📏 Metadata Length Requirements](#-metadata-length-requirements-mandatory)
+3. [🤖 AI SEO / GEO / AEO (NEW!)](#-ai-seo--geo--aeo-generative--answer-engine-optimization)
+4. [🔧 Schema Property Rules](#-schema-property-rules-dec-8-2025)
+5. [Schema.org Types Used](#-schemaorg-types-used)
+6. [Meta Tags Reference](#-meta-tags-reference)
+7. [Next.js Image Best Practices](#-nextjs-image-best-practices)
+8. [Accessibility Guidelines](#-accessibility-guidelines)
+9. [New Page Development Checklist](#-new-page-development-checklist)
+10. [Common Pitfalls & Mistakes](#-common-pitfalls--mistakes)
+11. [Validation Tools](#-validation-tools)
+12. [Non-Relevant Warnings](#-non-relevant-warnings-ignore-these)
+13. [Lighthouse Audit Results](#-lighthouse-audit-results-november-30-2025)
+
+---
+
+## 📏 METADATA LENGTH REQUIREMENTS (MANDATORY)
+
+**Added:** December 8, 2025  
+**Reason:** Google Rich Results Test and SEO tools flag violations  
+**Impact:** Pages with violations lose rankings and rich result eligibility
+
+### Title Tag Rules
+
+**Hard Limit:** ≤65 characters (including spaces and punctuation)
+
+**Why 65 characters?**
+- Google typically displays 50-60 characters on desktop
+- Mobile displays even less (~55 characters)
+- Anything beyond 65 chars gets truncated with "..."
+- Truncated titles look unprofessional and lose keyword visibility
+
+**Format:** `Primary Keyword - Brand Name`
+
+**Examples:**
+```
+✅ CORRECT (58 chars):
+"Sell Your Medical Imaging Equipment - Phantom Healthcare"
+
+✅ CORRECT (55 chars):
+"Spare Parts & Inventory - Phantom Healthcare"
+
+✅ CORRECT (42 chars):
+"About Us - Phantom Healthcare"
+
+❌ WRONG (77 chars - TOO LONG):
+"Sell Your Medical Imaging Equipment for Best Price in India - Phantom Healthcare"
+
+❌ WRONG (81 chars - TOO LONG):
+"Medical Imaging Spare Parts and Complete Inventory Catalog - Phantom Healthcare"
+```
+
+**Formula:**
+- Primary keyword: 20-30 chars
+- Separator: 3 chars (" - ")
+- Brand: 19 chars ("Phantom Healthcare")
+- **Total: Must be ≤65 chars**
+
+---
+
+### Description Tag Rules
+
+**Hard Limit:** ≤170 characters (including spaces and punctuation)
+
+**Why 170 characters?**
+- Google displays ~155-160 characters on desktop
+- Mobile displays similar length
+- 170 gives buffer for edge cases
+- Longer descriptions get cut off mid-sentence
+
+**Best Practices:**
+- Front-load important keywords (first 120 chars)
+- Include clear call-to-action
+- Use active voice
+- Be specific (avoid vague marketing speak)
+
+**Examples:**
+```
+✅ CORRECT (143 chars):
+"Sell used MRI, CT, PET-CT, Cath Lab equipment for top value. Quick payment in 3-5 days. Free de-installation. Pan-India service. Get quote now."
+
+✅ CORRECT (126 chars):
+"India's largest medical imaging spare parts inventory. 5000+ SKUs for MRI, CT, PET-CT, Cath Lab. Same-day dispatch pan-India."
+
+❌ WRONG (181 chars - TOO LONG):
+"We offer the best prices and quickest payment for your used medical imaging equipment including MRI scanners, CT scanners, PET-CT systems and Cath Lab machines across all of India."
+
+❌ WRONG (185 chars - TOO LONG):
+"Browse our comprehensive inventory of over 5000 spare parts for all major medical imaging equipment brands including MRI, CT, PET-CT and Cath Lab with same-day dispatch available across India."
+```
+
+**Formula:**
+- Problem statement: 40-50 chars
+- Solution/benefit: 50-60 chars
+- Call-to-action: 20-30 chars
+- Keywords: 20-30 chars
+- **Total: Must be ≤170 chars**
+
+---
+
+### Email Address Standardization
+
+**Standard Email:** `digital@phantomhealthcare.com`
+
+**When to use standard email:**
+- All new pages (unless specified otherwise)
+- JSON-LD schemas (Organization, Service provider, Store)
+- Contact forms
+- Footer contact info
+
+**Exceptions (only if user specifies):**
+- Specific department emails (e.g., `sales@`, `support@`)
+- Personal emails for leadership team
+- Regional office emails
+
+**Rationale:**
+- Centralized communication
+- Easier to manage and forward
+- Consistent brand presence
+- Single point of contact for analytics
+
+---
+
+### Metadata Validation Checklist
+
+```bash
+# Before deployment, run these checks:
+
+1. Title character count:
+   - Count in text editor OR
+   - Use: https://wordcounter.net/character-count
+   - Must be ≤65 characters
+
+2. Description character count:
+   - Count in text editor OR  
+   - Use: https://wordcounter.net/character-count
+   - Must be ≤170 characters
+
+3. Email address:
+   - Search codebase: grep -r "@phantomhealthcare.com"
+   - Verify using digital@ unless specified otherwise
+
+4. Test with tools:
+   - Google Rich Results Test
+   - Chrome SEO plugins (META SEO inspector, SEO Minion)
+   - Schema.org validator
+```
+
+---
+
+## 🔧 SCHEMA PROPERTY RULES (Dec 8, 2025)
+
+**Why this section exists:** Schema.org has strict rules about which properties are valid for each type. Google Rich Results Test and Schema.org validator will flag violations.
+
+### Service Type Properties
+
+**Valid Properties ON Service:**
+- `@type`, `name`, `description`, `url`, `provider`, `serviceType`, `areaServed`
+
+**Invalid Properties ON Service:**
+- ❌ `telephone` (must be in provider)
+- ❌ `email` (must be in provider)
+- ❌ `address` (must be in provider)
+
+**Correct Structure:**
+```json
+{
+  "@type": "Service",
+  "name": "Medical Equipment Buying Service",
+  "description": "...",
+  "url": "https://phantomhealthcare.com/sell-your-medical-imaging-equipment",
+  "provider": {
+    "@type": "Organization",
+    "name": "Phantom Healthcare",
+    "telephone": "+91-9899963601",
+    "email": "digital@phantomhealthcare.com"
+  }
+}
+```
+
+---
+
+### Store Type Properties
+
+**Required Properties:**
+- `@type`, `name`, `address` (REQUIRED!)
+
+**Optional but Recommended:**
+- `description`, `url`, `telephone`, `email`, `image`, `openingHours`
+
+**Critical:** Store type MUST have `address` with PostalAddress schema:
+
+```json
+{
+  "@type": "Store",
+  "name": "Phantom Healthcare Spare Parts Warehouse",
+  "description": "...",
+  "url": "https://phantomhealthcare.com/spare-parts-and-inventory",
+  "telephone": "+91-9899963601",
+  "email": "digital@phantomhealthcare.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Industrial Area",
+    "addressLocality": "Faridabad",
+    "addressRegion": "Haryana",
+    "postalCode": "121003",
+    "addressCountry": "IN"
+  }
+}
+```
+
+**Common Error:** Missing `address` field triggers "Missing field 'address'" error in Google Rich Results Test.
+
+---
+
+### Organization Type Properties
+
+**Valid Properties:**
+- All contact properties can go directly on Organization
+- `telephone`, `email`, `address` are all valid
+
+```json
+{
+  "@type": "Organization",
+  "name": "Phantom Healthcare",
+  "telephone": "+91-9899963601",
+  "email": "digital@phantomhealthcare.com",
+  "url": "https://phantomhealthcare.com"
+}
+```
+
+---
+
+### LocalBusiness / MedicalBusiness Type Properties
+
+**Required Properties:**
+- `@type`, `name`, `address`, `telephone`
+
+**Recommended:**
+- `email`, `url`, `image`, `openingHoursSpecification`, `priceRange`
+
+```json
+{
+  "@type": "MedicalBusiness",
+  "name": "Phantom Healthcare",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "...",
+    "addressLocality": "Faridabad",
+    "addressRegion": "Haryana",
+    "postalCode": "121003",
+    "addressCountry": "IN"
+  },
+  "telephone": "+91-9899963601",
+  "email": "digital@phantomhealthcare.com"
+}
+```
 
 ---
 

@@ -1,9 +1,31 @@
 # 📋 NEW PAGE CHECKLIST
 
 **Created:** November 30, 2025  
-**Last Updated:** December 7, 2025 (New Pages Added)  
+**Last Updated:** December 8, 2025 (Schema Validation Rules Added)  
 **Purpose:** Quick reference for creating new pages with proper SEO & Accessibility  
 **Use This:** Before creating ANY new page in the Next.js site
+
+---
+
+## 🚨 WHY AI AGENTS FORGET GUIDELINES
+
+**Problem:** AI agents may create pages without checking this file, leading to:
+- Title/description too long (>65 / >170 chars)
+- Missing required schemas (Speakable, FAQPage)
+- Wrong email address
+- Invalid schema properties
+
+**Solution:** ALWAYS read this file AND `SEO-INDIA-REFERENCE.md` BEFORE starting work on any page.
+
+**Quick Reminder:**
+```
+✅ Title ≤65 characters
+✅ Description ≤170 characters  
+✅ Email: digital@phantomhealthcare.com
+✅ Schemas: BreadcrumbJsonLd + Speakable + FAQPage (if FAQs exist)
+✅ Service type: contact info in provider Organization
+✅ Store type: MUST have address field
+```
 
 ---
 
@@ -35,16 +57,19 @@ Use these as reference templates when creating new pages:
 
 ```tsx
 export const metadata: Metadata = {
-  title: 'Page Title - Phantom Healthcare',  // 50-60 chars ideal
-  description: 'Page description with keywords...',  // 150-160 chars ideal
+  // 🚨 HARD LIMIT: ≤65 characters (including " - Phantom Healthcare")
+  title: 'Page Title - Phantom Healthcare',  
+  
+  // 🚨 HARD LIMIT: ≤170 characters (front-load keywords, include CTA)
+  description: 'Page description with keywords...',  
   
   openGraph: {
     type: 'website',
     locale: 'en_IN',
     url: 'https://phantomhealthcare.com/page-url',
     siteName: 'Phantom Healthcare',
-    title: '...',
-    description: '...',
+    title: '...',  // Can match page title
+    description: '...',  // Can match page description
     images: [{ url: '/images/...', width: 1200, height: 630, alt: '...' }],
   },
   
@@ -61,11 +86,26 @@ export const metadata: Metadata = {
 };
 ```
 
-- [ ] Title: 50-60 characters ✅
-- [ ] Description: 150-160 characters ✅
+### Validation Checklist
+- [ ] Title: ≤65 characters (HARD LIMIT) ✅
+- [ ] Description: ≤170 characters (HARD LIMIT) ✅
+- [ ] Count characters manually or use https://wordcounter.net/character-count ✅
+- [ ] Email: `digital@phantomhealthcare.com` (unless specified) ✅
 - [ ] OpenGraph configured ✅
 - [ ] Twitter card configured ✅
 - [ ] Canonical URL set ✅
+
+### Character Counting Methods
+```typescript
+// Method 1: In code (TypeScript)
+const title = "Your Title - Phantom Healthcare";
+console.log(title.length);  // Must be ≤65
+
+// Method 2: Online tool
+// https://wordcounter.net/character-count
+
+// Method 3: Text editor (most editors show char count)
+```
 
 ---
 
@@ -384,7 +424,82 @@ export function YourPageSpeakableJsonLd() {
 - [ ] URL matches the actual page URL ✅
 - [ ] cssSelector uses existing elements (`h1`, `h2`) ✅
 - [ ] mainEntity includes business description ✅
+- [ ] If mainEntity is Service: contact info in provider Organization ✅
+- [ ] If mainEntity is Store: address field with PostalAddress ✅
+- [ ] Email is `digital@phantomhealthcare.com` unless specified ✅
 - [ ] Tested with Google Rich Results Test ✅
+- [ ] Tested with Schema.org validator ✅
+
+---
+
+## ✅ SCHEMA PROPERTY RULES (Dec 8, 2025)
+
+### Service Type
+**Contact info goes in provider Organization, NOT on Service directly**
+
+```tsx
+// ❌ WRONG - Schema.org will show warnings
+"mainEntity": {
+  "@type": "Service",
+  "telephone": "+91-9899963601",  // ❌ Invalid property
+  "email": "digital@phantomhealthcare.com"  // ❌ Invalid property
+}
+
+// ✅ CORRECT
+"mainEntity": {
+  "@type": "Service",
+  "name": "Medical Equipment Buying Service",
+  "provider": {
+    "@type": "Organization",
+    "name": "Phantom Healthcare",
+    "telephone": "+91-9899963601",  // ✅ Valid on Organization
+    "email": "digital@phantomhealthcare.com"  // ✅ Valid on Organization
+  }
+}
+```
+
+### Store Type
+**MUST have address field with PostalAddress**
+
+```tsx
+// ❌ WRONG - Google Rich Results error: "Missing field 'address'"
+"mainEntity": {
+  "@type": "Store",
+  "name": "Warehouse Name",
+  "telephone": "+91-9899963601"
+  // Missing address!
+}
+
+// ✅ CORRECT
+"mainEntity": {
+  "@type": "Store",
+  "name": "Phantom Healthcare Spare Parts Warehouse",
+  "telephone": "+91-9899963601",
+  "email": "digital@phantomhealthcare.com",
+  "address": {  // ✅ Required field
+    "@type": "PostalAddress",
+    "streetAddress": "Industrial Area",  // Add when available
+    "addressLocality": "Faridabad",
+    "addressRegion": "Haryana",
+    "postalCode": "121003",
+    "addressCountry": "IN"
+  }
+}
+```
+
+### Organization Type
+**Contact info can go directly on Organization**
+
+```tsx
+// ✅ CORRECT - All these are valid on Organization
+"mainEntity": {
+  "@type": "Organization",
+  "name": "Phantom Healthcare",
+  "telephone": "+91-9899963601",  // ✅ Valid
+  "email": "digital@phantomhealthcare.com",  // ✅ Valid
+  "url": "https://phantomhealthcare.com"  // ✅ Valid
+}
+```
 
 ---
 

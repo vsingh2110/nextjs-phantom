@@ -1,11 +1,12 @@
 # Session Handover - December 8, 2025
 
 **Session Start Time:** Morning IST  
-**Session End Time:** In Progress  
-**Focus:** Documentation Update & Status Verification  
-**Build Status:** ✅ Passing (312 pages)  
+**Session End Time:** Evening IST  
+**Focus:** Single Pages Creation + Schema Validation  
+**Build Status:** ✅ Passing (249 pages)  
 **Git Status:** ✅ Clean (all changes from Dec 7 committed)  
-**Next.js Version:** 15.3.6 (Security patched)
+**Next.js Version:** 15.3.6 (Security patched)  
+**Schema Validation:** ✅ Google Rich Results & Schema.org passing
 
 ---
 
@@ -243,10 +244,68 @@ Create 5-7 individual service detail pages:
 - BreadcrumbJsonLd schema
 
 **Build Status:**
-- ✅ Build successful (312 pages)
+- ✅ Build successful (249 pages - reduced from 312)
 - ✅ TypeScript compilation passed
 - ✅ Linting passed
 - ✅ All pages generated statically
+- ⚠️ Removed X-ray, Ultrasound, Mammography standalone categories (company doesn't deal in these)
+- ✅ Kept X-ray tubes in spare parts lists (used in CT/Cath Lab equipment)
+
+---
+
+## 🔧 SCHEMA VALIDATION FIXES (Dec 8 - Evening)
+
+### **Issues Discovered**
+
+User tested with Chrome SEO plugin, Google Rich Results Test, and Schema.org validator:
+
+**Sell Equipment Page:**
+- ⚠️ Schema.org: "telephone property not recognized for Service type"
+- ⚠️ Schema.org: "email property not recognized for Service type"
+
+**Spare Parts Page:**
+- ❌ Google Rich Results: "Missing field 'address'" for Store type
+
+### **Fixes Applied**
+
+**1. Service Schema (Sell Equipment)**
+- File: `src/components/seo/JsonLd.tsx` - `SellEquipmentSpeakableJsonLd()`
+- Changed: Moved `telephone` and `email` from Service to provider Organization
+- Reason: Schema.org Service type doesn't support these properties directly
+- Result: ✅ Schema.org validation passing (0 errors, 0 warnings)
+
+**2. Store Schema (Spare Parts)**
+- File: `src/components/seo/JsonLd.tsx` - `SparePartsSpeakableJsonLd()`
+- Added: `address` field with PostalAddress type (Faridabad, Haryana, IN)
+- Reason: Store type requires physical address
+- Result: ✅ Google Rich Results passing
+- ⏳ PENDING: Actual warehouse street address, area, postal code (awaiting Google Maps/GMB setup)
+
+**3. Email Standardization**
+- Changed all emails to `digital@phantomhealthcare.com` per user requirement
+- Sell Equipment: `biz@` → `digital@`
+- Spare Parts: `spareparts@` → `digital@`
+- Global rule: Use `digital@phantomhealthcare.com` unless specified otherwise
+
+### **SEO Compliance Verification**
+
+Both new pages now meet SEO-INDIA-REFERENCE.md requirements:
+- ✅ Title ≤65 chars (Sell: 58 chars, Spare Parts: 55 chars)
+- ✅ Description ≤170 chars (Sell: 143 chars, Spare Parts: 126 chars)
+- ✅ BreadcrumbJsonLd schema
+- ✅ Speakable schema for AI/voice search (GEO/AEO)
+- ✅ FAQPage schema (6 FAQs each)
+- ✅ Mobile-responsive (center on mobile, left on desktop)
+- ✅ Proper icon alignment (items-start, mt-1, flex-shrink-0)
+
+### **Key Lesson**
+
+User reminder: **"Aren't you making pages by seeing NEW-PAGE-CHECKLIST.md and SEO-INDIA-REFERENCE.md files?"**
+
+**Takeaway:** ALWAYS follow documentation guidelines from the START:
+- NEW-PAGE-CHECKLIST.md: Schema requirements, component checklist
+- SEO-INDIA-REFERENCE.md: Metadata length limits, schema types
+- Test with Google Rich Results + Schema.org before deployment
 
 ---
 
@@ -280,19 +339,25 @@ Create 5-7 individual service detail pages:
 
 The project is now in a solid state with:
 - ✅ **8 fully completed pages** (up from 6)
-- ✅ All documentation updated
-- ✅ Build passing (312 pages)
-- ✅ SEO foundation established
+- ✅ All documentation updated (CURRENT-STATUS, development-roadmap, daily logs)
+- ✅ Build passing (249 pages)
+- ✅ SEO foundation established with full compliance
+- ✅ Schema validation passing (Google Rich Results + Schema.org)
 - ✅ Optimization complete
 - ✅ Git repository clean
 
 **Next Priorities (as per user):**
-1. **Blog page** - Listing page with card/box layout for blog posts
-2. **Events & News page** - Listing page with card/box layout for news/events
+1. **Blog page** - Listing page with card/box layout for blog posts (MUST follow NEW-PAGE-CHECKLIST.md)
+2. **Events & News page** - Listing page with card/box layout for news/events (MUST follow NEW-PAGE-CHECKLIST.md)
 3. Product page templates (after content pages)
 4. Service page templates (after content pages)
 
+**Pending Tasks:**
+- ⏳ Get warehouse physical address (street, area, postal code) for Store schema completion
+- ⏳ Create dedicated warehouse tour page once Google Maps/GMB is ready
+
 ---
 
-**Session End:** TBD  
-**Next Session:** Product Pages Development
+**Session End:** Evening IST  
+**Next Session:** Blog & Events-News Listing Pages Development  
+**Critical Reminder:** Follow NEW-PAGE-CHECKLIST.md and SEO-INDIA-REFERENCE.md from the start!
