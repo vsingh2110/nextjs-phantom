@@ -32,15 +32,6 @@ const categoryProductLinks: Record<string, { name: string; href: string }[]> = {
   'gamma-camera': [
     { name: 'Refurbished Gamma Camera', href: '/product-pages/refurbished-gamma-camera-spect-system-machine' },
   ],
-  'x-ray': [
-    { name: 'X-Ray Machines', href: '/products' },
-  ],
-  'ultrasound': [
-    { name: 'Ultrasound Machines', href: '/products' },
-  ],
-  'mammography': [
-    { name: 'Mammography Systems', href: '/products' },
-  ],
   'c-arm': [
     { name: 'C-Arm Machines', href: '/products' },
   ],

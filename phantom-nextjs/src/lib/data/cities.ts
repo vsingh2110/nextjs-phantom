@@ -475,9 +475,6 @@ export const productCategories = [
   { slug: 'cath-lab', name: 'Cath Lab', icon: '❤️' },
   { slug: 'dexa', name: 'DEXA / Bone Densitometer', icon: '🦴' },
   { slug: 'gamma-camera', name: 'Gamma Camera / SPECT', icon: '☢️' },
-  { slug: 'x-ray', name: 'X-Ray Machines', icon: '📷' },
-  { slug: 'ultrasound', name: 'Ultrasound', icon: '🔊' },
-  { slug: 'mammography', name: 'Mammography', icon: '🩺' },
   { slug: 'c-arm', name: 'C-Arm', icon: '🦿' },
 ];
 

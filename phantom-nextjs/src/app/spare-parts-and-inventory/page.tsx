@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 const sparePartsFaqs = [
   {
     question: "What types of spare parts do you stock?",
-    answer: "We maintain a comprehensive inventory of over 5000+ SKUs covering all major medical imaging modalities - MRI (RF coils, gradient coils, patient tables), CT (X-ray tubes, detectors, slip rings), PET-CT (detectors, electronics), Cath Lab (image intensifiers, generators), and general components like monitors, computers, UPS systems, and cables."
+    answer: "We maintain a comprehensive inventory of over 5000+ SKUs covering all major medical imaging modalities - MRI (RF coils, gradient coils, patient tables), CT (X-ray tubes, detectors, slip rings), PET-CT (detectors, electronics), Cath Lab (image intensifiers, X-ray tubes, generators), and general components like monitors, computers, UPS systems, and cables."
   },
   {
     question: "Are the spare parts genuine or compatible?",
@@ -91,7 +91,7 @@ export default function SparePartsPage() {
                 India's Largest Medical Imaging Spare Parts Inventory
               </h1>
               <p className="text-lg sm:text-xl text-gray-200 mb-8 leading-relaxed">
-                Over 5000+ SKUs in stock! Genuine OEM and compatible spare parts for MRI, CT, PET-CT, Cath Lab, X-Ray, and all medical imaging equipment. Same-day dispatch. Pan-India delivery.
+                Over 5000+ SKUs in stock! Genuine OEM and compatible spare parts for MRI, CT, PET-CT, Cath Lab, and all medical imaging equipment. Same-day dispatch. Pan-India delivery.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a 

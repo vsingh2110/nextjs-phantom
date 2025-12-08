@@ -323,7 +323,7 @@ export default function About() {
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-6">
             {[
               { name: 'MRI Scanner', icon: 'fa-solid fa-magnet' },
-              { name: 'CT Scanner', icon: 'fa-solid fa-x-ray' },
+              { name: 'CT Scanner', icon: 'fa-solid fa-procedures' },
               { name: 'PET-CT', icon: 'fa-solid fa-atom' },
               { name: 'Cath-Lab', icon: 'fa-solid fa-heart-pulse' },
               { name: 'Gamma Camera SPECT', icon: 'fa-solid fa-radiation' },
