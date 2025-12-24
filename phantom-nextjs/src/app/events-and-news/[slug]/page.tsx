@@ -8,8 +8,8 @@ import { getAllNewsSlugs, getNewsBySlug } from '@/lib/news';
 import BreadcrumbJsonLd from '@/components/schemas/BreadcrumbJsonLd';
 import NewsArticleJsonLd from '@/components/schemas/NewsArticleJsonLd';
 import BlurBackgroundScript from '@/components/BlurBackgroundScript';
-import ImagePair from '@/components/ImagePair';
-
+import ImagePair from '@/components/ImagePair';import SocialShare from '@/components/blog/SocialShare';
+import References from '@/components/blog/References';
 // Generate static params for all news/events
 export async function generateStaticParams() {
   const slugs = getAllNewsSlugs();
@@ -231,7 +231,11 @@ export default async function NewsArticlePage({ params }: { params: Promise<{ sl
                 {newsItem.excerpt}
               </p>
             </div>
-
+            {/* Social Share - Top */}
+            <SocialShare 
+              title={newsItem.title}
+              url={`https://phantomhealthcare.com/events-and-news/${newsItem.slug}`}
+            />
             {/* MDX Content */}
             <div className="prose prose-lg max-w-none blog-content">
               <ReactMarkdown
@@ -241,7 +245,16 @@ export default async function NewsArticlePage({ params }: { params: Promise<{ sl
                 {newsItem.content}
               </ReactMarkdown>
             </div>
+            {/* References */}
+            {newsItem.references && newsItem.references.length > 0 && (
+              <References references={newsItem.references} />
+            )}
 
+            {/* Social Share - Bottom */}
+            <SocialShare 
+              title={newsItem.title}
+              url={`https://phantomhealthcare.com/events-and-news/${newsItem.slug}`}
+            />
             {/* Tags */}
             {newsItem.tags && newsItem.tags.length > 0 && (
               <div className="mt-12 pt-8 border-t border-gray-200">

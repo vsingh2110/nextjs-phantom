@@ -9,6 +9,8 @@ import BreadcrumbJsonLd from '@/components/schemas/BreadcrumbJsonLd';
 import ArticleJsonLd from '@/components/schemas/ArticleJsonLd';
 import BlurBackgroundScript from '@/components/BlurBackgroundScript';
 import ImagePair from '@/components/ImagePair';
+import SocialShare from '@/components/blog/SocialShare';
+import References from '@/components/blog/References';
 
 // Generate static params for all blog posts
 export async function generateStaticParams() {
@@ -233,6 +235,12 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
               </p>
             </div>
 
+            {/* Social Share - Top */}
+            <SocialShare 
+              title={post.title}
+              url={`https://phantomhealthcare.com/blogs/${post.slug}`}
+            />
+
             {/* MDX Content */}
             <div className="prose prose-lg max-w-none blog-content">
               <ReactMarkdown
@@ -242,6 +250,17 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 {post.content}
               </ReactMarkdown>
             </div>
+
+            {/* References */}
+            {post.references && post.references.length > 0 && (
+              <References references={post.references} />
+            )}
+
+            {/* Social Share - Bottom */}
+            <SocialShare 
+              title={post.title}
+              url={`https://phantomhealthcare.com/blogs/${post.slug}`}
+            />
 
             {/* Tags */}
             {post.tags && post.tags.length > 0 && (

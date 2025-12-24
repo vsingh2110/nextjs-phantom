@@ -3,6 +3,12 @@ import path from 'path'
 import matter from 'gray-matter'
 import readingTime from 'reading-time'
 
+// Reference type
+export interface Reference {
+  url: string
+  title: string
+}
+
 // News post type
 export interface NewsPost {
   slug: string
@@ -15,6 +21,7 @@ export interface NewsPost {
   category: string
   author: string
   tags?: string[]
+  references?: Reference[]
 }
 
 // News post metadata (without content)
@@ -28,6 +35,7 @@ export interface NewsPostMetadata {
   category: string
   author: string
   tags?: string[]
+  references?: Reference[]
 }
 
 // Content directory path
@@ -63,6 +71,7 @@ export function getAllNews(): NewsPostMetadata[] {
         category: data.category,
         author: data.author || 'Phantom Healthcare Team',
         tags: data.tags || [],
+        references: data.references || [],
       }
     })
     .sort((a, b) => (new Date(a.date) > new Date(b.date) ? -1 : 1))
@@ -93,6 +102,7 @@ export function getNewsBySlug(slug: string): NewsPost | null {
       category: data.category,
       author: data.author || 'Phantom Healthcare Team',
       tags: data.tags || [],
+      references: data.references || [],
     }
   } catch (error) {
     return null
