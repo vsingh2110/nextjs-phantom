@@ -7,6 +7,8 @@ import remarkGfm from 'remark-gfm';
 import { getAllSlugs, getPostBySlug } from '@/lib/blog';
 import BreadcrumbJsonLd from '@/components/schemas/BreadcrumbJsonLd';
 import ArticleJsonLd from '@/components/schemas/ArticleJsonLd';
+import BlurBackgroundScript from '@/components/BlurBackgroundScript';
+import ImagePair from '@/components/ImagePair';
 
 // Generate static params for all blog posts
 export async function generateStaticParams() {
@@ -95,6 +97,7 @@ const mdxComponents = {
       />
     </span>
   ),
+  ImagePair: ImagePair,
 };
 
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
@@ -123,6 +126,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
   return (
     <>
+      <BlurBackgroundScript />
       <BreadcrumbJsonLd items={breadcrumbItems} />
       <ArticleJsonLd
         title={post.title}
@@ -134,52 +138,71 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       />
 
       <main className="main-content">
-        {/* Hero Banner */}
+        {/* Hero Banner - Clean Image Only */}
         <section className="relative h-[400px] lg:h-[500px] overflow-hidden">
-          <Image
-            src={post.image}
-            alt={post.title}
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+          {/* Blurred Background */}
+          <div className="absolute inset-0">
+            <Image
+              src={post.image}
+              alt=""
+              fill
+              className="object-cover blur-sm scale-110 opacity-40"
+              priority
+              quality={30}
+            />
+          </div>
           
+          {/* Main Image */}
+          <div className="relative h-full flex items-center justify-center z-10 px-4">
+            <Image
+              src={post.image}
+              alt={post.title}
+              fill
+              className="object-contain"
+              priority
+              quality={90}
+            />
+          </div>
+
           {/* Category Badge */}
-          <div className="absolute top-8 left-8 z-10">
+          <div className="absolute top-8 left-8 z-20">
             <span className="px-4 py-2 bg-[#59913d] text-white text-sm font-semibold rounded-full shadow-xl">
               {post.category}
             </span>
           </div>
+        </section>
 
-          {/* Title Overlay */}
-          <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-12">
-            <div className="container">
-              <nav className="mb-4">
-                <ol className="flex flex-wrap items-center gap-2 text-sm text-white/80">
-                  <li>
-                    <Link href="/" className="hover:text-white transition-colors">
-                      Home
-                    </Link>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span>/</span>
-                    <Link href="/blogs" className="hover:text-white transition-colors">
-                      Blog
-                    </Link>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <span>/</span>
-                    <span className="text-white font-semibold line-clamp-1">{post.title}</span>
-                  </li>
-                </ol>
-              </nav>
+        {/* Article Content */}
+        <article className="py-12 lg:py-20 bg-white">
+          <div className="w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Breadcrumb */}
+            <nav className="mb-6">
+              <ol className="flex flex-wrap items-center gap-2 text-sm text-gray-600">
+                <li>
+                  <Link href="/" className="hover:text-[#59913d] transition-colors">
+                    Home
+                  </Link>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span>/</span>
+                  <Link href="/blogs" className="hover:text-[#59913d] transition-colors">
+                    Blog
+                  </Link>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span>/</span>
+                  <span className="text-gray-900 font-semibold line-clamp-1">{post.title}</span>
+                </li>
+              </ol>
+            </nav>
 
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 max-w-4xl">
+            {/* Title and Meta */}
+            <header className="mb-8">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                 {post.title}
               </h1>
 
-              <div className="flex flex-wrap items-center gap-4 text-white/90">
+              <div className="flex flex-wrap items-center gap-4 text-gray-600">
                 <div className="flex items-center gap-2">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -201,13 +224,8 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                   <span>{post.readTime}</span>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
+            </header>
 
-        {/* Article Content */}
-        <article className="py-12 lg:py-20 bg-white">
-          <div className="container max-w-4xl">
             {/* Excerpt */}
             <div className="mb-8 p-6 bg-gray-50 border-l-4 border-[#59913d] rounded-r-lg">
               <p className="text-lg lg:text-xl text-gray-700 leading-relaxed font-medium">
@@ -216,7 +234,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             </div>
 
             {/* MDX Content */}
-            <div className="prose prose-lg max-w-none">
+            <div className="prose prose-lg max-w-none blog-content">
               <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 components={mdxComponents as any}

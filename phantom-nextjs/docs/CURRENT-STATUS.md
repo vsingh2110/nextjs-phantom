@@ -1,14 +1,14 @@
 # Phantom Medical Imaging — Current Status
 
-**Last Updated:** December 24, 2025 (Blog & Events System Complete)  
+**Last Updated:** December 24, 2025 (Blog Detail Pages Restructured)  
 **Phase:** Active Migration - Static to Next.js  
-**Priority:** Blog & Events System with MDX Support  
+**Priority:** Blog & Events System with MDX Support ✅ COMPLETE  
 **Git Status:** ⏳ Pending Commit  
 **Next.js Version:** 15.3.6  
-**Build Status:** ✅ Passing (257 pages - includes 3 blogs + 2 events)  
-**Completed Pages:** 8 full pages + Blog System (5 posts)  
+**Build Status:** ✅ Passing (254 pages - includes 3 blogs + 2 events)  
+**Completed Pages:** 8 full pages + Blog System (5 posts) + 4 image formats  
 **Schema Validation:** ✅ Google Rich Results & Schema.org passing  
-**New Features:** ✅ MDX Blog System, React-Markdown rendering, Category filtering
+**New Features:** ✅ MDX Blog System, 4 Image Layout Formats, Clean Hero Banners, Centered Content
 
 ---
 
@@ -24,19 +24,101 @@
 | FAQs | `/faqs` | ~17 KB | ✅ Complete | BreadcrumbList, FAQPage (18 FAQs), Speakable | 18 | ✅ Live |
 | Sell Your Equipment | `/sell-your-medical-imaging-equipment` | ~24 KB | ✅ Complete (58 chars) | BreadcrumbList, Speakable (Service), FAQPage | 6 | ✅ Live |
 | Spare Parts & Inventory | `/spare-parts-and-inventory` | ~32 KB | ✅ Complete (55 chars) | BreadcrumbList, Speakable (Store*), FAQPage | 6 | ✅ Live |
-| **Blog Listing** | `/blogs` | ~3.4 KB | ✅ Complete | BreadcrumbList, CollectionPage, Speakable | 0 | ✅ New |
-| **Blog Details** | `/blogs/[slug]` | ~2 KB | ✅ Complete | BreadcrumbList, Article, Speakable | 0 | ✅ New (3 posts) |
-| **Events & News Listing** | `/events-and-news` | ~3.4 KB | ✅ Complete | BreadcrumbList, CollectionPage | 0 | ✅ New |
-| **Events & News Details** | `/events-and-news/[slug]` | ~2 KB | ✅ Complete | BreadcrumbList, NewsArticle | 0 | ✅ New (2 posts) |
+| **Blog Listing** | `/blogs` | ~3.4 KB | ✅ Complete | BreadcrumbList, CollectionPage, Speakable | 0 | ✅ Live |
+| **Blog Details** | `/blogs/[slug]` | ~2 KB | ✅ Complete | BreadcrumbList, Article, Speakable | 0 | ✅ **FIXED** (3 posts) |
+| **Events & News Listing** | `/events-and-news` | ~3.4 KB | ✅ Complete | BreadcrumbList, CollectionPage | 0 | ✅ Live |
+| **Events & News Details** | `/events-and-news/[slug]` | ~2 KB | ✅ Complete | BreadcrumbList, NewsArticle | 0 | ✅ **FIXED** (2 posts) |
 
-**Total Pages:** 257 (249 existing + 5 blog posts + 2 news posts + 1 blog listing)  
+**Total Pages:** 254 (249 existing + 5 blog/news posts)  
 **Total FAQ Count:** 50 FAQs across 8 pages  
 **Blog Posts:** 3 (MRI Technology, CT Scanner Guide, AMC Importance)  
-**News/Events:** 2 (IRIA 2024, Siemens Skyra Launch)
+**News/Events:** 2 (IRIA 2024, Siemens Skyra Launch)  
+**Image Formats:** 4 (Center+Blur, Dual Parallel, Float Left, Float Right)
 
 ---
 
-## 🎉 NEW: BLOG & EVENTS SYSTEM (Dec 24, 2025)
+## 🎉 NEW: BLOG DETAIL PAGES RESTRUCTURED (Dec 24, 2025)
+
+### **Major Changes**
+
+**Hero Banner Restructure:**
+- ✅ Removed title/breadcrumb/meta from hero overlay
+- ✅ Created clean hero image with blurred background effect
+- ✅ Only category badge remains on hero
+- ✅ Title/breadcrumb/meta moved to content area below
+
+**Content Area Fixes:**
+- ✅ Replaced left-aligned "container" class
+- ✅ Proper width containers: `w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px]`
+- ✅ Content now properly centered
+- ✅ Responsive padding: px-4 sm:px-6 lg:px-8
+
+**Image System - 4 Formats:**
+1. ✅ **Large Center Image** - 65vh height with blurred background
+2. ✅ **Two Parallel Images** - Side-by-side (48% each, 55vh)
+3. ✅ **Left Floating Image** - 400px with text wrap on right
+4. ✅ **Right Floating Image** - 400px with text wrap on left
+
+### **New Components Created**
+
+1. **BlurBackgroundScript.tsx** (`src/components/`)
+   - Client component using useEffect
+   - Sets `--bg-image` CSS variable dynamically
+   - Enables blurred background on center images
+   - Applied to both blog and events-news detail pages
+
+2. **ImagePair.tsx** (`src/components/`)
+   - Two-image layout component
+   - Uses Next.js Image for optimization
+   - Props: src1, alt1, src2, alt2, caption1, caption2
+   - Automatically stacks on mobile
+
+### **CSS Implementation**
+
+Added ~224 lines of blog image CSS to `src/app/globals.css` (lines 972-1195):
+- Scoped to `.blog-content .prose` (no conflicts)
+- 4 distinct image format styles
+- Mobile responsive (768px breakpoint)
+- Clear floats utility
+- Caption positioning
+
+### **MDX Usage Examples**
+
+**Large Center Image:**
+```mdx
+<figure>
+  <img src="/path/to/image.jpg" alt="Description" />
+  <figcaption>Caption below image</figcaption>
+</figure>
+```
+
+**Two Parallel Images:**
+```mdx
+<div className="image-pair">
+  <figure>
+    <img src="/image1.jpg" alt="First" />
+    <figcaption>First caption</figcaption>
+  </figure>
+  <figure>
+    <img src="/image2.jpg" alt="Second" />
+    <figcaption>Second caption</figcaption>
+  </figure>
+</div>
+```
+
+**Floating Image with Text Wrap:**
+```mdx
+<figure className="float-right">
+  <img src="/image.jpg" alt="Diagram" />
+  <figcaption>Figure 1: System architecture</figcaption>
+</figure>
+
+Your text continues here and wraps around the image...
+```
+
+---
+
+## 🎉 BLOG & EVENTS SYSTEM (Dec 24, 2025 - COMPLETE)
 
 ### **System Architecture**
 
