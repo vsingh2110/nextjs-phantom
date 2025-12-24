@@ -1,128 +1,110 @@
-import Image from 'next/image'
+import { Metadata } from 'next';
+import Link from 'next/link';
+import { getAllPosts } from '@/lib/blog';
+import BlogGrid from '@/components/ui/BlogGrid';
+import BreadcrumbJsonLd from '@/components/schemas/BreadcrumbJsonLd';
+import BlogListingSpeakableJsonLd from '@/components/schemas/BlogListingSpeakableJsonLd';
 
-export default function Blogs() {
+export const metadata: Metadata = {
+  title: 'Blog - Phantom Healthcare | Medical Imaging Insights & News',
+  description: 'Expert insights on medical imaging equipment, MRI, CT scanners, maintenance, and healthcare technology from Phantom Healthcare.',
+  openGraph: {
+    title: 'Blog - Phantom Healthcare',
+    description: 'Expert insights on medical imaging equipment and healthcare technology',
+    type: 'website',
+    url: 'https://www.phantomhealthcare.com/blogs',
+  },
+};
+
+export default function BlogsPage() {
+  const posts = getAllPosts();
+
+  const breadcrumbItems = [
+    { name: 'Home', url: 'https://www.phantomhealthcare.com' },
+    { name: 'Blog', url: 'https://www.phantomhealthcare.com/blogs' },
+  ];
+
   return (
-    <main className="main-content">
-      
-      {/* Blogs Hero Section */}
-      <section className="page-hero">
-        <div className="container">
-          <h1>Blogs & News</h1>
-          <p>Stay updated with the latest in medical imaging technology and industry insights</p>
-        </div>
-      </section>
+    <>
+      <BreadcrumbJsonLd items={breadcrumbItems} />
+      <BlogListingSpeakableJsonLd />
 
-      {/* Featured Blog */}
-      <section className="featured-blog">
-        <div className="container">
-          <div className="featured-blog-content">
-            <div className="featured-blog-image">
-              <Image src="/images/iria-2024.jpg" alt="IRIA 2024 Conference" width={400} height={300} />
+      <main className="main-content">
+        {/* Hero Section */}
+        <section className="relative bg-gradient-to-br from-[#59913d] via-[#4a7a32] to-[#255a0a] py-16 lg:py-24 overflow-hidden">
+          <div className="absolute inset-0 bg-black/10" />
+          <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-5" />
+          
+          <div className="container relative z-10">
+            <nav className="mb-6 lg:mb-8">
+              <ol className="flex flex-wrap items-center gap-2 text-sm text-white/80">
+                <li>
+                  <Link href="/" className="hover:text-white transition-colors">
+                    Home
+                  </Link>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span>/</span>
+                  <span className="text-white font-semibold">Blog</span>
+                </li>
+              </ol>
+            </nav>
+
+            <div className="max-w-4xl">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 lg:mb-6">
+                Blog & Industry Insights
+              </h1>
+              <p className="text-lg sm:text-xl text-white/90 leading-relaxed max-w-3xl">
+                Expert perspectives on medical imaging technology, equipment maintenance, industry trends, and healthcare innovation.
+              </p>
             </div>
-            <div className="featured-blog-text">
-              <h2>IRIA 2024 Conference Highlights</h2>
-              <p className="blog-meta">Published on January 15, 2024 | Industry News</p>
-              <p>Phantom Healthcare participated in the prestigious IRIA 2024 conference, showcasing our latest medical imaging solutions and networking with industry leaders. The event was a great success with significant interest in our refurbished equipment and service offerings.</p>
-              <a href="#" className="btn btn-primary">Read More</a>
+          </div>
+        </section>
+
+        {/* Blog Content */}
+        <section className="py-12 lg:py-20 bg-gray-50">
+          <div className="container">
+            {posts.length > 0 ? (
+              <BlogGrid posts={posts} />
+            ) : (
+              <div className="text-center py-16">
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Coming Soon</h2>
+                <p className="text-gray-600">
+                  We're working on exciting content. Check back soon for insights and updates!
+                </p>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* Newsletter Section */}
+        <section className="py-16 lg:py-20 bg-gradient-to-br from-[#59913d] to-[#255a0a]">
+          <div className="container">
+            <div className="max-w-2xl mx-auto text-center">
+              <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+                Stay Updated
+              </h2>
+              <p className="text-lg text-white/90 mb-8">
+                Subscribe to receive the latest industry insights, product updates, and healthcare technology news.
+              </p>
+              <form className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto">
+                <input
+                  type="email"
+                  placeholder="Enter your email address"
+                  required
+                  className="flex-1 px-6 py-3.5 rounded-lg border-2 border-white/20 bg-white/10 text-white placeholder:text-white/60 focus:outline-none focus:border-white/40 transition-colors"
+                />
+                <button
+                  type="submit"
+                  className="px-8 py-3.5 bg-white text-[#59913d] font-semibold rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
+                >
+                  Subscribe
+                </button>
+              </form>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Blog Grid */}
-      <section className="blogs-section">
-        <div className="container">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-6 lg:mb-8">Latest Articles</h2>
-          <div className="blogs-grid">
-            <article className="blog-card">
-              <div className="blog-image">
-                <Image src="/images/mri3.jpg" alt="MRI Technology" width={400} height={300} />
-              </div>
-              <div className="blog-content">
-                <h3>Advancements in MRI Technology</h3>
-                <p className="blog-meta">January 10, 2024 | Technology</p>
-                <p>Explore the latest developments in MRI technology and how they're improving diagnostic capabilities in healthcare facilities worldwide.</p>
-                <a href="#" className="read-more">Read More →</a>
-              </div>
-            </article>
-
-            <article className="blog-card">
-              <div className="blog-image">
-                <Image src="/images/machines/ct-scan/GE revolution EVO.jpg" alt="CT Scanner" width={400} height={300} />
-              </div>
-              <div className="blog-content">
-                <h3>CT Scanner Maintenance Best Practices</h3>
-                <p className="blog-meta">January 5, 2024 | Maintenance</p>
-                <p>Learn about the essential maintenance practices that can extend the lifespan of your CT scanner and ensure optimal performance.</p>
-                <a href="#" className="read-more">Read More →</a>
-              </div>
-            </article>
-
-            <article className="blog-card">
-              <div className="blog-image">
-                <Image src="/images/machines/pet-ct/pet-ct.png" alt="PET-CT Scanner" width={400} height={300} />
-              </div>
-              <div className="blog-content">
-                <h3>PET-CT Imaging: A Comprehensive Guide</h3>
-                <p className="blog-meta">December 28, 2023 | Technology</p>
-                <p>Understanding the benefits and applications of PET-CT imaging in modern diagnostic medicine and cancer detection.</p>
-                <a href="#" className="read-more">Read More →</a>
-              </div>
-            </article>
-
-            <article className="blog-card">
-              <div className="blog-image">
-                <Image src="/images/services/amc-annual.jpg" alt="AMC Services" width={400} height={300} />
-              </div>
-              <div className="blog-content">
-                <h3>Why AMC Contracts Are Essential for Medical Equipment</h3>
-                <p className="blog-meta">December 20, 2023 | Services</p>
-                <p>Discover the importance of Annual Maintenance Contracts in ensuring reliable operation of medical imaging equipment.</p>
-                <a href="#" className="read-more">Read More →</a>
-              </div>
-            </article>
-
-            <article className="blog-card">
-              <div className="blog-image">
-                <Image src="/images/machines/allura.png" alt="Cath-Lab" width={400} height={300} />
-              </div>
-              <div className="blog-content">
-                <h3>Cath-Lab Technology: Revolutionizing Cardiac Care</h3>
-                <p className="blog-meta">December 15, 2023 | Technology</p>
-                <p>How modern Cath-Lab technology is transforming cardiac procedures and improving patient outcomes.</p>
-                <a href="#" className="read-more">Read More →</a>
-              </div>
-            </article>
-
-            <article className="blog-card">
-              <div className="blog-image">
-                <Image src="/images/machines/gamma camera spect/GE infinia gamma camera SPECT.jpg" alt="Gamma Camera" width={400} height={300} />
-              </div>
-              <div className="blog-content">
-                <h3>Nuclear Medicine: The Role of Gamma Cameras</h3>
-                <p className="blog-meta">December 10, 2023 | Technology</p>
-                <p>Understanding the critical role of gamma cameras in nuclear medicine and diagnostic imaging.</p>
-                <a href="#" className="read-more">Read More →</a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter Signup */}
-      <section className="newsletter-section">
-        <div className="container">
-          <div className="newsletter-content">
-            <h2>Stay Updated</h2>
-            <p>Subscribe to our newsletter for the latest industry insights and company updates.</p>
-            <form className="newsletter-form">
-              <input type="email" placeholder="Enter your email address" required />
-              <button type="submit" className="btn btn-primary">Subscribe</button>
-            </form>
-          </div>
-        </div>
-      </section>
-
-    </main>
-  )
+        </section>
+      </main>
+    </>
+  );
 } 
