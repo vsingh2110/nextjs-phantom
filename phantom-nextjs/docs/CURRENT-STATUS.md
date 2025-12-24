@@ -1,53 +1,135 @@
 # Phantom Medical Imaging — Current Status
 
-**Last Updated:** December 8, 2025 (Evening - Session Complete)  
+**Last Updated:** December 24, 2025 (Blog & Events System Complete)  
 **Phase:** Active Migration - Static to Next.js  
-**Priority:** Single Pages Development  
-**Git Status:** ✅ Clean (All changes committed)  
-**Next.js Version:** 15.3.6 (Security patched for CVE-2025-55182)  
-**Build Status:** ✅ Passing (249 pages)  
-**Completed Pages:** 8 full pages with SEO, JSON-LD, AI optimization, Schema.org validated  
-**Schema Validation:** ✅ Google Rich Results & Schema.org passing (Chrome extension verified)  
-**Documentation:** ✅ All guidelines updated with schema validation rules
+**Priority:** Blog & Events System with MDX Support  
+**Git Status:** ⏳ Pending Commit  
+**Next.js Version:** 15.3.6  
+**Build Status:** ✅ Passing (257 pages - includes 3 blogs + 2 events)  
+**Completed Pages:** 8 full pages + Blog System (5 posts)  
+**Schema Validation:** ✅ Google Rich Results & Schema.org passing  
+**New Features:** ✅ MDX Blog System, React-Markdown rendering, Category filtering
 
 ---
 
-## ✅ COMPLETED PAGES SUMMARY (As of Dec 8, 2025)
+## ✅ COMPLETED PAGES SUMMARY (As of Dec 24, 2025)
 
-| Page | Path | File Size | SEO | JSON-LD Schemas | FAQs | Lighthouse (Mobile) |
-|------|------|-----------|-----|----------------|------|---------------------|
-| Home | `/` | ~47 KB | ✅ Complete | Organization, LocalBusiness, WebSite, MedicalBusiness, FAQPage, Speakable | 8 | Perf: 69-81, A11y: 92, SEO: 92 |
-| About | `/about` | ~28 KB | ✅ Complete | AboutPage, Organization, BreadcrumbList, FAQPage, Speakable | 6 | Perf: 90, A11y: 94, SEO: 92+ |
-| Contact | `/contact` | ~22 KB | ✅ Complete | ContactPage, LocalBusiness, BreadcrumbList, FAQPage, Speakable | 6 | Perf: 72, A11y: 96, SEO: 92+ |
-| Privacy Policy | `/privacy-policy` | ~14 KB | ✅ Complete | BreadcrumbList, Speakable | 0 | Not tested |
-| Terms & Conditions | `/terms-and-conditions` | ~16 KB | ✅ Complete | BreadcrumbList, Speakable | 0 | Not tested |
-| FAQs | `/faqs` | ~17 KB | ✅ Complete | BreadcrumbList, FAQPage (18 FAQs), Speakable | 18 | Not tested |
-| Sell Your Equipment | `/sell-your-medical-imaging-equipment` | ~24 KB | ✅ Complete (58 chars) | BreadcrumbList, Speakable (Service), FAQPage | 6 | Schema: ✅ Validated |
-| Spare Parts & Inventory | `/spare-parts-and-inventory` | ~32 KB | ✅ Complete (55 chars) | BreadcrumbList, Speakable (Store*), FAQPage | 6 | Schema: ⚠️ Needs warehouse address |
+| Page | Path | File Size | SEO | JSON-LD Schemas | FAQs | Status |
+|------|------|-----------|-----|----------------|------|--------|
+| Home | `/` | ~47 KB | ✅ Complete | Organization, LocalBusiness, WebSite, MedicalBusiness, FAQPage, Speakable | 8 | ✅ Live |
+| About | `/about` | ~28 KB | ✅ Complete | AboutPage, Organization, BreadcrumbList, FAQPage, Speakable | 6 | ✅ Live |
+| Contact | `/contact` | ~22 KB | ✅ Complete | ContactPage, LocalBusiness, BreadcrumbList, FAQPage, Speakable | 6 | ✅ Live |
+| Privacy Policy | `/privacy-policy` | ~14 KB | ✅ Complete | BreadcrumbList, Speakable | 0 | ✅ Live |
+| Terms & Conditions | `/terms-and-conditions` | ~16 KB | ✅ Complete | BreadcrumbList, Speakable | 0 | ✅ Live |
+| FAQs | `/faqs` | ~17 KB | ✅ Complete | BreadcrumbList, FAQPage (18 FAQs), Speakable | 18 | ✅ Live |
+| Sell Your Equipment | `/sell-your-medical-imaging-equipment` | ~24 KB | ✅ Complete (58 chars) | BreadcrumbList, Speakable (Service), FAQPage | 6 | ✅ Live |
+| Spare Parts & Inventory | `/spare-parts-and-inventory` | ~32 KB | ✅ Complete (55 chars) | BreadcrumbList, Speakable (Store*), FAQPage | 6 | ✅ Live |
+| **Blog Listing** | `/blogs` | ~3.4 KB | ✅ Complete | BreadcrumbList, CollectionPage, Speakable | 0 | ✅ New |
+| **Blog Details** | `/blogs/[slug]` | ~2 KB | ✅ Complete | BreadcrumbList, Article, Speakable | 0 | ✅ New (3 posts) |
+| **Events & News Listing** | `/events-and-news` | ~3.4 KB | ✅ Complete | BreadcrumbList, CollectionPage | 0 | ✅ New |
+| **Events & News Details** | `/events-and-news/[slug]` | ~2 KB | ✅ Complete | BreadcrumbList, NewsArticle | 0 | ✅ New (2 posts) |
 
-**Total FAQ Count:** 50 FAQs across all 8 pages  
-**All Pages Include:** Mobile-responsive design, accessibility features, OpenGraph & Twitter cards, structured data
+**Total Pages:** 257 (249 existing + 5 blog posts + 2 news posts + 1 blog listing)  
+**Total FAQ Count:** 50 FAQs across 8 pages  
+**Blog Posts:** 3 (MRI Technology, CT Scanner Guide, AMC Importance)  
+**News/Events:** 2 (IRIA 2024, Siemens Skyra Launch)
 
-### 🔧 Schema Validation Fixes (Dec 8, 2025 - Evening)
+---
 
-**Issue:** Google Rich Results & Schema.org validation errors
+## 🎉 NEW: BLOG & EVENTS SYSTEM (Dec 24, 2025)
 
-**Sell Equipment Page Fix:**
-- **Problem:** Schema.org doesn't recognize `telephone` and `email` properties on Service type
-- **Solution:** Moved `telephone` and `email` from Service to provider Organization
-- **Result:** ✅ 0 errors, 0 warnings on Schema.org
-- **Email Updated:** Changed from `biz@phantomhealthcare.com` to `digital@phantomhealthcare.com`
+### **System Architecture**
 
-**Spare Parts Page Fix:**
-- **Problem:** Store type requires `address` field (missing field error in Google Rich Results)
-- **Solution:** Added PostalAddress with Faridabad, Haryana, IN (temporary)
-- **Result:** ⚠️ Schema valid but needs actual warehouse address
-- **Email Updated:** Changed from `spareparts@phantomhealthcare.com` to `digital@phantomhealthcare.com`
-- **⏳ Pending:** Actual warehouse street address, area, postal code (waiting for Google Maps/GMB setup)
+**MDX Content Management:**
+- `content/blogs/*.mdx` - Blog post markdown files with frontmatter
+- `content/events-news/*.mdx` - News/events markdown files
+- `src/lib/blog.ts` - Blog data parsing library (gray-matter, reading-time)
+- `src/lib/news.ts` - News data parsing library
 
-**Global Email Standardization:**
-- All pages now use `digital@phantomhealthcare.com` unless specifically overridden
-- Ensures consistent communication channel
+**Components:**
+- `BlogGrid.tsx` - Client component with category filtering
+- `NewsGrid.tsx` - News grid with category filtering
+- Responsive layouts: 1→2→3→4 columns based on screen size
+
+**Pages Created:**
+1. `/blogs` - Blog listing page with category filter tabs
+2. `/blogs/[slug]` - Dynamic blog detail pages (3 posts)
+3. `/events-and-news` - Events & news listing page
+4. `/events-and-news/[slug]` - Dynamic news detail pages (2 posts)
+
+### **Features Implemented**
+
+✅ **MDX Support** - Full markdown with frontmatter metadata  
+✅ **Category Filtering** - Technology, Equipment Guide, Services, Industry News, Events, etc.  
+✅ **Responsive Grid** - 1-column mobile → 4-column desktop  
+✅ **Reading Time** - Auto-calculated with reading-time package  
+✅ **Hero Banners** - Category badges on detail pages  
+✅ **SEO Schemas** - Article, NewsArticle, BreadcrumbList, Speakable  
+✅ **Custom Markdown Components** - Styled headings, tables, blockquotes, code blocks  
+✅ **Newsletter Sections** - Subscription forms on listing pages  
+✅ **Social Sharing** - Facebook, Twitter, LinkedIn buttons (news pages)
+
+### **Blog Posts Created**
+
+1. **Understanding MRI Technology: A Complete Guide**
+   - Category: Technology
+   - Topics: MRI basics, 1.5T vs 3.0T, clinical applications, site requirements
+   - Length: ~2,500 words
+
+2. **CT Scanner Buyer's Guide: 16-Slice vs 64-Slice vs 128-Slice**
+   - Category: Equipment Guide
+   - Topics: Comparison matrix, clinical needs, ROI analysis
+   - Length: ~3,000 words
+
+3. **Why AMC is Critical for Medical Imaging Equipment**
+   - Category: Services
+   - Topics: Preventive maintenance, cost analysis, case studies
+   - Length: ~3,500 words
+
+### **News/Events Created**
+
+1. **Phantom Healthcare Participates in IRIA 2024**
+   - Category: Events
+   - Topics: Conference highlights, equipment showcased, partnerships
+   - Length: ~2,000 words
+
+2. **New Siemens Skyra 3.0T MRI Systems Available**
+   - Category: Product Launch
+   - Topics: Specifications, pricing, configurations, financing
+   - Length: ~4,000 words
+
+### **Technical Implementation**
+
+**Dependencies Installed:**
+- `gray-matter@4.0.3` - Frontmatter parsing
+- `reading-time@1.5.0` - Read time calculation
+- `react-markdown@9.0.1` - Markdown rendering (replaced next-mdx-remote for Next.js 15 compatibility)
+- `remark-gfm@4.0.0` - GitHub Flavored Markdown support
+- `rehype-raw@7.0.0` - Raw HTML support in markdown
+
+**Schema Components Created:**
+- `BreadcrumbJsonLd.tsx` - Breadcrumb navigation schema
+- `ArticleJsonLd.tsx` - Blog article schema
+- `NewsArticleJsonLd.tsx` - News article schema
+- `BlogListingSpeakableJsonLd.tsx` - AI/voice search optimization
+
+### **Styling Updates (Dec 24, 2025 - Evening)**
+
+**Issue:** Blog pages using green gradient instead of blue (inconsistent with site theme)
+
+**Solution Applied:**
+- Changed hero gradient from `from-[#59913d] via-[#4a7a32] to-[#255a0a]` (green)
+- To: `from-[#2980b9] via-[#3498db] to-[#5dade2]` (blue) - matching About Us page
+- Updated container classes to match site-wide standards:
+  - `w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8`
+- Centered title and description in hero section
+- Left-aligned breadcrumb navigation
+
+**Files Updated:**
+- `/blogs/page.tsx` - Blog listing hero and newsletter sections
+- `/events-and-news/page.tsx` - Events listing hero and newsletter sections
+
+**Result:** ✅ Consistent blue theme across all pages, proper center alignment for content
 
 **Lesson Learned:**
 - ALWAYS follow NEW-PAGE-CHECKLIST.md and SEO-INDIA-REFERENCE.md from the start

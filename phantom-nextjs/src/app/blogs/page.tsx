@@ -31,30 +31,26 @@ export default function BlogsPage() {
 
       <main className="main-content">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-[#59913d] via-[#4a7a32] to-[#255a0a] py-16 lg:py-24 overflow-hidden">
-          <div className="absolute inset-0 bg-black/10" />
-          <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-5" />
-          
-          <div className="container relative z-10">
-            <nav className="mb-6 lg:mb-8">
-              <ol className="flex flex-wrap items-center gap-2 text-sm text-white/80">
+        <section className="bg-gradient-to-r from-[#2980b9] via-[#3498db] to-[#5dade2] py-8 sm:py-10 md:py-14">
+          <div className="w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Breadcrumb - Left aligned */}
+            <nav className="mb-4 sm:mb-5" aria-label="Breadcrumb">
+              <ol className="flex items-center space-x-2 text-sm text-white/80">
                 <li>
                   <Link href="/" className="hover:text-white transition-colors">
                     Home
                   </Link>
                 </li>
-                <li className="flex items-center gap-2">
-                  <span>/</span>
-                  <span className="text-white font-semibold">Blog</span>
-                </li>
+                <li><span className="mx-1">›</span></li>
+                <li className="text-white font-medium">Blog</li>
               </ol>
             </nav>
-
-            <div className="max-w-4xl">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 lg:mb-6">
+            {/* Title and Description - Center aligned */}
+            <div className="text-center">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl font-bold text-white drop-shadow-lg">
                 Blog & Industry Insights
               </h1>
-              <p className="text-lg sm:text-xl text-white/90 leading-relaxed max-w-3xl">
+              <p className="text-base sm:text-lg md:text-xl 2xl:text-2xl text-white/90 mt-3 max-w-3xl mx-auto">
                 Expert perspectives on medical imaging technology, equipment maintenance, industry trends, and healthcare innovation.
               </p>
             </div>
@@ -63,7 +59,7 @@ export default function BlogsPage() {
 
         {/* Blog Content */}
         <section className="py-12 lg:py-20 bg-gray-50">
-          <div className="container">
+          <div className="w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
             {posts.length > 0 ? (
               <BlogGrid posts={posts} />
             ) : (
@@ -78,8 +74,8 @@ export default function BlogsPage() {
         </section>
 
         {/* Newsletter Section */}
-        <section className="py-16 lg:py-20 bg-gradient-to-br from-[#59913d] to-[#255a0a]">
-          <div className="container">
+        <section className="py-16 lg:py-20 bg-gradient-to-r from-[#2980b9] via-[#3498db] to-[#5dade2]">
+          <div className="w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
                 Stay Updated
@@ -96,7 +92,7 @@ export default function BlogsPage() {
                 />
                 <button
                   type="submit"
-                  className="px-8 py-3.5 bg-white text-[#59913d] font-semibold rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
+                  className="px-8 py-3.5 bg-white text-[#2980b9] font-semibold rounded-lg hover:bg-gray-100 transition-colors shadow-lg"
                 >
                   Subscribe
                 </button>
