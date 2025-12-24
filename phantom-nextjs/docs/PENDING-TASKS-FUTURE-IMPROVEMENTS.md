@@ -1,10 +1,102 @@
 # PENDING TASKS & FUTURE IMPROVEMENTS
 **Created:** December 24, 2025  
-**Status:** Backlog - To be implemented in future sessions
+**Last Updated:** December 24, 2025 (Product Pages Progress)  
+**Status:** Active Development - Product Pages 40% Complete (8/20)
 
 ---
 
-## 🗺️ 1. GOOGLE MAPS ISSUES - HIGH PRIORITY
+## ⚡ HIGH PRIORITY - IMMEDIATE NEXT TASKS
+
+### 1. COMPLETE PRODUCT CATALOG (12+ PRODUCTS REMAINING)
+**Status:** ✅ 8/20 COMPLETE (40%) | ⏳ 12+ PENDING (60%)
+
+**Completed Today:**
+- ✅ CT Scanners: 4 products (GE BrightSpeed 16, Optima 660 64/128, Revolution EVO 128)
+- ✅ MRI 3.0T: 4 products (GE Signa 750W, 750, Siemens Verio 3T, Skyra 3T)
+- ✅ Product data structure created (`src/data/products/`)
+- ✅ ProductPageTemplate component built
+- ✅ All schemas implemented (Product, Breadcrumb, FAQ)
+
+**Remaining Products - NEXT SESSION:**
+
+**A. MRI 1.5T Scanners (6-8 products) - HIGHEST PRIORITY**
+- GE Signa HDxT 1.5T
+- GE Optima MR360 1.5T
+- GE Creator 1.5T
+- GE Explorer 1.5T
+- Siemens Magnetom Aera 1.5T
+- Siemens Magnetom Avanto 1.5T
+
+**Action Required:**
+1. Create `src/data/products/mri-1.5t.ts`
+2. Add product data (copy pattern from mri-3t.ts)
+3. Create page.tsx files (copy pattern from existing MRI pages)
+4. Test build: `npm run build`
+
+**B. PET-CT Scanners (2 products)**
+- Create `src/data/products/pet-ct.ts`
+- 2 PET-CT scanner models from static site
+
+**C. Cath Lab Machines (2 products)**
+- Create `src/data/products/cath-lab.ts`
+- 2 Cath Lab models
+
+**D. Gamma Camera Systems (3 products)**
+- Create `src/data/products/gamma-camera.ts`
+- 3 Gamma Camera SPECT models
+
+**E. Bone Densitometer (1 product)**
+- Create `src/data/products/bone-densitometer.ts`
+- 1 DXA model
+
+**Pattern to Follow:** See `docs/SESSION-HANDOVER-2025-12-24.md` for step-by-step guide
+
+---
+
+### 2. CREATE PRODUCT CATEGORY OVERVIEW PAGES
+**Status:** ⏳ NOT STARTED
+
+**Pages Needed:**
+- `/product-pages/refurbished-ct-scan-machines` - Category listing page
+- `/product-pages/mri-scanner-machines/3.0t-mri-scanner-machines` - 3.0T listing
+- `/product-pages/mri-scanner-machines/1.5t-mri-scanner-machines` - 1.5T listing
+- `/product-pages/refurbished-pet-ct-scanner-machines` - PET-CT listing
+- Others as needed
+
+**Requirements:**
+- Product grid layout (2-3-4 columns responsive)
+- Filter by brand/specifications
+- ItemListJsonLd schema for product listings
+- Category-level FAQs (5-8 questions)
+- Category description and intro text
+
+**Priority:** After completing all individual product pages
+
+---
+
+### 3. UPDATE TESTING MATRIX WITH PRODUCT PAGES
+**Status:** ⏳ NOT STARTED
+
+**Action Required:**
+1. Open `docs/TESTING-STATUS-MATRIX.md`
+2. Add section for Product Pages (8 completed + 12 pending = 20 total)
+3. Test parameters for each:
+   - Speed/Performance (Lighthouse)
+   - Accessibility (WCAG 2.1)
+   - Mobile Responsive (320px-768px)
+   - Big Screen Responsive (1920px+)
+   - SEO Meta Tags (title/description length)
+   - JSON-LD Schemas (Google Rich Results Test)
+
+**Tools:**
+- Google Lighthouse
+- Google Rich Results Test
+- Schema.org Validator
+- Mobile-Friendly Test
+
+---
+
+## 🗺️ 4. GOOGLE MAPS ISSUES - HIGH PRIORITY
 **Reference:** `phantom-nextjs\docs\GOOGLE-MAPS-ISSUE-COMPLETE-HISTORY.md`
 
 **Problem:**
@@ -26,7 +118,7 @@
 
 ---
 
-## 🎨 2. COLOR SCHEME CONSISTENCY - MEDIUM PRIORITY
+## 🎨 5. COLOR SCHEME CONSISTENCY - MEDIUM PRIORITY
 
 ### A. Use Secondary Colors for Boxes
 **Current Issue:** Boxes/cards not using consistent secondary color scheme
@@ -57,7 +149,7 @@ src/app/events-and-news/page.tsx - News cards
 
 ---
 
-## 📧 3. ADD DIGITAL EMAIL - LOW PRIORITY
+## 📧 6. ADD DIGITAL EMAIL - LOW PRIORITY
 
 **Action Required:**
 - Add `digital@phantomhealthcare.com` to email listings in header/top bar
@@ -77,7 +169,7 @@ src/app/our-offices/[location]/page.tsx (all 4 pages)
 
 ---
 
-## 🏴 4. FIX OFFICE LOCATION FLAGS - MEDIUM PRIORITY
+## 🏴 7. FIX OFFICE LOCATION FLAGS - MEDIUM PRIORITY
 **Reference:** SS3 (screenshot provided)
 
 **Current Issue:**
