@@ -1,14 +1,15 @@
 # Phantom Medical Imaging — Current Status
 
-**Last Updated:** December 27, 2025 (Route Structure Fixed + Navigation + Coming Soon)  
+**Last Updated:** December 27, 2025 (CT Scanner Pages Complete + Brand Sections)  
 **Phase:** Active Migration - Static to Next.js  
-**Priority:** ✅ All Critical Issues Resolved | Product Pages Complete  
-**Git Status:** ✅ Deployed to Production (Vercel)  
+**Priority:** ✅ MRI Complete | ✅ CT Scanner Complete | ⚠️ TESTING REQUIRED  
+**Git Status:** ⚠️ Needs Deployment (CT changes not yet pushed)  
 **Next.js Version:** 15.3.6  
 **Build Status:** ✅ Passing (289 pages)  
-**Critical Fixes:** ✅ Route Structure | ✅ Product Navigation | ✅ Coming Soon Display  
-**New Features:** ✅ Navigation Buttons on Mixed Pages | ✅ Image Fallbacks  
-**Schema Validation:** ✅ Google Rich Results & Schema.org passing
+**Recent Completion:** ✅ CT Scanner Page (GE + Siemens sections) | ✅ 2 Siemens CT Products  
+**New Features:** ✅ Brand-specific CT sections | ✅ Navigation buttons | ✅ FAQ accordion  
+**Schema Validation:** ✅ Google Rich Results & Schema.org passing  
+**Testing Status:** ⚠️ MINIMAL - Only basic routes/layout checked
 
 ---
 
@@ -80,10 +81,14 @@
 | **Events & News Details** | `/events-and-news/[slug]` | ~2 KB | ✅ Complete | BreadcrumbList, NewsArticle | 0 | ✅ Live (2 posts) |
 
 **Total Pages:** 289 pages  
-**Total FAQ Count:** 74 FAQs  
+**Total FAQ Count:** 80 FAQs (74 previous + 6 CT FAQs)  
 **Blog Posts:** 3  
 **News/Events:** 2  
-**Product Pages:** 26 individual + 6 category pages = 32 total  
+**Product Pages:** 26 individual (22 MRI + 4 GE CT) + 2 Siemens CT (Coming Soon) = 28 individual  
+**Category Pages:** 6 (4 MRI + 1 CT refurbished + 1 CT brand-new)  
+**Total Product System:** 28 + 6 = 34 pages  
+
+**⚠️ NOTE:** Siemens CT products (Go Now 16 & 32) marked as "Coming Soon" - displayed on category page but individual pages not yet created  
 
 ---
 

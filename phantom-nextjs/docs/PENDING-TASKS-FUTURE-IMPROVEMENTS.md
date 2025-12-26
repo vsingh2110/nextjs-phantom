@@ -1,44 +1,141 @@
 # PENDING TASKS & FUTURE IMPROVEMENTS
 **Created:** December 24, 2025  
-**Last Updated:** December 27, 2025 (Route Fixes + Navigation)  
-**Status:** Active Development - Core Features Complete ✅
+**Last Updated:** December 27, 2025 (CT Scanner Complete + Testing Reality Check)  
+**Status:** Active Development - MRI & CT Complete ✅ | Testing Pending ⚠️
 
 ---
 
 ## ✅ RECENTLY COMPLETED (December 27, 2025)
 
+### CT Scanner Page - Complete Overhaul ✅
+**Status:** ✅ CODE COMPLETE | ⚠️ TESTING REQUIRED
+
+**Completed:**
+1. ✅ Split CT page into GE and Siemens brand sections
+2. ✅ Added green badge headings for each section
+3. ✅ Added navigation buttons in hero (GE + Siemens)
+4. ✅ Added 2 Siemens CT products (Go Now 16 & 32) as "Coming Soon"
+5. ✅ Implemented FAQ accordion (6 questions)
+6. ✅ Removed 4-column info grid
+7. ✅ Applied product sorting logic matching static site
+8. ✅ Verified images exist in public folder
+
+**Build Status:** ✅ 289 pages, 0 errors, 0 warnings
+
 ### Route Structure & Navigation Fixes ✅
-**Status:** ✅ ALL CRITICAL ISSUES RESOLVED
+**Status:** ✅ ALL CRITICAL ISSUES RESOLVED (Dec 26-27)
 
 **Completed:**
 1. ✅ Fixed route structure (removed intermediate mri-scanner-machines folder)
-2. ✅ Updated all product URLs in data files (22 products)
+2. ✅ Updated all product URLs in data files (22 MRI products)
 3. ✅ Restored product navigation (Learn More buttons working)
 4. ✅ Implemented Coming Soon/Out of Stock display logic
 5. ✅ Added navigation buttons to mixed pages (1.5T and 3.0T)
 6. ✅ Added image fallback system with placeholder
 7. ✅ Fixed ribbon positioning (Coming Soon now on left)
-
-**Build Status:** ✅ 289 pages, 0 errors, 0 warnings
+8. ✅ Rebuilt branded pages with green badge section headings
 
 ---
 
-## ⚡ CRITICAL - IMMEDIATE TESTING REQUIRED
+## 🚨 CRITICAL - COMPREHENSIVE TESTING REQUIRED
 
-### 1. PRODUCTION DEPLOYMENT TESTING 🚨
-**Status:** ✅ CODE COMPLETE | ⚠️ PRODUCTION VERIFICATION NEEDED
+### ⚠️ TESTING REALITY CHECK (December 27, 2025)
+
+**CURRENT TESTING STATUS:**
+- ❌ **NO comprehensive testing performed since December 24, 2025**
+- ✅ **Only basic verification:** URL routes load, page renders, basic layout positioning
+- ❌ **NOT tested:** Lighthouse scores, accessibility, mobile responsive, big screen responsive
+- ❌ **NOT verified:** Detailed content accuracy, image quality, image backgrounds
+- ❌ **Forms NOT tested:** Contact form, quote forms, Firebase submissions
+
+**Pages Completed (Code) BUT NOT TESTED:**
+- CT Scanner category page (Dec 27) - GE + Siemens sections
+- 4 MRI category pages (1.5T, 3.0T, GE, Siemens)
+- 22 MRI individual product pages
+- 6 CT individual product pages (4 GE + 2 Siemens Coming Soon)
+
+**CRITICAL ITEMS NEEDING EVALUATION:**
+1. 🔴 **High-quality PNG images without backgrounds** - NOT verified
+2. 🔴 **Detailed content accuracy** - NOT reviewed thoroughly
+3. 🔴 **Image optimization and quality** - NOT tested
+4. 🔴 **Mobile responsiveness** - NOT tested on all new pages
+5. 🔴 **Big screen layout (2560px, 3840px)** - NOT tested
+6. 🔴 **Form functionality** - NOT tested (Contact, Quote forms)
+7. 🔴 **Firebase integration** - NOT verified
+8. 🔴 **SEO meta tags accuracy** - NOT validated
+9. 🔴 **JSON-LD schema validation** - NOT run through Google tools
+10. 🔴 **Accessibility compliance** - NOT audited
+11. 🔴 **Performance scores (Lighthouse)** - NOT run on new pages
+12. 🔴 **Navigation buttons smooth scroll** - NOT tested on production
+13. 🔴 **FAQ accordion functionality** - NOT verified
+14. 🔴 **Coming Soon product display** - NOT tested on production
+
+**RECOMMENDATION:**
+- Schedule dedicated testing session immediately
+- Prioritize visual quality audit (images, backgrounds, content)
+- Test all forms with actual Firebase submissions
+- Run Lighthouse on all new pages (MRI + CT)
+- Verify mobile responsiveness on real devices
+- Test big screen layouts (2560px+)
+
+---
+
+## ⚡ CRITICAL - IMMEDIATE ACTIONS REQUIRED
+
+### 1. PRODUCTION DEPLOYMENT & VERIFICATION 🚨
+**Status:** ⚠️ CHANGES NOT DEPLOYED
 
 **Action Required (NEXT SESSION):**
-1. Deploy latest changes to Vercel
-2. Verify all MRI product pages load correctly
-3. Test "Learn More" buttons navigate to product pages
-4. Confirm Coming Soon product (GE Signa HDxt 1.5T) displays correctly
-5. Test navigation buttons on mixed pages scroll to sections
-6. Verify image fallback shows placeholder for missing images
+1. Deploy CT scanner changes to Vercel
+2. Visual review of CT page on production URL
+3. Test all navigation buttons scroll correctly
+4. Verify "Coming Soon" products display with blue ribbons
+5. Test FAQ accordion expand/collapse
+6. Check all images load correctly
+7. Test on mobile devices (375px, 768px)
+8. Test on big screens (1920px, 2560px)
 
 ---
 
-### 2. FIREBASE FORM SUBMISSION TESTING
+### 2. IMAGE QUALITY AUDIT 🚨
+**Status:** ❌ NOT VERIFIED
+
+**Action Required:**
+1. Check all product images for quality
+2. Verify PNG images have transparent backgrounds (no white/gray boxes)
+3. Replace low-quality images with high-resolution versions
+4. Optimize images for web (compression without quality loss)
+5. Convert to WebP format where appropriate
+6. Add proper alt text to all images
+
+**Affected Images:**
+- All MRI product images (22 products)
+- All CT scanner images (6 products)
+- Category page images
+- Hero section images
+
+---
+
+### 3. CONTENT ACCURACY REVIEW 🚨
+**Status:** ❌ NOT REVIEWED
+
+**Action Required:**
+1. Review all product descriptions for accuracy
+2. Verify specifications match actual equipment
+3. Check features lists are complete
+4. Validate pricing information (if displayed)
+5. Review FAQ answers for correctness
+6. Check for typos and grammatical errors
+
+**Pages to Review:**
+- 22 MRI product pages
+- 6 CT product pages
+- 6 category pages
+- All FAQ sections
+
+---
+
+### 4. FIREBASE FORM TESTING
 **Status:** ✅ CODE FIXED | ⚠️ PRODUCTION TESTING REQUIRED
 
 **Issue Fixed:**
@@ -46,15 +143,44 @@
 - Previous fields replaced with: name*, phone*, email, country, city, hospital, enquiry*
 
 **Action Required:**
-1. Test form submission on any product page
+1. Test form submission on product pages
 2. Verify Firebase receives data correctly
 3. Check Firebase console for submissions
 4. Test with required fields only
 5. Test with all fields filled
+6. Test error handling and validation
+7. Test on mobile devices
 
 ---
 
 ## ✅ COMPLETED FEATURES (December 24-27, 2025)
+
+### CT Scanner Catalog - COMPLETE ✅
+**Status:** ✅ 6/6 CT PRODUCTS ADDED (Category Page Complete)
+
+**GE CT Scanners** (4 products - All Available) ✅:
+- BrightSpeed 16 (16-slice)
+- Optima 660 64 (64-slice)
+- Optima 660 128 (128-slice)
+- Revolution EVO 128 (128-slice, premium)
+
+**Siemens CT Scanners** (2 products - Coming Soon) ✅:
+- Go Now 16 (16-slice) ⭐ NEW - Coming Soon
+- Go Now 32 (32-slice) ⭐ NEW - Coming Soon
+
+**CT Category Page Created** ✅:
+- `/product-pages/refurbished-ct-scan-machines` 
+- GE section with green badge heading
+- Siemens section with green badge heading
+- Navigation buttons for quick section access
+- FAQ accordion (6 questions)
+- Product sorting applied
+
+**Individual Product Pages:**
+- 4 GE CT pages created ✅
+- 2 Siemens CT pages NOT yet created (Coming Soon on category page only)
+
+---
 
 ### MRI Product Catalog - 100% COMPLETE ✅
 **Status:** ✅ 22/22 MRI PRODUCTS LIVE
