@@ -703,12 +703,12 @@ export const mri15TProducts: Product[] = [
       { label: 'RF System', value: 'OpTix RF' },
     ],
     mainImage: {
-      src: '/images/machines/1.5t-mri/GE Optima MR360.jpg',
+      src: '/images/machines/1.5t-mri/ge-optima-mr450w-1-5t-500x500.jpg',
       alt: 'GE Optima MR360 1.5T MRI Scanner',
       caption: 'GE Optima MR360 1.5T - Advanced mid-field MRI',
     },
     gallery: [
-      { src: '/images/machines/1.5t-mri/GE Optima MR360.jpg', alt: 'GE Optima MR360 1.5T' },
+      { src: '/images/machines/1.5t-mri/ge-optima-mr450w-1-5t-500x500.jpg', alt: 'GE Optima MR360 1.5T' },
     ],
     availability: 'Available',
     priceOnRequest: true,
@@ -787,12 +787,12 @@ export const mri15TProducts: Product[] = [
       { label: 'Technology', value: 'Tim + Dot' },
     ],
     mainImage: {
-      src: '/images/machines/1.5t-mri/Siemens Magnetom Avanto.jpg',
+      src: '/images/machines/1.5t-mri/Avanto.png',
       alt: 'Siemens Magnetom Avanto 1.5T MRI Scanner',
       caption: 'Siemens Magnetom Avanto 1.5T - Premium Tim technology MRI',
     },
     gallery: [
-      { src: '/images/machines/1.5t-mri/Siemens Magnetom Avanto.jpg', alt: 'Siemens Magnetom Avanto 1.5T' },
+      { src: '/images/machines/1.5t-mri/Avanto.png', alt: 'Siemens Magnetom Avanto 1.5T' },
     ],
     availability: 'Available',
     priceOnRequest: true,
@@ -877,12 +877,12 @@ export const mri15TProducts: Product[] = [
       { label: 'Technology', value: 'Tim 4G + Dot' },
     ],
     mainImage: {
-      src: '/images/machines/1.5t-mri/Siemens Magnetom Aera.jpg',
+      src: '/images/machines/1.5t-mri/Avanto.png',
       alt: 'Siemens Magnetom Aera 1.5T MRI Scanner',
       caption: 'Siemens Magnetom Aera 1.5T - 70cm Open Bore with Tim 4G',
     },
     gallery: [
-      { src: '/images/machines/1.5t-mri/Siemens Magnetom Aera.jpg', alt: 'Siemens Magnetom Aera 1.5T' },
+      { src: '/images/machines/1.5t-mri/Avanto.png', alt: 'Siemens Magnetom Aera 1.5T' },
     ],
     availability: 'Available',
     priceOnRequest: true,

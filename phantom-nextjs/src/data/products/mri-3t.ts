@@ -663,7 +663,7 @@ export const mri3TProducts: Product[] = [
       { label: 'Technology', value: 'Tim 4G + Dot Engines' },
     ],
     mainImage: {
-      src: '/images/machines/3.0t-mri/GE Signa 3.0T.jpg',
+      src: '/images/machines/3.0t-mri/Siemens Magnetom Skyra MRI.jpg',
       alt: 'Siemens Magnetom Skyra 3.0T MRI Scanner',
       caption: 'Siemens Magnetom Skyra 3T - Ultimate 3T performance',
     },
