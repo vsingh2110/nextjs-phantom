@@ -118,6 +118,11 @@ export default function MRI3TCategory() {
         {/* GE 3.0T Products Section */}
         <section className="py-12 md:py-16 bg-white">
           <div className="w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Simple Text Subheading */}
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              GE 3.0T MRI Machine
+            </h2>
+            
             {/* Section Header */}
             <div className="text-center mb-12">
               <div className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg mb-6">
@@ -136,6 +141,11 @@ export default function MRI3TCategory() {
         {/* Siemens 3.0T Products Section */}
         <section className="py-12 md:py-16 bg-gray-50">
           <div className="w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Simple Text Subheading */}
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              Siemens 3.0T MRI Machine
+            </h2>
+            
             {/* Section Header */}
             <div className="text-center mb-12">
               <div className="inline-block bg-teal-600 text-white px-8 py-3 rounded-lg mb-6">
