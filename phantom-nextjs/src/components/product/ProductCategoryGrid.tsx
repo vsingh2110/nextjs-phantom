@@ -33,27 +33,11 @@ export default function ProductCategoryGrid({ products, category }: ProductCateg
           className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden relative"
         >
           {/* Availability Ribbon Badge - Top Left Corner */}
-          {product.availability === 'Available' && (
-            <div className="absolute top-0 left-0 z-10">
-              <div className="bg-[#59913d] text-white text-xs font-bold px-8 py-2 transform -rotate-45 -translate-x-6 translate-y-4 shadow-lg">
-                Available
-              </div>
+          <div className="absolute top-0 left-0 z-10">
+            <div className="bg-[#59913d] text-white text-xs font-bold px-8 py-2 transform -rotate-45 -translate-x-6 translate-y-4 shadow-lg">
+              Available
             </div>
-          )}
-          {product.availability === 'Coming Soon' && (
-            <div className="absolute top-0 right-0 z-10">
-              <div className="bg-blue-500 text-white text-xs font-bold px-8 py-2 transform rotate-45 translate-x-6 translate-y-4 shadow-lg">
-                Coming Soon
-              </div>
-            </div>
-          )}
-          {product.availability === 'Out of Stock' && (
-            <div className="absolute top-0 right-0 z-10">
-              <div className="bg-red-600 text-white text-xs font-bold px-8 py-2 transform rotate-45 translate-x-6 translate-y-4 shadow-lg">
-                Out of Stock
-              </div>
-            </div>
-          )}
+          </div>
           
           {/* Product Image */}
           <div className="relative h-64 bg-gray-100">
@@ -69,38 +53,22 @@ export default function ProductCategoryGrid({ products, category }: ProductCateg
           {/* Product Content */}
           <div className="p-6">
             {/* Brand */}
-            {product.availability !== 'Coming Soon' && product.availability !== 'Out of Stock' && (
-              <p className="text-sm text-gray-600 font-medium mb-2">{product.brand}</p>
-            )}
+            <p className="text-sm text-gray-600 font-medium mb-2">{product.brand}</p>
             
-            {/* Product Name - Show "Coming Soon" or "Out Of Stock" for unavailable products */}
-            {product.availability === 'Coming Soon' ? (
-              <div className="text-center py-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Coming Soon</h3>
-                <p className="text-gray-500 text-sm">----------------------------</p>
-              </div>
-            ) : product.availability === 'Out of Stock' ? (
-              <div className="text-center py-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Out Of Stock</h3>
-                <p className="text-gray-500 text-sm">-----------------</p>
-              </div>
-            ) : (
-              <>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
-                  {product.fullName || product.name}
-                </h3>
+            {/* Product Name */}
+            <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
+              {product.fullName || product.name}
+            </h3>
 
-                {/* Short Description */}
-                {product.shortDescription && (
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                    {product.shortDescription}
-                  </p>
-                )}
-              </>
+            {/* Short Description */}
+            {product.shortDescription && (
+              <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                {product.shortDescription}
+              </p>
             )}
 
-            {/* Key Highlights - Only for available products */}
-            {product.availability === 'Available' && product.highlights && product.highlights.length > 0 && (
+            {/* Key Highlights */}
+            {product.highlights && product.highlights.length > 0 && (
               <div className="mb-4">
                 <ul className="space-y-1">
                   {product.highlights.slice(0, 3).map((highlight, index) => (
@@ -113,19 +81,20 @@ export default function ProductCategoryGrid({ products, category }: ProductCateg
               </div>
             )}
 
-            {/* Condition Badge - Only for available products */}
-            {product.availability === 'Available' && (
-              <div className="mb-4">
-                <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">
-                  {product.condition.charAt(0).toUpperCase() + product.condition.slice(1)}
-                </span>
-              </div>
-            )}
-
-            {/* CTA Button - Show "Request Price" for all products */}
-            <div className="block w-full text-center bg-[#59913d] hover:bg-[#255a0a] text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 cursor-pointer">
-              Request Price
+            {/* Condition Badge */}
+            <div className="mb-4">
+              <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">
+                {product.condition.charAt(0).toUpperCase() + product.condition.slice(1)}
+              </span>
             </div>
+
+            {/* CTA Button */}
+            <Link
+              href={product.urlPath || `/product-pages/${product.category}/${product.id}`}
+              className="block w-full text-center bg-[#59913d] hover:bg-[#255a0a] text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300"
+            >
+              Learn More
+            </Link>
           </div>
         </div>
       ))}
