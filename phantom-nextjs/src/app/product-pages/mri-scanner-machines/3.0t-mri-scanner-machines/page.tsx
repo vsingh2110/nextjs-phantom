@@ -118,14 +118,9 @@ export default function MRI3TCategory() {
         {/* GE 3.0T Products Section */}
         <section className="py-12 md:py-16 bg-white">
           <div className="w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Simple Text Subheading */}
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              GE 3.0T MRI Machine
-            </h2>
-            
             {/* Section Header */}
             <div className="text-center mb-12">
-              <div className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg mb-6">
+              <div className="inline-block bg-[#59913d] text-white px-8 py-3 rounded-lg mb-6">
                 <h2 className="text-2xl md:text-3xl font-bold m-0">
                   GE 3.0T MRI Machines
                 </h2>
@@ -141,14 +136,9 @@ export default function MRI3TCategory() {
         {/* Siemens 3.0T Products Section */}
         <section className="py-12 md:py-16 bg-gray-50">
           <div className="w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Simple Text Subheading */}
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              Siemens 3.0T MRI Machine
-            </h2>
-            
             {/* Section Header */}
             <div className="text-center mb-12">
-              <div className="inline-block bg-teal-600 text-white px-8 py-3 rounded-lg mb-6">
+              <div className="inline-block bg-[#59913d] text-white px-8 py-3 rounded-lg mb-6">
                 <h2 className="text-2xl md:text-3xl font-bold m-0">
                   Siemens 3.0T MRI Machines
                 </h2>
@@ -158,6 +148,35 @@ export default function MRI3TCategory() {
               </p>
             </div>
             <ProductCategoryGrid products={siemens3TProducts} category="Siemens 3.0T MRI" />
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-12 md:py-16 bg-gray-50">
+          <div className="w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
+              Frequently Asked Questions - 3.0T MRI
+            </h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Why Choose 3.0T MRI?</h3>
+                <p className="text-gray-600">
+                  Double the field strength of 1.5T provides superior image resolution, faster scans, and advanced applications like fMRI and spectroscopy.
+                </p>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Advanced Applications</h3>
+                <p className="text-gray-600">
+                  Ideal for advanced neuro imaging, cardiac studies, high-resolution MSK, functional MRI, and research applications.
+                </p>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Expert Support</h3>
+                <p className="text-gray-600">
+                  Professional installation, comprehensive warranty, and 24/7 AMC support from experienced engineers across India.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 

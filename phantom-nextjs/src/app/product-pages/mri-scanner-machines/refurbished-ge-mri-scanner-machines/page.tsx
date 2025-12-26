@@ -106,7 +106,7 @@ export default function RefurbishedGEMRIPage() {
             
             {/* Section Header */}
             <div className="text-center mb-12">
-              <div className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg mb-6">
+              <div className="inline-block bg-[#59913d] text-white px-8 py-3 rounded-lg mb-6">
                 <h2 className="text-2xl md:text-3xl font-bold m-0">
                   GE 3.0T MRI Machines
                 </h2>
@@ -131,7 +131,7 @@ export default function RefurbishedGEMRIPage() {
             
             {/* Section Header */}
             <div className="text-center mb-12">
-              <div className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg mb-6">
+              <div className="inline-block bg-[#59913d] text-white px-8 py-3 rounded-lg mb-6">
                 <h2 className="text-2xl md:text-3xl font-bold m-0">
                   GE 1.5T MRI Machines
                 </h2>
