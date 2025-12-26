@@ -47,7 +47,7 @@ export const mri15TProducts: Product[] = [
     gallery: [
       { src: '/images/machines/1.5t-mri/GE Signa HDxt 1.5T.jpg', alt: 'GE Signa HDxt 1.5T front view' },
     ],
-    availability: 'Available',
+    availability: 'Coming Soon',
     priceOnRequest: true,
     metaTitle: 'Refurbished GE Signa HDxt 1.5T MRI Scanner - Phantom',
     metaDescription: 'Reliable refurbished GE Signa HDxt 1.5T MRI scanner with 32-channel capability. Expert installation & comprehensive AMC support across India.',
