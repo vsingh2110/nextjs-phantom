@@ -41,8 +41,8 @@ export default function ProductCategoryGrid({ products, category }: ProductCateg
             </div>
           )}
           {product.availability === 'Coming Soon' && (
-            <div className="absolute top-0 right-0 z-10">
-              <div className="bg-blue-500 text-white text-xs font-bold px-8 py-2 transform rotate-45 translate-x-6 translate-y-4 shadow-lg">
+            <div className="absolute top-0 left-0 z-10">
+              <div className="bg-blue-500 text-white text-xs font-bold px-8 py-2 transform -rotate-45 -translate-x-6 translate-y-4 shadow-lg">
                 Coming Soon
               </div>
             </div>
@@ -63,6 +63,10 @@ export default function ProductCategoryGrid({ products, category }: ProductCateg
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               className="object-contain p-4"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = 'https://placehold.co/600x400/e5e7eb/6b7280?text=Medical+Equipment';
+              }}
             />
           </div>
 

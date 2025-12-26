@@ -112,16 +112,32 @@ export default function MRI3TCategory() {
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
                 3.0T High-Field MRI Scanners
               </h1>
-              <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-8">
                 Premium quality refurbished 3.0 Tesla high-field MRI systems from GE Healthcare and Siemens Healthineers. 
                 Superior image quality and advanced applications for cutting-edge diagnostic imaging.
               </p>
+              
+              {/* Navigation Buttons */}
+              <div className="flex flex-wrap justify-center gap-4 mt-8">
+                <a
+                  href="#ge-3t-section"
+                  className="bg-white hover:bg-gray-100 text-[#2980b9] font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+                >
+                  GE 3.0T MRI Machines
+                </a>
+                <a
+                  href="#siemens-3t-section"
+                  className="bg-white hover:bg-gray-100 text-[#16a085] font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+                >
+                  Siemens 3.0T MRI Machines
+                </a>
+              </div>
             </div>
           </div>
         </section>
 
         {/* GE 3.0T Products Section */}
-        <section className="py-12 md:py-16 bg-white">
+        <section id="ge-3t-section" className="py-12 md:py-16 bg-white scroll-mt-20">
           <div className="w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <div className="text-center mb-12">
@@ -139,7 +155,7 @@ export default function MRI3TCategory() {
         </section>
 
         {/* Siemens 3.0T Products Section */}
-        <section className="py-12 md:py-16 bg-gray-50">
+        <section id="siemens-3t-section" className="py-12 md:py-16 bg-gray-50 scroll-mt-20">
           <div className="w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <div className="text-center mb-12">

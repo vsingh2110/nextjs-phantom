@@ -112,16 +112,32 @@ export default function MRI15TCategory() {
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
                 1.5T MRI Scanners
               </h1>
-              <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-8">
                 Premium quality refurbished 1.5 Tesla MRI systems from leading brands GE Healthcare and Siemens Healthineers. 
                 Ideal for comprehensive diagnostic imaging with excellent image quality and proven reliability.
               </p>
+              
+              {/* Navigation Buttons */}
+              <div className="flex flex-wrap justify-center gap-4 mt-8">
+                <a
+                  href="#ge-15t-section"
+                  className="bg-white hover:bg-gray-100 text-[#2980b9] font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+                >
+                  GE 1.5T MRI Machines
+                </a>
+                <a
+                  href="#siemens-15t-section"
+                  className="bg-white hover:bg-gray-100 text-[#16a085] font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg"
+                >
+                  Siemens 1.5T MRI Machines
+                </a>
+              </div>
             </div>
           </div>
         </section>
 
         {/* GE 1.5T Products Section */}
-        <section className="py-12 md:py-16 bg-white">
+        <section id="ge-15t-section" className="py-12 md:py-16 bg-white scroll-mt-20">
           <div className="w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <div className="text-center mb-12">
@@ -139,7 +155,7 @@ export default function MRI15TCategory() {
         </section>
 
         {/* Siemens 1.5T Products Section */}
-        <section className="py-12 md:py-16 bg-gray-50">
+        <section id="siemens-15t-section" className="py-12 md:py-16 bg-gray-50 scroll-mt-20">
           <div className="w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
             {/* Section Header */}
             <div className="text-center mb-12">
