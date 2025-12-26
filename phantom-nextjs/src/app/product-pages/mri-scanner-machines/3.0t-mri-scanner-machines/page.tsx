@@ -27,9 +27,13 @@ export const metadata: Metadata = {
 };
 
 export default function MRI3TCategory() {
-  // Filter for 3.0T MRI products
-  const mri3TProducts = allProducts.filter(
-    (product) => product.category === 'mri-scanner' && product.subcategory === '3.0t'
+  // Filter for 3.0T MRI products by brand
+  const ge3TProducts = allProducts.filter(
+    (product) => product.category === 'mri-scanner' && product.subcategory === '3.0t' && product.brand === 'GE Healthcare'
+  );
+  
+  const siemens3TProducts = allProducts.filter(
+    (product) => product.category === 'mri-scanner' && product.subcategory === '3.0t' && product.brand === 'Siemens Healthineers'
   );
 
   const breadcrumbItems = [
@@ -111,13 +115,39 @@ export default function MRI3TCategory() {
           </div>
         </section>
 
-        {/* Products Grid Section */}
-        <section className="py-12 md:py-16">
+        {/* GE 3.0T Products Section */}
+        <section className="py-12 md:py-16 bg-white">
           <div className="w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
-              Available 3.0T MRI Systems
-            </h2>
-            <ProductCategoryGrid products={mri3TProducts} category="3.0T MRI" />
+            {/* Section Header */}
+            <div className="text-center mb-12">
+              <div className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg mb-6">
+                <h2 className="text-2xl md:text-3xl font-bold m-0">
+                  GE 3.0T MRI Machines
+                </h2>
+              </div>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+                High-field 3T systems from GE Healthcare with advanced gradient technology and superior image quality
+              </p>
+            </div>
+            <ProductCategoryGrid products={ge3TProducts} category="GE 3.0T MRI" />
+          </div>
+        </section>
+
+        {/* Siemens 3.0T Products Section */}
+        <section className="py-12 md:py-16 bg-gray-50">
+          <div className="w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Section Header */}
+            <div className="text-center mb-12">
+              <div className="inline-block bg-teal-600 text-white px-8 py-3 rounded-lg mb-6">
+                <h2 className="text-2xl md:text-3xl font-bold m-0">
+                  Siemens 3.0T MRI Machines
+                </h2>
+              </div>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+                Premium 3T systems from Siemens Healthineers featuring Tim 4G technology and exceptional performance
+              </p>
+            </div>
+            <ProductCategoryGrid products={siemens3TProducts} category="Siemens 3.0T MRI" />
           </div>
         </section>
 

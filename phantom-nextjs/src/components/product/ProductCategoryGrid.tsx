@@ -30,8 +30,31 @@ export default function ProductCategoryGrid({ products, category }: ProductCateg
       {products.map((product) => (
         <div
           key={product.id}
-          className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+          className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden relative"
         >
+          {/* Availability Ribbon Badge - Top Left Corner */}
+          {product.availability === 'Available' && (
+            <div className="absolute top-0 left-0 z-10">
+              <div className="bg-[#59913d] text-white text-xs font-bold px-8 py-2 transform -rotate-45 -translate-x-6 translate-y-4 shadow-lg">
+                Available
+              </div>
+            </div>
+          )}
+          {product.availability === 'Coming Soon' && (
+            <div className="absolute top-0 right-0 z-10">
+              <div className="bg-blue-500 text-white text-xs font-bold px-8 py-2 transform rotate-45 translate-x-6 translate-y-4 shadow-lg">
+                Coming Soon
+              </div>
+            </div>
+          )}
+          {product.availability === 'Out of Stock' && (
+            <div className="absolute top-0 right-0 z-10">
+              <div className="bg-red-600 text-white text-xs font-bold px-8 py-2 transform rotate-45 translate-x-6 translate-y-4 shadow-lg">
+                Out of Stock
+              </div>
+            </div>
+          )}
+          
           {/* Product Image */}
           <div className="relative h-64 bg-gray-100">
             <Image
@@ -41,12 +64,6 @@ export default function ProductCategoryGrid({ products, category }: ProductCateg
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               className="object-contain p-4"
             />
-            {/* Availability Badge */}
-            {product.availability !== 'Available' && (
-              <div className="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                {product.availability}
-              </div>
-            )}
           </div>
 
           {/* Product Content */}

@@ -97,12 +97,15 @@ export default function RefurbishedSiemensMRIPage() {
         </section>
 
         {/* Siemens 3.0T Section */}
-        <section id="siemens-3t-section" className="py-16">
+        <section id="siemens-3t-section" className="py-16 bg-white">
           <div className="container mx-auto px-4">
+            {/* Section Header */}
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Siemens 3.0T MRI Machines
-              </h2>
+              <div className="inline-block bg-teal-600 text-white px-8 py-3 rounded-lg mb-6">
+                <h2 className="text-2xl md:text-3xl font-bold m-0">
+                  Siemens 3.0T MRI Machines
+                </h2>
+              </div>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                 High-field 3.0 Tesla MRI systems from Siemens Healthineers featuring Tim 4G technology. 
                 Superior image quality with advanced gradient performance for demanding clinical applications.
@@ -113,18 +116,16 @@ export default function RefurbishedSiemensMRIPage() {
           </div>
         </section>
 
-        {/* Section Divider */}
-        <div className="container mx-auto px-4">
-          <hr className="border-t-2 border-gray-300 my-12" />
-        </div>
-
         {/* Siemens 1.5T Section */}
         <section id="siemens-15t-section" className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
+            {/* Section Header */}
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Siemens 1.5T MRI Machines
-              </h2>
+              <div className="inline-block bg-teal-600 text-white px-8 py-3 rounded-lg mb-6">
+                <h2 className="text-2xl md:text-3xl font-bold m-0">
+                  Siemens 1.5T MRI Machines
+                </h2>
+              </div>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                 Mid-field 1.5 Tesla MRI systems from Siemens Healthineers with Tim coil technology. 
                 Versatile systems from compact Essenza to advanced Aera with 70cm Open Bore.

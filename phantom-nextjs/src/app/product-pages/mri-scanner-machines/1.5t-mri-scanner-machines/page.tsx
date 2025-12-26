@@ -27,9 +27,13 @@ export const metadata: Metadata = {
 };
 
 export default function MRI15TCategory() {
-  // Filter for 1.5T MRI products
-  const mri15TProducts = allProducts.filter(
-    (product) => product.category === 'mri-scanner' && product.subcategory === '1.5t'
+  // Filter for 1.5T MRI products by brand
+  const ge15TProducts = allProducts.filter(
+    (product) => product.category === 'mri-scanner' && product.subcategory === '1.5t' && product.brand === 'GE Healthcare'
+  );
+  
+  const siemens15TProducts = allProducts.filter(
+    (product) => product.category === 'mri-scanner' && product.subcategory === '1.5t' && product.brand === 'Siemens Healthineers'
   );
 
   const breadcrumbItems = [
@@ -111,13 +115,39 @@ export default function MRI15TCategory() {
           </div>
         </section>
 
-        {/* Products Grid Section */}
-        <section className="py-12 md:py-16">
+        {/* GE 1.5T Products Section */}
+        <section className="py-12 md:py-16 bg-white">
           <div className="w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
-              Available 1.5T MRI Systems
-            </h2>
-            <ProductCategoryGrid products={mri15TProducts} category="1.5T MRI" />
+            {/* Section Header */}
+            <div className="text-center mb-12">
+              <div className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg mb-6">
+                <h2 className="text-2xl md:text-3xl font-bold m-0">
+                  GE 1.5T MRI Machines
+                </h2>
+              </div>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+                Versatile 1.5T systems from GE Healthcare with proven reliability and comprehensive clinical capabilities
+              </p>
+            </div>
+            <ProductCategoryGrid products={ge15TProducts} category="GE 1.5T MRI" />
+          </div>
+        </section>
+
+        {/* Siemens 1.5T Products Section */}
+        <section className="py-12 md:py-16 bg-gray-50">
+          <div className="w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Section Header */}
+            <div className="text-center mb-12">
+              <div className="inline-block bg-teal-600 text-white px-8 py-3 rounded-lg mb-6">
+                <h2 className="text-2xl md:text-3xl font-bold m-0">
+                  Siemens 1.5T MRI Machines
+                </h2>
+              </div>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+                Premium 1.5T systems from Siemens Healthineers featuring Tim technology and excellent image quality
+              </p>
+            </div>
+            <ProductCategoryGrid products={siemens15TProducts} category="Siemens 1.5T MRI" />
           </div>
         </section>
 
