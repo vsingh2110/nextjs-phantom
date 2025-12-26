@@ -1,0 +1,102 @@
+/**
+ * Product Category Grid Component
+ * ================================
+ * Displays product cards in a responsive grid for category pages
+ * Created: December 26, 2025
+ */
+
+'use client';
+
+import Link from 'next/link';
+import Image from 'next/image';
+import { Product } from '@/types/product';
+
+interface ProductCategoryGridProps {
+  products: Product[];
+  category?: string;
+}
+
+export default function ProductCategoryGrid({ products, category }: ProductCategoryGridProps) {
+  if (products.length === 0) {
+    return (
+      <div className="text-center py-16">
+        <p className="text-gray-500 text-lg">No products found in this category.</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {products.map((product) => (
+        <div
+          key={product.id}
+          className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden"
+        >
+          {/* Product Image */}
+          <div className="relative h-64 bg-gray-100">
+            <Image
+              src={product.mainImage.src}
+              alt={product.mainImage.alt}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-contain p-4"
+            />
+            {/* Availability Badge */}
+            {product.availability !== 'Available' && (
+              <div className="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                {product.availability}
+              </div>
+            )}
+          </div>
+
+          {/* Product Content */}
+          <div className="p-6">
+            {/* Brand */}
+            <p className="text-sm text-gray-600 font-medium mb-2">{product.brand}</p>
+            
+            {/* Product Name */}
+            <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
+              {product.fullName || product.name}
+            </h3>
+
+            {/* Short Description */}
+            {product.shortDescription && (
+              <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                {product.shortDescription}
+              </p>
+            )}
+
+            {/* Key Highlights */}
+            {product.highlights && product.highlights.length > 0 && (
+              <div className="mb-4">
+                <ul className="space-y-1">
+                  {product.highlights.slice(0, 3).map((highlight, index) => (
+                    <li key={index} className="text-sm text-gray-700 flex items-start">
+                      <span className="text-green-600 mr-2">✓</span>
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {/* Condition Badge */}
+            <div className="mb-4">
+              <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">
+                {product.condition.charAt(0).toUpperCase() + product.condition.slice(1)}
+              </span>
+            </div>
+
+            {/* CTA Button */}
+            <Link
+              href={product.urlPath || `/product-pages/${product.category}/${product.id}`}
+              className="block w-full text-center bg-[#59913d] hover:bg-[#255a0a] text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300"
+            >
+              View Details
+            </Link>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}

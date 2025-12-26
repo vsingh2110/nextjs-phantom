@@ -6,16 +6,19 @@
 
 import { Product } from '@/types/product';
 import { mri3TProducts } from './mri-3t';
+import { mri15TProducts } from './mri-1.5t';
 import { ctScannerProducts } from './ct-scanners';
 
 // Combine all products
 export const allProducts: Product[] = [
   ...mri3TProducts,
+  ...mri15TProducts,
   ...ctScannerProducts,
 ];
 
 // Export by category
 export { mri3TProducts } from './mri-3t';
+export { mri15TProducts } from './mri-1.5t';
 export { ctScannerProducts } from './ct-scanners';
 
 // Helper functions
