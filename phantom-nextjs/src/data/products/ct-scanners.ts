@@ -349,7 +349,7 @@ export const ctScannerProducts: Product[] = [
       { label: 'Brand', value: 'Siemens Healthineers' },
     ],
     mainImage: {
-      src: '/images/machines/ct-scan/siemens-go-now-16.jpg',
+      src: '/images/machines/ct-scan/Siemens Go Now CT Scanner.jpg',
       alt: 'Siemens Go Now 16 Slice CT Scanner',
       caption: 'Siemens Go Now 16 - Reliable 16-slice CT imaging',
     },
@@ -416,7 +416,7 @@ export const ctScannerProducts: Product[] = [
       { label: 'Brand', value: 'Siemens Healthineers' },
     ],
     mainImage: {
-      src: '/images/machines/ct-scan/siemens-go-now-32.jpg',
+      src: '/images/machines/ct-scan/Siemens Go Now CT Scanner.jpg',
       alt: 'Siemens Go Now 32 Slice CT Scanner',
       caption: 'Siemens Go Now 32 - Advanced 32-slice CT imaging',
     },
