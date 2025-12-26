@@ -1,53 +1,140 @@
 # PENDING TASKS & FUTURE IMPROVEMENTS
 **Created:** December 24, 2025  
-**Last Updated:** December 24, 2025 (Product Pages Progress)  
-**Status:** Active Development - Product Pages 40% Complete (8/20)
+**Last Updated:** December 26, 2025 (Firebase Fix + Brand Pages)  
+**Status:** Active Development - MRI Products 100% Complete (22/22) ✅
 
 ---
 
-## ⚡ HIGH PRIORITY - IMMEDIATE NEXT TASKS
+## ⚡ CRITICAL - IMMEDIATE TESTING REQUIRED
 
-### 1. COMPLETE PRODUCT CATALOG (12+ PRODUCTS REMAINING)
-**Status:** ✅ 8/20 COMPLETE (40%) | ⏳ 12+ PENDING (60%)
+### 1. FIREBASE FORM SUBMISSION TESTING 🚨
+**Status:** ✅ CODE FIXED | ⚠️ PRODUCTION TESTING REQUIRED
 
-**Completed Today:**
-- ✅ CT Scanners: 4 products (GE BrightSpeed 16, Optima 660 64/128, Revolution EVO 128)
-- ✅ MRI 3.0T: 4 products (GE Signa 750W, 750, Siemens Verio 3T, Skyra 3T)
-- ✅ Product data structure created (`src/data/products/`)
-- ✅ ProductPageTemplate component built
-- ✅ All schemas implemented (Product, Breadcrumb, FAQ)
+**Issue Fixed:**
+- ProductQuoteForm fields updated to match Firebase configuration
+- Previous fields (Full Name, Organization, State, Requirements, Timeline) replaced
+- New fields: name*, phone*, email, country, city, hospital, enquiry* (* = required)
 
-**Remaining Products - NEXT SESSION:**
+**Action Required (NEXT SESSION):**
+1. Test form submission on ANY product page in production
+2. Verify Firebase receives data with correct field names
+3. Check Firebase console for successful submissions
+4. Test with required fields only (name, phone, enquiry)
+5. Test with all fields filled
 
-**A. MRI 1.5T Scanners (6-8 products) - HIGHEST PRIORITY**
-- GE Signa HDxT 1.5T
-- GE Optima MR360 1.5T
-- GE Creator 1.5T
-- GE Explorer 1.5T
-- Siemens Magnetom Aera 1.5T
-- Siemens Magnetom Avanto 1.5T
+**Files Modified:** `src/components/product/ProductQuoteForm.tsx`
+
+---
+
+### 2. IMAGE VERIFICATION IN PRODUCTION
+**Status:** ⚠️ USER REPORTED ISSUES
+
+**User Quote:** "many images still not working"
+**Current Status:** All image paths verified correct in code, images exist in `/public/images/machines/`
 
 **Action Required:**
-1. Create `src/data/products/mri-1.5t.ts`
-2. Add product data (copy pattern from mri-3t.ts)
-3. Create page.tsx files (copy pattern from existing MRI pages)
-4. Test build: `npm run build`
+1. Test all product pages in production
+2. Check browser console for 404 errors
+3. Verify image loading on GE/Siemens brand pages
+4. Test on mobile devices
 
-**B. PET-CT Scanners (2 products)**
-- Create `src/data/products/pet-ct.ts`
-- 2 PET-CT scanner models from static site
+---
 
-**C. Cath Lab Machines (2 products)**
-- Create `src/data/products/cath-lab.ts`
-- 2 Cath Lab models
+## ✅ RECENTLY COMPLETED (December 26, 2025)
 
-**D. Gamma Camera Systems (3 products)**
-- Create `src/data/products/gamma-camera.ts`
-- 3 Gamma Camera SPECT models
+### MRI Product Catalog - 100% COMPLETE ✅
+**Status:** ✅ 22/22 MRI PRODUCTS ADDED
 
-**E. Bone Densitometer (1 product)**
-- Create `src/data/products/bone-densitometer.ts`
-- 1 DXA model
+**GE 3.0T** (8 products) ✅:
+- Signa 750W, 750, HDxt [23x] 16ch/8ch, HDxt [16x] 16ch/8ch, Signa 16ch/8ch
+
+**GE 1.5T** (8 products) ✅:
+- Creator [25.2x], Explorer, Optima 360 Advance [25x], HDxt [23x] 16ch/8ch ⭐ NEW, HDxt [16x] 16ch/8ch ⭐ NEW, HDE
+
+**Siemens 3.0T** (3 products) ✅:
+- Magnetom Verio 3T, Spectra 3T, Skyra 3T
+
+**Siemens 1.5T** (3 products) ✅:
+- Magnetom Essenza 16ch/8ch, Avanto 1.5T
+
+**Brand Pages Created** ✅:
+- `/product-pages/mri-scanner-machines/refurbished-ge-mri-scanner-machines` (GE 3.0T + divider + GE 1.5T)
+- `/product-pages/mri-scanner-machines/refurbished-siemens-mri-scanner-machines` (Siemens 3.0T + divider + Siemens 1.5T)
+
+---
+
+## ⚡ HIGH PRIORITY - NEXT TASKS
+
+### 1. IMAGE COMPONENT ARCHITECTURE
+**Status:** 📋 PLANNED | User Requested
+
+**User Quote:** "i thought you make components as i will later change images"
+
+**Current Implementation:**
+- Images hardcoded in product data: `mainImage: { src: '/images/...' }`
+- Requires data file editing to change images
+
+**Proposed Solution:**
+```tsx
+// Create ProductImage component
+<ProductImage 
+  productId="ge-signa-3t-750w"
+  fallback="/images/placeholder.jpg"
+  alt="GE Signa 3.0T 750W"
+/>
+```
+
+**Benefits:**
+- Change images from single component file
+- Add fallback handling
+- Lazy loading / optimization
+- Easier maintenance
+
+**Action Required:**
+1. Create `src/components/product/ProductImage.tsx`
+2. Implement image mapping logic
+3. Add fallback handling
+4. Update ProductPageTemplate to use new component
+5. Migrate existing products (optional)
+
+---
+
+### 2. BRAND PAGE CODE REFACTORING
+**Status:** 📋 PLANNED - Code Duplication
+
+**Current Issue:**
+- GE and Siemens brand pages have nearly identical code (237 lines each)
+- Only differences: brand name, color theme, product filters
+
+**Proposed Solution:**
+```tsx
+// Create BrandPage component
+<BrandPage 
+  brand="GE Healthcare"
+  brandSlug="ge"
+  colorTheme="blue"
+  products3T={ge3TProducts}
+  products15T={ge15TProducts}
+  benefits={geBenefits}
+/>
+```
+
+**Benefits:**
+- Single source of truth
+- Easier to maintain/update
+- Consistent styling
+- Less code duplication
+
+**Action Required:**
+1. Create `src/components/brand/BrandPage.tsx`
+2. Extract common layout structure
+3. Make theme/content configurable via props
+4. Refactor existing GE/Siemens pages
+
+---
+
+### 3. COMPLETE REMAINING PRODUCT CATEGORIES
+**Status:** ⏳ 4/8 CATEGORIES COMPLETE (50%)
 
 **Pattern to Follow:** See `docs/SESSION-HANDOVER-2025-12-24.md` for step-by-step guide
 

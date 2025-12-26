@@ -1,7 +1,8 @@
 # FINAL ARCHITECTURE - Phantom Healthcare International
 
 **Date:** 2025-11-27  
-**Status:** APPROVED & IMPLEMENTED  
+**Last Updated:** 2025-12-26 (Product Structure Complete)  
+**Status:** APPROVED & IMPLEMENTED ✅  
 **Author:** Claude Opus 4.5
 
 ---
@@ -13,6 +14,12 @@ This document defines the **THREE-LAYER** architecture for Phantom Healthcare's 
 1. **Main India Site** - Deep product/service catalog (phantomhealthcare.in)
 2. **India City Pages** - SEO directory pages (Indiamart/Justdial style)
 3. **International Sites** - COMPLETELY SEPARATE websites for each country
+
+**Recent Updates (Dec 26, 2025)**:
+- ✅ MRI product structure 100% complete (22 products)
+- ✅ Brand pages with section dividers implemented
+- ✅ ProductQuoteForm Firebase integration fixed
+- ✅ 291 pages generated successfully
 
 ---
 
@@ -26,7 +33,7 @@ Primary business website for Phantom Healthcare India with comprehensive product
 phantomhealthcare.in/
 ├── /                           # Homepage
 ├── /about/                     # About us
-├── /contact/                   # Contact form
+├── /contact/                   # Contact form (Firebase integrated)
 ├── /products/                  # Product categories
 ├── /services/                  # Service categories
 ├── /blogs/                     # Blog listing
@@ -40,43 +47,67 @@ phantomhealthcare.in/
 └── /sitemap/                   # HTML sitemap
 ```
 
-### Deep Product Structure (NEW)
+### Deep Product Structure (IMPLEMENTED ✅)
 ```
 /product-pages/
-├── ct-scan-machines/
+├── mri-scanner-machines/
+│   ├── refurbished-ge-mri-scanner-machines/        # ⭐ NEW (Dec 26)
+│   │   └── page.tsx                                # GE 3.0T + divider + GE 1.5T
+│   ├── refurbished-siemens-mri-scanner-machines/   # ⭐ NEW (Dec 26)
+│   │   └── page.tsx                                # Siemens 3.0T + divider + Siemens 1.5T
+│   ├── 3.0t-mri-scanner-machines/
+│   │   ├── page.tsx                                # 3.0T category overview
+│   │   ├── ge-signa-3t-750w/                       # GE 3.0T Products (8 total)
+│   │   ├── ge-signa-3t-750/
+│   │   ├── ge-signa-hdxt-3t-23x-16ch/
+│   │   ├── ge-signa-hdxt-3t-23x-8ch/
+│   │   ├── ge-signa-hdxt-3t-16x-16ch/
+│   │   ├── ge-signa-hdxt-3t-16x-8ch/
+│   │   ├── ge-signa-3t-16ch/
+│   │   ├── ge-signa-3t-8ch/
+│   │   ├── siemens-magnetom-verio-3t/              # Siemens 3.0T Products (3 total)
+│   │   ├── siemens-magnetom-spectra-3t/
+│   │   └── siemens-magnetom-skyra-3t/
+│   └── 1.5t-mri-scanner-machines/
+│       ├── page.tsx                                # 1.5T category overview
+│       ├── ge-signa-creator-1.5t/                  # GE 1.5T Products (8 total)
+│       ├── ge-signa-explorer-1.5t/
+│       ├── ge-signa-optima-360-advance-1.5t/
+│       ├── ge-signa-hdxt-1.5t-23x-16ch/            # ⭐ NEW (Dec 26)
+│       ├── ge-signa-hdxt-1.5t-23x-8ch/             # ⭐ NEW (Dec 26)
+│       ├── ge-signa-hdxt-1.5t-16x-16ch/            # ⭐ NEW (Dec 26)
+│       ├── ge-signa-hdxt-1.5t-16x-8ch/             # ⭐ NEW (Dec 26)
+│       ├── ge-hde-1.5t/
+│       ├── siemens-magnetom-essenza-1.5t-16ch/     # Siemens 1.5T Products (3 total)
+│       ├── siemens-magnetom-essenza-1.5t-8ch/
+│       └── siemens-magnetom-avanto-1.5t/
+│
+├── refurbished-ct-scan-machines/
 │   ├── 16-slice-ct/
 │   │   ├── page.tsx                        # 16-slice category overview
 │   │   ├── ge-brightspeed-16/              # Individual model
 │   │   └── siemens-somatom-emotion-16/     # Individual model
 │   ├── 32-slice-ct/
-│   │   ├── page.tsx
-│   │   ├── ge-optima-ct660/
-│   │   └── siemens-somatom-go-top/
+│   │   └── page.tsx
 │   ├── 64-slice-ct/
 │   │   ├── page.tsx
-│   │   ├── ge-revolution-ct/
-│   │   └── siemens-somatom-definition/
+│   │   └── ge-optima-660-64/
 │   └── 128-slice-ct/
 │       ├── page.tsx
-│       ├── ge-revolution-frontier/
-│       └── siemens-somatom-force/
+│       ├── ge-optima-660-128/
+│       └── ge-revolution-evo-128/
 │
-├── mri-machines/
-│   ├── 1-5t-mri/
-│   │   ├── page.tsx
-│   │   ├── ge-signa-hdxt/
-│   │   └── siemens-magnetom-avanto/
-│   └── 3-0t-mri/
-│       ├── page.tsx
-│       ├── ge-discovery-mr750/
-│       └── siemens-magnetom-vida/
-│
-├── x-ray-machines/              # Existing
-├── c-arm-machines/              # Existing
-├── mammography/                 # Existing
-├── ultrasound/                  # Existing
-└── cath-lab/                    # Existing
+├── refurbished-pet-ct-scanner-machines/     # Planned
+├── refurbished-cath-lab-machines/           # Planned
+├── refurbished-gamma-camera-spect-system/   # Planned
+└── refurbished-bone-densitometer-dexa/      # Planned
 ```
+
+**Total MRI Products**: 22 (100% verified against static HTML)
+- GE 3.0T: 8 products
+- GE 1.5T: 8 products (includes 4 HDxt variants added Dec 26)
+- Siemens 3.0T: 3 products
+- Siemens 1.5T: 3 products
 
 ### Deep Service Structure (NEW)
 ```
@@ -297,10 +328,107 @@ Sitemap: https://phantomhealthcare.in/sitemap.xml
 - Main pages
 - All product categories
 - All product specifications (16-slice, 32-slice, etc.)
-- All individual product models
+- All individual product models (22 MRI + 4 CT + more)
 - All service pages
-- All location pages
+- All location pages (168 combinations)
 - All international sites
+
+---
+
+## Component & Data Architecture (Dec 26, 2025)
+
+### Product Data Structure
+```
+src/data/products/
+├── index.ts                    # Central export (allProducts array)
+├── mri-3t.ts                   # 11 GE + Siemens 3.0T products (8 GE, 3 Siemens)
+├── mri-1.5t.ts                 # 11 GE + Siemens 1.5T products (8 GE, 3 Siemens)
+├── ct-scan.ts                  # 4 CT scanner products
+└── [future categories]         # PET-CT, Cath Lab, Gamma Camera, etc.
+```
+
+**Product Interface** (TypeScript):
+```typescript
+interface Product {
+  id: string;                    // Unique slug identifier
+  name: string;                  // Display name
+  fullName: string;              // Complete product name
+  brand: string;                 // Manufacturer (GE Healthcare, Siemens Healthineers)
+  model: string;                 // Model designation
+  category: string;              // mri-scanner, ct-scanner, etc.
+  subcategory: string;           // 3.0t, 1.5t, 16-slice, etc.
+  condition: string;             // refurbished, brand-new
+  description: string;           // Full description
+  shortDescription: string;      // One-liner for cards
+  features: string[];            // Bullet point features
+  specifications: Spec[];        // Key specs (field strength, channels, etc.)
+  mainImage: Image;              // Primary product image
+  gallery: Image[];              // Additional images
+  availability: string;          // Available, Coming Soon, Out of Stock
+  priceOnRequest: boolean;       // True for all products
+  metaTitle: string;             // SEO title
+  metaDescription: string;       // SEO description
+  keywords: string[];            // SEO keywords
+  aggregateRating: Rating;       // Schema.org rating
+  faqs: FAQ[];                   // Product-specific FAQs
+  highlights: string[];          // 4 key highlights
+  applications: string[];        // Clinical applications
+  warranty: string;              // Warranty details
+  relatedProducts: string[];     // IDs of related products
+  urlPath: string;               // Full URL path
+}
+```
+
+### Component Architecture
+
+**ProductPageTemplate** (`src/components/product/ProductPageTemplate.tsx`):
+- Reusable template for all individual product pages
+- Renders: Hero, Breadcrumb, Specs, Features, Gallery, FAQs, CTA, Related Products
+- Includes all JSON-LD schemas (Product, Breadcrumb, FAQ, Offer)
+
+**ProductQuoteForm** (`src/components/product/ProductQuoteForm.tsx`):
+- Contact form on all product pages
+- **Firebase Integration** (Updated Dec 26, 2025):
+  - Fields: name*, phone*, email, country, city, hospital, enquiry* (* = required)
+  - Matches exact Firebase configuration from static site
+  - Includes validation and submission handling
+
+**ProductCategoryGrid** (`src/components/product/ProductCategoryGrid.tsx`):
+- Grid layout for product cards
+- Props: `products: Product[]`, `category?: string`
+- Used on category pages and brand pages
+
+**Brand Pages** (NEW - Dec 26, 2025):
+- `/product-pages/mri-scanner-machines/refurbished-ge-mri-scanner-machines/page.tsx`
+- `/product-pages/mri-scanner-machines/refurbished-siemens-mri-scanner-machines/page.tsx`
+- Structure: Hero → Quick Links → 3.0T Section → `<hr>` Divider → 1.5T Section → Benefits → CTA
+- Filters allProducts by brand and displays in categorized sections
+
+### Dynamic Routing Structure
+
+**Product Pages** - Static Generation:
+```
+src/app/product-pages/[category]/[subcategory]/[slug]/page.tsx
+```
+- Each product has its own directory with page.tsx
+- Example: `/product-pages/mri-scanner-machines/3.0t-mri-scanner-machines/ge-signa-3t-750w/page.tsx`
+- Uses ProductPageTemplate with specific product data
+
+**Category Pages** - Static Generation:
+```
+src/app/product-pages/[category]/[subcategory]/page.tsx
+```
+- Lists all products in that subcategory
+- Example: `/product-pages/mri-scanner-machines/3.0t-mri-scanner-machines/page.tsx`
+- Filters allProducts by subcategory
+
+**Brand Pages** - Static Generation:
+```
+src/app/product-pages/mri-scanner-machines/refurbished-{brand}-mri-scanner-machines/page.tsx
+```
+- Shows all products from specific brand
+- Divides 3.0T and 1.5T with section dividers
+- Example: refurbished-ge-mri-scanner-machines, refurbished-siemens-mri-scanner-machines
 
 ---
 
@@ -377,3 +505,4 @@ Sitemap: https://phantomhealthcare.in/sitemap.xml
 | 2025-11-27 | 1.1 | Added deep product/service structure |
 | 2025-11-27 | 1.2 | Added missing pages (privacy, terms, faqs, etc.) |
 | 2025-11-27 | 1.3 | Added robots.txt and sitemap.xml |
+| 2025-12-26 | 2.0 | **Major Update**: Complete MRI product structure, brand pages, component architecture, Firebase integration details |

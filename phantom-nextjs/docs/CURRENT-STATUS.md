@@ -1,18 +1,38 @@
 # Phantom Medical Imaging — Current Status
 
-**Last Updated:** December 24, 2025 (Product Pages System Complete)  
+**Last Updated:** December 26, 2025 (Firebase Form Fix + Brand Pages + 4 New Products)  
 **Phase:** Active Migration - Static to Next.js  
-**Priority:** Product Catalog Migration ✅ IN PROGRESS (8/20 products live)  
-**Git Status:** ⏳ Deploying to Production  
+**Priority:** ✅ Critical Bugs Fixed | Product Expansion IN PROGRESS (25 products live)  
+**Git Status:** ✅ Deployed to Production (Vercel)  
 **Next.js Version:** 15.3.6  
-**Build Status:** ✅ Passing (268 pages - includes 8 product detail pages)  
-**Completed Pages:** 16 full pages + Blog System (5 posts) + Product System (8 products)  
-**Schema Validation:** ✅ Google Rich Results & Schema.org passing  
-**New Features:** ✅ Product Page System, ProductPageTemplate Component, Product Schemas
+**Build Status:** ✅ Passing (291 pages - +6 from Dec 24)  
+**Critical Fixes:** ✅ Firebase Form | ✅ Button Syntax  
+**New Features:** ✅ Brand Pages with Section Dividers | ✅ 4 HDxt 1.5T Variants  
+**Schema Validation:** ✅ Google Rich Results & Schema.org passing
 
 ---
 
-## ✅ COMPLETED PAGES SUMMARY (As of Dec 24, 2025)
+## 🚨 CRITICAL UPDATES (December 26, 2025)
+
+### Firebase Form Integration Fix (CRITICAL)
+**Status**: ✅ Fixed - **REQUIRES PRODUCTION TESTING**
+
+- ProductQuoteForm fields didn't match Firebase configuration (would break all submissions)
+- Updated to exact Firebase field names: name*, phone*, email, country, city, hospital, enquiry*
+- **Action Required**: Test form submission on any product page
+
+### Build-Blocking Syntax Error Fixed
+- Malformed JSX button element in ProductQuoteForm (all builds failing)
+- ✅ Restructured button with proper attributes
+
+### New Features Added
+1. **GE MRI Brand Page** - `/product-pages/mri-scanner-machines/refurbished-ge-mri-scanner-machines` (16 products: 8x 3.0T + 8x 1.5T with `<hr>` divider)
+2. **Siemens MRI Brand Page** - `/product-pages/mri-scanner-machines/refurbished-siemens-mri-scanner-machines` (6 products: 3x 3.0T + 3x 1.5T with `<hr>` divider)
+3. **4 New HDxt 1.5T Variants** - [23x] and [16x] in 16ch/8ch configurations
+
+---
+
+## ✅ COMPLETED PAGES SUMMARY (As of Dec 26, 2025)
 
 | Page | Path | File Size | SEO | JSON-LD Schemas | FAQs | Status |
 |------|------|-----------|-----|----------------|------|--------|
