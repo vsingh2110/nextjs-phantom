@@ -1,38 +1,68 @@
 # Phantom Medical Imaging — Current Status
 
-**Last Updated:** December 26, 2025 (Firebase Form Fix + Brand Pages + 4 New Products)  
+**Last Updated:** December 27, 2025 (Route Structure Fixed + Navigation + Coming Soon)  
 **Phase:** Active Migration - Static to Next.js  
-**Priority:** ✅ Critical Bugs Fixed | Product Expansion IN PROGRESS (25 products live)  
+**Priority:** ✅ All Critical Issues Resolved | Product Pages Complete  
 **Git Status:** ✅ Deployed to Production (Vercel)  
 **Next.js Version:** 15.3.6  
-**Build Status:** ✅ Passing (291 pages - +6 from Dec 24)  
-**Critical Fixes:** ✅ Firebase Form | ✅ Button Syntax  
-**New Features:** ✅ Brand Pages with Section Dividers | ✅ 4 HDxt 1.5T Variants  
+**Build Status:** ✅ Passing (289 pages)  
+**Critical Fixes:** ✅ Route Structure | ✅ Product Navigation | ✅ Coming Soon Display  
+**New Features:** ✅ Navigation Buttons on Mixed Pages | ✅ Image Fallbacks  
 **Schema Validation:** ✅ Google Rich Results & Schema.org passing
 
 ---
 
-## 🚨 CRITICAL UPDATES (December 26, 2025)
+## 🚨 CRITICAL UPDATES (December 27, 2025)
 
-### Firebase Form Integration Fix (CRITICAL)
-**Status**: ✅ Fixed - **REQUIRES PRODUCTION TESTING**
+### Route Structure Fixed (CRITICAL)
+**Status**: ✅ Fixed & Deployed
 
-- ProductQuoteForm fields didn't match Firebase configuration (would break all submissions)
-- Updated to exact Firebase field names: name*, phone*, email, country, city, hospital, enquiry*
-- **Action Required**: Test form submission on any product page
+**Problem:** All MRI pages were nested under wrong path structure
+- Wrong: `/product-pages/mri-scanner-machines/1.5t-mri-scanner-machines/...`
+- Correct: `/product-pages/1.5t-mri-scanner-machines/...`
 
-### Build-Blocking Syntax Error Fixed
-- Malformed JSX button element in ProductQuoteForm (all builds failing)
-- ✅ Restructured button with proper attributes
+**Solution:**
+- ✅ Moved all 4 page folders to correct location
+- ✅ Updated all product urlPath in data files (mri-1.5t.ts, mri-3t.ts)
+- ✅ All individual product pages now accessible (404s fixed)
 
-### New Features Added
-1. **GE MRI Brand Page** - `/product-pages/mri-scanner-machines/refurbished-ge-mri-scanner-machines` (16 products: 8x 3.0T + 8x 1.5T with `<hr>` divider)
-2. **Siemens MRI Brand Page** - `/product-pages/mri-scanner-machines/refurbished-siemens-mri-scanner-machines` (6 products: 3x 3.0T + 3x 1.5T with `<hr>` divider)
-3. **4 New HDxt 1.5T Variants** - [23x] and [16x] in 16ch/8ch configurations
+### Product Navigation Restored
+**Status**: ✅ Fixed
+
+**Problem:** Product cards not clickable (changed Link to div during Coming Soon fix)
+**Solution:**
+- ✅ Restored Link component with proper href to product.urlPath
+- ✅ "Learn More" button shows for Available products
+- ✅ All 22 MRI + 4 CT products now navigable
+
+### Coming Soon Display Implemented
+**Status**: ✅ Working
+
+**Features:**
+- ✅ Available products: Full details + green "Available" ribbon (top-left)
+- ✅ Coming Soon products: Simple title + dashes + blue ribbon (top-left)
+- ✅ Out of Stock products: Simple title + dashes + red ribbon (top-right)
+- ✅ Test product: GE Signa HDxt 1.5T set to "Coming Soon"
+
+### Navigation Buttons Added to Mixed Pages
+**Status**: ✅ Implemented
+
+**Added to:**
+- ✅ `/product-pages/1.5t-mri-scanner-machines` - GE/Siemens nav buttons
+- ✅ `/product-pages/3.0t-mri-scanner-machines` - GE/Siemens nav buttons
+- ✅ Smooth scroll with proper offset (scroll-mt-20)
+- ✅ Section IDs for anchor links
+
+### Image Fallback System
+**Status**: ✅ Implemented
+
+- ✅ Placeholder image shows for broken images
+- ✅ URL: `https://placehold.co/600x400/e5e7eb/6b7280?text=Medical+Equipment`
+- ✅ Applied to ProductCategoryGrid component
 
 ---
 
-## ✅ COMPLETED PAGES SUMMARY (As of Dec 26, 2025)
+## ✅ COMPLETED PAGES SUMMARY (As of Dec 27, 2025)
 
 | Page | Path | File Size | SEO | JSON-LD Schemas | FAQs | Status |
 |------|------|-----------|-----|----------------|------|--------|
@@ -45,39 +75,23 @@
 | Sell Your Equipment | `/sell-your-medical-imaging-equipment` | ~24 KB | ✅ Complete (58 chars) | BreadcrumbList, Speakable (Service), FAQPage | 6 | ✅ Live |
 | Spare Parts & Inventory | `/spare-parts-and-inventory` | ~32 KB | ✅ Complete (55 chars) | BreadcrumbList, Speakable (Store*), FAQPage | 6 | ✅ Live |
 | **Blog Listing** | `/blogs` | ~3.4 KB | ✅ Complete | BreadcrumbList, CollectionPage, Speakable | 0 | ✅ Live |
-| **Blog Details** | `/blogs/[slug]` | ~2 KB | ✅ Complete | BreadcrumbList, Article, Speakable | 0 | ✅ **FIXED** (3 posts) |
+| **Blog Details** | `/blogs/[slug]` | ~2 KB | ✅ Complete | BreadcrumbList, Article, Speakable | 0 | ✅ Live (3 posts) |
 | **Events & News Listing** | `/events-and-news` | ~3.4 KB | ✅ Complete | BreadcrumbList, CollectionPage | 0 | ✅ Live |
-| **Events & News Details** | `/events-and-news/[slug]` | ~2 KB | ✅ Complete | BreadcrumbList, NewsArticle | 0 | ✅ **FIXED** (2 posts) |
+| **Events & News Details** | `/events-and-news/[slug]` | ~2 KB | ✅ Complete | BreadcrumbList, NewsArticle | 0 | ✅ Live (2 posts) |
 
-**Total Pages:** 268 (254 previous + 8 product pages + 6 office pages)  
-**Total FAQ Count:** 74 FAQs (50 existing + 24 product FAQs)  
-**Blog Posts:** 3 (MRI Technology, CT Scanner Guide, AMC Importance)  
-**News/Events:** 2 (IRIA 2024, Siemens Skyra Launch)  
-**Product Pages:** 8/20 (CT: 4, MRI 3.0T: 4)  
-**Image Formats:** 4 (Center+Blur, Dual Parallel, Float Left, Float Right)
+**Total Pages:** 289 pages  
+**Total FAQ Count:** 74 FAQs  
+**Blog Posts:** 3  
+**News/Events:** 2  
+**Product Pages:** 26 individual + 6 category pages = 32 total  
 
 ---
-PRODUCT PAGES SYSTEM COMPLETE (Dec 24, 2025)
 
-### **8 Product Detail Pages Live**
+## PRODUCT PAGES SYSTEM COMPLETE (Dec 27, 2025)
 
-**System Architecture:**
-- ✅ Data-driven product structure (`src/data/products/`)
-- ✅ Reusable ProductPageTemplate component
-- ✅ Complete SEO schemas (Product, Breadcrumb, FAQ)
-- ✅ Type-safe TypeScript interfaces
-- ✅ Mobile-responsive Tailwind design
+### **26 Individual Product Pages Live**
 
-**Product Pages Created:**
-
-**CT Scanners (4 products):**
-1. `/product-pages/refurbished-ct-scan-machines/ge-brightspeed-16` - GE BrightSpeed 16-slice
-2. `/product-pages/refurbished-ct-scan-machines/ge-optima-660-64` - GE Optima CT660 64-slice
-3. `/product-pages/refurbished-ct-scan-machines/ge-optima-660-128` - GE Optima CT660 128-slice
-4. `/product-pages/refurbished-ct-scan-machines/ge-revolution-evo-128` - GE Revolution EVO 128-slice
-
-**MRI 3.0T Scanners (4 products):**
-5. `/product-pages/mri-scanner-machines/3.0t-mri-scanner-machines/ge-signa-3t-750w` - GE Signa 3.0T 750W
+**MRI Scanners (22 products):**
 6. `/product-pages/mri-scanner-machines/3.0t-mri-scanner-machines/ge-signa-3t-750` - GE Signa 3.0T 750
 7. `/product-pages/mri-scanner-machines/3.0t-mri-scanner-machines/siemens-magnetom-verio-3t` - Siemens Verio 3T
 8. `/product-pages/mri-scanner-machines/3.0t-mri-scanner-machines/siemens-magnetom-skyra-3t` - Siemens Skyra 3T

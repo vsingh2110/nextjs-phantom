@@ -15,11 +15,13 @@ This document defines the **THREE-LAYER** architecture for Phantom Healthcare's 
 2. **India City Pages** - SEO directory pages (Indiamart/Justdial style)
 3. **International Sites** - COMPLETELY SEPARATE websites for each country
 
-**Recent Updates (Dec 26, 2025)**:
-- ✅ MRI product structure 100% complete (22 products)
-- ✅ Brand pages with section dividers implemented
-- ✅ ProductQuoteForm Firebase integration fixed
-- ✅ 291 pages generated successfully
+**Recent Updates (Dec 27, 2025)**:
+- ✅ Route structure corrected (removed intermediate mri-scanner-machines folder)
+- ✅ All product URLs updated in data files
+- ✅ Navigation buttons added to mixed pages (1.5T and 3.0T)
+- ✅ Coming Soon/Out of Stock display implemented
+- ✅ Image fallback system with placeholder
+- ✅ 289 pages generated successfully
 
 ---
 
@@ -47,40 +49,43 @@ phantomhealthcare.in/
 └── /sitemap/                   # HTML sitemap
 ```
 
-### Deep Product Structure (IMPLEMENTED ✅)
+### Deep Product Structure (UPDATED Dec 27, 2025 ✅)
 ```
 /product-pages/
-├── mri-scanner-machines/
-│   ├── refurbished-ge-mri-scanner-machines/        # ⭐ NEW (Dec 26)
-│   │   └── page.tsx                                # GE 3.0T + divider + GE 1.5T
-│   ├── refurbished-siemens-mri-scanner-machines/   # ⭐ NEW (Dec 26)
-│   │   └── page.tsx                                # Siemens 3.0T + divider + Siemens 1.5T
-│   ├── 3.0t-mri-scanner-machines/
-│   │   ├── page.tsx                                # 3.0T category overview
-│   │   ├── ge-signa-3t-750w/                       # GE 3.0T Products (8 total)
-│   │   ├── ge-signa-3t-750/
-│   │   ├── ge-signa-hdxt-3t-23x-16ch/
-│   │   ├── ge-signa-hdxt-3t-23x-8ch/
-│   │   ├── ge-signa-hdxt-3t-16x-16ch/
-│   │   ├── ge-signa-hdxt-3t-16x-8ch/
-│   │   ├── ge-signa-3t-16ch/
-│   │   ├── ge-signa-3t-8ch/
-│   │   ├── siemens-magnetom-verio-3t/              # Siemens 3.0T Products (3 total)
-│   │   ├── siemens-magnetom-spectra-3t/
-│   │   └── siemens-magnetom-skyra-3t/
-│   └── 1.5t-mri-scanner-machines/
-│       ├── page.tsx                                # 1.5T category overview
-│       ├── ge-signa-creator-1.5t/                  # GE 1.5T Products (8 total)
-│       ├── ge-signa-explorer-1.5t/
-│       ├── ge-signa-optima-360-advance-1.5t/
-│       ├── ge-signa-hdxt-1.5t-23x-16ch/            # ⭐ NEW (Dec 26)
-│       ├── ge-signa-hdxt-1.5t-23x-8ch/             # ⭐ NEW (Dec 26)
-│       ├── ge-signa-hdxt-1.5t-16x-16ch/            # ⭐ NEW (Dec 26)
-│       ├── ge-signa-hdxt-1.5t-16x-8ch/             # ⭐ NEW (Dec 26)
-│       ├── ge-hde-1.5t/
-│       ├── siemens-magnetom-essenza-1.5t-16ch/     # Siemens 1.5T Products (3 total)
-│       ├── siemens-magnetom-essenza-1.5t-8ch/
-│       └── siemens-magnetom-avanto-1.5t/
+├── refurbished-ge-mri-scanner-machines/            # ✅ MOVED (Dec 27)
+│   └── page.tsx                                    # GE 3.0T + divider + GE 1.5T
+│
+├── refurbished-siemens-mri-scanner-machines/       # ✅ MOVED (Dec 27)
+│   └── page.tsx                                    # Siemens 3.0T + divider + Siemens 1.5T
+│
+├── 3.0t-mri-scanner-machines/                      # ✅ MOVED (Dec 27)
+│   ├── page.tsx                                    # 3.0T category overview (with nav buttons)
+│   ├── ge-signa-3t-750w/                           # GE 3.0T Products (8 total)
+│   ├── ge-signa-3t-750/
+│   ├── ge-signa-hdxt-3t-23x-16ch/
+│   ├── ge-signa-hdxt-3t-23x-8ch/
+│   ├── ge-signa-hdxt-3t-16x-16ch/
+│   ├── ge-signa-hdxt-3t-16x-8ch/
+│   ├── ge-signa-3t-16ch/
+│   ├── ge-signa-3t-8ch/
+│   ├── siemens-magnetom-verio-3t/                  # Siemens 3.0T Products (3 total)
+│   ├── siemens-magnetom-spectra-3t/
+│   └── siemens-magnetom-skyra-3t/
+│
+├── 1.5t-mri-scanner-machines/                      # ✅ MOVED (Dec 27)
+│   ├── page.tsx                                    # 1.5T category overview (with nav buttons)
+│   ├── ge-signa-creator-1.5t/                      # GE 1.5T Products (8 total)
+│   ├── ge-signa-explorer-1.5t/
+│   ├── ge-signa-optima-360-advance-1.5t/
+│   ├── ge-signa-hdxt-1.5t/                         # ⚠️ Coming Soon (test)
+│   ├── ge-signa-hdxt-1.5t-23x-16ch/
+│   ├── ge-signa-hdxt-1.5t-23x-8ch/
+│   ├── ge-signa-hdxt-1.5t-16x-16ch/
+│   ├── ge-signa-hdxt-1.5t-16x-8ch/
+│   ├── ge-hde-1.5t/
+│   ├── siemens-magnetom-essenza-1.5t-16ch/         # Siemens 1.5T Products (3 total)
+│   ├── siemens-magnetom-essenza-1.5t-8ch/
+│   └── siemens-magnetom-avanto-1.5t/
 │
 ├── refurbished-ct-scan-machines/
 │   ├── 16-slice-ct/
@@ -103,11 +108,21 @@ phantomhealthcare.in/
 └── refurbished-bone-densitometer-dexa/      # Planned
 ```
 
+**Route Change (Dec 27, 2025):**
+- ❌ OLD: `/product-pages/mri-scanner-machines/1.5t-mri-scanner-machines/`
+- ✅ NEW: `/product-pages/1.5t-mri-scanner-machines/`
+- All product urlPath fields updated in data files
+
 **Total MRI Products**: 22 (100% verified against static HTML)
-- GE 3.0T: 8 products
-- GE 1.5T: 8 products (includes 4 HDxt variants added Dec 26)
-- Siemens 3.0T: 3 products
-- Siemens 1.5T: 3 products
+- GE 3.0T: 8 products (all Available)
+- GE 1.5T: 8 products (7 Available + 1 Coming Soon)
+- Siemens 3.0T: 3 products (all Available)
+- Siemens 1.5T: 3 products (all Available)
+
+**Product Display Logic:**
+- Available: Full details + Learn More button + green ribbon (left)
+- Coming Soon: Title with dashes only + blue ribbon (left)
+- Out of Stock: Title with dashes only + red ribbon (right)
 
 ### Deep Service Structure (NEW)
 ```
