@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     description: 'Premium refurbished 3.0T high-field MRI scanners',
   },
   alternates: {
-    canonical: 'https://phantomhealthcare.com/product-pages/mri-scanner-machines/3.0t-mri-scanner-machines',
+    canonical: 'https://phantomhealthcare.com/product-pages/3.0t-mri-scanner-machines',
   },
 };
 
@@ -70,8 +70,8 @@ export default function MRI3TCategory() {
   const breadcrumbItems = [
     { name: 'Home', url: 'https://phantomhealthcare.com' },
     { name: 'Product Pages', url: 'https://phantomhealthcare.com/product-pages' },
-    { name: 'MRI Scanners', url: 'https://phantomhealthcare.com/product-pages/mri-scanner-machines' },
-    { name: '3.0T MRI Scanners', url: 'https://phantomhealthcare.com/product-pages/mri-scanner-machines/3.0t-mri-scanner-machines' },
+    { name: 'MRI Scanners', url: 'https://phantomhealthcare.com/product-pages' },
+    { name: '3.0T MRI Scanners', url: 'https://phantomhealthcare.com/product-pages/3.0t-mri-scanner-machines' },
   ];
 
   return (

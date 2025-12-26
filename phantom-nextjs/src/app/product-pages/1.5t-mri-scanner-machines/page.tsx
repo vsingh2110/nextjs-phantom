@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     description: 'Premium refurbished 1.5T MRI scanners with expert support',
   },
   alternates: {
-    canonical: 'https://phantomhealthcare.com/product-pages/mri-scanner-machines/1.5t-mri-scanner-machines',
+    canonical: 'https://phantomhealthcare.com/product-pages/1.5t-mri-scanner-machines',
   },
 };
 
@@ -70,8 +70,8 @@ export default function MRI15TCategory() {
   const breadcrumbItems = [
     { name: 'Home', url: 'https://phantomhealthcare.com' },
     { name: 'Product Pages', url: 'https://phantomhealthcare.com/product-pages' },
-    { name: 'MRI Scanners', url: 'https://phantomhealthcare.com/product-pages/mri-scanner-machines' },
-    { name: '1.5T MRI Scanners', url: 'https://phantomhealthcare.com/product-pages/mri-scanner-machines/1.5t-mri-scanner-machines' },
+    { name: 'MRI Scanners', url: 'https://phantomhealthcare.com/product-pages' },
+    { name: '1.5T MRI Scanners', url: 'https://phantomhealthcare.com/product-pages/1.5t-mri-scanner-machines' },
   ];
 
   return (
