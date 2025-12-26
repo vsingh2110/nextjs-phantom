@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { allProducts } from '@/data/products';
 import ProductCategoryGrid from '@/components/product/ProductCategoryGrid';
 import BreadcrumbJsonLd from '@/components/schemas/BreadcrumbJsonLd';
+import FAQSection from '@/components/ui/FAQSection';
 
 export const metadata: Metadata = {
   title: '1.5T MRI Scanners - Refurbished MRI Machines - Phantom',
@@ -27,14 +28,44 @@ export const metadata: Metadata = {
 };
 
 export default function MRI15TCategory() {
-  // Filter for 1.5T MRI products by brand
-  const ge15TProducts = allProducts.filter(
-    (product) => product.category === 'mri-scanner' && product.subcategory === '1.5t' && product.brand === 'GE Healthcare'
-  );
+  // Define product order (from static site)
+  const ge15TOrder = [
+    'ge-signa-creator-1.5t',
+    'ge-signa-explorer-1.5t',
+    'ge-signa-optima-360-advance-1.5t',
+    'ge-signa-hdxt-1.5t-23x-16ch',
+    'ge-signa-hdxt-1.5t-23x-8ch',
+    'ge-signa-hdxt-1.5t-16x-16ch',
+    'ge-signa-hdxt-1.5t-16x-8ch',
+    'ge-hde-1.5t',
+  ];
+
+  const siemens15TOrder = [
+    'siemens-magnetom-essenza-1.5t-16ch',
+    'siemens-magnetom-essenza-1.5t-8ch',
+    'siemens-magnetom-avanto-1.5t',
+  ];
+
+  // Filter and sort for 1.5T MRI products by brand
+  const ge15TProducts = allProducts
+    .filter((product) => product.category === 'mri-scanner' && product.subcategory === '1.5t' && product.brand === 'GE Healthcare')
+    .sort((a, b) => {
+      const indexA = ge15TOrder.indexOf(a.id);
+      const indexB = ge15TOrder.indexOf(b.id);
+      if (indexA === -1) return 1;
+      if (indexB === -1) return -1;
+      return indexA - indexB;
+    });
   
-  const siemens15TProducts = allProducts.filter(
-    (product) => product.category === 'mri-scanner' && product.subcategory === '1.5t' && product.brand === 'Siemens Healthineers'
-  );
+  const siemens15TProducts = allProducts
+    .filter((product) => product.category === 'mri-scanner' && product.subcategory === '1.5t' && product.brand === 'Siemens Healthineers')
+    .sort((a, b) => {
+      const indexA = siemens15TOrder.indexOf(a.id);
+      const indexB = siemens15TOrder.indexOf(b.id);
+      if (indexA === -1) return 1;
+      if (indexB === -1) return -1;
+      return indexA - indexB;
+    });
 
   const breadcrumbItems = [
     { name: 'Home', url: 'https://phantomhealthcare.com' },
@@ -89,32 +120,6 @@ export default function MRI15TCategory() {
           </div>
         </section>
 
-        {/* Info Section */}
-        <section className="py-8 bg-blue-50">
-          <div className="w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-3 gap-6 text-center">
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Why Choose 1.5T MRI?</h3>
-                <p className="text-gray-600 text-sm">
-                  Optimal balance of image quality, clinical versatility, and cost-effectiveness for routine and advanced imaging applications.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Clinical Applications</h3>
-                <p className="text-gray-600 text-sm">
-                  Neuro, MSK, cardiac, abdominal, angiography, and more. Suitable for 80-90% of diagnostic imaging needs.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Expert Support</h3>
-                <p className="text-gray-600 text-sm">
-                  Professional installation, comprehensive warranty, and 24/7 AMC support from experienced engineers across India.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* GE 1.5T Products Section */}
         <section className="py-12 md:py-16 bg-white">
           <div className="w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -152,33 +157,32 @@ export default function MRI15TCategory() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-12 md:py-16 bg-gray-50">
-          <div className="w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
-              Frequently Asked Questions - 1.5T MRI
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Why Choose 1.5T MRI?</h3>
-                <p className="text-gray-600">
-                  Optimal balance of image quality, clinical versatility, and cost-effectiveness for routine and advanced imaging applications.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Clinical Applications</h3>
-                <p className="text-gray-600">
-                  Neuro, MSK, cardiac, abdominal, angiography, and more. Suitable for 80-90% of diagnostic imaging needs.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Expert Support</h3>
-                <p className="text-gray-600">
-                  Professional installation, comprehensive warranty, and 24/7 AMC support from experienced engineers across India.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <FAQSection
+          title="Frequently Asked Questions - 1.5T MRI"
+          faqs={[
+            {
+              question: 'Why Choose 1.5T MRI over 3.0T?',
+              answer: '1.5T MRI offers an optimal balance of image quality, clinical versatility, and cost-effectiveness. It is suitable for 80-90% of diagnostic imaging needs including neuro, MSK, cardiac, and abdominal studies. It also has lower operational costs and is ideal for routine clinical applications.',
+            },
+            {
+              question: 'What are the clinical applications of 1.5T MRI?',
+              answer: '1.5T MRI systems are highly versatile and can perform neurological imaging, musculoskeletal studies, cardiac imaging, abdominal and pelvic imaging, angiography, whole body imaging, and more. They are suitable for both routine and advanced diagnostic applications.',
+            },
+            {
+              question: 'What brands of 1.5T MRI do you offer?',
+              answer: 'We offer premium refurbished 1.5T MRI systems from leading manufacturers GE Healthcare (Signa series, Optima series, Discovery) and Siemens Healthineers (Magnetom Avanto, Essenza with Tim technology).',
+            },
+            {
+              question: 'What support do you provide with installation?',
+              answer: 'We provide comprehensive support including professional installation by expert engineers, site preparation guidance, 12-month warranty, and 24/7 AMC (Annual Maintenance Contract) support across India. Our team ensures your MRI system is fully operational and optimized.',
+            },
+            {
+              question: 'Are your refurbished MRI systems reliable?',
+              answer: 'Yes, all our refurbished 1.5T MRI systems undergo rigorous testing, refurbishment by certified engineers, and quality checks. We provide 12-month comprehensive warranty and ongoing AMC support to ensure reliable long-term operation.',
+            },
+          ]}
+          variant="white"
+        />
 
         {/* CTA Section */}
         <section className="bg-white py-12">

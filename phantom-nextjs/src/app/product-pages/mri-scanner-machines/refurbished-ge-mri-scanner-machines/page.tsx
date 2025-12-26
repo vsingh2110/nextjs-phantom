@@ -28,15 +28,50 @@ export const metadata: Metadata = {
 };
 
 export default function RefurbishedGEMRIPage() {
-  // Filter GE 3.0T products
-  const ge3TProducts = allProducts.filter(
-    p => p.brand === 'GE Healthcare' && p.subcategory === '3.0t'
-  );
+  // Define GE product order (from static site)
+  const ge3TOrder = [
+    'ge-signa-3t-750w',
+    'ge-signa-3t-750',
+    'ge-signa-hdxt-3t-23x-16ch',
+    'ge-signa-hdxt-3t-23x-8ch',
+    'ge-signa-hdxt-3t-16x-16ch',
+    'ge-signa-hdxt-3t-16x-8ch',
+    'ge-signa-3t-16ch',
+    'ge-signa-3t-8ch',
+  ];
 
-  // Filter GE 1.5T products
-  const ge15TProducts = allProducts.filter(
-    p => p.brand === 'GE Healthcare' && p.subcategory === '1.5t'
-  );
+  const ge15TOrder = [
+    'ge-signa-creator-1.5t',
+    'ge-signa-explorer-1.5t',
+    'ge-signa-optima-360-advance-1.5t',
+    'ge-signa-hdxt-1.5t-23x-16ch',
+    'ge-signa-hdxt-1.5t-23x-8ch',
+    'ge-signa-hdxt-1.5t-16x-16ch',
+    'ge-signa-hdxt-1.5t-16x-8ch',
+    'ge-hde-1.5t',
+  ];
+
+  // Filter and sort GE 3.0T products
+  const ge3TProducts = allProducts
+    .filter(p => p.brand === 'GE Healthcare' && p.subcategory === '3.0t')
+    .sort((a, b) => {
+      const indexA = ge3TOrder.indexOf(a.id);
+      const indexB = ge3TOrder.indexOf(b.id);
+      if (indexA === -1) return 1;
+      if (indexB === -1) return -1;
+      return indexA - indexB;
+    });
+
+  // Filter and sort GE 1.5T products
+  const ge15TProducts = allProducts
+    .filter(p => p.brand === 'GE Healthcare' && p.subcategory === '1.5t')
+    .sort((a, b) => {
+      const indexA = ge15TOrder.indexOf(a.id);
+      const indexB = ge15TOrder.indexOf(b.id);
+      if (indexA === -1) return 1;
+      if (indexB === -1) return -1;
+      return indexA - indexB;
+    });
 
   const breadcrumbItems = [
     { name: 'Home', url: 'https://phantomhealthcare.com' },
@@ -99,18 +134,10 @@ export default function RefurbishedGEMRIPage() {
         {/* GE 3.0T Section */}
         <section id="ge-3t-section" className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            {/* Simple Text Subheading */}
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              GE 3.0T MRI Machine
-            </h2>
-            
-            {/* Section Header */}
             <div className="text-center mb-12">
-              <div className="inline-block bg-[#59913d] text-white px-8 py-3 rounded-lg mb-6">
-                <h2 className="text-2xl md:text-3xl font-bold m-0">
-                  GE 3.0T MRI Machines
-                </h2>
-              </div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                GE 3.0T MRI Machines
+              </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                 High-field 3.0 Tesla MRI systems from GE Healthcare. Superior image quality for advanced 
                 clinical and research applications.
@@ -124,18 +151,10 @@ export default function RefurbishedGEMRIPage() {
         {/* GE 1.5T Section */}
         <section id="ge-15t-section" className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
-            {/* Simple Text Subheading */}
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              GE 1.5T MRI Machine
-            </h2>
-            
-            {/* Section Header */}
             <div className="text-center mb-12">
-              <div className="inline-block bg-[#59913d] text-white px-8 py-3 rounded-lg mb-6">
-                <h2 className="text-2xl md:text-3xl font-bold m-0">
-                  GE 1.5T MRI Machines
-                </h2>
-              </div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                GE 1.5T MRI Machines
+              </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                 Mid-field 1.5 Tesla MRI systems from GE Healthcare. Versatile systems ideal for routine 
                 to advanced imaging applications with excellent value.

@@ -28,15 +28,40 @@ export const metadata: Metadata = {
 };
 
 export default function RefurbishedSiemensMRIPage() {
-  // Filter Siemens 3.0T products
-  const siemens3TProducts = allProducts.filter(
-    p => p.brand === 'Siemens Healthineers' && p.subcategory === '3.0t'
-  );
+  // Define Siemens product order (from static site)
+  const siemens3TOrder = [
+    'siemens-magnetom-verio-3t',
+    'siemens-magnetom-spectra-3t',
+    'siemens-magnetom-skyra-3t',
+  ];
 
-  // Filter Siemens 1.5T products
-  const siemens15TProducts = allProducts.filter(
-    p => p.brand === 'Siemens Healthineers' && p.subcategory === '1.5t'
-  );
+  const siemens15TOrder = [
+    'siemens-magnetom-essenza-1.5t-16ch',
+    'siemens-magnetom-essenza-1.5t-8ch',
+    'siemens-magnetom-avanto-1.5t',
+  ];
+
+  // Filter and sort Siemens 3.0T products
+  const siemens3TProducts = allProducts
+    .filter(p => p.brand === 'Siemens Healthineers' && p.subcategory === '3.0t')
+    .sort((a, b) => {
+      const indexA = siemens3TOrder.indexOf(a.id);
+      const indexB = siemens3TOrder.indexOf(b.id);
+      if (indexA === -1) return 1;
+      if (indexB === -1) return -1;
+      return indexA - indexB;
+    });
+
+  // Filter and sort Siemens 1.5T products
+  const siemens15TProducts = allProducts
+    .filter(p => p.brand === 'Siemens Healthineers' && p.subcategory === '1.5t')
+    .sort((a, b) => {
+      const indexA = siemens15TOrder.indexOf(a.id);
+      const indexB = siemens15TOrder.indexOf(b.id);
+      if (indexA === -1) return 1;
+      if (indexB === -1) return -1;
+      return indexA - indexB;
+    });
 
   const breadcrumbItems = [
     { name: 'Home', url: 'https://phantomhealthcare.com' },
@@ -99,18 +124,10 @@ export default function RefurbishedSiemensMRIPage() {
         {/* Siemens 3.0T Section */}
         <section id="siemens-3t-section" className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            {/* Simple Text Subheading */}
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              Siemens 3.0T MRI Machine
-            </h2>
-            
-            {/* Section Header */}
             <div className="text-center mb-12">
-              <div className="inline-block bg-[#59913d] text-white px-8 py-3 rounded-lg mb-6">
-                <h2 className="text-2xl md:text-3xl font-bold m-0">
-                  Siemens 3.0T MRI Machines
-                </h2>
-              </div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Siemens 3.0T MRI Machines
+              </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                 High-field 3.0 Tesla MRI systems from Siemens Healthineers featuring Tim 4G technology. 
                 Superior image quality with advanced gradient performance for demanding clinical applications.
@@ -124,18 +141,10 @@ export default function RefurbishedSiemensMRIPage() {
         {/* Siemens 1.5T Section */}
         <section id="siemens-15t-section" className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
-            {/* Simple Text Subheading */}
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
-              Siemens 1.5T MRI Machine
-            </h2>
-            
-            {/* Section Header */}
             <div className="text-center mb-12">
-              <div className="inline-block bg-[#59913d] text-white px-8 py-3 rounded-lg mb-6">
-                <h2 className="text-2xl md:text-3xl font-bold m-0">
-                  Siemens 1.5T MRI Machines
-                </h2>
-              </div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Siemens 1.5T MRI Machines
+              </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                 Mid-field 1.5 Tesla MRI systems from Siemens Healthineers with Tim coil technology. 
                 Versatile systems from compact Essenza to advanced Aera with 70cm Open Bore.

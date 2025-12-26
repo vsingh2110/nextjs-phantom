@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { allProducts } from '@/data/products';
 import ProductCategoryGrid from '@/components/product/ProductCategoryGrid';
 import BreadcrumbJsonLd from '@/components/schemas/BreadcrumbJsonLd';
+import FAQSection from '@/components/ui/FAQSection';
 
 export const metadata: Metadata = {
   title: '3.0T MRI Scanners - High-Field MRI Machines - Phantom',
@@ -27,14 +28,44 @@ export const metadata: Metadata = {
 };
 
 export default function MRI3TCategory() {
-  // Filter for 3.0T MRI products by brand
-  const ge3TProducts = allProducts.filter(
-    (product) => product.category === 'mri-scanner' && product.subcategory === '3.0t' && product.brand === 'GE Healthcare'
-  );
+  // Define product order (from static site)
+  const ge3TOrder = [
+    'ge-signa-3t-750w',
+    'ge-signa-3t-750',
+    'ge-signa-hdxt-3t-23x-16ch',
+    'ge-signa-hdxt-3t-23x-8ch',
+    'ge-signa-hdxt-3t-16x-16ch',
+    'ge-signa-hdxt-3t-16x-8ch',
+    'ge-signa-3t-16ch',
+    'ge-signa-3t-8ch',
+  ];
+
+  const siemens3TOrder = [
+    'siemens-magnetom-verio-3t',
+    'siemens-magnetom-spectra-3t',
+    'siemens-magnetom-skyra-3t',
+  ];
+
+  // Filter and sort for 3.0T MRI products by brand
+  const ge3TProducts = allProducts
+    .filter((product) => product.category === 'mri-scanner' && product.subcategory === '3.0t' && product.brand === 'GE Healthcare')
+    .sort((a, b) => {
+      const indexA = ge3TOrder.indexOf(a.id);
+      const indexB = ge3TOrder.indexOf(b.id);
+      if (indexA === -1) return 1;
+      if (indexB === -1) return -1;
+      return indexA - indexB;
+    });
   
-  const siemens3TProducts = allProducts.filter(
-    (product) => product.category === 'mri-scanner' && product.subcategory === '3.0t' && product.brand === 'Siemens Healthineers'
-  );
+  const siemens3TProducts = allProducts
+    .filter((product) => product.category === 'mri-scanner' && product.subcategory === '3.0t' && product.brand === 'Siemens Healthineers')
+    .sort((a, b) => {
+      const indexA = siemens3TOrder.indexOf(a.id);
+      const indexB = siemens3TOrder.indexOf(b.id);
+      if (indexA === -1) return 1;
+      if (indexB === -1) return -1;
+      return indexA - indexB;
+    });
 
   const breadcrumbItems = [
     { name: 'Home', url: 'https://phantomhealthcare.com' },
@@ -89,32 +120,6 @@ export default function MRI3TCategory() {
           </div>
         </section>
 
-        {/* Info Section */}
-        <section className="py-8 bg-blue-50">
-          <div className="w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-3 gap-6 text-center">
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Why Choose 3.0T MRI?</h3>
-                <p className="text-gray-600 text-sm">
-                  Double the field strength of 1.5T provides superior image resolution, faster scans, and advanced applications like fMRI and spectroscopy.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Advanced Applications</h3>
-                <p className="text-gray-600 text-sm">
-                  Ideal for advanced neuro imaging, cardiac studies, high-resolution MSK, functional MRI, and research applications.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Expert Support</h3>
-                <p className="text-gray-600 text-sm">
-                  Professional installation, comprehensive warranty, and 24/7 AMC support from experienced engineers across India.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* GE 3.0T Products Section */}
         <section className="py-12 md:py-16 bg-white">
           <div className="w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -152,33 +157,32 @@ export default function MRI3TCategory() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-12 md:py-16 bg-gray-50">
-          <div className="w-full max-w-7xl 2xl:max-w-[1600px] 3xl:max-w-[2000px] mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
-              Frequently Asked Questions - 3.0T MRI
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Why Choose 3.0T MRI?</h3>
-                <p className="text-gray-600">
-                  Double the field strength of 1.5T provides superior image resolution, faster scans, and advanced applications like fMRI and spectroscopy.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Advanced Applications</h3>
-                <p className="text-gray-600">
-                  Ideal for advanced neuro imaging, cardiac studies, high-resolution MSK, functional MRI, and research applications.
-                </p>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Expert Support</h3>
-                <p className="text-gray-600">
-                  Professional installation, comprehensive warranty, and 24/7 AMC support from experienced engineers across India.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <FAQSection
+          title="Frequently Asked Questions - 3.0T MRI"
+          faqs={[
+            {
+              question: 'What are the advantages of 3.0T MRI over 1.5T?',
+              answer: '3.0T MRI offers double the field strength of 1.5T, providing superior image resolution, faster scan times, better signal-to-noise ratio, and advanced applications like functional MRI (fMRI), spectroscopy, and high-resolution imaging for complex cases.',
+            },
+            {
+              question: 'What are the advanced applications of 3.0T MRI?',
+              answer: '3.0T MRI systems excel in advanced neuroimaging including fMRI and DTI, high-resolution cardiac imaging, detailed musculoskeletal studies, advanced spectroscopy, research applications, and cases requiring superior image detail.',
+            },
+            {
+              question: 'Which brands of 3.0T MRI do you offer?',
+              answer: 'We offer premium refurbished 3.0T MRI systems from leading manufacturers including GE Healthcare (Signa HDxt 3T, Discovery MR750 3T) and Siemens Healthineers (Magnetom Skyra, Verio, Trio with Tim 4G technology).',
+            },
+            {
+              question: 'What support is included with your 3.0T systems?',
+              answer: 'We provide comprehensive support including expert installation, site planning assistance, 12-month comprehensive warranty, ongoing AMC (Annual Maintenance Contract), and 24/7 technical support from our experienced engineers across India.',
+            },
+            {
+              question: 'Are refurbished 3.0T MRI systems reliable for clinical use?',
+              answer: 'Yes, our refurbished 3.0T MRI systems undergo extensive testing, refurbishment by certified engineers, and quality assurance. We provide warranty and AMC support to ensure reliable, high-quality clinical performance for years.',
+            },
+          ]}
+          variant="white"
+        />
 
         {/* CTA Section */}
         <section className="bg-white py-12">

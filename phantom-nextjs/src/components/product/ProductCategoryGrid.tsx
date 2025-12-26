@@ -69,22 +69,38 @@ export default function ProductCategoryGrid({ products, category }: ProductCateg
           {/* Product Content */}
           <div className="p-6">
             {/* Brand */}
-            <p className="text-sm text-gray-600 font-medium mb-2">{product.brand}</p>
+            {product.availability !== 'Coming Soon' && product.availability !== 'Out of Stock' && (
+              <p className="text-sm text-gray-600 font-medium mb-2">{product.brand}</p>
+            )}
             
-            {/* Product Name */}
-            <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
-              {product.fullName || product.name}
-            </h3>
+            {/* Product Name - Show "Coming Soon" or "Out Of Stock" for unavailable products */}
+            {product.availability === 'Coming Soon' ? (
+              <div className="text-center py-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Coming Soon</h3>
+                <p className="text-gray-500 text-sm">----------------------------</p>
+              </div>
+            ) : product.availability === 'Out of Stock' ? (
+              <div className="text-center py-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Out Of Stock</h3>
+                <p className="text-gray-500 text-sm">-----------------</p>
+              </div>
+            ) : (
+              <>
+                <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
+                  {product.fullName || product.name}
+                </h3>
 
-            {/* Short Description */}
-            {product.shortDescription && (
-              <p className="text-gray-600 text-sm mb-4 line-clamp-3">
-                {product.shortDescription}
-              </p>
+                {/* Short Description */}
+                {product.shortDescription && (
+                  <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                    {product.shortDescription}
+                  </p>
+                )}
+              </>
             )}
 
-            {/* Key Highlights */}
-            {product.highlights && product.highlights.length > 0 && (
+            {/* Key Highlights - Only for available products */}
+            {product.availability === 'Available' && product.highlights && product.highlights.length > 0 && (
               <div className="mb-4">
                 <ul className="space-y-1">
                   {product.highlights.slice(0, 3).map((highlight, index) => (
@@ -97,20 +113,19 @@ export default function ProductCategoryGrid({ products, category }: ProductCateg
               </div>
             )}
 
-            {/* Condition Badge */}
-            <div className="mb-4">
-              <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">
-                {product.condition.charAt(0).toUpperCase() + product.condition.slice(1)}
-              </span>
-            </div>
+            {/* Condition Badge - Only for available products */}
+            {product.availability === 'Available' && (
+              <div className="mb-4">
+                <span className="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">
+                  {product.condition.charAt(0).toUpperCase() + product.condition.slice(1)}
+                </span>
+              </div>
+            )}
 
-            {/* CTA Button */}
-            <Link
-              href={product.urlPath || `/product-pages/${product.category}/${product.id}`}
-              className="block w-full text-center bg-[#59913d] hover:bg-[#255a0a] text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300"
-            >
-              View Details
-            </Link>
+            {/* CTA Button - Show "Request Price" for all products */}
+            <div className="block w-full text-center bg-[#59913d] hover:bg-[#255a0a] text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-300 cursor-pointer">
+              Request Price
+            </div>
           </div>
         </div>
       ))}
