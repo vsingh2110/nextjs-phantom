@@ -112,7 +112,7 @@ export const mri3TProducts: Product[] = [
     ],
     warranty: '1 year comprehensive warranty with optional extended AMC',
     relatedProducts: ['ge-signa-3t-750', 'ge-signa-hdxt-3t', 'siemens-magnetom-verio-3t'],
-    urlPath: '/product-pages/mri-scanner-machines/3.0t-mri-scanner-machines/ge-signa-3t-750w',
+    urlPath: '/product-pages/3.0t-mri-scanner-machines/ge-signa-3t-750w',
   },
   {
     id: 'ge-signa-3t-750',
@@ -171,7 +171,7 @@ export const mri3TProducts: Product[] = [
       },
     ],
     relatedProducts: ['ge-signa-3t-750w', 'ge-signa-hdxt-3t', 'siemens-magnetom-skyra-3t'],
-    urlPath: '/product-pages/mri-scanner-machines/3.0t-mri-scanner-machines/ge-signa-3t-750',
+    urlPath: '/product-pages/3.0t-mri-scanner-machines/ge-signa-3t-750',
   },
   {
     id: 'ge-signa-hdxt-3t-23x-16ch',
@@ -238,7 +238,7 @@ export const mri3TProducts: Product[] = [
       'Comprehensive applications',
     ],
     relatedProducts: ['ge-signa-hdxt-3t-23x-8ch', 'ge-signa-3t-750', 'ge-signa-3t-750w'],
-    urlPath: '/product-pages/mri-scanner-machines/3.0t-mri-scanner-machines/ge-signa-hdxt-3t-23x-16ch',
+    urlPath: '/product-pages/3.0t-mri-scanner-machines/ge-signa-hdxt-3t-23x-16ch',
   },
   {
     id: 'ge-signa-hdxt-3t-23x-8ch',
@@ -301,7 +301,7 @@ export const mri3TProducts: Product[] = [
       'Routine imaging excellence',
     ],
     relatedProducts: ['ge-signa-hdxt-3t-23x-16ch', 'ge-signa-hdxt-3t-16x-16ch', 'ge-signa-3t-750'],
-    urlPath: '/product-pages/mri-scanner-machines/3.0t-mri-scanner-machines/ge-signa-hdxt-3t-23x-8ch',
+    urlPath: '/product-pages/3.0t-mri-scanner-machines/ge-signa-hdxt-3t-23x-8ch',
   },
   {
     id: 'ge-signa-hdxt-3t-16x-16ch',
@@ -364,7 +364,7 @@ export const mri3TProducts: Product[] = [
       'Proven reliability',
     ],
     relatedProducts: ['ge-signa-hdxt-3t-16x-8ch', 'ge-signa-hdxt-3t-23x-16ch', 'ge-signa-3t'],
-    urlPath: '/product-pages/mri-scanner-machines/3.0t-mri-scanner-machines/ge-signa-hdxt-3t-16x-16ch',
+    urlPath: '/product-pages/3.0t-mri-scanner-machines/ge-signa-hdxt-3t-16x-16ch',
   },
   {
     id: 'ge-signa-hdxt-3t-16x-8ch',
@@ -423,7 +423,7 @@ export const mri3TProducts: Product[] = [
       'Routine applications',
     ],
     relatedProducts: ['ge-signa-hdxt-3t-16x-16ch', 'ge-signa-3t', 'ge-signa-hdxt-3t-23x-8ch'],
-    urlPath: '/product-pages/mri-scanner-machines/3.0t-mri-scanner-machines/ge-signa-hdxt-3t-16x-8ch',
+    urlPath: '/product-pages/3.0t-mri-scanner-machines/ge-signa-hdxt-3t-16x-8ch',
   },
   {
     id: 'ge-signa-3t-16ch',
@@ -481,7 +481,7 @@ export const mri3TProducts: Product[] = [
       'Excellent value',
     ],
     relatedProducts: ['ge-signa-3t-8ch', 'ge-signa-hdxt-3t-23x-16ch', 'ge-signa-3t-750'],
-    urlPath: '/product-pages/mri-scanner-machines/3.0t-mri-scanner-machines/ge-signa-3t-16ch',
+    urlPath: '/product-pages/3.0t-mri-scanner-machines/ge-signa-3t-16ch',
   },
   {
     id: 'ge-signa-3t-8ch',
@@ -539,7 +539,7 @@ export const mri3TProducts: Product[] = [
       'Routine imaging',
     ],
     relatedProducts: ['ge-signa-3t-16ch', 'ge-signa-hdxt-3t-16x-8ch', 'ge-signa-1.5t-hdxt'],
-    urlPath: '/product-pages/mri-scanner-machines/3.0t-mri-scanner-machines/ge-signa-3t-8ch',
+    urlPath: '/product-pages/3.0t-mri-scanner-machines/ge-signa-3t-8ch',
   },
   {
     id: 'siemens-magnetom-verio-3t',
@@ -630,7 +630,7 @@ export const mri3TProducts: Product[] = [
     ],
     warranty: '1 year warranty with AMC options',
     relatedProducts: ['siemens-magnetom-skyra-3t', 'ge-signa-3t-750w', 'ge-signa-3t-750'],
-    urlPath: '/product-pages/mri-scanner-machines/3.0t-mri-scanner-machines/siemens-magnetom-verio-3t',
+    urlPath: '/product-pages/3.0t-mri-scanner-machines/siemens-magnetom-verio-3t',
   },
   {
     id: 'siemens-magnetom-skyra-3t',
@@ -690,7 +690,7 @@ export const mri3TProducts: Product[] = [
       },
     ],
     relatedProducts: ['siemens-magnetom-verio-3t', 'ge-signa-3t-750w', 'ge-signa-3t-750'],
-    urlPath: '/product-pages/mri-scanner-machines/3.0t-mri-scanner-machines/siemens-magnetom-skyra-3t',
+    urlPath: '/product-pages/3.0t-mri-scanner-machines/siemens-magnetom-skyra-3t',
   },
   {
     id: 'siemens-magnetom-spectra-3t',
@@ -781,6 +781,6 @@ export const mri3TProducts: Product[] = [
     ],
     warranty: '1 year warranty with comprehensive AMC options',
     relatedProducts: ['siemens-magnetom-verio-3t', 'siemens-magnetom-skyra-3t', 'ge-signa-3t-750w'],
-    urlPath: '/product-pages/mri-scanner-machines/3.0t-mri-scanner-machines/siemens-magnetom-spectra-3t',
+    urlPath: '/product-pages/3.0t-mri-scanner-machines/siemens-magnetom-spectra-3t',
   },
 ];

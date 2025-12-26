@@ -32,12 +32,28 @@ export default function ProductCategoryGrid({ products, category }: ProductCateg
           key={product.id}
           className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 overflow-hidden relative"
         >
-          {/* Availability Ribbon Badge - Top Left Corner */}
-          <div className="absolute top-0 left-0 z-10">
-            <div className="bg-[#59913d] text-white text-xs font-bold px-8 py-2 transform -rotate-45 -translate-x-6 translate-y-4 shadow-lg">
-              Available
+          {/* Availability Ribbon Badge */}
+          {product.availability === 'Available' && (
+            <div className="absolute top-0 left-0 z-10">
+              <div className="bg-[#59913d] text-white text-xs font-bold px-8 py-2 transform -rotate-45 -translate-x-6 translate-y-4 shadow-lg">
+                Available
+              </div>
             </div>
-          </div>
+          )}
+          {product.availability === 'Coming Soon' && (
+            <div className="absolute top-0 right-0 z-10">
+              <div className="bg-blue-500 text-white text-xs font-bold px-8 py-2 transform rotate-45 translate-x-6 translate-y-4 shadow-lg">
+                Coming Soon
+              </div>
+            </div>
+          )}
+          {product.availability === 'Out of Stock' && (
+            <div className="absolute top-0 right-0 z-10">
+              <div className="bg-red-600 text-white text-xs font-bold px-8 py-2 transform rotate-45 translate-x-6 translate-y-4 shadow-lg">
+                Out of Stock
+              </div>
+            </div>
+          )}
           
           {/* Product Image */}
           <div className="relative h-64 bg-gray-100">

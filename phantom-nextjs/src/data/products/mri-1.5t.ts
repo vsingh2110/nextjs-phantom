@@ -94,7 +94,7 @@ export const mri15TProducts: Product[] = [
     ],
     warranty: '12-month comprehensive warranty with AMC options',
     relatedProducts: ['ge-optima-mr360-1.5t', 'siemens-magnetom-avanto-1.5t'],
-    urlPath: '/product-pages/mri-scanner-machines/1.5t-mri-scanner-machines/ge-signa-hdxt-1.5t',
+    urlPath: '/product-pages/1.5t-mri-scanner-machines/ge-signa-hdxt-1.5t',
   },
   {
     id: 'ge-signa-hdxt-1.5t-23x-16ch',
@@ -169,7 +169,7 @@ export const mri15TProducts: Product[] = [
     ],
     warranty: '12-month comprehensive warranty with AMC options',
     relatedProducts: ['ge-signa-hdxt-1.5t', 'ge-optima-mr360-1.5t'],
-    urlPath: '/product-pages/mri-scanner-machines/1.5t-mri-scanner-machines/ge-signa-hdxt-1.5t-23x-16ch',
+    urlPath: '/product-pages/1.5t-mri-scanner-machines/ge-signa-hdxt-1.5t-23x-16ch',
   },
   {
     id: 'ge-signa-hdxt-1.5t-23x-8ch',
@@ -244,7 +244,7 @@ export const mri15TProducts: Product[] = [
     ],
     warranty: '12-month comprehensive warranty with AMC options',
     relatedProducts: ['ge-signa-hdxt-1.5t', 'ge-signa-creator-1.5t'],
-    urlPath: '/product-pages/mri-scanner-machines/1.5t-mri-scanner-machines/ge-signa-hdxt-1.5t-23x-8ch',
+    urlPath: '/product-pages/1.5t-mri-scanner-machines/ge-signa-hdxt-1.5t-23x-8ch',
   },
   {
     id: 'ge-signa-hdxt-1.5t-16x-16ch',
@@ -319,7 +319,7 @@ export const mri15TProducts: Product[] = [
     ],
     warranty: '12-month comprehensive warranty with AMC options',
     relatedProducts: ['ge-signa-hdxt-1.5t', 'ge-optima-mr360-1.5t'],
-    urlPath: '/product-pages/mri-scanner-machines/1.5t-mri-scanner-machines/ge-signa-hdxt-1.5t-16x-16ch',
+    urlPath: '/product-pages/1.5t-mri-scanner-machines/ge-signa-hdxt-1.5t-16x-16ch',
   },
   {
     id: 'ge-signa-hdxt-1.5t-16x-8ch',
@@ -394,7 +394,7 @@ export const mri15TProducts: Product[] = [
     ],
     warranty: '12-month comprehensive warranty with AMC options',
     relatedProducts: ['ge-signa-hdxt-1.5t', 'ge-signa-creator-1.5t'],
-    urlPath: '/product-pages/mri-scanner-machines/1.5t-mri-scanner-machines/ge-signa-hdxt-1.5t-16x-8ch',
+    urlPath: '/product-pages/1.5t-mri-scanner-machines/ge-signa-hdxt-1.5t-16x-8ch',
   },
   {
     id: 'ge-signa-creator-1.5t',
@@ -457,7 +457,7 @@ export const mri15TProducts: Product[] = [
       'Cost-effective solution',
     ],
     relatedProducts: ['ge-signa-explorer-1.5t', 'ge-signa-hdxt-1.5t', 'ge-optima-mr360-1.5t'],
-    urlPath: '/product-pages/mri-scanner-machines/1.5t-mri-scanner-machines/ge-signa-creator-1.5t',
+    urlPath: '/product-pages/1.5t-mri-scanner-machines/ge-signa-creator-1.5t',
   },
   {
     id: 'ge-signa-explorer-1.5t',
@@ -519,7 +519,7 @@ export const mri15TProducts: Product[] = [
       'Routine imaging excellence',
     ],
     relatedProducts: ['ge-signa-creator-1.5t', 'ge-signa-hdxt-1.5t', 'ge-hde-1.5t'],
-    urlPath: '/product-pages/mri-scanner-machines/1.5t-mri-scanner-machines/ge-signa-explorer-1.5t',
+    urlPath: '/product-pages/1.5t-mri-scanner-machines/ge-signa-explorer-1.5t',
   },
   {
     id: 'ge-signa-optima-360-advance-1.5t',
@@ -594,7 +594,7 @@ export const mri15TProducts: Product[] = [
       'Spine imaging',
     ],
     relatedProducts: ['ge-optima-mr360-1.5t', 'ge-signa-hdxt-1.5t', 'ge-signa-creator-1.5t'],
-    urlPath: '/product-pages/mri-scanner-machines/1.5t-mri-scanner-machines/ge-signa-optima-360-advance-1.5t',
+    urlPath: '/product-pages/1.5t-mri-scanner-machines/ge-signa-optima-360-advance-1.5t',
   },
   {
     id: 'ge-hde-1.5t',
@@ -669,7 +669,7 @@ export const mri15TProducts: Product[] = [
     ],
     warranty: '12-month comprehensive warranty with AMC options',
     relatedProducts: ['ge-signa-explorer-1.5t', 'ge-signa-creator-1.5t', 'ge-signa-hdxt-1.5t'],
-    urlPath: '/product-pages/mri-scanner-machines/1.5t-mri-scanner-machines/ge-hde-1.5t',
+    urlPath: '/product-pages/1.5t-mri-scanner-machines/ge-hde-1.5t',
   },
   {
     id: 'siemens-magnetom-avanto-1.5t',
@@ -758,7 +758,7 @@ export const mri15TProducts: Product[] = [
     ],
     warranty: '12-month comprehensive warranty with AMC options',
     relatedProducts: ['siemens-magnetom-verio-3t'],
-    urlPath: '/product-pages/mri-scanner-machines/1.5t-mri-scanner-machines/siemens-magnetom-avanto-1.5t',
+    urlPath: '/product-pages/1.5t-mri-scanner-machines/siemens-magnetom-avanto-1.5t',
   },
   {
     id: 'siemens-magnetom-essenza-1.5t-16ch',
@@ -838,7 +838,7 @@ export const mri15TProducts: Product[] = [
     ],
     warranty: '12-month comprehensive warranty with AMC options',
     relatedProducts: ['siemens-magnetom-essenza-1.5t-8ch', 'siemens-magnetom-avanto-1.5t', 'ge-signa-hdxt-1.5t'],
-    urlPath: '/product-pages/mri-scanner-machines/1.5t-mri-scanner-machines/siemens-magnetom-essenza-1.5t-16ch',
+    urlPath: '/product-pages/1.5t-mri-scanner-machines/siemens-magnetom-essenza-1.5t-16ch',
   },
   {
     id: 'siemens-magnetom-essenza-1.5t-8ch',
@@ -914,6 +914,6 @@ export const mri15TProducts: Product[] = [
     ],
     warranty: '12-month comprehensive warranty with AMC options',
     relatedProducts: ['siemens-magnetom-essenza-1.5t-16ch', 'ge-signa-explorer-1.5t', 'ge-signa-creator-1.5t'],
-    urlPath: '/product-pages/mri-scanner-machines/1.5t-mri-scanner-machines/siemens-magnetom-essenza-1.5t-8ch',
+    urlPath: '/product-pages/1.5t-mri-scanner-machines/siemens-magnetom-essenza-1.5t-8ch',
   },
 ];
